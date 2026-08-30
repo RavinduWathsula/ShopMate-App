@@ -59,8 +59,8 @@ final router = GoRouter(
       builder: (context, state) => const CameraRecognitionScreen(),
     ),
     GoRoute(
-      path: '/productdetails/:id',
-      builder: (context, state) => ProductDetailsScreen(productId: state.pathParameters['id']!),
+      path: '/productdetails',
+      builder: (context, state) => const ProductDetailsScreen(),
     ),
     GoRoute(
       path: '/smartbasket',

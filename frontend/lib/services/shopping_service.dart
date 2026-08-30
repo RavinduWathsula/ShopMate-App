@@ -1,37 +1,27 @@
-import 'api_client.dart';
+import '../core/network/api_client.dart';
 
 class ShoppingService {
-  final ApiClient _apiClient;
+  final ApiClient _apiClient = ApiClient();
 
-  ShoppingService(this._apiClient);
-
-  Future<int> createSession(int shopId) async {
-    final response = await _apiClient.dio.post(
-      '/shopping-sessions',
-      data: {'shop_id': shopId},
-    );
-    return response.data['id'];
+  Future<dynamic> startSession(int shopId, double budget) async {
+    final response = await _apiClient.client.post('/shopping-sessions', data: {
+      'shop_id': shopId,
+      'budget_limit': budget,
+    });
+    return response.data;
   }
 
-  Future<void> addItem(int sessionId, int productId, int quantity, double price) async {
-    await _apiClient.dio.post(
-      '/shopping-sessions/$sessionId/items',
-      data: {
-        'product_id': productId,
-        'quantity': quantity,
-        'price_at_time': price,
-      },
-    );
+  Future<dynamic> addItem(int sessionId, int productId, int quantity, double price) async {
+    final response = await _apiClient.client.post('/shopping-sessions//items', data: {
+      'product_id': productId,
+      'quantity': quantity,
+      'price_at_time': price,
+    });
+    return response.data;
   }
 
-  Future<void> removeItem(int sessionId, int productId) async {
-    await _apiClient.dio.delete('/shopping-sessions/$sessionId/items/$productId');
-  }
-
-  Future<void> updateQuantity(int sessionId, int productId, int quantity) async {
-    await _apiClient.dio.put(
-      '/shopping-sessions/$sessionId/items/$productId',
-      queryParameters: {'quantity': quantity},
-    );
+  Future<dynamic> getSession(int sessionId) async {
+    final response = await _apiClient.client.get('/shopping-sessions/');
+    return response.data;
   }
 }

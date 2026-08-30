@@ -1,0 +1,20 @@
+import 'package:flutter/material.dart';
+
+class ModernCard extends StatelessWidget {
+  final Widget child;
+  final EdgeInsetsGeometry? padding;
+
+  const ModernCard({super.key, required this.child, this.padding});
+
+  @override
+  Widget build(BuildContext context) {
+    return Card(
+      elevation: 2,
+      shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(16)),
+      child: Padding(
+        padding: padding ?? const EdgeInsets.all(16.0),
+        child: child,
+      ),
+    );
+  }
+}
