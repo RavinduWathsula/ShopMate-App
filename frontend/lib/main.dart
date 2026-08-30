@@ -22,17 +22,6 @@ class ShopMateApp extends StatelessWidget {
       darkTheme: AppTheme.darkTheme,
       themeMode: ThemeMode.system,
       routerConfig: router,
-      builder: (context, child) {
-        return Container(
-          color: Colors.grey.shade900,
-          child: Center(
-            child: ConstrainedBox(
-              constraints: const BoxConstraints(maxWidth: 430),
-              child: ClipRect(child: child),
-            ),
-          ),
-        );
-      },
     );
   }
 }
