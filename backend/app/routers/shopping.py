@@ -39,3 +39,22 @@ def add_item_to_session(id: int, item: ShoppingItemCreate, db: Session = Depends
 def get_shopping_history(db: Session = Depends(get_db), current_user: User = Depends(get_current_user)):
     history = db.query(ShoppingHistory).filter(ShoppingHistory.user_id == current_user.id).all()
     return history
+
+from pydantic import BaseModel
+from typing import Any, Dict
+from backend.ai.navigation.store_router import calculate_optimal_route
+
+class RouteRequest(BaseModel):
+    customer_location: str
+    products: List[Dict[str, Any]]
+
+@router.post("/route", tags=["Navigation"])
+def get_optimal_route(request: RouteRequest):
+    """
+    Calculate the optimal store navigation route using Dijkstra's algorithm.
+    """
+    route_data = calculate_optimal_route(
+        customer_location=request.customer_location,
+        selected_products=request.products
+    )
+    return route_data

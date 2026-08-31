@@ -4,6 +4,7 @@ import 'routing/router.dart';
 import 'core/theme/app_theme.dart';
 
 void main() {
+  WidgetsFlutterBinding.ensureInitialized();
   runApp(
     const ProviderScope(
       child: ShopMateApp(),
