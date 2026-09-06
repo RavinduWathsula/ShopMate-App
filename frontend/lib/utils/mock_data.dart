@@ -6,3 +6,4 @@ class MockData {
     {'id': '3', 'name': 'Milk 2%', 'price': 1.99, 'category': 'Dairy'},
   ];
 }
+

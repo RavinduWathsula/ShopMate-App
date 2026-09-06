@@ -11,3 +11,4 @@ class DiscountsScreen extends StatelessWidget {
     );
   }
 }
+

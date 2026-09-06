@@ -11,3 +11,4 @@ class SpendingAnalyticsScreen extends StatelessWidget {
     );
   }
 }
+

@@ -1,3 +1,4 @@
+import 'package:flutter/foundation.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import '../services/shopping_service.dart';
 
@@ -33,7 +34,8 @@ class ShoppingSessionNotifier extends StateNotifier<AsyncValue<dynamic>> {
       state = AsyncValue.data(session);
     } catch (e) {
       // In a real app we might want to just show a snackbar instead of destroying the whole session state
-      print('Failed to add item: ');
+      debugPrint('Failed to add item: $e');
     }
   }
 }
+

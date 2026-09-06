@@ -1,5 +1,5 @@
 from fastapi import FastAPI
-from app.routers import auth, products, shops, shopping, ai
+from app.routers import auth, products, shops, shopping
 
 app = FastAPI(
     title="ShopMate API",
@@ -11,7 +11,6 @@ app.include_router(auth.router)
 app.include_router(products.router)
 app.include_router(shops.router)
 app.include_router(shopping.router)
-app.include_router(ai.router)
 
 @app.get("/")
 def root():

@@ -64,36 +64,3 @@ async def recognize_product(file: UploadFile = File(...), db: Session = Depends(
         "discounted_price": float(matched_product.discount_price) if matched_product.discount_price else None,
         "category": matched_product.category_id
     }
-
-from backend.ai.recommendation.apriori import get_associations_for_product
-
-@router.get("/associations/{product_id}")
-async def get_frequent_associations(product_id: str):
-    """
-    Get recommended related products based on historical shopping transactions 
-    using the Apriori algorithm.
-    """
-    # Mock data for demonstration
-    mock_transactions = [
-        ["p1", "p2", "p3"],
-        ["p1", "p2"],
-        ["p2", "p3"],
-        ["p1", "p2", "p4"],
-        ["p1", "p4"],
-    ]
-    mock_catalog = {
-        "p1": "Bread",
-        "p2": "Butter",
-        "p3": "Jam",
-        "p4": "Milk"
-    }
-    
-    associations = get_associations_for_product(
-        product_id=product_id,
-        transactions=mock_transactions,
-        product_catalog=mock_catalog,
-        min_support=0.1,
-        min_confidence=0.2
-    )
-    
-    return {"recommendations": associations}

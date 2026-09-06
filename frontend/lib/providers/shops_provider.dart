@@ -7,3 +7,4 @@ final shopsProvider = FutureProvider<List<dynamic>>((ref) async {
   final service = ref.read(shopServiceProvider);
   return await service.getShops();
 });
+

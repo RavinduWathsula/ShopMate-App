@@ -11,3 +11,4 @@ class ShoppingSummaryScreen extends StatelessWidget {
     );
   }
 }
+

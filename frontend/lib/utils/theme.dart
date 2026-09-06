@@ -79,3 +79,4 @@ class AppTheme {
   // Map light to dark as well since this is a dark-only app design
   static ThemeData get lightTheme => darkTheme;
 }
+

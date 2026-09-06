@@ -29,3 +29,4 @@ class ApiClient {
 
   Dio get client => _dio;
 }
+

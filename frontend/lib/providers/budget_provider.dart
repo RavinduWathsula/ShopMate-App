@@ -11,3 +11,4 @@ class BudgetNotifier extends StateNotifier<double> {
 final budgetProvider = StateNotifierProvider<BudgetNotifier, double>((ref) {
   return BudgetNotifier();
 });
+

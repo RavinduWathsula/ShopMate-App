@@ -15,7 +15,7 @@ class _SplashScreenState extends State<SplashScreen> {
     _navigateToHome();
   }
 
-  _navigateToHome() async {
+  void _navigateToHome() async {
     await Future.delayed(const Duration(milliseconds: 1500));
     if (mounted) {
       // Routing directly to smart basket so you can see the new UI!
@@ -43,7 +43,7 @@ class _SplashScreenState extends State<SplashScreen> {
             ),
             const SizedBox(height: 40),
             CircularProgressIndicator(
-              valueColor: AlwaysStoppedAnimation<Color>(Colors.white.withOpacity(0.8)),
+              valueColor: AlwaysStoppedAnimation<Color>(Colors.white.withValues(alpha: 0.8)),
             ),
           ],
         ),
@@ -51,3 +51,4 @@ class _SplashScreenState extends State<SplashScreen> {
     );
   }
 }
+

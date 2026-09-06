@@ -1,7 +1,11 @@
 from sqlalchemy import Column, Integer, String, Float, Boolean, ForeignKey, DateTime, Enum, JSON, DECIMAL
 from sqlalchemy.orm import relationship
 from datetime import datetime
-from app.database.database import Base
+try:
+    from app.database.database import Base
+except ImportError:
+    from backend.app.database.database import Base
+
 
 class User(Base):
     __tablename__ = "users"
@@ -109,7 +113,7 @@ class ShoppingHistory(Base):
     user_id = Column(Integer, ForeignKey("users.id"))
     total_amount = Column(DECIMAL(10,2))
     completed_at = Column(DateTime)
-    session = relationship("ShoppingHistory", back_populates="history")
+    session = relationship("ShoppingSession", back_populates="history")
 
 class Recommendation(Base):
     __tablename__ = "recommendations"

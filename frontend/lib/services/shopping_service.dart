@@ -25,3 +25,4 @@ class ShoppingService {
     return response.data;
   }
 }
+

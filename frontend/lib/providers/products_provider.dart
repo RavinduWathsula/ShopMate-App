@@ -12,3 +12,4 @@ final productDetailsProvider = FutureProvider.family<dynamic, int>((ref, id) asy
   final service = ref.read(productServiceProvider);
   return await service.getProductDetails(id);
 });
+

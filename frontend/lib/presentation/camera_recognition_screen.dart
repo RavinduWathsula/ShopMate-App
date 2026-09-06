@@ -11,3 +11,4 @@ class CameraRecognitionScreen extends StatelessWidget {
     );
   }
 }
+

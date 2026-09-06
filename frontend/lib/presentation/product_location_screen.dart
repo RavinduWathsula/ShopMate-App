@@ -11,3 +11,4 @@ class ProductLocationScreen extends StatelessWidget {
     );
   }
 }
+

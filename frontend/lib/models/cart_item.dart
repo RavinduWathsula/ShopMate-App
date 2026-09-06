@@ -18,3 +18,4 @@ class CartItem {
 
   double get totalPrice => product.finalPrice * quantity;
 }
+

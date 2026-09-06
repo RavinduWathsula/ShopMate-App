@@ -8,3 +8,4 @@ class ShopService {
     return response.data;
   }
 }
+

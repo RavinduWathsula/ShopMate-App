@@ -69,12 +69,12 @@ class _StoreMapScreenState extends State<StoreMapScreen> {
       children: [
         Container(
           padding: const EdgeInsets.all(16),
-          color: Theme.of(context).primaryColor.withOpacity(0.1),
+          color: Theme.of(context).primaryColor.withValues(alpha: 0.1),
           child: Row(
             mainAxisAlignment: MainAxisAlignment.spaceAround,
             children: [
               _buildStat('Distance', '${distance}m', Icons.straighten),
-              _buildStat('Est. Time', '${time} min', Icons.timer),
+              _buildStat('Est. Time', '$time min', Icons.timer),
             ],
           ),
         ),
@@ -115,3 +115,4 @@ class _StoreMapScreenState extends State<StoreMapScreen> {
     );
   }
 }
+
