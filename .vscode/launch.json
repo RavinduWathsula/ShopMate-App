@@ -1,0 +1,27 @@
+{
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "name": "Flutter: Mobile (Android)",
+            "request": "launch",
+            "type": "dart",
+            "program": "${workspaceFolder}/frontend/lib/main.dart",
+            "cwd": "${workspaceFolder}/frontend",
+            "args": [
+                "-d",
+                "android"
+            ]
+        },
+        {
+            "name": "Flutter: Mobile (iOS)",
+            "request": "launch",
+            "type": "dart",
+            "program": "${workspaceFolder}/frontend/lib/main.dart",
+            "cwd": "${workspaceFolder}/frontend",
+            "args": [
+                "-d",
+                "ios"
+            ]
+        }
+    ]
+}
