@@ -3,12 +3,16 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'core/routing/app_router.dart';
 import 'core/theme/app_theme.dart';
 import 'core/constants/app_constants.dart';
+import 'package:device_preview/device_preview.dart';
 import 'presentation/widgets/mobile_app_shell.dart';
 
 void main() {
   runApp(
-    const ProviderScope(
-      child: ShopMateApp(),
+    ProviderScope(
+      child: DevicePreview(
+        enabled: true,
+        builder: (context) => const ShopMateApp(),
+      ),
     ),
   );
 }
@@ -23,9 +27,8 @@ class ShopMateApp extends StatelessWidget {
       debugShowCheckedModeBanner: false,
       theme: AppTheme.lightTheme,
       routerConfig: AppRouter.router,
-      builder: (context, child) {
-        return MobileAppShell(child: child!);
-      },
+      locale: DevicePreview.locale(context),
+      builder: DevicePreview.appBuilder,
     );
   }
 }

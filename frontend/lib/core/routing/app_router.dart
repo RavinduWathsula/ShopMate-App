@@ -10,6 +10,7 @@ import '../../presentation/budget_setup_screen.dart';
 import '../../presentation/shopping_list_screen.dart';
 import '../../presentation/camera_recognition_screen.dart';
 import '../../presentation/product_details_screen.dart';
+import '../../presentation/shopping_cart_screen.dart';
 import '../../presentation/smart_basket_screen.dart';
 import '../../presentation/discounts_screen.dart';
 import '../../presentation/recommendations_screen.dart';
@@ -24,7 +25,7 @@ import '../../presentation/recognition_result_screen.dart';
 
 class AppRouter {
   static final router = GoRouter(
-    initialLocation: '/splash',
+    initialLocation: '/cart',
     routes: [
       GoRoute(
         path: '/splash',
@@ -69,6 +70,10 @@ class AppRouter {
       GoRoute(
         path: '/productdetails',
         builder: (context, state) => const ProductDetailsScreen(),
+      ),
+      GoRoute(
+        path: '/cart',
+        builder: (context, state) => const ShoppingCartScreen(),
       ),
       GoRoute(
         path: '/smartbasket',
