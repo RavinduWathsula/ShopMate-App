@@ -1,27 +1,35 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:go_router/go_router.dart';
 import 'package:google_fonts/google_fonts.dart';
 import '../core/theme/app_colors.dart';
 import 'widgets/shopmate_app_bar.dart';
+import '../providers/budget_provider.dart';
 
-class BudgetSetupScreen extends StatefulWidget {
+class BudgetSetupScreen extends ConsumerStatefulWidget {
   const BudgetSetupScreen({super.key});
 
   @override
-  State<BudgetSetupScreen> createState() => _BudgetSetupScreenState();
+  ConsumerState<BudgetSetupScreen> createState() => _BudgetSetupScreenState();
 }
 
-class _BudgetSetupScreenState extends State<BudgetSetupScreen> {
-  double _budget = 4000.0;
+class _BudgetSetupScreenState extends ConsumerState<BudgetSetupScreen> {
+  late double _budget;
   final double _suggestedBudget = 3850.0;
 
-  final List<double> _quickAmounts = [2000, 4000, 5000, 10000];
+  final List<double> _quickAmounts = [500, 2000, 4000, 5000, 10000];
+
+  @override
+  void initState() {
+    super.initState();
+    _budget = ref.read(budgetProvider).budget;
+  }
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: AppColors.background,
-      appBar: const ShopMateAppBar(title: 'Set Budget'),
+      appBar: const ShopMateAppBar(title: 'Set Your Budget'),
       body: SafeArea(
         child: SingleChildScrollView(
           padding: const EdgeInsets.symmetric(horizontal: 20),
@@ -58,7 +66,7 @@ class _BudgetSetupScreenState extends State<BudgetSetupScreen> {
               ),
               const SizedBox(height: 18),
               Text(
-                'Set Your Shopping Budget',
+                'Enter Your Shopping Budget',
                 textAlign: TextAlign.center,
                 style: GoogleFonts.inter(
                   fontSize: 22,
@@ -106,7 +114,7 @@ class _BudgetSetupScreenState extends State<BudgetSetupScreen> {
                     ),
                     const SizedBox(height: 8),
                     Text(
-                      'Rs. ${_budget.toStringAsFixed(0)}',
+                      'Rs. ${_budget.toStringAsFixed(2)}',
                       style: GoogleFonts.inter(
                         fontSize: 38,
                         fontWeight: FontWeight.w900,
@@ -169,7 +177,7 @@ class _BudgetSetupScreenState extends State<BudgetSetupScreen> {
                   final isSelected = _budget == amt;
                   return Expanded(
                     child: Padding(
-                      padding: const EdgeInsets.symmetric(horizontal: 4),
+                      padding: const EdgeInsets.symmetric(horizontal: 2),
                       child: InkWell(
                         onTap: () {
                           setState(() {
@@ -190,9 +198,9 @@ class _BudgetSetupScreenState extends State<BudgetSetupScreen> {
                           ),
                           child: Center(
                             child: Text(
-                              'Rs. ${(amt / 1000).toStringAsFixed(0)}k',
+                              amt >= 1000 ? '${(amt / 1000).toStringAsFixed(0)}k' : amt.toStringAsFixed(0),
                               style: GoogleFonts.inter(
-                                fontSize: 13,
+                                fontSize: 12,
                                 fontWeight: FontWeight.w700,
                                 color: isSelected ? AppColors.primaryGreenDark : AppColors.textPrimary,
                               ),
@@ -248,7 +256,7 @@ class _BudgetSetupScreenState extends State<BudgetSetupScreen> {
                           ),
                           const SizedBox(height: 2),
                           Text(
-                            'Rs. ${_suggestedBudget.toStringAsFixed(0)}',
+                            'Rs. ${_suggestedBudget.toStringAsFixed(2)}',
                             style: GoogleFonts.inter(
                               fontSize: 18,
                               fontWeight: FontWeight.w800,
@@ -256,7 +264,7 @@ class _BudgetSetupScreenState extends State<BudgetSetupScreen> {
                             ),
                           ),
                           Text(
-                            'Matches your typical shopping list with discounts.',
+                            'Based on your past shopping',
                             style: GoogleFonts.inter(
                               fontSize: 11,
                               color: AppColors.textSecondary,
@@ -272,7 +280,7 @@ class _BudgetSetupScreenState extends State<BudgetSetupScreen> {
                         });
                         ScaffoldMessenger.of(context).showSnackBar(
                           const SnackBar(
-                            content: Text('Applied AI Suggested Budget of Rs. 3,850'),
+                            content: Text('Applied AI Suggested Budget'),
                             backgroundColor: AppColors.aiPurple,
                           ),
                         );
@@ -286,8 +294,8 @@ class _BudgetSetupScreenState extends State<BudgetSetupScreen> {
                         ),
                       ),
                       child: Text(
-                        'Apply',
-                        style: GoogleFonts.inter(fontSize: 12, fontWeight: FontWeight.bold),
+                        'Use Suggested',
+                        style: GoogleFonts.inter(fontSize: 11, fontWeight: FontWeight.bold),
                       ),
                     ),
                   ],
@@ -297,15 +305,17 @@ class _BudgetSetupScreenState extends State<BudgetSetupScreen> {
               // CTA Button
               ElevatedButton(
                 onPressed: () {
+                  ref.read(budgetProvider.notifier).setBudget(_budget);
+                  
                   ScaffoldMessenger.of(context).showSnackBar(
                     SnackBar(
-                      content: Text('Budget updated to Rs. ${_budget.toStringAsFixed(0)}'),
+                      content: Text('Budget saved: Rs. ${_budget.toStringAsFixed(2)}'),
                       backgroundColor: AppColors.primaryGreenDark,
                     ),
                   );
-                  context.push('/smartbasket');
+                  context.push('/shoppinglist');
                 },
-                child: const Text('Start Shopping'),
+                child: const Text('Continue'),
               ),
               const SizedBox(height: 20),
             ],

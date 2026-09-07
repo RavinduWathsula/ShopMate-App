@@ -19,6 +19,8 @@ import '../../presentation/shopping_summary_screen.dart';
 import '../../presentation/spending_analytics_screen.dart';
 import '../../presentation/profile_screen.dart';
 import '../../presentation/settings_screen.dart';
+import '../../presentation/ai_processing_screen.dart';
+import '../../presentation/recognition_result_screen.dart';
 
 class AppRouter {
   static final router = GoRouter(
@@ -103,6 +105,14 @@ class AppRouter {
       GoRoute(
         path: '/settings',
         builder: (context, state) => const SettingsScreen(),
+      ),
+      GoRoute(
+        path: '/aiprocessing',
+        builder: (context, state) => const AIProcessingScreen(),
+      ),
+      GoRoute(
+        path: '/recognitionresult',
+        builder: (context, state) => const RecognitionResultScreen(),
       ),
     ],
   );

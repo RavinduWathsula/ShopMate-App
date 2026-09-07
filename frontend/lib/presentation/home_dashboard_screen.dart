@@ -9,6 +9,7 @@ import 'widgets/shopmate_ai_assistant_widget.dart';
 import 'widgets/shopmate_product_card.dart';
 
 import '../providers/budget_provider.dart';
+import '../providers/shops_provider.dart';
 
 class HomeDashboardScreen extends ConsumerStatefulWidget {
   const HomeDashboardScreen({super.key});
@@ -18,7 +19,6 @@ class HomeDashboardScreen extends ConsumerStatefulWidget {
 }
 
 class _HomeDashboardScreenState extends ConsumerState<HomeDashboardScreen> {
-  String selectedStore = 'Food City Supermarket';
 
   @override
   Widget build(BuildContext context) {
@@ -194,6 +194,7 @@ class _HomeDashboardScreenState extends ConsumerState<HomeDashboardScreen> {
   }
 
   Widget _buildStoreSelector(BuildContext context) {
+    final selectedStore = ref.watch(selectedStoreProvider);
     return Container(
       padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 12),
       decoration: BoxDecoration(

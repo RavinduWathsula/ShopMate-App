@@ -4,58 +4,51 @@ import 'package:google_fonts/google_fonts.dart';
 import '../core/theme/app_colors.dart';
 import 'widgets/shopmate_app_bar.dart';
 
-class SupermarketSelectionScreen extends StatefulWidget {
+import 'package:flutter_riverpod/flutter_riverpod.dart';
+import '../providers/shops_provider.dart';
+
+class SupermarketSelectionScreen extends ConsumerStatefulWidget {
   const SupermarketSelectionScreen({super.key});
 
   @override
-  State<SupermarketSelectionScreen> createState() => _SupermarketSelectionScreenState();
+  ConsumerState<SupermarketSelectionScreen> createState() => _SupermarketSelectionScreenState();
 }
 
-class _SupermarketSelectionScreenState extends State<SupermarketSelectionScreen> {
-  int _selectedStoreIndex = 0;
-
+class _SupermarketSelectionScreenState extends ConsumerState<SupermarketSelectionScreen> {
   final List<Map<String, dynamic>> _stores = [
     {
-      'name': 'Cargills Food City',
-      'branch': 'Colombo 03 - Main Branch',
+      'name': 'Food City',
+      'branch': 'Main Branch',
       'distance': '1.2 km',
-      'dealsCount': 34,
-      'hasIndoorMap': true,
       'isOpen': true,
-      'hours': '8:00 AM - 10:00 PM',
+      'hasIndoorMap': true,
       'color': const Color(0xFFD32F2F),
       'icon': Icons.local_grocery_store_rounded,
     },
     {
       'name': 'Keells Super',
-      'branch': 'Union Place Branch',
-      'distance': '1.8 km',
-      'dealsCount': 28,
-      'hasIndoorMap': true,
+      'branch': 'Union Place',
+      'distance': '1.5 km',
       'isOpen': true,
-      'hours': '7:30 AM - 10:30 PM',
+      'hasIndoorMap': true,
       'color': const Color(0xFF2E7D32),
       'icon': Icons.shopping_bag_rounded,
     },
     {
       'name': 'Arpico Supercentre',
-      'branch': 'Hyde Park Corner',
-      'distance': '2.4 km',
-      'dealsCount': 42,
-      'hasIndoorMap': true,
+      'branch': 'Nugegoda',
+      'distance': '2.1 km',
       'isOpen': true,
-      'hours': '8:30 AM - 10:00 PM',
+      'hasIndoorMap': true,
       'color': const Color(0xFF1565C0),
       'icon': Icons.storefront_rounded,
     },
     {
-      'name': 'SPAR Supermarket',
-      'branch': 'Thalawathugoda',
-      'distance': '4.1 km',
-      'dealsCount': 19,
-      'hasIndoorMap': false,
+      'name': 'Cargills Food City',
+      'branch': 'Colombo',
+      'distance': '2.3 km',
       'isOpen': true,
-      'hours': '8:00 AM - 9:30 PM',
+      'hasIndoorMap': false,
       'color': const Color(0xFFC62828),
       'icon': Icons.shopping_basket_rounded,
     },
@@ -63,6 +56,8 @@ class _SupermarketSelectionScreenState extends State<SupermarketSelectionScreen>
 
   @override
   Widget build(BuildContext context) {
+    final selectedStoreName = ref.watch(selectedStoreProvider);
+
     return Scaffold(
       backgroundColor: AppColors.background,
       appBar: const ShopMateAppBar(title: 'Select Supermarket'),
@@ -86,7 +81,7 @@ class _SupermarketSelectionScreenState extends State<SupermarketSelectionScreen>
                 ),
                 child: TextField(
                   decoration: InputDecoration(
-                    hintText: 'Search supermarket or location...',
+                    hintText: 'Search stores...',
                     prefixIcon: const Icon(Icons.search_rounded, color: AppColors.textSecondary),
                     filled: true,
                     fillColor: Colors.white,
@@ -110,13 +105,21 @@ class _SupermarketSelectionScreenState extends State<SupermarketSelectionScreen>
                 separatorBuilder: (context, index) => const SizedBox(height: 14),
                 itemBuilder: (context, index) {
                   final store = _stores[index];
-                  final isSelected = _selectedStoreIndex == index;
+                  final isSelected = selectedStoreName == store['name'];
 
                   return InkWell(
                     onTap: () {
-                      setState(() {
-                        _selectedStoreIndex = index;
-                      });
+                      // Update Riverpod state
+                      ref.read(selectedStoreProvider.notifier).state = store['name'] as String;
+                      
+                      ScaffoldMessenger.of(context).showSnackBar(
+                        SnackBar(
+                          content: Text('Switched to ${store['name']}'),
+                          backgroundColor: AppColors.primaryGreenDark,
+                        ),
+                      );
+                      // Return to Home
+                      context.go('/homedashboard');
                     },
                     borderRadius: BorderRadius.circular(20),
                     child: AnimatedContainer(
@@ -191,6 +194,24 @@ class _SupermarketSelectionScreenState extends State<SupermarketSelectionScreen>
                                 const SizedBox(height: 8),
                                 Row(
                                   children: [
+                                    if (store['isOpen'] == true)
+                                      Container(
+                                        padding: const EdgeInsets.symmetric(horizontal: 8, vertical: 3),
+                                        decoration: BoxDecoration(
+                                          color: AppColors.primaryGreen.withValues(alpha: 0.1),
+                                          borderRadius: BorderRadius.circular(8),
+                                        ),
+                                        child: Text(
+                                          'Open',
+                                          style: GoogleFonts.inter(
+                                            fontSize: 11,
+                                            fontWeight: FontWeight.w700,
+                                            color: AppColors.primaryGreenDark,
+                                          ),
+                                        ),
+                                      ),
+                                    if (store['isOpen'] == true)
+                                      const SizedBox(width: 8),
                                     Container(
                                       padding: const EdgeInsets.symmetric(horizontal: 8, vertical: 3),
                                       decoration: BoxDecoration(
@@ -206,34 +227,6 @@ class _SupermarketSelectionScreenState extends State<SupermarketSelectionScreen>
                                         ),
                                       ),
                                     ),
-                                    const SizedBox(width: 8),
-                                    if (store['hasIndoorMap'] == true)
-                                      Container(
-                                        padding: const EdgeInsets.symmetric(horizontal: 8, vertical: 3),
-                                        decoration: BoxDecoration(
-                                          color: AppColors.aiPurpleSoft,
-                                          borderRadius: BorderRadius.circular(8),
-                                        ),
-                                        child: Row(
-                                          mainAxisSize: MainAxisSize.min,
-                                          children: [
-                                            const Icon(
-                                              Icons.map_rounded,
-                                              size: 11,
-                                              color: AppColors.aiPurple,
-                                            ),
-                                            const SizedBox(width: 4),
-                                            Text(
-                                              'Indoor Route Map',
-                                              style: GoogleFonts.inter(
-                                                fontSize: 10,
-                                                fontWeight: FontWeight.w700,
-                                                color: AppColors.aiPurple,
-                                              ),
-                                            ),
-                                          ],
-                                        ),
-                                      ),
                                   ],
                                 ),
                               ],
@@ -246,22 +239,7 @@ class _SupermarketSelectionScreenState extends State<SupermarketSelectionScreen>
                 },
               ),
             ),
-            // Bottom Action
-            Padding(
-              padding: const EdgeInsets.all(20),
-              child: ElevatedButton(
-                onPressed: () {
-                  ScaffoldMessenger.of(context).showSnackBar(
-                    SnackBar(
-                      content: Text('Switched to ${_stores[_selectedStoreIndex]['name']}'),
-                      backgroundColor: AppColors.primaryGreenDark,
-                    ),
-                  );
-                  context.pop();
-                },
-                child: const Text('Confirm Supermarket'),
-              ),
-            ),
+            const SizedBox(height: 16),
           ],
         ),
       ),

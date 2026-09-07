@@ -8,3 +8,7 @@ final shopsProvider = FutureProvider<List<dynamic>>((ref) async {
   return await service.getShops();
 });
 
+// Provides the currently selected store name for the UI
+final selectedStoreProvider = StateProvider<String>((ref) => 'Food City');
+
+
