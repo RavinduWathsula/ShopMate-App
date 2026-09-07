@@ -160,12 +160,13 @@ class ShopMateProductCard extends StatelessWidget {
         ),
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
+          mainAxisSize: MainAxisSize.min,
           children: [
             // Top Image Container with Discount Badge
             Stack(
               children: [
                 Container(
-                  height: 110,
+                  height: 100,
                   width: double.infinity,
                   decoration: const BoxDecoration(
                     color: Color(0xFFF1F5F9),
@@ -174,7 +175,7 @@ class ShopMateProductCard extends StatelessWidget {
                   child: Center(
                     child: Icon(
                       productIcon ?? Icons.shopping_basket_rounded,
-                      size: 48,
+                      size: 40,
                       color: AppColors.primaryGreen,
                     ),
                   ),
@@ -184,18 +185,18 @@ class ShopMateProductCard extends StatelessWidget {
                     top: 8,
                     left: 8,
                     child: Container(
-                      padding: const EdgeInsets.symmetric(horizontal: 8, vertical: 4),
+                      padding: const EdgeInsets.symmetric(horizontal: 6, vertical: 2),
                       decoration: BoxDecoration(
                         gradient: const LinearGradient(
                           colors: [AppColors.discount, AppColors.dealOrange],
                         ),
-                        borderRadius: BorderRadius.circular(10),
+                        borderRadius: BorderRadius.circular(8),
                       ),
                       child: Text(
                         discountText ?? '${(((originalPrice! - price) / originalPrice!) * 100).round()}% OFF',
                         style: GoogleFonts.inter(
                           color: Colors.white,
-                          fontSize: 10,
+                          fontSize: 9,
                           fontWeight: FontWeight.w800,
                         ),
                       ),
@@ -215,7 +216,7 @@ class ShopMateProductCard extends StatelessWidget {
                         location!,
                         style: GoogleFonts.inter(
                           color: Colors.white,
-                          fontSize: 9,
+                          fontSize: 8,
                           fontWeight: FontWeight.w600,
                         ),
                       ),
@@ -224,9 +225,10 @@ class ShopMateProductCard extends StatelessWidget {
               ],
             ),
             Padding(
-              padding: const EdgeInsets.all(12),
+              padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 8),
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
+                mainAxisSize: MainAxisSize.min,
                 children: [
                   Text(
                     brand.toUpperCase(),
@@ -243,7 +245,7 @@ class ShopMateProductCard extends StatelessWidget {
                     maxLines: 1,
                     overflow: TextOverflow.ellipsis,
                     style: GoogleFonts.inter(
-                      fontSize: 13,
+                      fontSize: 12,
                       fontWeight: FontWeight.w700,
                       color: AppColors.textPrimary,
                     ),
@@ -251,11 +253,11 @@ class ShopMateProductCard extends StatelessWidget {
                   Text(
                     size,
                     style: GoogleFonts.inter(
-                      fontSize: 11,
+                      fontSize: 10,
                       color: AppColors.textSecondary,
                     ),
                   ),
-                  const SizedBox(height: 8),
+                  const SizedBox(height: 6),
                   Row(
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: [
@@ -266,17 +268,19 @@ class ShopMateProductCard extends StatelessWidget {
                             Text(
                               'Rs. ${originalPrice!.toStringAsFixed(0)}',
                               style: GoogleFonts.inter(
-                                fontSize: 10,
+                                fontSize: 9,
                                 color: AppColors.textMuted,
                                 decoration: TextDecoration.lineThrough,
+                                height: 1.0,
                               ),
                             ),
                           Text(
                             'Rs. ${price.toStringAsFixed(0)}',
                             style: GoogleFonts.inter(
-                              fontSize: 14,
+                              fontSize: 13,
                               fontWeight: FontWeight.w800,
                               color: AppColors.primaryGreenDark,
+                              height: 1.0,
                             ),
                           ),
                         ],
@@ -284,17 +288,17 @@ class ShopMateProductCard extends StatelessWidget {
                       if (onAddToCart != null)
                         InkWell(
                           onTap: onAddToCart,
-                          borderRadius: BorderRadius.circular(10),
+                          borderRadius: BorderRadius.circular(8),
                           child: Container(
-                            padding: const EdgeInsets.all(6),
+                            padding: const EdgeInsets.all(4),
                             decoration: BoxDecoration(
                               color: AppColors.primaryGreen,
-                              borderRadius: BorderRadius.circular(10),
+                              borderRadius: BorderRadius.circular(8),
                             ),
                             child: const Icon(
                               Icons.add,
                               color: Colors.white,
-                              size: 18,
+                              size: 16,
                             ),
                           ),
                         ),

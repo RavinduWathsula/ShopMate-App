@@ -1,14 +1,42 @@
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
-class BudgetNotifier extends StateNotifier<double> {
-  BudgetNotifier() : super(0.0);
+class BudgetState {
+  final double budget;
+  final double spent;
 
-  void setBudget(double budget) {
-    state = budget;
+  const BudgetState({
+    required this.budget,
+    required this.spent,
+  });
+
+  BudgetState copyWith({
+    double? budget,
+    double? spent,
+  }) {
+    return BudgetState(
+      budget: budget ?? this.budget,
+      spent: spent ?? this.spent,
+    );
   }
 }
 
-final budgetProvider = StateNotifierProvider<BudgetNotifier, double>((ref) {
+class BudgetNotifier extends StateNotifier<BudgetState> {
+  BudgetNotifier() : super(const BudgetState(budget: 4000.0, spent: 1650.0));
+
+  void setBudget(double budget) {
+    state = state.copyWith(budget: budget);
+  }
+
+  void setSpent(double spent) {
+    state = state.copyWith(spent: spent);
+  }
+  
+  void addSpent(double amount) {
+    state = state.copyWith(spent: state.spent + amount);
+  }
+}
+
+final budgetProvider = StateNotifierProvider<BudgetNotifier, BudgetState>((ref) {
   return BudgetNotifier();
 });
 

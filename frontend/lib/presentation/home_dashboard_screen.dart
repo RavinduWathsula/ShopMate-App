@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:go_router/go_router.dart';
 import 'package:google_fonts/google_fonts.dart';
 import '../core/theme/app_colors.dart';
@@ -7,20 +8,21 @@ import 'widgets/shopmate_budget_card.dart';
 import 'widgets/shopmate_ai_assistant_widget.dart';
 import 'widgets/shopmate_product_card.dart';
 
-class HomeDashboardScreen extends StatefulWidget {
+import '../providers/budget_provider.dart';
+
+class HomeDashboardScreen extends ConsumerStatefulWidget {
   const HomeDashboardScreen({super.key});
 
   @override
-  State<HomeDashboardScreen> createState() => _HomeDashboardScreenState();
+  ConsumerState<HomeDashboardScreen> createState() => _HomeDashboardScreenState();
 }
 
-class _HomeDashboardScreenState extends State<HomeDashboardScreen> {
+class _HomeDashboardScreenState extends ConsumerState<HomeDashboardScreen> {
   String selectedStore = 'Food City Supermarket';
-  double currentBudget = 4000.0;
-  double currentSpent = 1650.0;
 
   @override
   Widget build(BuildContext context) {
+    final budgetState = ref.watch(budgetProvider);
     return Scaffold(
       backgroundColor: AppColors.background,
       body: SafeArea(
@@ -44,8 +46,8 @@ class _HomeDashboardScreenState extends State<HomeDashboardScreen> {
               Padding(
                 padding: const EdgeInsets.symmetric(horizontal: 20),
                 child: ShopMateBudgetCard(
-                  budget: currentBudget,
-                  spent: currentSpent,
+                  budget: budgetState.budget,
+                  spent: budgetState.spent,
                   onEdit: () => context.push('/budgetsetup'),
                 ),
               ),
@@ -62,7 +64,7 @@ class _HomeDashboardScreenState extends State<HomeDashboardScreen> {
               Padding(
                 padding: const EdgeInsets.symmetric(horizontal: 20),
                 child: ShopMateAiAssistantWidget(
-                  message: "You're doing great! You can still add Rs. 2,350 worth of products.",
+                  message: "You're doing great! You can still add Rs. ${(budgetState.budget - budgetState.spent).toStringAsFixed(2)} more items to your cart.",
                   subtitle: "3 items from your shopping list are on discount today!",
                   actionLabel: "View Deals",
                   onTap: () => context.push('/discounts'),
@@ -438,7 +440,7 @@ class _HomeDashboardScreenState extends State<HomeDashboardScreen> {
 
   Widget _buildDealsCarousel(BuildContext context) {
     return SizedBox(
-      height: 220,
+      height: 235,
       child: ListView(
         scrollDirection: Axis.horizontal,
         physics: const BouncingScrollPhysics(),
@@ -498,7 +500,7 @@ class _HomeDashboardScreenState extends State<HomeDashboardScreen> {
 
   Widget _buildRecommendationsList(BuildContext context) {
     return SizedBox(
-      height: 220,
+      height: 235,
       child: ListView(
         scrollDirection: Axis.horizontal,
         physics: const BouncingScrollPhysics(),
