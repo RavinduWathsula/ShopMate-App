@@ -3,6 +3,7 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'core/routing/app_router.dart';
 import 'core/theme/app_theme.dart';
 import 'core/constants/app_constants.dart';
+import 'presentation/widgets/mobile_app_shell.dart';
 
 void main() {
   runApp(
@@ -22,6 +23,9 @@ class ShopMateApp extends StatelessWidget {
       debugShowCheckedModeBanner: false,
       theme: AppTheme.lightTheme,
       routerConfig: AppRouter.router,
+      builder: (context, child) {
+        return MobileAppShell(child: child!);
+      },
     );
   }
 }
