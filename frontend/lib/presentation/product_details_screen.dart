@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:go_router/go_router.dart';
 import '../core/theme/app_colors.dart';
 import 'widgets/ai_insight_card.dart';
 import '../providers/basket_provider.dart';
@@ -401,7 +402,7 @@ class ProductDetailsScreen extends ConsumerWidget {
             ScaffoldMessenger.of(context).showSnackBar(
               const SnackBar(content: Text('Added to Cart')),
             );
-            Navigator.pop(context);
+            context.push('/cart');
           },
           style: ElevatedButton.styleFrom(
             padding: const EdgeInsets.symmetric(vertical: 20),

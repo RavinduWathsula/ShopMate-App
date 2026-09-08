@@ -440,7 +440,7 @@ class _ShoppingListScreenState extends ConsumerState<ShoppingListScreen> {
                     width: double.infinity,
                     height: 50,
                     child: ElevatedButton(
-                      onPressed: () => context.push('/smartbasket'),
+                      onPressed: () => context.push('/camerarecognition'),
                       style: ElevatedButton.styleFrom(
                         backgroundColor: AppColors.primaryGreen,
                         shape: RoundedRectangleBorder(

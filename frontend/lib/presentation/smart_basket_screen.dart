@@ -1,15 +1,18 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:go_router/go_router.dart';
 import '../core/theme/app_colors.dart';
+import '../providers/basket_provider.dart';
 
-class SmartBasketScreen extends StatefulWidget {
+class SmartBasketScreen extends ConsumerStatefulWidget {
   const SmartBasketScreen({super.key});
 
   @override
-  State<SmartBasketScreen> createState() => _SmartBasketScreenState();
+  ConsumerState<SmartBasketScreen> createState() => _SmartBasketScreenState();
 }
 
-class _SmartBasketScreenState extends State<SmartBasketScreen> {
+class _SmartBasketScreenState extends ConsumerState<SmartBasketScreen> {
   bool _option1Selected = false;
   bool _option2Selected = false;
 
@@ -26,7 +29,7 @@ class _SmartBasketScreenState extends State<SmartBasketScreen> {
         elevation: 0,
         leading: IconButton(
           icon: const Icon(Icons.arrow_back, color: Colors.white),
-          onPressed: () => Navigator.pop(context),
+          onPressed: () => context.pop(),
         ),
       ),
       body: SingleChildScrollView(
@@ -47,6 +50,20 @@ class _SmartBasketScreenState extends State<SmartBasketScreen> {
   }
 
   Widget _buildSummaryHeader() {
+    final originalTotal = ref.watch(basketTotalProvider);
+    double savings = 0;
+    if (_option1Selected) savings += 150;
+    if (_option2Selected) savings += 300;
+    final optimizedTotal = originalTotal - savings;
+
+    String formatCurrency(double amount) {
+      String formatted = amount.abs().toStringAsFixed(0);
+      final parts = formatted.split('.');
+      final regExp = RegExp(r'\B(?=(\d{3})+(?!\d))');
+      parts[0] = parts[0].replaceAll(regExp, ',');
+      return '${amount < 0 ? '-' : ''}${parts[0]}';
+    }
+
     return Container(
       padding: const EdgeInsets.all(20),
       decoration: BoxDecoration(
@@ -63,14 +80,14 @@ class _SmartBasketScreenState extends State<SmartBasketScreen> {
       ),
       child: Column(
         children: [
-          _buildSummaryRow('Original Total:', 'Rs. 4,500', isTotal: false),
+          _buildSummaryRow('Original Total:', 'Rs. ${formatCurrency(originalTotal)}', isTotal: false),
           const SizedBox(height: 12),
-          _buildSummaryRow('Optimized Total:', 'Rs. 4,000', isTotal: false),
+          _buildSummaryRow('Optimized Total:', 'Rs. ${formatCurrency(optimizedTotal)}', isTotal: false),
           const Padding(
             padding: EdgeInsets.symmetric(vertical: 12),
             child: Divider(),
           ),
-          _buildSummaryRow('You Save:', 'Rs. 500', isTotal: true, valueColor: AppColors.primary),
+          _buildSummaryRow('You Save:', 'Rs. ${formatCurrency(savings)}', isTotal: true, valueColor: AppColors.primary),
         ],
       ),
     );
@@ -235,7 +252,13 @@ class _SmartBasketScreenState extends State<SmartBasketScreen> {
           crossAxisAlignment: CrossAxisAlignment.stretch,
           children: [
             ElevatedButton(
-              onPressed: () {},
+              onPressed: () {
+                // Apply mock changes here
+                if (_option1Selected) {
+                  ref.read(basketProvider.notifier).addItem(BasketItem(id: 'cereal-b', name: 'Brand B Cereal', price: 600, category: 'Breakfast'));
+                }
+                context.push('/storemap');
+              },
               style: ElevatedButton.styleFrom(
                 padding: const EdgeInsets.symmetric(vertical: 16),
                 shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(12)),
@@ -253,7 +276,7 @@ class _SmartBasketScreenState extends State<SmartBasketScreen> {
             ),
             const SizedBox(height: 12),
             OutlinedButton(
-              onPressed: () => Navigator.pop(context),
+              onPressed: () => context.push('/storemap'),
               style: OutlinedButton.styleFrom(
                 padding: const EdgeInsets.symmetric(vertical: 16),
                 shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(12)),

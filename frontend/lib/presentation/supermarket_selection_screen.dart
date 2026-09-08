@@ -118,8 +118,8 @@ class _SupermarketSelectionScreenState extends ConsumerState<SupermarketSelectio
                           backgroundColor: AppColors.primaryGreenDark,
                         ),
                       );
-                      // Return to Home
-                      context.go('/homedashboard');
+                      // Go to Budget Setup
+                      context.go('/budgetsetup');
                     },
                     borderRadius: BorderRadius.circular(20),
                     child: AnimatedContainer(

@@ -1,30 +1,25 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:go_router/go_router.dart';
 import 'package:google_fonts/google_fonts.dart';
 import '../core/theme/app_colors.dart';
 import 'widgets/ai_insight_card.dart';
+import '../providers/basket_provider.dart';
+import '../providers/budget_provider.dart';
 
-class ShoppingSummaryScreen extends StatefulWidget {
+class ShoppingSummaryScreen extends ConsumerStatefulWidget {
   const ShoppingSummaryScreen({super.key});
 
   @override
-  State<ShoppingSummaryScreen> createState() => _ShoppingSummaryScreenState();
+  ConsumerState<ShoppingSummaryScreen> createState() => _ShoppingSummaryScreenState();
 }
 
-class _ShoppingSummaryScreenState extends State<ShoppingSummaryScreen> with SingleTickerProviderStateMixin {
+class _ShoppingSummaryScreenState extends ConsumerState<ShoppingSummaryScreen> with SingleTickerProviderStateMixin {
   late AnimationController _controller;
   late Animation<double> _scaleAnimation;
   late Animation<double> _fadeAnimation;
 
-  // Mock data as per request
-  final int totalItems = 12;
-  final double originalTotal = 5450.0;
-  final double discounts = 500.0;
-  final double finalTotal = 4950.0;
-  final double budget = 4000.0;
-  
-  double get remaining => budget - finalTotal;
-  bool get isOverBudget => remaining < 0;
+
 
   @override
   void initState() {
@@ -71,9 +66,9 @@ class _ShoppingSummaryScreenState extends State<ShoppingSummaryScreen> with Sing
                         padding: const EdgeInsets.all(16.0),
                         child: Column(
                           children: [
-                            _buildSummaryCard(),
+                            _buildSummaryCard(ref),
                             const SizedBox(height: 16),
-                            _buildSavingsCard(),
+                            _buildSavingsCard(ref),
                             const SizedBox(height: 16),
                             _buildAIInsight(),
                           ],
@@ -146,7 +141,17 @@ class _ShoppingSummaryScreenState extends State<ShoppingSummaryScreen> with Sing
     );
   }
 
-  Widget _buildSummaryCard() {
+  Widget _buildSummaryCard(WidgetRef ref) {
+    final cartItems = ref.watch(basketProvider);
+    final totalItems = cartItems.length;
+    final finalTotal = ref.watch(basketTotalProvider);
+    final budget = ref.watch(budgetProvider).budget;
+    final originalTotal = ref.watch(originalTotalProvider);
+    final discounts = ref.watch(savingsProvider);
+    
+    final remaining = budget - finalTotal;
+    final isOverBudget = remaining < 0;
+
     return Container(
       padding: const EdgeInsets.all(20),
       decoration: BoxDecoration(
@@ -244,7 +249,9 @@ class _ShoppingSummaryScreenState extends State<ShoppingSummaryScreen> with Sing
     );
   }
 
-  Widget _buildSavingsCard() {
+  Widget _buildSavingsCard(WidgetRef ref) {
+    final discounts = ref.watch(savingsProvider);
+
     return Container(
       padding: const EdgeInsets.all(20),
       decoration: BoxDecoration(
@@ -326,7 +333,13 @@ class _ShoppingSummaryScreenState extends State<ShoppingSummaryScreen> with Sing
         child: SafeArea(
           top: false,
           child: ElevatedButton(
-            onPressed: () => context.go('/home'),
+            onPressed: () {
+              // Update spent in budget provider, then clear cart and route home
+              final finalTotal = ref.read(basketTotalProvider);
+              ref.read(budgetProvider.notifier).addSpent(finalTotal);
+              ref.read(basketProvider.notifier).clear();
+              context.go('/homedashboard');
+            },
             style: ElevatedButton.styleFrom(
               padding: const EdgeInsets.symmetric(vertical: 18),
               shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(16)),

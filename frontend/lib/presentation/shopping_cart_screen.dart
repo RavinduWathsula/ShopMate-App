@@ -1,74 +1,22 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:go_router/go_router.dart';
 import '../core/theme/app_colors.dart';
+import '../providers/basket_provider.dart';
 
-class ShoppingCartScreen extends StatefulWidget {
+class ShoppingCartScreen extends ConsumerWidget {
   const ShoppingCartScreen({super.key});
 
   @override
-  State<ShoppingCartScreen> createState() => _ShoppingCartScreenState();
-}
-
-class _CartItem {
-  final String name;
-  final double price;
-  final String imageUrl;
-  int quantity;
-  bool isSelected = true;
-
-  _CartItem({
-    required this.name,
-    required this.price,
-    required this.imageUrl,
-    this.quantity = 1,
-  });
-}
-
-class _ShoppingCartScreenState extends State<ShoppingCartScreen> {
-  final double totalBudget = 4000.00;
-
-  final List<_CartItem> _items = [
-    _CartItem(name: "Lay's Classic Potato Chips", price: 320.00, quantity: 1, imageUrl: 'https://images.unsplash.com/photo-1566478989037-e92383833d7b?w=200'),
-    _CartItem(name: "Coca-Cola 1.5L", price: 250.00, quantity: 1, imageUrl: 'https://images.unsplash.com/photo-1622483767028-3f66f32aef97?w=200'),
-    _CartItem(name: "Fresh Milk", price: 450.00, quantity: 2, imageUrl: 'https://images.unsplash.com/photo-1550583724-b2692b85b150?w=200'),
-    _CartItem(name: "Rice", price: 1250.00, quantity: 2, imageUrl: 'https://images.unsplash.com/photo-1586201375761-83865001e31c?w=200'),
-    _CartItem(name: "Bread", price: 300.00, quantity: 2, imageUrl: 'https://images.unsplash.com/photo-1509440159596-0249088772ff?w=200'),
-  ];
-
-  String _formatCurrency(double amount, {bool showDecimals = true}) {
-    String formatted = amount.abs().toStringAsFixed(showDecimals ? 2 : 0);
-    final parts = formatted.split('.');
-    final regExp = RegExp(r'\B(?=(\d{3})+(?!\d))');
-    parts[0] = parts[0].replaceAll(regExp, ',');
-    return '${amount < 0 ? '-' : ''}${showDecimals ? parts.join('.') : parts[0]}';
-  }
-
-  double get _calculatedTotal {
-    return _items.fold(0, (sum, item) {
-      if (item.isSelected) {
-        return sum + (item.price * item.quantity);
-      }
-      return sum;
-    });
-  }
-
-  void _removeItem(int index) {
-    setState(() {
-      _items.removeAt(index);
-    });
-  }
-
-  void _clearCart() {
-    setState(() {
-      _items.clear();
-    });
-  }
-
-  @override
-  Widget build(BuildContext context) {
-    final double currentTotal = _calculatedTotal;
-    final double remainingBudget = totalBudget - currentTotal;
-    final double budgetUsagePercentage = (currentTotal / totalBudget) * 100;
+  Widget build(BuildContext context, WidgetRef ref) {
+    final cartItems = ref.watch(basketProvider);
+    final currentTotal = ref.watch(basketTotalProvider);
+    final budgetUsagePercentage = ref.watch(budgetPercentageProvider) * 100;
+    
+    // Fetch total budget for calculation
+    final totalBudget = ref.watch(budgetPercentageProvider) > 0 ? (currentTotal / ref.watch(budgetPercentageProvider)) : 4000.0;
+    final remainingBudget = totalBudget - currentTotal;
     final bool isOverBudget = currentTotal > totalBudget;
 
     return Scaffold(
@@ -77,7 +25,7 @@ class _ShoppingCartScreenState extends State<ShoppingCartScreen> {
         backgroundColor: AppColors.primary,
         elevation: 0,
         title: Text(
-          'My Cart (${_items.length} Items)',
+          'My Cart (${cartItems.length} Items)',
           style: GoogleFonts.inter(
             fontWeight: FontWeight.bold,
             color: Colors.white,
@@ -87,7 +35,9 @@ class _ShoppingCartScreenState extends State<ShoppingCartScreen> {
         actions: [
           IconButton(
             icon: const Icon(Icons.delete_outline, color: Colors.white),
-            onPressed: _clearCart,
+            onPressed: () {
+              ref.read(basketProvider.notifier).clear();
+            },
           ),
         ],
         leading: IconButton(
@@ -100,20 +50,20 @@ class _ShoppingCartScreenState extends State<ShoppingCartScreen> {
           Expanded(
             child: ListView.builder(
               padding: const EdgeInsets.symmetric(vertical: 12),
-              itemCount: _items.length,
+              itemCount: cartItems.length,
               itemBuilder: (context, index) {
-                final item = _items[index];
-                return _buildCartItem(item, index);
+                final item = cartItems[index];
+                return _buildCartItem(context, ref, item);
               },
             ),
           ),
-          _buildBottomSection(currentTotal, remainingBudget, budgetUsagePercentage, isOverBudget),
+          _buildBottomSection(context, currentTotal, remainingBudget, budgetUsagePercentage, isOverBudget),
         ],
       ),
     );
   }
 
-  Widget _buildCartItem(_CartItem item, int index) {
+  Widget _buildCartItem(BuildContext context, WidgetRef ref, BasketItem item) {
     return Container(
       margin: const EdgeInsets.symmetric(horizontal: 16, vertical: 8),
       padding: const EdgeInsets.all(12),
@@ -137,15 +87,13 @@ class _ShoppingCartScreenState extends State<ShoppingCartScreen> {
             activeColor: AppColors.primary,
             shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(4)),
             onChanged: (val) {
-              setState(() {
-                item.isSelected = val ?? false;
-              });
+              ref.read(basketProvider.notifier).toggleSelection(item.id);
             },
           ),
           ClipRRect(
             borderRadius: BorderRadius.circular(12),
             child: Image.network(
-              item.imageUrl,
+              item.imageUrl ?? '',
               width: 60,
               height: 60,
               fit: BoxFit.cover,
@@ -189,7 +137,7 @@ class _ShoppingCartScreenState extends State<ShoppingCartScreen> {
                 padding: EdgeInsets.zero,
                 constraints: const BoxConstraints(),
                 icon: const Icon(Icons.close, color: AppColors.textMuted, size: 20),
-                onPressed: () => _removeItem(index),
+                onPressed: () => ref.read(basketProvider.notifier).removeItem(item.id),
               ),
               const SizedBox(height: 8),
               Container(
@@ -203,9 +151,7 @@ class _ShoppingCartScreenState extends State<ShoppingCartScreen> {
                     InkWell(
                       onTap: () {
                         if (item.quantity > 1) {
-                          setState(() {
-                            item.quantity--;
-                          });
+                          ref.read(basketProvider.notifier).updateQuantity(item.id, -1);
                         }
                       },
                       child: const Padding(
@@ -222,9 +168,7 @@ class _ShoppingCartScreenState extends State<ShoppingCartScreen> {
                     ),
                     InkWell(
                       onTap: () {
-                        setState(() {
-                          item.quantity++;
-                        });
+                        ref.read(basketProvider.notifier).updateQuantity(item.id, 1);
                       },
                       child: const Padding(
                         padding: EdgeInsets.symmetric(horizontal: 8, vertical: 4),
@@ -241,7 +185,7 @@ class _ShoppingCartScreenState extends State<ShoppingCartScreen> {
     );
   }
 
-  Widget _buildBottomSection(double total, double remaining, double percentage, bool isOverBudget) {
+  Widget _buildBottomSection(BuildContext context, double total, double remaining, double percentage, bool isOverBudget) {
     return Container(
       padding: const EdgeInsets.all(24),
       decoration: BoxDecoration(
@@ -363,7 +307,9 @@ class _ShoppingCartScreenState extends State<ShoppingCartScreen> {
             ),
             const SizedBox(height: 24),
             ElevatedButton(
-              onPressed: () {},
+              onPressed: () {
+                context.push('/smartbasket');
+              },
               style: ElevatedButton.styleFrom(
                 padding: const EdgeInsets.symmetric(vertical: 20),
                 shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(16)),
@@ -384,5 +330,12 @@ class _ShoppingCartScreenState extends State<ShoppingCartScreen> {
         ),
       ),
     );
+  }
+  String _formatCurrency(double amount, {bool showDecimals = true}) {
+    String formatted = amount.abs().toStringAsFixed(showDecimals ? 2 : 0);
+    final parts = formatted.split('.');
+    final regExp = RegExp(r'\B(?=(\d{3})+(?!\d))');
+    parts[0] = parts[0].replaceAll(regExp, ',');
+    return '${amount < 0 ? '-' : ''}${showDecimals ? parts.join('.') : parts[0]}';
   }
 }

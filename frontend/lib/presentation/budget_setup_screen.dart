@@ -313,7 +313,7 @@ class _BudgetSetupScreenState extends ConsumerState<BudgetSetupScreen> {
                       backgroundColor: AppColors.primaryGreenDark,
                     ),
                   );
-                  context.push('/shoppinglist');
+                  context.go('/shoppinglist');
                 },
                 child: const Text('Continue'),
               ),
