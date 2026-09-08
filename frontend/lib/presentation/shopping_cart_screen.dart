@@ -12,12 +12,14 @@ class ShoppingCartScreen extends StatefulWidget {
 class _CartItem {
   final String name;
   final double price;
+  final String imageUrl;
   int quantity;
   bool isSelected = true;
 
   _CartItem({
     required this.name,
     required this.price,
+    required this.imageUrl,
     this.quantity = 1,
   });
 }
@@ -26,12 +28,20 @@ class _ShoppingCartScreenState extends State<ShoppingCartScreen> {
   final double totalBudget = 4000.00;
 
   final List<_CartItem> _items = [
-    _CartItem(name: "Lay's Classic Potato Chips", price: 320.00, quantity: 1),
-    _CartItem(name: "Coca-Cola 1.5L", price: 250.00, quantity: 1),
-    _CartItem(name: "Fresh Milk", price: 450.00, quantity: 2),
-    _CartItem(name: "Rice", price: 1250.00, quantity: 2),
-    _CartItem(name: "Bread", price: 300.00, quantity: 2),
+    _CartItem(name: "Lay's Classic Potato Chips", price: 320.00, quantity: 1, imageUrl: 'https://images.unsplash.com/photo-1566478989037-e92383833d7b?w=200'),
+    _CartItem(name: "Coca-Cola 1.5L", price: 250.00, quantity: 1, imageUrl: 'https://images.unsplash.com/photo-1622483767028-3f66f32aef97?w=200'),
+    _CartItem(name: "Fresh Milk", price: 450.00, quantity: 2, imageUrl: 'https://images.unsplash.com/photo-1550583724-b2692b85b150?w=200'),
+    _CartItem(name: "Rice", price: 1250.00, quantity: 2, imageUrl: 'https://images.unsplash.com/photo-1586201375761-83865001e31c?w=200'),
+    _CartItem(name: "Bread", price: 300.00, quantity: 2, imageUrl: 'https://images.unsplash.com/photo-1509440159596-0249088772ff?w=200'),
   ];
+
+  String _formatCurrency(double amount, {bool showDecimals = true}) {
+    String formatted = amount.abs().toStringAsFixed(showDecimals ? 2 : 0);
+    final parts = formatted.split('.');
+    final regExp = RegExp(r'\B(?=(\d{3})+(?!\d))');
+    parts[0] = parts[0].replaceAll(regExp, ',');
+    return '${amount < 0 ? '-' : ''}${showDecimals ? parts.join('.') : parts[0]}';
+  }
 
   double get _calculatedTotal {
     return _items.fold(0, (sum, item) {
@@ -132,14 +142,20 @@ class _ShoppingCartScreenState extends State<ShoppingCartScreen> {
               });
             },
           ),
-          Container(
-            width: 60,
-            height: 60,
-            decoration: BoxDecoration(
-              color: AppColors.inputBackground,
-              borderRadius: BorderRadius.circular(12),
+          ClipRRect(
+            borderRadius: BorderRadius.circular(12),
+            child: Image.network(
+              item.imageUrl,
+              width: 60,
+              height: 60,
+              fit: BoxFit.cover,
+              errorBuilder: (context, error, stackTrace) => Container(
+                width: 60,
+                height: 60,
+                color: AppColors.inputBackground,
+                child: const Icon(Icons.shopping_bag_outlined, color: AppColors.primary),
+              ),
             ),
-            child: const Icon(Icons.shopping_bag_outlined, color: AppColors.primary),
           ),
           const SizedBox(width: 12),
           Expanded(
@@ -156,7 +172,7 @@ class _ShoppingCartScreenState extends State<ShoppingCartScreen> {
                 ),
                 const SizedBox(height: 6),
                 Text(
-                  'Rs. ${item.price.toStringAsFixed(2)}',
+                  'Rs. ${_formatCurrency(item.price, showDecimals: false)}',
                   style: GoogleFonts.inter(
                     fontWeight: FontWeight.w800,
                     color: AppColors.primary,
@@ -259,7 +275,7 @@ class _ShoppingCartScreenState extends State<ShoppingCartScreen> {
                   ),
                 ),
                 Text(
-                  'Rs. ${total.toStringAsFixed(2)}',
+                  'Rs. ${_formatCurrency(total, showDecimals: true)}',
                   style: GoogleFonts.inter(
                     fontSize: 24,
                     fontWeight: FontWeight.w800,
@@ -292,7 +308,7 @@ class _ShoppingCartScreenState extends State<ShoppingCartScreen> {
                         ),
                       ),
                       Text(
-                        'Rs. ${remaining.toStringAsFixed(2)}',
+                        'Rs. ${_formatCurrency(remaining, showDecimals: true)}',
                         style: GoogleFonts.inter(
                           fontSize: 16,
                           fontWeight: FontWeight.w800,

@@ -25,7 +25,7 @@ import '../../presentation/recognition_result_screen.dart';
 
 class AppRouter {
   static final router = GoRouter(
-    initialLocation: '/cart',
+    initialLocation: '/splash',
     routes: [
       GoRoute(
         path: '/splash',

@@ -4,7 +4,7 @@ import 'core/routing/app_router.dart';
 import 'core/theme/app_theme.dart';
 import 'core/constants/app_constants.dart';
 import 'package:device_preview/device_preview.dart';
-import 'presentation/widgets/mobile_app_shell.dart';
+
 
 void main() {
   runApp(

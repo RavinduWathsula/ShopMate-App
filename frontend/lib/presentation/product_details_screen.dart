@@ -1,13 +1,15 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:google_fonts/google_fonts.dart';
 import '../core/theme/app_colors.dart';
-import 'widgets/shopmate_ai_assistant_widget.dart';
+import 'widgets/ai_insight_card.dart';
+import '../providers/basket_provider.dart';
 
-class ProductDetailsScreen extends StatelessWidget {
+class ProductDetailsScreen extends ConsumerWidget {
   const ProductDetailsScreen({super.key});
 
   @override
-  Widget build(BuildContext context) {
+  Widget build(BuildContext context, WidgetRef ref) {
     return Scaffold(
       backgroundColor: AppColors.background,
       appBar: AppBar(
@@ -39,12 +41,12 @@ class ProductDetailsScreen extends StatelessWidget {
                   const SizedBox(height: 24),
                   _buildInformationCards(context),
                   const SizedBox(height: 24),
-                  const ShopMateAiAssistantWidget(
+                  const AIInsightCard(
                     message: "Good choice for your current budget.",
-                    compact: true,
+                    state: AIInsightState.success,
                   ),
                   const SizedBox(height: 24),
-                  _buildAlternativeSection(context),
+                  _buildAlternativeSection(context, ref),
                   const SizedBox(height: 32),
                   _buildActions(context),
                   const SizedBox(height: 24),
@@ -252,7 +254,7 @@ class ProductDetailsScreen extends StatelessWidget {
 
 
 
-  Widget _buildAlternativeSection(BuildContext context) {
+  Widget _buildAlternativeSection(BuildContext context, WidgetRef ref) {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
@@ -352,7 +354,19 @@ class ProductDetailsScreen extends StatelessWidget {
                 ),
               ),
               ElevatedButton(
-                onPressed: () {},
+                onPressed: () {
+                  ref.read(basketProvider.notifier).addItem(
+                    BasketItem(
+                      id: 'alt1',
+                      name: 'Alternative Brand',
+                      price: 420,
+                      category: 'Dairy',
+                    )
+                  );
+                  ScaffoldMessenger.of(context).showSnackBar(
+                    const SnackBar(content: Text('Alternative Added to Cart')),
+                  );
+                },
                 style: ElevatedButton.styleFrom(
                   backgroundColor: AppColors.primary,
                   foregroundColor: Colors.white,
@@ -372,30 +386,47 @@ class ProductDetailsScreen extends StatelessWidget {
   }
 
   Widget _buildActions(BuildContext context) {
-    return ElevatedButton(
-      onPressed: () {},
-      style: ElevatedButton.styleFrom(
-        padding: const EdgeInsets.symmetric(vertical: 20),
-        shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(16)),
-        backgroundColor: AppColors.primary,
-        elevation: 8,
-        shadowColor: AppColors.primary.withValues(alpha: 0.4),
-      ),
-      child: Row(
-        mainAxisAlignment: MainAxisAlignment.center,
-        children: [
-          const Icon(Icons.shopping_cart_outlined, color: Colors.white),
-          const SizedBox(width: 12),
-          Text(
-            'Add to Cart',
-            style: GoogleFonts.inter(
-              fontSize: 18,
-              fontWeight: FontWeight.w700,
-              color: Colors.white,
-            ),
+    return Consumer(
+      builder: (context, ref, child) {
+        return ElevatedButton(
+          onPressed: () {
+            ref.read(basketProvider.notifier).addItem(
+              BasketItem(
+                id: 'p1',
+                name: 'Fresh Milk 1L',
+                price: 450,
+                category: 'Dairy',
+              )
+            );
+            ScaffoldMessenger.of(context).showSnackBar(
+              const SnackBar(content: Text('Added to Cart')),
+            );
+            Navigator.pop(context);
+          },
+          style: ElevatedButton.styleFrom(
+            padding: const EdgeInsets.symmetric(vertical: 20),
+            shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(16)),
+            backgroundColor: AppColors.primary,
+            elevation: 8,
+            shadowColor: AppColors.primary.withValues(alpha: 0.4),
           ),
-        ],
-      ),
+          child: Row(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: [
+              const Icon(Icons.shopping_cart_outlined, color: Colors.white),
+              const SizedBox(width: 12),
+              Text(
+                'Add to Cart',
+                style: GoogleFonts.inter(
+                  fontSize: 18,
+                  fontWeight: FontWeight.w700,
+                  color: Colors.white,
+                ),
+              ),
+            ],
+          ),
+        );
+      }
     );
   }
 }

@@ -10,6 +10,7 @@ import 'widgets/shopmate_product_card.dart';
 
 import '../providers/budget_provider.dart';
 import '../providers/shops_provider.dart';
+import '../providers/basket_provider.dart';
 
 class HomeDashboardScreen extends ConsumerStatefulWidget {
   const HomeDashboardScreen({super.key});
@@ -23,6 +24,7 @@ class _HomeDashboardScreenState extends ConsumerState<HomeDashboardScreen> {
   @override
   Widget build(BuildContext context) {
     final budgetState = ref.watch(budgetProvider);
+    final spentTotal = ref.watch(basketTotalProvider);
     return Scaffold(
       backgroundColor: AppColors.background,
       body: SafeArea(
@@ -47,7 +49,7 @@ class _HomeDashboardScreenState extends ConsumerState<HomeDashboardScreen> {
                 padding: const EdgeInsets.symmetric(horizontal: 20),
                 child: ShopMateBudgetCard(
                   budget: budgetState.budget,
-                  spent: budgetState.spent,
+                  spent: spentTotal,
                   onEdit: () => context.push('/budgetsetup'),
                 ),
               ),
@@ -64,7 +66,7 @@ class _HomeDashboardScreenState extends ConsumerState<HomeDashboardScreen> {
               Padding(
                 padding: const EdgeInsets.symmetric(horizontal: 20),
                 child: ShopMateAiAssistantWidget(
-                  message: "You're doing great! You can still add Rs. ${(budgetState.budget - budgetState.spent).toStringAsFixed(2)} more items to your cart.",
+                  message: "You're doing great! You can still add Rs. ${(budgetState.budget - spentTotal).toStringAsFixed(2)} more items to your cart.",
                   subtitle: "3 items from your shopping list are on discount today!",
                   actionLabel: "View Deals",
                   onTap: () => context.push('/discounts'),
@@ -457,8 +459,9 @@ class _HomeDashboardScreenState extends ConsumerState<HomeDashboardScreen> {
             location: "Aisle 2",
             onTap: () => context.push('/productdetails'),
             onAddToCart: () {
+              ref.read(basketProvider.notifier).addItem(BasketItem(id: 'p1', name: 'Fresh Milk 1L', price: 450, category: 'Dairy', imageUrl: 'https://images.unsplash.com/photo-1550583724-b2692b85b150?w=300&q=80'));
               ScaffoldMessenger.of(context).showSnackBar(
-                const SnackBar(content: Text('Added Fresh Milk to Smart Basket')),
+                const SnackBar(content: Text('Added Fresh Milk to Cart')),
               );
             },
           ),
@@ -473,8 +476,9 @@ class _HomeDashboardScreenState extends ConsumerState<HomeDashboardScreen> {
             location: "Aisle 4",
             onTap: () => context.push('/productdetails'),
             onAddToCart: () {
+              ref.read(basketProvider.notifier).addItem(BasketItem(id: 'p2', name: 'Classic Potato Chips', price: 288, category: 'Snacks', imageUrl: 'https://images.unsplash.com/photo-1566478989037-e624b1e984d0?w=300&q=80'));
               ScaffoldMessenger.of(context).showSnackBar(
-                const SnackBar(content: Text("Added Lay's Chips to Smart Basket")),
+                const SnackBar(content: Text("Added Lay's Chips to Cart")),
               );
             },
           ),
@@ -489,8 +493,9 @@ class _HomeDashboardScreenState extends ConsumerState<HomeDashboardScreen> {
             location: "Aisle 1",
             onTap: () => context.push('/productdetails'),
             onAddToCart: () {
+              ref.read(basketProvider.notifier).addItem(BasketItem(id: 'p3', name: 'Keeri Samba Rice 5kg', price: 1350, category: 'Pantry', imageUrl: 'https://images.unsplash.com/photo-1586201375761-83865001e8ac?w=300&q=80'));
               ScaffoldMessenger.of(context).showSnackBar(
-                const SnackBar(content: Text('Added Keeri Samba Rice to Smart Basket')),
+                const SnackBar(content: Text('Added Keeri Samba Rice to Cart')),
               );
             },
           ),
