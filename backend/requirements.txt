@@ -10,4 +10,4 @@ pydantic[email]
 pandas
 scikit-learn
 numpy
-
+types-python-jose

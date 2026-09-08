@@ -1,20 +1,12 @@
+
 import logging
 from sqlalchemy.orm import Session
-try:
-    from app.database.database import engine, Base, SessionLocal
-    from app.models.models import (
-        User, Shop, Category, Discount, Product, Inventory,
-        ProductLocation, ShoppingSession, ShoppingItem, Recommendation
-    )
-    from app.utils.security import get_password_hash
-except ImportError:
-    from backend.app.database.database import engine, Base, SessionLocal
-    from backend.app.models.models import (
-        User, Shop, Category, Discount, Product, Inventory,
-        ProductLocation, ShoppingSession, ShoppingItem, Recommendation
-    )
-    from backend.app.utils.security import get_password_hash
-
+from app.database.database import engine, Base, SessionLocal
+from app.models.models import (
+    User, Shop, Category, Discount, Product, Inventory,
+    ProductLocation, ShoppingSession, ShoppingItem, Recommendation
+)
+from app.utils.security import get_password_hash
 
 logger = logging.getLogger("shopmate.init_db")
 
