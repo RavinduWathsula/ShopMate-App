@@ -5,12 +5,42 @@ import 'package:google_fonts/google_fonts.dart';
 import '../core/theme/app_colors.dart';
 import 'widgets/shopmate_app_bar.dart';
 import '../providers/basket_provider.dart';
+import '../providers/shopping_list_provider.dart';
 
-class RecognitionResultScreen extends ConsumerWidget {
+class RecognitionResultScreen extends ConsumerStatefulWidget {
   const RecognitionResultScreen({super.key});
 
   @override
-  Widget build(BuildContext context, WidgetRef ref) {
+  ConsumerState<RecognitionResultScreen> createState() => _RecognitionResultScreenState();
+}
+
+class _RecognitionResultScreenState extends ConsumerState<RecognitionResultScreen> {
+  final String _productName = 'Kotmale Fresh Milk 1L';
+  final String _category = 'Dairy';
+  final double _price = 450.0;
+  final double _originalPrice = 520.0;
+
+  @override
+  void initState() {
+    super.initState();
+    // Ensure the recognized item is in the Shopping List
+    WidgetsBinding.instance.addPostFrameCallback((_) {
+      ref.read(shoppingListProvider.notifier).addItem(
+        ShoppingListItem(
+          id: 'rec_${DateTime.now().millisecondsSinceEpoch}',
+          name: _productName,
+          category: _category,
+          price: _price,
+          quantity: 1,
+          isChecked: false,
+          icon: Icons.local_drink_rounded,
+        ),
+      );
+    });
+  }
+
+  @override
+  Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: AppColors.background,
       appBar: const ShopMateAppBar(title: 'AI Product Recognition'),
@@ -20,35 +50,69 @@ class RecognitionResultScreen extends ConsumerWidget {
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.stretch,
             children: [
-              // Disclaimer
+              // Auto-Add Success Banner
               Container(
-                padding: const EdgeInsets.symmetric(vertical: 8, horizontal: 12),
+                padding: const EdgeInsets.symmetric(vertical: 12, horizontal: 16),
                 decoration: BoxDecoration(
-                  color: AppColors.aiPurpleLight.withValues(alpha: 0.3),
-                  borderRadius: BorderRadius.circular(8),
-                  border: Border.all(color: AppColors.aiPurple.withValues(alpha: 0.3)),
+                  gradient: const LinearGradient(
+                    colors: [Color(0xFFE8F8EE), Color(0xFFD1F2DD)],
+                    begin: Alignment.topLeft,
+                    end: Alignment.bottomRight,
+                  ),
+                  borderRadius: BorderRadius.circular(16),
+                  border: Border.all(color: AppColors.primaryGreen.withValues(alpha: 0.4)),
+                  boxShadow: [
+                    BoxShadow(
+                      color: AppColors.primaryGreen.withValues(alpha: 0.1),
+                      blurRadius: 10,
+                      offset: const Offset(0, 3),
+                    ),
+                  ],
                 ),
                 child: Row(
                   children: [
-                    const Icon(Icons.info_outline_rounded, color: AppColors.aiPurple, size: 16),
-                    const SizedBox(width: 8),
+                    Container(
+                      padding: const EdgeInsets.all(8),
+                      decoration: const BoxDecoration(
+                        color: AppColors.primaryGreenDark,
+                        shape: BoxShape.circle,
+                      ),
+                      child: const Icon(Icons.check_rounded, color: Colors.white, size: 16),
+                    ),
+                    const SizedBox(width: 12),
                     Expanded(
-                      child: Text(
-                        'Demo Mode: This is a simulated recognition result.',
-                        style: GoogleFonts.inter(fontSize: 12, color: AppColors.aiPurpleDark),
+                      child: Column(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: [
+                          Text(
+                            'Added to Your Shopping List!',
+                            style: GoogleFonts.inter(
+                              fontSize: 13.5,
+                              fontWeight: FontWeight.w700,
+                              color: AppColors.primaryGreenDark,
+                            ),
+                          ),
+                          Text(
+                            'Item recognized and saved in real-time.',
+                            style: GoogleFonts.inter(
+                              fontSize: 11.5,
+                              color: AppColors.textSecondary,
+                            ),
+                          ),
+                        ],
                       ),
                     ),
                   ],
                 ),
               ),
-              const SizedBox(height: 24),
+              const SizedBox(height: 20),
 
-              // Image & AI Badge Container
+              // Product Image & AI Badge
               Stack(
                 alignment: Alignment.topRight,
                 children: [
                   Container(
-                    height: 280,
+                    height: 240,
                     width: double.infinity,
                     decoration: BoxDecoration(
                       color: Colors.white,
@@ -64,41 +128,40 @@ class RecognitionResultScreen extends ConsumerWidget {
                     child: Center(
                       child: Icon(
                         Icons.local_drink_rounded,
-                        size: 120,
-                        color: AppColors.primaryGreen.withValues(alpha: 0.2),
+                        size: 110,
+                        color: AppColors.primaryGreen.withValues(alpha: 0.25),
                       ),
                     ),
                   ),
-                  // AI Badge
                   Positioned(
-                    top: 16,
-                    right: 16,
+                    top: 14,
+                    right: 14,
                     child: Container(
-                      padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 8),
+                      padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 6),
                       decoration: BoxDecoration(
                         gradient: const LinearGradient(
                           colors: [AppColors.aiPurple, AppColors.aiPurpleDark],
                         ),
-                        borderRadius: BorderRadius.circular(16),
+                        borderRadius: BorderRadius.circular(14),
                         boxShadow: [
                           BoxShadow(
-                            color: AppColors.aiPurple.withValues(alpha: 0.4),
-                            blurRadius: 10,
-                            offset: const Offset(0, 4),
+                            color: AppColors.aiPurple.withValues(alpha: 0.35),
+                            blurRadius: 8,
+                            offset: const Offset(0, 3),
                           )
                         ],
                       ),
                       child: Row(
                         mainAxisSize: MainAxisSize.min,
                         children: [
-                          const Icon(Icons.auto_awesome_rounded, color: Colors.white, size: 14),
+                          const Icon(Icons.auto_awesome_rounded, color: Colors.amberAccent, size: 14),
                           const SizedBox(width: 6),
                           Text(
-                            '94% Match',
+                            '96% AI Match',
                             style: GoogleFonts.inter(
                               color: Colors.white,
                               fontWeight: FontWeight.w800,
-                              fontSize: 12,
+                              fontSize: 11.5,
                             ),
                           ),
                         ],
@@ -107,27 +170,27 @@ class RecognitionResultScreen extends ConsumerWidget {
                   ),
                 ],
               ),
-              const SizedBox(height: 28),
+              const SizedBox(height: 20),
 
-              // Product Info
+              // Product Details
               Text(
-                'Fresh Milk 1L',
+                _productName,
                 style: GoogleFonts.inter(
-                  fontSize: 26,
+                  fontSize: 22,
                   fontWeight: FontWeight.w900,
                   color: AppColors.textPrimary,
                 ),
               ),
               const SizedBox(height: 4),
               Text(
-                'Brand A',
+                'Cargills Food City • Aisle 2 (Dairy & Beverages)',
                 style: GoogleFonts.inter(
-                  fontSize: 16,
+                  fontSize: 13,
                   fontWeight: FontWeight.w500,
                   color: AppColors.textSecondary,
                 ),
               ),
-              const SizedBox(height: 24),
+              const SizedBox(height: 20),
 
               // Info Cards Grid
               Row(
@@ -135,7 +198,7 @@ class RecognitionResultScreen extends ConsumerWidget {
                   Expanded(
                     child: _buildInfoCard(
                       'Category',
-                      'Dairy',
+                      _category,
                       Icons.category_rounded,
                       Colors.blue,
                     ),
@@ -143,8 +206,8 @@ class RecognitionResultScreen extends ConsumerWidget {
                   const SizedBox(width: 12),
                   Expanded(
                     child: _buildInfoCard(
-                      'Discount',
-                      '10% OFF',
+                      'Deal',
+                      '13% OFF',
                       Icons.local_offer_rounded,
                       AppColors.discount,
                     ),
@@ -156,8 +219,8 @@ class RecognitionResultScreen extends ConsumerWidget {
                 children: [
                   Expanded(
                     child: _buildInfoCard(
-                      'Original Price',
-                      'Rs. 500',
+                      'Regular Price',
+                      'Rs. ${_originalPrice.toStringAsFixed(0)}',
                       Icons.money_off_rounded,
                       AppColors.textSecondary,
                       crossout: true,
@@ -166,8 +229,8 @@ class RecognitionResultScreen extends ConsumerWidget {
                   const SizedBox(width: 12),
                   Expanded(
                     child: _buildInfoCard(
-                      'Final Price',
-                      'Rs. 450',
+                      'Cargills Price',
+                      'Rs. ${_price.toStringAsFixed(0)}',
                       Icons.check_circle_rounded,
                       AppColors.primaryGreenDark,
                       highlight: true,
@@ -175,18 +238,36 @@ class RecognitionResultScreen extends ConsumerWidget {
                   ),
                 ],
               ),
-              const SizedBox(height: 36),
+              const SizedBox(height: 28),
 
               // Action Buttons
-              ElevatedButton(
+              // 1. View in Shopping List
+              ElevatedButton.icon(
+                onPressed: () => context.push('/shoppinglist'),
+                icon: const Icon(Icons.checklist_rounded, color: Colors.white, size: 20),
+                label: Text(
+                  'View in Shopping List',
+                  style: GoogleFonts.inter(fontSize: 15.5, fontWeight: FontWeight.w700, color: Colors.white),
+                ),
+                style: ElevatedButton.styleFrom(
+                  backgroundColor: AppColors.primaryGreen,
+                  padding: const EdgeInsets.symmetric(vertical: 16),
+                  shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(16)),
+                  elevation: 0,
+                ),
+              ),
+              const SizedBox(height: 12),
+
+              // 2. Add to Cart / Smart Basket
+              OutlinedButton.icon(
                 onPressed: () {
                   ref.read(basketProvider.notifier).addItem(
                     BasketItem(
                       id: 'milk_1l',
-                      name: 'Fresh Milk 1L (Brand A)',
-                      price: 450.0,
-                      category: 'Dairy',
-                    )
+                      name: _productName,
+                      price: _price,
+                      category: _category,
+                    ),
                   );
                   ScaffoldMessenger.of(context).showSnackBar(
                     const SnackBar(
@@ -196,49 +277,27 @@ class RecognitionResultScreen extends ConsumerWidget {
                   );
                   context.push('/smartbasket');
                 },
-                style: ElevatedButton.styleFrom(
-                  backgroundColor: AppColors.primaryGreen,
+                icon: const Icon(Icons.shopping_bag_outlined, color: AppColors.primaryGreenDark, size: 20),
+                label: Text(
+                  'Move to Smart Basket',
+                  style: GoogleFonts.inter(fontSize: 15, fontWeight: FontWeight.w700, color: AppColors.primaryGreenDark),
+                ),
+                style: OutlinedButton.styleFrom(
+                  side: const BorderSide(color: AppColors.primaryGreen, width: 1.5),
                   padding: const EdgeInsets.symmetric(vertical: 16),
                   shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(16)),
                 ),
-                child: Text(
-                  'Add to Cart',
-                  style: GoogleFonts.inter(fontSize: 16, fontWeight: FontWeight.w700, color: Colors.white),
-                ),
               ),
               const SizedBox(height: 12),
-              Row(
-                children: [
-                  Expanded(
-                    child: OutlinedButton(
-                      onPressed: () => context.push('/camerarecognition'),
-                      style: OutlinedButton.styleFrom(
-                        padding: const EdgeInsets.symmetric(vertical: 16),
-                        side: const BorderSide(color: AppColors.border),
-                        shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(16)),
-                      ),
-                      child: Text(
-                        'Try Again',
-                        style: GoogleFonts.inter(fontSize: 15, fontWeight: FontWeight.w600, color: AppColors.textPrimary),
-                      ),
-                    ),
-                  ),
-                  const SizedBox(width: 12),
-                  Expanded(
-                    child: OutlinedButton(
-                      onPressed: () => context.push('/productdetails'),
-                      style: OutlinedButton.styleFrom(
-                        padding: const EdgeInsets.symmetric(vertical: 16),
-                        side: const BorderSide(color: AppColors.primaryGreen),
-                        shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(16)),
-                      ),
-                      child: Text(
-                        'View Details',
-                        style: GoogleFonts.inter(fontSize: 15, fontWeight: FontWeight.w600, color: AppColors.primaryGreenDark),
-                      ),
-                    ),
-                  ),
-                ],
+
+              // 3. Scan Another Item
+              TextButton.icon(
+                onPressed: () => context.push('/camerarecognition'),
+                icon: const Icon(Icons.camera_alt_outlined, color: AppColors.textSecondary, size: 18),
+                label: Text(
+                  'Scan Another Product',
+                  style: GoogleFonts.inter(fontSize: 14, fontWeight: FontWeight.w600, color: AppColors.textSecondary),
+                ),
               ),
               const SizedBox(height: 24),
             ],
@@ -250,43 +309,36 @@ class RecognitionResultScreen extends ConsumerWidget {
 
   Widget _buildInfoCard(String title, String value, IconData icon, Color color, {bool highlight = false, bool crossout = false}) {
     return Container(
-      padding: const EdgeInsets.all(16),
+      padding: const EdgeInsets.all(14),
       decoration: BoxDecoration(
-        color: highlight ? color.withValues(alpha: 0.1) : Colors.white,
+        color: highlight ? color.withValues(alpha: 0.08) : Colors.white,
         borderRadius: BorderRadius.circular(16),
         border: Border.all(color: highlight ? color.withValues(alpha: 0.3) : AppColors.border),
-        boxShadow: highlight ? [] : [
-          BoxShadow(
-            color: Colors.black.withValues(alpha: 0.02),
-            blurRadius: 10,
-            offset: const Offset(0, 4),
-          )
-        ],
       ),
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           Row(
             children: [
-              Icon(icon, size: 16, color: color),
-              const SizedBox(width: 8),
+              Icon(icon, color: color, size: 16),
+              const SizedBox(width: 6),
               Text(
                 title,
                 style: GoogleFonts.inter(
-                  fontSize: 11,
-                  fontWeight: FontWeight.w600,
+                  fontSize: 11.5,
+                  fontWeight: FontWeight.w500,
                   color: AppColors.textSecondary,
                 ),
               ),
             ],
           ),
-          const SizedBox(height: 8),
+          const SizedBox(height: 4),
           Text(
             value,
             style: GoogleFonts.inter(
-              fontSize: highlight ? 20 : 16,
+              fontSize: 15,
               fontWeight: FontWeight.w800,
-              color: color,
+              color: crossout ? AppColors.textMuted : AppColors.textPrimary,
               decoration: crossout ? TextDecoration.lineThrough : null,
             ),
           ),

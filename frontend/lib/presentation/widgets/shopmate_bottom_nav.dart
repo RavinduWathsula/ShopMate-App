@@ -15,19 +15,23 @@ class ShopMateBottomNav extends StatelessWidget {
     if (index == currentIndex) return;
     switch (index) {
       case 0:
-        context.go('/homedashboard');
+        if (context.canPop()) {
+          context.pop();
+        } else {
+          context.go('/homedashboard');
+        }
         break;
       case 1:
-        context.go('/shoppinglist');
+        context.push('/shoppinglist');
         break;
       case 2:
-        context.go('/recommendations');
+        context.push('/recommendations');
         break;
       case 3:
-        context.go('/smartbasket');
+        context.push('/smartbasket');
         break;
       case 4:
-        context.go('/profile');
+        context.push('/profile');
         break;
     }
   }

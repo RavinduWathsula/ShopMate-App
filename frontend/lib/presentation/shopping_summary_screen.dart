@@ -89,7 +89,7 @@ class _ShoppingSummaryScreenState extends ConsumerState<ShoppingSummaryScreen> w
   Widget _buildHeader() {
     return Container(
       width: double.infinity,
-      padding: EdgeInsets.only(top: MediaQuery.of(context).padding.top + 40, bottom: 40, left: 20, right: 20),
+      padding: EdgeInsets.only(top: MediaQuery.of(context).padding.top + 16, bottom: 40, left: 20, right: 20),
       decoration: const BoxDecoration(
         color: AppColors.primary,
         borderRadius: BorderRadius.only(
@@ -99,6 +99,31 @@ class _ShoppingSummaryScreenState extends ConsumerState<ShoppingSummaryScreen> w
       ),
       child: Column(
         children: [
+          Align(
+            alignment: Alignment.topLeft,
+            child: IconButton(
+              icon: Container(
+                padding: const EdgeInsets.all(6),
+                decoration: BoxDecoration(
+                  color: Colors.white.withValues(alpha: 0.25),
+                  shape: BoxShape.circle,
+                ),
+                child: const Icon(
+                  Icons.arrow_back_ios_new_rounded,
+                  size: 16,
+                  color: Colors.white,
+                ),
+              ),
+              onPressed: () {
+                if (context.canPop()) {
+                  context.pop();
+                } else {
+                  context.go('/homedashboard');
+                }
+              },
+            ),
+          ),
+          const SizedBox(height: 8),
           ScaleTransition(
             scale: _scaleAnimation,
             child: Container(

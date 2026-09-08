@@ -27,7 +27,7 @@ class ShopMateAppBar extends StatelessWidget implements PreferredSizeWidget {
       scrolledUnderElevation: 0,
       centerTitle: true,
       leading: leading ??
-          (showBack && context.canPop()
+          (showBack
               ? IconButton(
                   icon: Container(
                     padding: const EdgeInsets.all(6),
@@ -42,7 +42,13 @@ class ShopMateAppBar extends StatelessWidget implements PreferredSizeWidget {
                       color: AppColors.textPrimary,
                     ),
                   ),
-                  onPressed: () => context.pop(),
+                  onPressed: () {
+                    if (context.canPop()) {
+                      context.pop();
+                    } else {
+                      context.go('/homedashboard');
+                    }
+                  },
                 )
               : null),
       title: Text(

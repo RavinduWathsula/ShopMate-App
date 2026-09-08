@@ -42,7 +42,13 @@ class ShoppingCartScreen extends ConsumerWidget {
         ],
         leading: IconButton(
           icon: const Icon(Icons.arrow_back, color: Colors.white),
-          onPressed: () => Navigator.pop(context),
+          onPressed: () {
+            if (context.canPop()) {
+              context.pop();
+            } else {
+              context.go('/homedashboard');
+            }
+          },
         ),
       ),
       body: Column(

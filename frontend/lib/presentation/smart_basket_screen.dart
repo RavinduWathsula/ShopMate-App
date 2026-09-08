@@ -29,7 +29,13 @@ class _SmartBasketScreenState extends ConsumerState<SmartBasketScreen> {
         elevation: 0,
         leading: IconButton(
           icon: const Icon(Icons.arrow_back, color: Colors.white),
-          onPressed: () => context.pop(),
+          onPressed: () {
+            if (context.canPop()) {
+              context.pop();
+            } else {
+              context.go('/homedashboard');
+            }
+          },
         ),
       ),
       body: SingleChildScrollView(

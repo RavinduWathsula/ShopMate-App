@@ -65,7 +65,7 @@ class ShoppingListNotifier extends StateNotifier<List<ShoppingListItem>> {
           const ShoppingListItem(
             id: '3',
             name: 'Bread',
-            category: 'Bakery', // Mapped from original or just Household/Snacks? User categories: All, Dairy, Grains, Drinks, Snacks, Household. Let's make Bread 'Grains' or 'Snacks'. Let's say 'Grains'.
+            category: 'Bakery',
             price: 300.0,
             quantity: 1,
             isChecked: false,
@@ -83,7 +83,20 @@ class ShoppingListNotifier extends StateNotifier<List<ShoppingListItem>> {
         ]);
 
   void addItem(ShoppingListItem item) {
-    state = [...state, item];
+    // If an item with similar name already exists, increase its quantity
+    final existingIndex = state.indexWhere(
+      (i) => i.name.toLowerCase().trim() == item.name.toLowerCase().trim(),
+    );
+    if (existingIndex >= 0) {
+      final updated = List<ShoppingListItem>.from(state);
+      updated[existingIndex] = updated[existingIndex].copyWith(
+        quantity: updated[existingIndex].quantity + item.quantity,
+      );
+      state = updated;
+    } else {
+      // Add new item at the beginning of the list so user sees it right away
+      state = [item, ...state];
+    }
   }
 
   void removeItem(String id) {
@@ -94,7 +107,7 @@ class ShoppingListNotifier extends StateNotifier<List<ShoppingListItem>> {
     state = state.map((item) {
       if (item.id == id) {
         final newQuantity = item.quantity + delta;
-        if (newQuantity <= 0) return item; // Don't allow <= 0 here, UI should call removeItem
+        if (newQuantity <= 0) return item;
         return item.copyWith(quantity: newQuantity);
       }
       return item;
@@ -108,6 +121,10 @@ class ShoppingListNotifier extends StateNotifier<List<ShoppingListItem>> {
       }
       return item;
     }).toList();
+  }
+
+  void clearAll() {
+    state = [];
   }
 }
 

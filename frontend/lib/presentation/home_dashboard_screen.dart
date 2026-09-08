@@ -7,9 +7,7 @@ import 'widgets/shopmate_bottom_nav.dart';
 import 'widgets/shopmate_budget_card.dart';
 import 'widgets/shopmate_ai_assistant_widget.dart';
 import 'widgets/shopmate_product_card.dart';
-
 import '../providers/budget_provider.dart';
-import '../providers/shops_provider.dart';
 import '../providers/basket_provider.dart';
 
 class HomeDashboardScreen extends ConsumerStatefulWidget {
@@ -21,10 +19,157 @@ class HomeDashboardScreen extends ConsumerStatefulWidget {
 
 class _HomeDashboardScreenState extends ConsumerState<HomeDashboardScreen> {
 
+  void _showNotificationSheet(BuildContext context) {
+    showModalBottomSheet(
+      context: context,
+      backgroundColor: Colors.white,
+      shape: const RoundedRectangleBorder(
+        borderRadius: BorderRadius.vertical(top: Radius.circular(24)),
+      ),
+      builder: (ctx) => Container(
+        padding: const EdgeInsets.all(22),
+        child: Column(
+          mainAxisSize: MainAxisSize.min,
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            Row(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              children: [
+                Row(
+                  children: [
+                    Container(
+                      padding: const EdgeInsets.all(8),
+                      decoration: BoxDecoration(
+                        color: const Color(0xFFFFEBEE),
+                        borderRadius: BorderRadius.circular(12),
+                      ),
+                      child: const Icon(Icons.notifications_active_rounded, color: Color(0xFFC62828), size: 22),
+                    ),
+                    const SizedBox(width: 12),
+                    Text(
+                      'Store Alerts & Updates',
+                      style: GoogleFonts.inter(
+                        fontSize: 17,
+                        fontWeight: FontWeight.w700,
+                        color: AppColors.textPrimary,
+                      ),
+                    ),
+                  ],
+                ),
+                IconButton(
+                  icon: const Icon(Icons.close_rounded, color: AppColors.textSecondary),
+                  onPressed: () => Navigator.pop(ctx),
+                ),
+              ],
+            ),
+            const SizedBox(height: 16),
+            _buildNotificationItem(
+              '🔥 Weekend Saver is Live!',
+              'Extra 15% off on fresh produce and pantry staples at Cargills Food City.',
+              '10 mins ago',
+              Icons.local_offer_rounded,
+              AppColors.discount,
+            ),
+            const SizedBox(height: 12),
+            _buildNotificationItem(
+              '📍 In-Store Fast Lane Ready',
+              'You are in Cargills Union Place. Scan items directly to your smart basket.',
+              '1 hour ago',
+              Icons.storefront_rounded,
+              AppColors.primaryGreen,
+            ),
+            const SizedBox(height: 12),
+            _buildNotificationItem(
+              '💡 Budget Advisory',
+              'You have used 0% of your Rs. 4,000 budget. Keep it up!',
+              '2 hours ago',
+              Icons.savings_rounded,
+              AppColors.aiPurple,
+            ),
+            const SizedBox(height: 16),
+          ],
+        ),
+      ),
+    );
+  }
+
+  Widget _buildNotificationItem(String title, String desc, String time, IconData icon, Color color) {
+    return Container(
+      padding: const EdgeInsets.all(14),
+      decoration: BoxDecoration(
+        color: color.withValues(alpha: 0.06),
+        borderRadius: BorderRadius.circular(14),
+        border: Border.all(color: color.withValues(alpha: 0.15)),
+      ),
+      child: Row(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          Icon(icon, color: color, size: 20),
+          const SizedBox(width: 12),
+          Expanded(
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                Text(
+                  title,
+                  style: GoogleFonts.inter(fontSize: 13.5, fontWeight: FontWeight.w700, color: AppColors.textPrimary),
+                ),
+                const SizedBox(height: 2),
+                Text(
+                  desc,
+                  style: GoogleFonts.inter(fontSize: 11.5, color: AppColors.textSecondary, height: 1.3),
+                ),
+                const SizedBox(height: 4),
+                Text(
+                  time,
+                  style: GoogleFonts.inter(fontSize: 10, color: AppColors.textMuted),
+                ),
+              ],
+            ),
+          ),
+        ],
+      ),
+    );
+  }
+
+  void _addProductToCart(String id, String name, double price, String category) {
+    ref.read(basketProvider.notifier).addItem(
+      BasketItem(id: id, name: name, price: price, category: category),
+    );
+    ScaffoldMessenger.of(context).hideCurrentSnackBar();
+    ScaffoldMessenger.of(context).showSnackBar(
+      SnackBar(
+        content: Row(
+          children: [
+            const Icon(Icons.check_circle_rounded, color: Colors.white, size: 20),
+            const SizedBox(width: 10),
+            Expanded(
+              child: Text(
+                'Added $name to cart (Rs. ${price.toStringAsFixed(0)})',
+                style: GoogleFonts.inter(fontWeight: FontWeight.w600),
+              ),
+            ),
+          ],
+        ),
+        backgroundColor: AppColors.primaryGreenDark,
+        behavior: SnackBarBehavior.floating,
+        shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(12)),
+        duration: const Duration(seconds: 2),
+        action: SnackBarAction(
+          label: 'VIEW CART',
+          textColor: Colors.amberAccent,
+          onPressed: () => context.push('/cart'),
+        ),
+      ),
+    );
+  }
+
   @override
   Widget build(BuildContext context) {
     final budgetState = ref.watch(budgetProvider);
     final spentTotal = ref.watch(basketTotalProvider);
+    final cartItems = ref.watch(basketProvider);
+
     return Scaffold(
       backgroundColor: AppColors.background,
       body: SafeArea(
@@ -33,17 +178,19 @@ class _HomeDashboardScreenState extends ConsumerState<HomeDashboardScreen> {
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              // Top Bar: Greeting & Notifications
-              _buildTopBar(context),
-              
+              // Top Bar: Greeting & Notifications & Cart Shortcut
+              _buildTopBar(context, cartItems.length),
+
               const SizedBox(height: 14),
-              // Supermarket Store Selector Card
+
+              // Exclusive Cargills Food City Store Identity Banner (No generic switcher)
               Padding(
                 padding: const EdgeInsets.symmetric(horizontal: 20),
-                child: _buildStoreSelector(context),
+                child: _buildCargillsStoreBanner(context),
               ),
 
-              const SizedBox(height: 20),
+              const SizedBox(height: 18),
+
               // Large Purple/Green Budget Card
               Padding(
                 padding: const EdgeInsets.symmetric(horizontal: 20),
@@ -54,52 +201,60 @@ class _HomeDashboardScreenState extends ConsumerState<HomeDashboardScreen> {
                 ),
               ),
 
-              const SizedBox(height: 24),
-              // Quick Actions Grid
+              const SizedBox(height: 22),
+
+              // Quick Actions Grid (All working buttons)
               Padding(
                 padding: const EdgeInsets.symmetric(horizontal: 20),
                 child: _buildQuickActions(context),
               ),
 
               const SizedBox(height: 22),
+
               // Friendly ShopMate AI Assistant Insight Card
               Padding(
                 padding: const EdgeInsets.symmetric(horizontal: 20),
                 child: ShopMateAiAssistantWidget(
-                  message: "You're doing great! You can still add Rs. ${(budgetState.budget - spentTotal).toStringAsFixed(2)} more items to your cart.",
-                  subtitle: "3 items from your shopping list are on discount today!",
+                  message: spentTotal == 0
+                      ? "Ready for shopping at Cargills! You have Rs. ${budgetState.budget.toStringAsFixed(2)} available."
+                      : "You have Rs. ${(budgetState.budget - spentTotal).toStringAsFixed(2)} remaining within your budget.",
+                  subtitle: "4 special weekly deals match your shopping list today!",
                   actionLabel: "View Deals",
                   onTap: () => context.push('/discounts'),
                 ),
               ),
 
               const SizedBox(height: 28),
+
               // Today's Deals Section
               _buildSectionHeader(
                 context,
-                title: "Today's Deals",
-                badgeText: "HOT",
+                title: "Cargills Food City Deals",
+                badgeText: "HOT SAVINGS",
                 onSeeAll: () => context.push('/discounts'),
               ),
               const SizedBox(height: 14),
               _buildDealsCarousel(context),
 
               const SizedBox(height: 28),
+
               // Recommended For You (AI-Powered)
               _buildSectionHeader(
                 context,
                 title: "Recommended For You",
-                subtitle: "Based on your spending habits",
+                subtitle: "Smart suggestions tailored for your pantry",
                 onSeeAll: () => context.push('/recommendations'),
               ),
               const SizedBox(height: 14),
               _buildRecommendationsList(context),
 
               const SizedBox(height: 28),
+
               // Popular Supermarket Products
               _buildSectionHeader(
                 context,
-                title: "Popular in Food City",
+                title: "Popular at Cargills Food City",
+                subtitle: "Top-selling groceries this week",
                 onSeeAll: () => context.push('/shoppinglist'),
               ),
               const SizedBox(height: 14),
@@ -114,7 +269,7 @@ class _HomeDashboardScreenState extends ConsumerState<HomeDashboardScreen> {
     );
   }
 
-  Widget _buildTopBar(BuildContext context) {
+  Widget _buildTopBar(BuildContext context, int cartCount) {
     return Padding(
       padding: const EdgeInsets.fromLTRB(20, 16, 20, 0),
       child: Row(
@@ -138,177 +293,346 @@ class _HomeDashboardScreenState extends ConsumerState<HomeDashboardScreen> {
                 ],
               ),
               const SizedBox(height: 2),
-              Text(
-                'Let\'s shop smart and save today',
-                style: GoogleFonts.inter(
-                  fontSize: 13,
-                  color: AppColors.textSecondary,
-                  fontWeight: FontWeight.w500,
-                ),
-              ),
-            ],
-          ),
-          // Notification Icon with badge
-          InkWell(
-            onTap: () => context.push('/settings'),
-            borderRadius: BorderRadius.circular(16),
-            child: Container(
-              padding: const EdgeInsets.all(10),
-              decoration: BoxDecoration(
-                color: Colors.white,
-                shape: BoxShape.circle,
-                border: Border.all(color: AppColors.border),
-                boxShadow: [
-                  BoxShadow(
-                    color: Colors.black.withValues(alpha: 0.04),
-                    blurRadius: 10,
-                    offset: const Offset(0, 3),
-                  ),
-                ],
-              ),
-              child: Stack(
-                clipBehavior: Clip.none,
+              Row(
                 children: [
-                  const Icon(
-                    Icons.notifications_none_rounded,
-                    color: AppColors.textPrimary,
-                    size: 24,
+                  Container(
+                    width: 7,
+                    height: 7,
+                    decoration: const BoxDecoration(
+                      color: AppColors.primaryGreen,
+                      shape: BoxShape.circle,
+                    ),
                   ),
-                  Positioned(
-                    top: 0,
-                    right: 0,
-                    child: Container(
-                      width: 8,
-                      height: 8,
-                      decoration: const BoxDecoration(
-                        color: AppColors.discount,
-                        shape: BoxShape.circle,
-                      ),
+                  const SizedBox(width: 6),
+                  Text(
+                    'Smart shopping at Cargills Food City',
+                    style: GoogleFonts.inter(
+                      fontSize: 12.5,
+                      color: AppColors.textSecondary,
+                      fontWeight: FontWeight.w500,
                     ),
                   ),
                 ],
               ),
-            ),
+            ],
+          ),
+          Row(
+            children: [
+              // Notification Bell
+              InkWell(
+                onTap: () => _showNotificationSheet(context),
+                borderRadius: BorderRadius.circular(16),
+                child: Container(
+                  padding: const EdgeInsets.all(10),
+                  decoration: BoxDecoration(
+                    color: Colors.white,
+                    shape: BoxShape.circle,
+                    border: Border.all(color: AppColors.border),
+                    boxShadow: [
+                      BoxShadow(
+                        color: Colors.black.withValues(alpha: 0.04),
+                        blurRadius: 10,
+                        offset: const Offset(0, 3),
+                      ),
+                    ],
+                  ),
+                  child: Stack(
+                    clipBehavior: Clip.none,
+                    children: [
+                      const Icon(
+                        Icons.notifications_none_rounded,
+                        color: AppColors.textPrimary,
+                        size: 22,
+                      ),
+                      Positioned(
+                        top: -1,
+                        right: -1,
+                        child: Container(
+                          width: 8,
+                          height: 8,
+                          decoration: const BoxDecoration(
+                            color: Color(0xFFC62828),
+                            shape: BoxShape.circle,
+                          ),
+                        ),
+                      ),
+                    ],
+                  ),
+                ),
+              ),
+              const SizedBox(width: 10),
+              // Cart Shortcut
+              InkWell(
+                onTap: () => context.push('/cart'),
+                borderRadius: BorderRadius.circular(16),
+                child: Container(
+                  padding: const EdgeInsets.all(10),
+                  decoration: BoxDecoration(
+                    color: Colors.white,
+                    shape: BoxShape.circle,
+                    border: Border.all(color: AppColors.border),
+                    boxShadow: [
+                      BoxShadow(
+                        color: Colors.black.withValues(alpha: 0.04),
+                        blurRadius: 10,
+                        offset: const Offset(0, 3),
+                      ),
+                    ],
+                  ),
+                  child: Stack(
+                    clipBehavior: Clip.none,
+                    children: [
+                      const Icon(
+                        Icons.shopping_bag_outlined,
+                        color: AppColors.textPrimary,
+                        size: 22,
+                      ),
+                      if (cartCount > 0)
+                        Positioned(
+                          top: -4,
+                          right: -6,
+                          child: Container(
+                            padding: const EdgeInsets.all(3),
+                            decoration: const BoxDecoration(
+                              color: AppColors.primaryGreenDark,
+                              shape: BoxShape.circle,
+                            ),
+                            child: Text(
+                              '$cartCount',
+                              style: const TextStyle(
+                                color: Colors.white,
+                                fontSize: 9,
+                                fontWeight: FontWeight.bold,
+                              ),
+                            ),
+                          ),
+                        ),
+                    ],
+                  ),
+                ),
+              ),
+            ],
           ),
         ],
       ),
     );
   }
 
-  Widget _buildStoreSelector(BuildContext context) {
-    final selectedStore = ref.watch(selectedStoreProvider);
+  // --- Exclusive Cargills Food City Store Identity Banner ---
+  Widget _buildCargillsStoreBanner(BuildContext context) {
     return Container(
-      padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 12),
+      width: double.infinity,
+      padding: const EdgeInsets.all(16),
       decoration: BoxDecoration(
-        color: Colors.white,
-        borderRadius: BorderRadius.circular(18),
-        border: Border.all(color: AppColors.border),
+        borderRadius: BorderRadius.circular(20),
+        gradient: const LinearGradient(
+          colors: [
+            Color(0xFFC62828), // Cargills Signature Red
+            Color(0xFFD32F2F),
+            Color(0xFFB71C1C),
+          ],
+          begin: Alignment.topLeft,
+          end: Alignment.bottomRight,
+        ),
         boxShadow: [
           BoxShadow(
-            color: Colors.black.withValues(alpha: 0.03),
-            blurRadius: 12,
-            offset: const Offset(0, 3),
+            color: const Color(0xFFC62828).withValues(alpha: 0.28),
+            blurRadius: 16,
+            offset: const Offset(0, 6),
           ),
         ],
       ),
-      child: Row(
+      child: Column(
         children: [
-          Container(
-            padding: const EdgeInsets.all(10),
-            decoration: BoxDecoration(
-              color: AppColors.primaryLight,
-              borderRadius: BorderRadius.circular(12),
-            ),
-            child: const Icon(
-              Icons.storefront_rounded,
-              color: AppColors.primaryGreenDark,
-              size: 22,
-            ),
-          ),
-          const SizedBox(width: 14),
-          Expanded(
-            child: Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: [
-                Text(
-                  'CURRENT SUPERMARKET',
-                  style: GoogleFonts.inter(
-                    fontSize: 10,
-                    fontWeight: FontWeight.w700,
-                    color: AppColors.textMuted,
-                    letterSpacing: 0.6,
+          Row(
+            children: [
+              // Cargills Emblem
+              Container(
+                width: 46,
+                height: 46,
+                decoration: BoxDecoration(
+                  color: Colors.white,
+                  borderRadius: BorderRadius.circular(14),
+                  boxShadow: [
+                    BoxShadow(
+                      color: Colors.black.withValues(alpha: 0.12),
+                      blurRadius: 8,
+                      offset: const Offset(0, 2),
+                    ),
+                  ],
+                ),
+                child: const Center(
+                  child: Icon(
+                    Icons.storefront_rounded,
+                    color: Color(0xFFC62828),
+                    size: 26,
                   ),
                 ),
-                const SizedBox(height: 2),
-                Text(
-                  selectedStore,
-                  style: GoogleFonts.inter(
-                    fontSize: 14,
-                    fontWeight: FontWeight.w700,
-                    color: AppColors.textPrimary,
+              ),
+              const SizedBox(width: 14),
+              Expanded(
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    Row(
+                      children: [
+                        Text(
+                          'Cargills Food City',
+                          style: GoogleFonts.inter(
+                            fontSize: 16.5,
+                            fontWeight: FontWeight.w800,
+                            color: Colors.white,
+                            letterSpacing: -0.2,
+                          ),
+                        ),
+                        const SizedBox(width: 6),
+                        const Icon(
+                          Icons.verified_rounded,
+                          color: Colors.amberAccent,
+                          size: 16,
+                        ),
+                      ],
+                    ),
+                    const SizedBox(height: 2),
+                    Text(
+                      'Union Place Flagship • Smart Assistant Active',
+                      style: GoogleFonts.inter(
+                        fontSize: 11.5,
+                        color: Colors.white.withValues(alpha: 0.9),
+                        fontWeight: FontWeight.w500,
+                      ),
+                    ),
+                  ],
+                ),
+              ),
+            ],
+          ),
+          const SizedBox(height: 14),
+          // Interactive Action Pills on the Banner
+          Container(
+            padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 8),
+            decoration: BoxDecoration(
+              color: Colors.black.withValues(alpha: 0.15),
+              borderRadius: BorderRadius.circular(12),
+            ),
+            child: Row(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              children: [
+                Row(
+                  children: [
+                    const Icon(Icons.wifi_tethering_rounded, color: Colors.greenAccent, size: 15),
+                    const SizedBox(width: 6),
+                    Text(
+                      'In-Store Connected',
+                      style: GoogleFonts.inter(
+                        fontSize: 11,
+                        color: Colors.white,
+                        fontWeight: FontWeight.w600,
+                      ),
+                    ),
+                  ],
+                ),
+                // Direct shortcut to Store Map
+                InkWell(
+                  onTap: () => context.push('/storemap'),
+                  borderRadius: BorderRadius.circular(8),
+                  child: Container(
+                    padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 4),
+                    decoration: BoxDecoration(
+                      color: Colors.white,
+                      borderRadius: BorderRadius.circular(8),
+                    ),
+                    child: Row(
+                      mainAxisSize: MainAxisSize.min,
+                      children: [
+                        const Icon(Icons.map_rounded, color: Color(0xFFC62828), size: 14),
+                        const SizedBox(width: 5),
+                        Text(
+                          'Aisle Map',
+                          style: GoogleFonts.inter(
+                            fontSize: 11,
+                            fontWeight: FontWeight.w700,
+                            color: const Color(0xFFC62828),
+                          ),
+                        ),
+                      ],
+                    ),
                   ),
                 ),
               ],
             ),
           ),
-          TextButton(
-            onPressed: () => context.push('/supermarketselection'),
-            style: TextButton.styleFrom(
-              backgroundColor: AppColors.primaryLight,
-              foregroundColor: AppColors.primaryGreenDark,
-              padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 6),
-              shape: RoundedRectangleBorder(
-                borderRadius: BorderRadius.circular(12),
-              ),
-            ),
-            child: Text(
-              'Change',
-              style: GoogleFonts.inter(
-                fontSize: 12,
-                fontWeight: FontWeight.w700,
-              ),
-            ),
-          ),
         ],
       ),
     );
   }
 
+  // --- Quick Actions Grid (All 6 Working Buttons) ---
   Widget _buildQuickActions(BuildContext context) {
-    return Row(
-      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+    return Column(
       children: [
-        _buildActionTile(
-          context,
-          icon: Icons.shopping_basket_rounded,
-          title: 'Start\nShopping',
-          bgColor: const Color(0xFFE8F8EE),
-          iconColor: AppColors.primaryGreen,
-          onTap: () => context.push('/smartbasket'),
+        Row(
+          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+          children: [
+            _buildActionTile(
+              context,
+              icon: Icons.shopping_basket_rounded,
+              title: 'Smart\nBasket',
+              bgColor: const Color(0xFFE8F8EE),
+              iconColor: AppColors.primaryGreen,
+              onTap: () => context.push('/smartbasket'),
+            ),
+            _buildActionTile(
+              context,
+              icon: Icons.qr_code_scanner_rounded,
+              title: 'Scan &\nIdentify',
+              bgColor: const Color(0xFFF3E8FF),
+              iconColor: AppColors.aiPurple,
+              onTap: () => context.push('/camerarecognition'),
+            ),
+            _buildActionTile(
+              context,
+              icon: Icons.checklist_rounded,
+              title: 'Shopping\nList',
+              bgColor: const Color(0xFFFFF7ED),
+              iconColor: AppColors.dealOrange,
+              onTap: () => context.push('/shoppinglist'),
+            ),
+            _buildActionTile(
+              context,
+              icon: Icons.auto_awesome_rounded,
+              title: 'AI\nDeals',
+              bgColor: const Color(0xFFEFF6FF),
+              iconColor: AppColors.electricBlue,
+              onTap: () => context.push('/discounts'),
+            ),
+          ],
         ),
-        _buildActionTile(
-          context,
-          icon: Icons.document_scanner_rounded,
-          title: 'Identify\nProduct',
-          bgColor: const Color(0xFFF3E8FF),
-          iconColor: AppColors.aiPurple,
-          onTap: () => context.push('/camerarecognition'),
-        ),
-        _buildActionTile(
-          context,
-          icon: Icons.checklist_rounded,
-          title: 'Shopping\nList',
-          bgColor: const Color(0xFFFFF7ED),
-          iconColor: AppColors.dealOrange,
-          onTap: () => context.push('/shoppinglist'),
-        ),
-        _buildActionTile(
-          context,
-          icon: Icons.auto_awesome_rounded,
-          title: 'AI\nAssistant',
-          bgColor: const Color(0xFFEFF6FF),
-          iconColor: AppColors.electricBlue,
-          onTap: () => context.push('/recommendations'),
+        const SizedBox(height: 12),
+        Row(
+          children: [
+            Expanded(
+              child: _buildWideActionTile(
+                context,
+                icon: Icons.alt_route_rounded,
+                title: 'Aisle Navigator',
+                subtitle: 'Find items in Food City',
+                color: const Color(0xFFC62828),
+                onTap: () => context.push('/storemap'),
+              ),
+            ),
+            const SizedBox(width: 12),
+            Expanded(
+              child: _buildWideActionTile(
+                context,
+                icon: Icons.pie_chart_outline_rounded,
+                title: 'Spending Insights',
+                subtitle: 'Track monthly savings',
+                color: AppColors.aiPurple,
+                onTap: () => context.push('/spendinganalytics'),
+              ),
+            ),
+          ],
         ),
       ],
     );
@@ -326,7 +650,7 @@ class _HomeDashboardScreenState extends ConsumerState<HomeDashboardScreen> {
       onTap: onTap,
       borderRadius: BorderRadius.circular(20),
       child: Container(
-        width: 76,
+        width: 78,
         padding: const EdgeInsets.symmetric(vertical: 12),
         decoration: BoxDecoration(
           color: Colors.white,
@@ -348,7 +672,7 @@ class _HomeDashboardScreenState extends ConsumerState<HomeDashboardScreen> {
                 color: bgColor,
                 shape: BoxShape.circle,
               ),
-              child: Icon(icon, color: iconColor, size: 24),
+              child: Icon(icon, color: iconColor, size: 22),
             ),
             const SizedBox(height: 8),
             Text(
@@ -359,6 +683,70 @@ class _HomeDashboardScreenState extends ConsumerState<HomeDashboardScreen> {
                 fontWeight: FontWeight.w600,
                 color: AppColors.textPrimary,
                 height: 1.2,
+              ),
+            ),
+          ],
+        ),
+      ),
+    );
+  }
+
+  Widget _buildWideActionTile(
+    BuildContext context, {
+    required IconData icon,
+    required String title,
+    required String subtitle,
+    required Color color,
+    required VoidCallback onTap,
+  }) {
+    return InkWell(
+      onTap: onTap,
+      borderRadius: BorderRadius.circular(16),
+      child: Container(
+        padding: const EdgeInsets.symmetric(horizontal: 14, vertical: 12),
+        decoration: BoxDecoration(
+          color: Colors.white,
+          borderRadius: BorderRadius.circular(16),
+          border: Border.all(color: AppColors.border),
+          boxShadow: [
+            BoxShadow(
+              color: Colors.black.withValues(alpha: 0.03),
+              blurRadius: 8,
+              offset: const Offset(0, 2),
+            ),
+          ],
+        ),
+        child: Row(
+          children: [
+            Container(
+              padding: const EdgeInsets.all(8),
+              decoration: BoxDecoration(
+                color: color.withValues(alpha: 0.1),
+                borderRadius: BorderRadius.circular(10),
+              ),
+              child: Icon(icon, color: color, size: 20),
+            ),
+            const SizedBox(width: 10),
+            Expanded(
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  Text(
+                    title,
+                    style: GoogleFonts.inter(
+                      fontSize: 12.5,
+                      fontWeight: FontWeight.w700,
+                      color: AppColors.textPrimary,
+                    ),
+                  ),
+                  Text(
+                    subtitle,
+                    style: GoogleFonts.inter(
+                      fontSize: 10.5,
+                      color: AppColors.textSecondary,
+                    ),
+                  ),
+                ],
               ),
             ),
           ],
@@ -379,50 +767,55 @@ class _HomeDashboardScreenState extends ConsumerState<HomeDashboardScreen> {
       child: Row(
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: [
-          Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: [
-              Row(
-                children: [
-                  Text(
-                    title,
-                    style: GoogleFonts.inter(
-                      fontSize: 17,
-                      fontWeight: FontWeight.w800,
-                      color: AppColors.textPrimary,
-                    ),
-                  ),
-                  if (badgeText != null) ...[
-                    const SizedBox(width: 8),
-                    Container(
-                      padding: const EdgeInsets.symmetric(horizontal: 6, vertical: 2),
-                      decoration: BoxDecoration(
-                        color: AppColors.discount,
-                        borderRadius: BorderRadius.circular(6),
-                      ),
+          Expanded(
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                Row(
+                  children: [
+                    Flexible(
                       child: Text(
-                        badgeText,
+                        title,
                         style: GoogleFonts.inter(
-                          fontSize: 9,
+                          fontSize: 17,
                           fontWeight: FontWeight.w800,
-                          color: Colors.white,
+                          color: AppColors.textPrimary,
+                        ),
+                        overflow: TextOverflow.ellipsis,
+                      ),
+                    ),
+                    if (badgeText != null) ...[
+                      const SizedBox(width: 8),
+                      Container(
+                        padding: const EdgeInsets.symmetric(horizontal: 6, vertical: 2),
+                        decoration: BoxDecoration(
+                          color: const Color(0xFFC62828),
+                          borderRadius: BorderRadius.circular(6),
+                        ),
+                        child: Text(
+                          badgeText,
+                          style: GoogleFonts.inter(
+                            fontSize: 9,
+                            fontWeight: FontWeight.w800,
+                            color: Colors.white,
+                          ),
                         ),
                       ),
-                    ),
+                    ],
                   ],
-                ],
-              ),
-              if (subtitle != null) ...[
-                const SizedBox(height: 2),
-                Text(
-                  subtitle,
-                  style: GoogleFonts.inter(
-                    fontSize: 12,
-                    color: AppColors.textSecondary,
-                  ),
                 ),
+                if (subtitle != null) ...[
+                  const SizedBox(height: 2),
+                  Text(
+                    subtitle,
+                    style: GoogleFonts.inter(
+                      fontSize: 12,
+                      color: AppColors.textSecondary,
+                    ),
+                  ),
+                ],
               ],
-            ],
+            ),
           ),
           if (onSeeAll != null)
             TextButton(
@@ -443,44 +836,46 @@ class _HomeDashboardScreenState extends ConsumerState<HomeDashboardScreen> {
 
   Widget _buildDealsCarousel(BuildContext context) {
     return SizedBox(
-      height: 235,
+      height: 240,
       child: ListView(
         scrollDirection: Axis.horizontal,
         physics: const BouncingScrollPhysics(),
         padding: const EdgeInsets.symmetric(horizontal: 20),
         children: [
           ShopMateProductCard(
-            brand: "Elephant House",
-            name: "Fresh Milk 1L",
+            brand: "Kotmale",
+            name: "Pasteurized Fresh Milk 1L",
             size: "1000 ml",
             price: 450,
             originalPrice: 520,
             productIcon: Icons.local_drink_rounded,
-            location: "Aisle 2",
+            location: "Aisle 2 • Dairy",
             onTap: () => context.push('/productdetails'),
-            onAddToCart: () {
-              ref.read(basketProvider.notifier).addItem(BasketItem(id: 'p1', name: 'Fresh Milk 1L', price: 450, category: 'Dairy', imageUrl: 'https://images.unsplash.com/photo-1550583724-b2692b85b150?w=300&q=80'));
-              ScaffoldMessenger.of(context).showSnackBar(
-                const SnackBar(content: Text('Added Fresh Milk to Cart')),
-              );
-            },
+            onAddToCart: () => _addProductToCart('deal1', 'Kotmale Fresh Milk 1L', 450, 'Dairy'),
           ),
           const SizedBox(width: 14),
           ShopMateProductCard(
-            brand: "Lay's",
-            name: "Classic Potato Chips",
-            size: "120g",
-            price: 288,
-            originalPrice: 320,
-            productIcon: Icons.lunch_dining_rounded,
-            location: "Aisle 4",
+            brand: "Cargills Kist",
+            name: "Real Strawberry Jam",
+            size: "300g",
+            price: 380,
+            originalPrice: 440,
+            productIcon: Icons.breakfast_dining_rounded,
+            location: "Aisle 3 • Spreads",
             onTap: () => context.push('/productdetails'),
-            onAddToCart: () {
-              ref.read(basketProvider.notifier).addItem(BasketItem(id: 'p2', name: 'Classic Potato Chips', price: 288, category: 'Snacks', imageUrl: 'https://images.unsplash.com/photo-1566478989037-e624b1e984d0?w=300&q=80'));
-              ScaffoldMessenger.of(context).showSnackBar(
-                const SnackBar(content: Text("Added Lay's Chips to Cart")),
-              );
-            },
+            onAddToCart: () => _addProductToCart('deal2', 'Cargills Kist Strawberry Jam', 380, 'Pantry'),
+          ),
+          const SizedBox(width: 14),
+          ShopMateProductCard(
+            brand: "Munchee",
+            name: "Super Cream Cracker",
+            size: "500g",
+            price: 360,
+            originalPrice: 410,
+            productIcon: Icons.cookie_outlined,
+            location: "Aisle 4 • Biscuits",
+            onTap: () => context.push('/productdetails'),
+            onAddToCart: () => _addProductToCart('deal3', 'Munchee Cream Cracker', 360, 'Snacks'),
           ),
           const SizedBox(width: 14),
           ShopMateProductCard(
@@ -490,14 +885,9 @@ class _HomeDashboardScreenState extends ConsumerState<HomeDashboardScreen> {
             price: 1350,
             originalPrice: 1550,
             productIcon: Icons.grain_rounded,
-            location: "Aisle 1",
+            location: "Aisle 1 • Rice & Flour",
             onTap: () => context.push('/productdetails'),
-            onAddToCart: () {
-              ref.read(basketProvider.notifier).addItem(BasketItem(id: 'p3', name: 'Keeri Samba Rice 5kg', price: 1350, category: 'Pantry', imageUrl: 'https://images.unsplash.com/photo-1586201375761-83865001e8ac?w=300&q=80'));
-              ScaffoldMessenger.of(context).showSnackBar(
-                const SnackBar(content: Text('Added Keeri Samba Rice to Cart')),
-              );
-            },
+            onAddToCart: () => _addProductToCart('deal4', 'Araliya Keeri Samba 5kg', 1350, 'Grains'),
           ),
         ],
       ),
@@ -506,27 +896,12 @@ class _HomeDashboardScreenState extends ConsumerState<HomeDashboardScreen> {
 
   Widget _buildRecommendationsList(BuildContext context) {
     return SizedBox(
-      height: 235,
+      height: 240,
       child: ListView(
         scrollDirection: Axis.horizontal,
         physics: const BouncingScrollPhysics(),
         padding: const EdgeInsets.symmetric(horizontal: 20),
         children: [
-          ShopMateProductCard(
-            brand: "Prima",
-            name: "Special Crust Bread",
-            size: "450g",
-            price: 190,
-            productIcon: Icons.bakery_dining_rounded,
-            location: "Bakery",
-            onTap: () => context.push('/productdetails'),
-            onAddToCart: () {
-              ScaffoldMessenger.of(context).showSnackBar(
-                const SnackBar(content: Text('Added Bread to Smart Basket')),
-              );
-            },
-          ),
-          const SizedBox(width: 14),
           ShopMateProductCard(
             brand: "Anchor",
             name: "Full Cream Milk Powder",
@@ -534,28 +909,32 @@ class _HomeDashboardScreenState extends ConsumerState<HomeDashboardScreen> {
             price: 1080,
             originalPrice: 1150,
             productIcon: Icons.coffee_rounded,
-            location: "Aisle 3",
+            location: "Aisle 2 • Milk Powder",
             onTap: () => context.push('/productdetails'),
-            onAddToCart: () {
-              ScaffoldMessenger.of(context).showSnackBar(
-                const SnackBar(content: Text('Added Milk Powder to Smart Basket')),
-              );
-            },
+            onAddToCart: () => _addProductToCart('rec1', 'Anchor Milk Powder 400g', 1080, 'Dairy'),
           ),
           const SizedBox(width: 14),
           ShopMateProductCard(
-            brand: "Sunlight",
-            name: "Lemon Soap 4-Pack",
-            size: "400g",
-            price: 420,
-            productIcon: Icons.clean_hands_rounded,
-            location: "Aisle 5",
+            brand: "Elephant House",
+            name: "Cream Soda 1.5L",
+            size: "1500 ml",
+            price: 390,
+            originalPrice: 420,
+            productIcon: Icons.local_bar_rounded,
+            location: "Aisle 5 • Beverages",
             onTap: () => context.push('/productdetails'),
-            onAddToCart: () {
-              ScaffoldMessenger.of(context).showSnackBar(
-                const SnackBar(content: Text('Added Sunlight Soap to Smart Basket')),
-              );
-            },
+            onAddToCart: () => _addProductToCart('rec2', 'Cream Soda 1.5L', 390, 'Beverages'),
+          ),
+          const SizedBox(width: 14),
+          ShopMateProductCard(
+            brand: "Cargills Gold",
+            name: "Pure Ghee 180ml",
+            size: "180 ml",
+            price: 790,
+            productIcon: Icons.soup_kitchen_rounded,
+            location: "Aisle 3 • Cooking",
+            onTap: () => context.push('/productdetails'),
+            onAddToCart: () => _addProductToCart('rec3', 'Cargills Gold Pure Ghee', 790, 'Cooking'),
           ),
         ],
       ),
@@ -576,26 +955,18 @@ class _HomeDashboardScreenState extends ConsumerState<HomeDashboardScreen> {
             originalPrice: 1100,
             productIcon: Icons.soup_kitchen_rounded,
             onTap: () => context.push('/productdetails'),
-            onAddToCart: () {
-              ScaffoldMessenger.of(context).showSnackBar(
-                const SnackBar(content: Text('Added Cooking Oil to Smart Basket')),
-              );
-            },
+            onAddToCart: () => _addProductToCart('pop1', 'Fortune Sunflower Oil 1L', 980, 'Pantry'),
           ),
           const SizedBox(height: 12),
           ShopMateProductCard(
             isCompact: true,
             brand: "Kotmale",
-            name: "Pasteurized Fresh Eggs",
+            name: "Fresh Farm Eggs (Pack of 10)",
             size: "Pack of 10",
             price: 460,
             productIcon: Icons.egg_rounded,
             onTap: () => context.push('/productdetails'),
-            onAddToCart: () {
-              ScaffoldMessenger.of(context).showSnackBar(
-                const SnackBar(content: Text('Added Fresh Eggs to Smart Basket')),
-              );
-            },
+            onAddToCart: () => _addProductToCart('pop2', 'Kotmale Fresh Eggs (10s)', 460, 'Fresh'),
           ),
         ],
       ),

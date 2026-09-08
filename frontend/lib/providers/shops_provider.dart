@@ -9,6 +9,6 @@ final shopsProvider = FutureProvider<List<dynamic>>((ref) async {
 });
 
 // Provides the currently selected store name for the UI
-final selectedStoreProvider = StateProvider<String>((ref) => 'Food City');
+final selectedStoreProvider = StateProvider<String>((ref) => 'Cargills Food City');
 
 
