@@ -13,7 +13,6 @@ import '../../presentation/product_details_screen.dart';
 import '../../presentation/shopping_cart_screen.dart';
 import '../../presentation/smart_basket_screen.dart';
 import '../../presentation/discounts_screen.dart';
-import '../../presentation/recommendations_screen.dart';
 import '../../presentation/product_location_screen.dart';
 import '../../presentation/store_map_screen.dart';
 import '../../presentation/shopping_summary_screen.dart';
@@ -85,7 +84,7 @@ class AppRouter {
       ),
       GoRoute(
         path: '/recommendations',
-        builder: (context, state) => const RecommendationsScreen(),
+        builder: (context, state) => const DiscountsScreen(),
       ),
       GoRoute(
         path: '/productlocation',

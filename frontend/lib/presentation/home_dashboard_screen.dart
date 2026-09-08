@@ -238,12 +238,12 @@ class _HomeDashboardScreenState extends ConsumerState<HomeDashboardScreen> {
 
               const SizedBox(height: 28),
 
-              // Recommended For You (AI-Powered)
+              // Featured Pantry Picks (Cargills Best Sellers)
               _buildSectionHeader(
                 context,
-                title: "Recommended For You",
-                subtitle: "Smart suggestions tailored for your pantry",
-                onSeeAll: () => context.push('/recommendations'),
+                title: "Featured Pantry Picks",
+                subtitle: "Special offers and household favorites",
+                onSeeAll: () => context.push('/discounts'),
               ),
               const SizedBox(height: 14),
               _buildRecommendationsList(context),
@@ -600,10 +600,10 @@ class _HomeDashboardScreenState extends ConsumerState<HomeDashboardScreen> {
             ),
             _buildActionTile(
               context,
-              icon: Icons.auto_awesome_rounded,
-              title: 'AI\nDeals',
-              bgColor: const Color(0xFFEFF6FF),
-              iconColor: AppColors.electricBlue,
+              icon: Icons.local_offer_rounded,
+              title: 'Weekly\nDeals',
+              bgColor: const Color(0xFFFFF1F2),
+              iconColor: const Color(0xFFC62828),
               onTap: () => context.push('/discounts'),
             ),
           ],

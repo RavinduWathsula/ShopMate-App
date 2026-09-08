@@ -1,9 +1,11 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:go_router/go_router.dart';
 import 'package:google_fonts/google_fonts.dart';
 import '../../core/theme/app_colors.dart';
+import '../../providers/basket_provider.dart';
 
-class ShopMateBottomNav extends StatelessWidget {
+class ShopMateBottomNav extends ConsumerWidget {
   final int currentIndex;
 
   const ShopMateBottomNav({
@@ -25,19 +27,18 @@ class ShopMateBottomNav extends StatelessWidget {
         context.push('/shoppinglist');
         break;
       case 2:
-        context.push('/recommendations');
+        context.push('/cart');
         break;
       case 3:
-        context.push('/smartbasket');
-        break;
-      case 4:
         context.push('/profile');
         break;
     }
   }
 
   @override
-  Widget build(BuildContext context) {
+  Widget build(BuildContext context, WidgetRef ref) {
+    final cartCount = ref.watch(basketProvider).length;
+
     return Container(
       decoration: BoxDecoration(
         color: Colors.white,
@@ -52,16 +53,15 @@ class ShopMateBottomNav extends StatelessWidget {
       child: SafeArea(
         child: Container(
           height: 68,
-          padding: const EdgeInsets.symmetric(horizontal: 8),
+          padding: const EdgeInsets.symmetric(horizontal: 16),
           child: Row(
-            mainAxisAlignment: MainAxisAlignment.spaceAround,
+            mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
               _buildNavItem(context, 0, Icons.home_rounded, 'HOME'),
-              _buildNavItem(context, 1, Icons.storefront_rounded, 'SHOP'),
+              _buildNavItem(context, 1, Icons.checklist_rounded, 'LIST'),
               _buildCenterScanButton(context),
-              _buildNavItem(context, 2, Icons.auto_awesome_rounded, 'AI', isAi: true),
-              _buildNavItem(context, 3, Icons.shopping_bag_outlined, 'CART', badgeCount: 3),
-              _buildNavItem(context, 4, Icons.person_outline_rounded, 'PROFILE'),
+              _buildNavItem(context, 2, Icons.shopping_bag_outlined, 'CART', badgeCount: cartCount),
+              _buildNavItem(context, 3, Icons.person_outline_rounded, 'PROFILE'),
             ],
           ),
         ),
@@ -69,15 +69,15 @@ class ShopMateBottomNav extends StatelessWidget {
     );
   }
 
-  Widget _buildNavItem(BuildContext context, int index, IconData icon, String label, {bool isAi = false, int? badgeCount}) {
+  Widget _buildNavItem(BuildContext context, int index, IconData icon, String label, {int? badgeCount}) {
     final isSelected = currentIndex == index;
-    final activeColor = isAi ? AppColors.aiPurple : AppColors.primaryGreen;
+    const activeColor = AppColors.primaryGreen;
 
     return InkWell(
       onTap: () => _onItemTapped(context, index),
       borderRadius: BorderRadius.circular(16),
       child: Padding(
-        padding: const EdgeInsets.symmetric(horizontal: 6, vertical: 4),
+        padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 6),
         child: Column(
           mainAxisSize: MainAxisSize.min,
           children: [
@@ -142,19 +142,19 @@ class ShopMateBottomNav extends StatelessWidget {
         mainAxisSize: MainAxisSize.min,
         children: [
           Container(
-            width: 48,
-            height: 48,
+            width: 50,
+            height: 50,
             margin: const EdgeInsets.only(bottom: 2),
             decoration: BoxDecoration(
               gradient: const LinearGradient(
-                colors: [AppColors.primaryGreen, AppColors.aiPurple],
+                colors: [Color(0xFF00C853), Color(0xFF009624)],
                 begin: Alignment.topLeft,
                 end: Alignment.bottomRight,
               ),
               shape: BoxShape.circle,
               boxShadow: [
                 BoxShadow(
-                  color: AppColors.primaryGreen.withValues(alpha: 0.35),
+                  color: AppColors.primaryGreen.withValues(alpha: 0.38),
                   blurRadius: 10,
                   offset: const Offset(0, 4),
                 ),
@@ -163,13 +163,13 @@ class ShopMateBottomNav extends StatelessWidget {
             child: const Icon(
               Icons.camera_alt_rounded,
               color: Colors.white,
-              size: 24,
+              size: 26,
             ),
           ),
           Text(
             'SCAN',
             style: GoogleFonts.inter(
-              fontSize: 9,
+              fontSize: 9.5,
               fontWeight: FontWeight.w800,
               color: AppColors.primaryGreenDark,
               letterSpacing: 0.5,

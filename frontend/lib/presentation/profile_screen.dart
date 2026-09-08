@@ -226,7 +226,7 @@ class _ProfileScreenState extends ConsumerState<ProfileScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: AppColors.background,
-      bottomNavigationBar: const ShopMateBottomNav(currentIndex: 4),
+      bottomNavigationBar: const ShopMateBottomNav(currentIndex: 3),
       body: CustomScrollView(
         physics: const BouncingScrollPhysics(),
         slivers: [

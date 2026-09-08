@@ -29,14 +29,6 @@ class _ShoppingListScreenState extends ConsumerState<ShoppingListScreen> {
     'Household',
   ];
 
-  final List<Map<String, dynamic>> _quickStaples = [
-    {'name': 'Fresh Milk 1L', 'price': 450.0, 'category': 'Dairy', 'icon': Icons.local_drink_rounded},
-    {'name': 'Prima Bread', 'price': 190.0, 'category': 'Bakery', 'icon': Icons.bakery_dining_rounded},
-    {'name': 'Farm Eggs (6s)', 'price': 320.0, 'category': 'Dairy', 'icon': Icons.egg_rounded},
-    {'name': 'Watawala Tea', 'price': 420.0, 'category': 'Drinks', 'icon': Icons.emoji_food_beverage_rounded},
-    {'name': 'Munchee Cracker', 'price': 240.0, 'category': 'Snacks', 'icon': Icons.cookie_outlined},
-  ];
-
   IconData _iconForCategory(String category) {
     switch (category.toLowerCase()) {
       case 'dairy':
@@ -54,35 +46,6 @@ class _ShoppingListScreenState extends ConsumerState<ShoppingListScreen> {
       default:
         return Icons.shopping_basket_rounded;
     }
-  }
-
-  void _addQuickStaple(Map<String, dynamic> staple) {
-    final newItem = ShoppingListItem(
-      id: 'item_${DateTime.now().millisecondsSinceEpoch}',
-      name: staple['name'],
-      category: staple['category'],
-      price: staple['price'],
-      quantity: 1,
-      isChecked: false,
-      icon: staple['icon'],
-    );
-    ref.read(shoppingListProvider.notifier).addItem(newItem);
-
-    ScaffoldMessenger.of(context).hideCurrentSnackBar();
-    ScaffoldMessenger.of(context).showSnackBar(
-      SnackBar(
-        content: Row(
-          children: [
-            const Icon(Icons.check_circle_rounded, color: Colors.white, size: 18),
-            const SizedBox(width: 8),
-            Text('Added ${staple['name']} to list'),
-          ],
-        ),
-        backgroundColor: AppColors.primaryGreenDark,
-        behavior: SnackBarBehavior.floating,
-        duration: const Duration(milliseconds: 1500),
-      ),
-    );
   }
 
   void _addNewItemDialog() {
@@ -341,34 +304,7 @@ class _ShoppingListScreenState extends ConsumerState<ShoppingListScreen> {
               ),
             ),
 
-            // Quick Add Staples Bar
-            SizedBox(
-              height: 38,
-              child: ListView.separated(
-                scrollDirection: Axis.horizontal,
-                padding: const EdgeInsets.symmetric(horizontal: 20),
-                itemCount: _quickStaples.length,
-                separatorBuilder: (context, index) => const SizedBox(width: 8),
-                itemBuilder: (context, index) {
-                  final staple = _quickStaples[index];
-                  return ActionChip(
-                    avatar: const Icon(Icons.add_rounded, size: 16, color: AppColors.primaryGreenDark),
-                    label: Text('+ ${staple['name']}'),
-                    onPressed: () => _addQuickStaple(staple),
-                    backgroundColor: Colors.white,
-                    side: const BorderSide(color: AppColors.border),
-                    labelStyle: GoogleFonts.inter(
-                      fontSize: 11.5,
-                      fontWeight: FontWeight.w600,
-                      color: AppColors.textPrimary,
-                    ),
-                    shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(10)),
-                  );
-                },
-              ),
-            ),
-
-            const SizedBox(height: 10),
+            const SizedBox(height: 4),
 
             // Category Horizontal Filters
             SizedBox(
@@ -413,29 +349,49 @@ class _ShoppingListScreenState extends ConsumerState<ShoppingListScreen> {
             Expanded(
               child: filteredItems.isEmpty
                   ? Center(
-                      child: Column(
-                        mainAxisAlignment: MainAxisAlignment.center,
-                        children: [
-                          Icon(Icons.shopping_bag_outlined, size: 48, color: Colors.grey.shade300),
-                          const SizedBox(height: 10),
-                          Text(
-                            _searchQuery.isNotEmpty
-                                ? 'No items match "$_searchQuery"'
-                                : 'Your shopping list is empty',
-                            style: GoogleFonts.inter(color: AppColors.textSecondary, fontWeight: FontWeight.w600),
-                          ),
-                          const SizedBox(height: 8),
-                          ElevatedButton.icon(
-                            onPressed: _addNewItemDialog,
-                            icon: const Icon(Icons.add, size: 16),
-                            label: const Text('Add an Item'),
-                            style: ElevatedButton.styleFrom(
-                              backgroundColor: AppColors.primaryGreen,
-                              foregroundColor: Colors.white,
-                              elevation: 0,
+                      child: SingleChildScrollView(
+                        padding: const EdgeInsets.symmetric(horizontal: 32, vertical: 24),
+                        child: Column(
+                          mainAxisAlignment: MainAxisAlignment.center,
+                          children: [
+                            Container(
+                              width: 88,
+                              height: 88,
+                              decoration: BoxDecoration(
+                                color: AppColors.primaryGreen.withValues(alpha: 0.08),
+                                shape: BoxShape.circle,
+                              ),
+                              child: const Icon(
+                                Icons.checklist_rtl_rounded,
+                                size: 44,
+                                color: AppColors.primaryGreen,
+                              ),
                             ),
-                          ),
-                        ],
+                            const SizedBox(height: 18),
+                            Text(
+                              _searchQuery.isNotEmpty
+                                  ? 'No items match "$_searchQuery"'
+                                  : 'Your shopping list is empty',
+                              style: GoogleFonts.inter(
+                                color: AppColors.textPrimary,
+                                fontWeight: FontWeight.w700,
+                                fontSize: 16,
+                              ),
+                            ),
+                            const SizedBox(height: 8),
+                            Text(
+                              _searchQuery.isNotEmpty
+                                  ? 'Check spelling or choose a different category.'
+                                  : 'Use the + button at the top right to add items, or tap the camera icon to scan barcodes automatically.',
+                              textAlign: TextAlign.center,
+                              style: GoogleFonts.inter(
+                                color: AppColors.textSecondary,
+                                fontSize: 13,
+                                height: 1.4,
+                              ),
+                            ),
+                          ],
+                        ),
                       ),
                     )
                   : ListView.separated(
