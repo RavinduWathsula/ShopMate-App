@@ -11,3 +11,4 @@ pandas
 scikit-learn
 numpy
 types-python-jose
+pillow
