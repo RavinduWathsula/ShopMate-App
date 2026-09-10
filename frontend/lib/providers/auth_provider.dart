@@ -21,13 +21,27 @@ class AuthNotifier extends StateNotifier<AsyncValue<bool>> {
     state = AsyncValue.data(token != null);
   }
 
-  Future<void> login(String email, String password) async {
+  Future<bool> login(String email, String password) async {
     state = const AsyncValue.loading();
     try {
       final success = await _authService.login(email, password);
       state = AsyncValue.data(success);
+      return success;
     } catch (e) {
       state = AsyncValue.error(e, StackTrace.current);
+      return false;
+    }
+  }
+
+  Future<bool> register(String email, String password) async {
+    state = const AsyncValue.loading();
+    try {
+      final success = await _authService.register(email, password);
+      state = AsyncValue.data(success);
+      return success;
+    } catch (e) {
+      state = AsyncValue.error(e, StackTrace.current);
+      return false;
     }
   }
 

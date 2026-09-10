@@ -1,15 +1,17 @@
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
 import '../../core/theme/app_colors.dart';
+import '../../providers/auth_provider.dart';
 
-class LoginScreen extends StatefulWidget {
+class LoginScreen extends ConsumerStatefulWidget {
   const LoginScreen({super.key});
 
   @override
-  State<LoginScreen> createState() => _LoginScreenState();
+  ConsumerState<LoginScreen> createState() => _LoginScreenState();
 }
 
-class _LoginScreenState extends State<LoginScreen> {
+class _LoginScreenState extends ConsumerState<LoginScreen> {
   final _formKey = GlobalKey<FormState>();
   final _emailController = TextEditingController();
   final _passwordController = TextEditingController();
@@ -24,14 +26,30 @@ class _LoginScreenState extends State<LoginScreen> {
     super.dispose();
   }
 
-  void _handleLogin() {
+  Future<void> _handleLogin() async {
     if (_formKey.currentState!.validate()) {
-      context.go('/homedashboard');
+      final success = await ref.read(authStateProvider.notifier).login(
+        _emailController.text,
+        _passwordController.text,
+      );
+      
+      if (mounted) {
+        if (success) {
+          context.go('/homedashboard');
+        } else {
+          ScaffoldMessenger.of(context).showSnackBar(
+            const SnackBar(content: Text('Invalid email or password. Please try again.')),
+          );
+        }
+      }
     }
   }
 
   @override
   Widget build(BuildContext context) {
+    final authState = ref.watch(authStateProvider);
+    final isLoading = authState is AsyncLoading;
+
     return Scaffold(
       backgroundColor: Colors.white,
       appBar: AppBar(
@@ -223,8 +241,14 @@ class _LoginScreenState extends State<LoginScreen> {
                       ),
                       elevation: 0,
                     ),
-                    onPressed: _handleLogin,
-                    child: const Text('Login', style: TextStyle(fontSize: 16, fontWeight: FontWeight.bold)),
+                    onPressed: isLoading ? null : _handleLogin,
+                    child: isLoading 
+                        ? const SizedBox(
+                            width: 24, 
+                            height: 24, 
+                            child: CircularProgressIndicator(color: Colors.white, strokeWidth: 2)
+                          )
+                        : const Text('Login', style: TextStyle(fontSize: 16, fontWeight: FontWeight.bold)),
                   ),
                   const SizedBox(height: 32),
                   

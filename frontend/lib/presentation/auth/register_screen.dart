@@ -1,15 +1,17 @@
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
 import '../../core/theme/app_colors.dart';
+import '../../providers/auth_provider.dart';
 
-class RegisterScreen extends StatefulWidget {
+class RegisterScreen extends ConsumerStatefulWidget {
   const RegisterScreen({super.key});
 
   @override
-  State<RegisterScreen> createState() => _RegisterScreenState();
+  ConsumerState<RegisterScreen> createState() => _RegisterScreenState();
 }
 
-class _RegisterScreenState extends State<RegisterScreen> {
+class _RegisterScreenState extends ConsumerState<RegisterScreen> {
   final _formKey = GlobalKey<FormState>();
   final _nameController = TextEditingController();
   final _emailController = TextEditingController();
@@ -29,7 +31,7 @@ class _RegisterScreenState extends State<RegisterScreen> {
     super.dispose();
   }
 
-  void _handleRegister() {
+  Future<void> _handleRegister() async {
     if (_formKey.currentState!.validate()) {
       if (!_termsAccepted) {
         ScaffoldMessenger.of(context).showSnackBar(
@@ -37,8 +39,21 @@ class _RegisterScreenState extends State<RegisterScreen> {
         );
         return;
       }
-      // Mock registration success
-      context.go('/homedashboard');
+      
+      final success = await ref.read(authStateProvider.notifier).register(
+        _emailController.text,
+        _passwordController.text,
+      );
+
+      if (mounted) {
+        if (success) {
+          context.go('/homedashboard');
+        } else {
+          ScaffoldMessenger.of(context).showSnackBar(
+            const SnackBar(content: Text('Registration failed. Email might already be in use.')),
+          );
+        }
+      }
     }
   }
 
@@ -73,6 +88,9 @@ class _RegisterScreenState extends State<RegisterScreen> {
 
   @override
   Widget build(BuildContext context) {
+    final authState = ref.watch(authStateProvider);
+    final isLoading = authState is AsyncLoading;
+
     return Scaffold(
       backgroundColor: Colors.white,
       appBar: AppBar(
@@ -270,8 +288,14 @@ class _RegisterScreenState extends State<RegisterScreen> {
                       ),
                       elevation: 0,
                     ),
-                    onPressed: _handleRegister,
-                    child: const Text('Create Account', style: TextStyle(fontSize: 16, fontWeight: FontWeight.bold)),
+                    onPressed: isLoading ? null : _handleRegister,
+                    child: isLoading 
+                        ? const SizedBox(
+                            width: 24, 
+                            height: 24, 
+                            child: CircularProgressIndicator(color: Colors.white, strokeWidth: 2)
+                          )
+                        : const Text('Create Account', style: TextStyle(fontSize: 16, fontWeight: FontWeight.bold)),
                   ),
                   const SizedBox(height: 24),
                   
