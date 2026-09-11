@@ -1,18 +1,20 @@
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 import 'package:shared_preferences/shared_preferences.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
+import '../../providers/auth_provider.dart';
 import 'dart:math' as math;
 import '../../core/theme/app_colors.dart';
 import 'package:google_fonts/google_fonts.dart';
 
-class SplashScreen extends StatefulWidget {
+class SplashScreen extends ConsumerStatefulWidget {
   const SplashScreen({super.key});
 
   @override
-  State<SplashScreen> createState() => _SplashScreenState();
+  ConsumerState<SplashScreen> createState() => _SplashScreenState();
 }
 
-class _SplashScreenState extends State<SplashScreen> with TickerProviderStateMixin {
+class _SplashScreenState extends ConsumerState<SplashScreen> with TickerProviderStateMixin {
   late AnimationController _mainController;
   late AnimationController _floatController;
   
@@ -71,8 +73,14 @@ class _SplashScreenState extends State<SplashScreen> with TickerProviderStateMix
       if (!mounted) return;
 
       if (hasCompletedOnboarding) {
-        // Normally go to login or home depending on auth state
-        context.go('/login');
+        final authState = ref.read(authStateProvider);
+        final isLoggedIn = authState.valueOrNull ?? false;
+        
+        if (isLoggedIn) {
+          context.go('/homedashboard');
+        } else {
+          context.go('/login');
+        }
       } else {
         context.go('/onboarding');
       }

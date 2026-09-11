@@ -27,7 +27,7 @@ class AuthService {
         'email': email,
         'password': password,
       });
-      return await login(email, password);
+      return true;
     } catch (e) {
       return false;
     }

@@ -47,10 +47,18 @@ class _RegisterScreenState extends ConsumerState<RegisterScreen> {
 
       if (mounted) {
         if (success) {
-          context.go('/homedashboard');
+          ScaffoldMessenger.of(context).showSnackBar(
+            const SnackBar(content: Text('Registration successful. Please login.')),
+          );
+          // Wait briefly so the user sees the success message
+          Future.delayed(const Duration(seconds: 1), () {
+            if (mounted) {
+              context.go('/login');
+            }
+          });
         } else {
           ScaffoldMessenger.of(context).showSnackBar(
-            const SnackBar(content: Text('Registration failed. Email might already be in use.')),
+            const SnackBar(content: Text('Registration failed. Email might already be in use or network error.')),
           );
         }
       }

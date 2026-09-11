@@ -37,7 +37,7 @@ class AuthNotifier extends StateNotifier<AsyncValue<bool>> {
     state = const AsyncValue.loading();
     try {
       final success = await _authService.register(email, password);
-      state = AsyncValue.data(success);
+      state = const AsyncValue.data(false);
       return success;
     } catch (e) {
       state = AsyncValue.error(e, StackTrace.current);
