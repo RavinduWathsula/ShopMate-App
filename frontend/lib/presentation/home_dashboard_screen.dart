@@ -281,7 +281,7 @@ class _HomeDashboardScreenState extends ConsumerState<HomeDashboardScreen> {
               Row(
                 children: [
                   Text(
-                    'Hello, Ravindu',
+                    'Hello, Shopper',
                     style: GoogleFonts.inter(
                       fontSize: 22,
                       fontWeight: FontWeight.w800,

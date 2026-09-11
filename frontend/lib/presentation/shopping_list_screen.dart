@@ -171,12 +171,14 @@ class _ShoppingListScreenState extends ConsumerState<ShoppingListScreen> {
 
                           ref.read(shoppingListProvider.notifier).addItem(newItem);
                           
-                          // Ensure new item is visible in current filter
-                          setState(() {
-                            _selectedCategory = 'All';
-                          });
-
                           Navigator.pop(ctx);
+
+                          // Ensure new item is visible in current filter
+                          if (mounted) {
+                            setState(() {
+                              _selectedCategory = 'All';
+                            });
+                          }
 
                           ScaffoldMessenger.of(context).showSnackBar(
                             SnackBar(

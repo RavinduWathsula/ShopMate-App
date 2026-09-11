@@ -4,6 +4,7 @@ import 'package:go_router/go_router.dart';
 import 'package:google_fonts/google_fonts.dart';
 import '../core/theme/app_colors.dart';
 import '../providers/shopping_list_provider.dart';
+import '../providers/basket_provider.dart';
 
 class CameraRecognitionScreen extends ConsumerStatefulWidget {
   const CameraRecognitionScreen({super.key});
@@ -45,17 +46,14 @@ class _CameraRecognitionScreenState extends ConsumerState<CameraRecognitionScree
   void _captureProduct([Map<String, dynamic>? product]) {
     final selected = product ?? _quickSampleProducts[0];
 
-    // Automatically add to Shopping List in real time!
-    final newItem = ShoppingListItem(
+    // Automatically add to Cart in real time!
+    final newItem = BasketItem(
       id: 'scan_${DateTime.now().millisecondsSinceEpoch}',
       name: selected['name'],
       category: selected['category'],
       price: selected['price'],
-      quantity: 1,
-      isChecked: false,
-      icon: selected['icon'],
     );
-    ref.read(shoppingListProvider.notifier).addItem(newItem);
+    ref.read(basketProvider.notifier).addItem(newItem);
 
     ScaffoldMessenger.of(context).hideCurrentSnackBar();
     ScaffoldMessenger.of(context).showSnackBar(
@@ -66,7 +64,7 @@ class _CameraRecognitionScreenState extends ConsumerState<CameraRecognitionScree
             const SizedBox(width: 8),
             Expanded(
               child: Text(
-                'Auto-added "${selected['name']}" to Shopping List!',
+                'Auto-added "${selected['name']}" to Cart!',
                 style: GoogleFonts.inter(fontWeight: FontWeight.w600),
               ),
             ),
@@ -79,7 +77,7 @@ class _CameraRecognitionScreenState extends ConsumerState<CameraRecognitionScree
     );
 
     Future.delayed(const Duration(milliseconds: 400), () {
-      if (mounted) context.push('/aiprocessing');
+      if (mounted) context.go('/cart');
     });
   }
 

@@ -17,20 +17,16 @@ class ShopMateBottomNav extends ConsumerWidget {
     if (index == currentIndex) return;
     switch (index) {
       case 0:
-        if (context.canPop()) {
-          context.pop();
-        } else {
-          context.go('/homedashboard');
-        }
+        context.go('/homedashboard');
         break;
       case 1:
-        context.push('/shoppinglist');
+        context.go('/shoppinglist');
         break;
       case 2:
-        context.push('/cart');
+        context.go('/cart');
         break;
       case 3:
-        context.push('/profile');
+        context.go('/profile');
         break;
     }
   }
