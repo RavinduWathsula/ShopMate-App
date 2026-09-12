@@ -68,7 +68,10 @@ class AppRouter {
       ),
       GoRoute(
         path: '/productdetails',
-        builder: (context, state) => const ProductDetailsScreen(),
+        builder: (context, state) {
+          final extra = state.extra as Map<String, dynamic>? ?? {};
+          return ProductDetailsScreen(productData: extra);
+        },
       ),
       GoRoute(
         path: '/cart',

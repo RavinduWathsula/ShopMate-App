@@ -15,6 +15,7 @@ class AuthService {
       
       final token = response.data['access_token'];
       await _storage.write(key: 'jwt_token', value: token);
+      await _storage.write(key: 'user_email', value: email);
       return true;
     } catch (e) {
       return false;
@@ -27,6 +28,7 @@ class AuthService {
         'email': email,
         'password': password,
       });
+      await _storage.write(key: 'user_email', value: email);
       return true;
     } catch (e) {
       return false;
@@ -35,6 +37,7 @@ class AuthService {
 
   Future<void> logout() async {
     await _storage.delete(key: 'jwt_token');
+    await _storage.delete(key: 'user_email');
   }
 }
 

@@ -5,6 +5,7 @@ import 'package:google_fonts/google_fonts.dart';
 import '../core/theme/app_colors.dart';
 import 'widgets/shopmate_bottom_nav.dart';
 import '../providers/auth_provider.dart';
+import 'package:flutter_secure_storage/flutter_secure_storage.dart';
 
 class ProfileScreen extends ConsumerStatefulWidget {
   const ProfileScreen({super.key});
@@ -14,6 +15,34 @@ class ProfileScreen extends ConsumerStatefulWidget {
 }
 
 class _ProfileScreenState extends ConsumerState<ProfileScreen> {
+  final FlutterSecureStorage _storage = const FlutterSecureStorage();
+  String _userEmail = 'loading...';
+  String _userName = 'Loading';
+  String _userInitials = '...';
+
+  @override
+  void initState() {
+    super.initState();
+    _loadUserData();
+  }
+
+  Future<void> _loadUserData() async {
+    final email = await _storage.read(key: 'user_email') ?? 'user@shopmate.ai';
+    String name = email.split('@')[0];
+    if (name.isNotEmpty) {
+      name = name[0].toUpperCase() + name.substring(1);
+    }
+    String initials = name.isNotEmpty ? name.substring(0, name.length >= 2 ? 2 : 1).toUpperCase() : 'U';
+    
+    if (mounted) {
+      setState(() {
+        _userEmail = email;
+        _userName = name;
+        _userInitials = initials;
+      });
+    }
+  }
+
   // Mock interactive preference toggles
   bool _autoSubstitutions = true;
   bool _dealAlerts = true;
@@ -330,9 +359,9 @@ class _ProfileScreenState extends ConsumerState<ProfileScreen> {
           decoration: const BoxDecoration(
             gradient: LinearGradient(
               colors: [
+                Color(0xFF0D1B2A),
+                Color(0xFF1B263B),
                 Color(0xFF00C853),
-                Color(0xFF009624),
-                Color(0xFF651FFF),
               ],
               begin: Alignment.topLeft,
               end: Alignment.bottomRight,
@@ -398,7 +427,7 @@ class _ProfileScreenState extends ConsumerState<ProfileScreen> {
                                     color: AppColors.aiPurpleSoft,
                                     child: Center(
                                       child: Text(
-                                        'RW',
+                                        _userInitials,
                                         style: GoogleFonts.outfit(
                                           fontSize: 26,
                                           fontWeight: FontWeight.w800,
@@ -439,7 +468,7 @@ class _ProfileScreenState extends ConsumerState<ProfileScreen> {
                                   children: [
                                     Flexible(
                                       child: Text(
-                                        'Ravindu Wathsula',
+                                        _userName,
                                         style: GoogleFonts.inter(
                                           fontSize: 20,
                                           fontWeight: FontWeight.w800,
@@ -459,7 +488,7 @@ class _ProfileScreenState extends ConsumerState<ProfileScreen> {
                                 ),
                                 const SizedBox(height: 3),
                                 Text(
-                                  'ravindu.wathsula@shopmate.ai',
+                                  _userEmail,
                                   style: GoogleFonts.inter(
                                     fontSize: 12.5,
                                     color: Colors.white.withValues(alpha: 0.88),
@@ -467,37 +496,6 @@ class _ProfileScreenState extends ConsumerState<ProfileScreen> {
                                   overflow: TextOverflow.ellipsis,
                                 ),
                                 const SizedBox(height: 8),
-                                // Pro Badge Pill
-                                Container(
-                                  padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 4),
-                                  decoration: BoxDecoration(
-                                    color: Colors.white.withValues(alpha: 0.22),
-                                    borderRadius: BorderRadius.circular(20),
-                                    border: Border.all(
-                                      color: Colors.white.withValues(alpha: 0.35),
-                                    ),
-                                  ),
-                                  child: Row(
-                                    mainAxisSize: MainAxisSize.min,
-                                    children: [
-                                      const Icon(
-                                        Icons.auto_awesome_rounded,
-                                        color: Colors.amberAccent,
-                                        size: 13,
-                                      ),
-                                      const SizedBox(width: 5),
-                                      Text(
-                                        'PRO AI SHOPPER',
-                                        style: GoogleFonts.inter(
-                                          fontSize: 10.5,
-                                          fontWeight: FontWeight.w800,
-                                          color: Colors.white,
-                                          letterSpacing: 0.6,
-                                        ),
-                                      ),
-                                    ],
-                                  ),
-                                ),
                               ],
                             ),
                           ),

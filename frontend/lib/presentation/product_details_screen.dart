@@ -7,7 +7,8 @@ import 'widgets/ai_insight_card.dart';
 import '../providers/basket_provider.dart';
 
 class ProductDetailsScreen extends ConsumerWidget {
-  const ProductDetailsScreen({super.key});
+  final Map<String, dynamic> productData;
+  const ProductDetailsScreen({super.key, this.productData = const {}});
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
@@ -67,11 +68,12 @@ class ProductDetailsScreen extends ConsumerWidget {
   }
 
   Widget _buildProductImage(BuildContext context) {
+    final imageUrl = productData['imageUrl'] as String?;
     return Container(
       height: 350,
       width: double.infinity,
       decoration: BoxDecoration(
-        color: Colors.white,
+        color: imageUrl != null ? Colors.white : const Color(0xFFF1F5F9),
         borderRadius: const BorderRadius.only(
           bottomLeft: Radius.circular(32),
           bottomRight: Radius.circular(32),
@@ -87,12 +89,20 @@ class ProductDetailsScreen extends ConsumerWidget {
       child: SafeArea(
         child: Center(
           child: Hero(
-            tag: 'product_image',
-            child: Icon(
-              Icons.inventory_2_outlined,
-              size: 150,
-              color: AppColors.primary.withValues(alpha: 0.5),
-            ),
+            tag: 'product_image_${productData['id'] ?? 'unknown'}',
+            child: imageUrl != null
+                ? ClipRRect(
+                    borderRadius: const BorderRadius.only(
+                      bottomLeft: Radius.circular(32),
+                      bottomRight: Radius.circular(32),
+                    ),
+                    child: Image.asset(imageUrl, fit: BoxFit.cover, width: double.infinity, height: double.infinity),
+                  )
+                : Icon(
+                    Icons.inventory_2_outlined,
+                    size: 150,
+                    color: AppColors.primaryGreen.withValues(alpha: 0.5),
+                  ),
           ),
         ),
       ),
@@ -100,6 +110,12 @@ class ProductDetailsScreen extends ConsumerWidget {
   }
 
   Widget _buildHeaderAndPrice(BuildContext context) {
+    final name = productData['name'] ?? 'Unknown Product';
+    final brand = productData['brand'] ?? 'Unknown Brand';
+    final price = (productData['price'] as num?)?.toDouble() ?? 0.0;
+    final originalPrice = (productData['originalPrice'] as num?)?.toDouble();
+    final hasDiscount = originalPrice != null && originalPrice > price;
+
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
@@ -112,41 +128,44 @@ class ProductDetailsScreen extends ConsumerWidget {
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                   Text(
-                    'Fresh Milk 1L',
+                    name,
                     style: GoogleFonts.inter(
-                      fontSize: 28,
+                      fontSize: 24,
                       fontWeight: FontWeight.w800,
                       color: AppColors.textPrimary,
                       letterSpacing: -0.5,
+                      height: 1.2,
                     ),
                   ),
                   const SizedBox(height: 6),
                   Text(
-                    'Brand A',
+                    brand.toString().toUpperCase(),
                     style: GoogleFonts.inter(
-                      fontSize: 16,
+                      fontSize: 14,
                       color: AppColors.textSecondary,
-                      fontWeight: FontWeight.w500,
+                      fontWeight: FontWeight.w700,
                     ),
                   ),
                 ],
               ),
             ),
-            Container(
-              padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 6),
-              decoration: BoxDecoration(
-                color: Colors.red.withValues(alpha: 0.1),
-                borderRadius: BorderRadius.circular(20),
-              ),
-              child: Text(
-                '10% OFF',
-                style: GoogleFonts.inter(
-                  color: AppColors.discount,
-                  fontWeight: FontWeight.bold,
-                  fontSize: 14,
+            if (hasDiscount)
+              Container(
+                margin: const EdgeInsets.only(left: 12),
+                padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 6),
+                decoration: BoxDecoration(
+                  gradient: const LinearGradient(colors: [AppColors.discount, AppColors.dealOrange]),
+                  borderRadius: BorderRadius.circular(20),
+                ),
+                child: Text(
+                  '${(((originalPrice - price) / originalPrice) * 100).round()}% OFF',
+                  style: GoogleFonts.inter(
+                    color: Colors.white,
+                    fontWeight: FontWeight.bold,
+                    fontSize: 12,
+                  ),
                 ),
               ),
-            ),
           ],
         ),
         const SizedBox(height: 16),
@@ -154,27 +173,29 @@ class ProductDetailsScreen extends ConsumerWidget {
           crossAxisAlignment: CrossAxisAlignment.end,
           children: [
             Text(
-              'Rs. 450',
+              'Rs. ${price.toStringAsFixed(0)}',
               style: GoogleFonts.inter(
                 fontSize: 32,
                 fontWeight: FontWeight.w800,
-                color: AppColors.primary,
+                color: AppColors.primaryGreenDark,
                 letterSpacing: -1,
               ),
             ),
-            const SizedBox(width: 12),
-            Padding(
-              padding: const EdgeInsets.only(bottom: 4.0),
-              child: Text(
-                'Rs. 500',
-                style: GoogleFonts.inter(
-                  fontSize: 18,
-                  color: AppColors.textMuted,
-                  decoration: TextDecoration.lineThrough,
-                  fontWeight: FontWeight.w600,
+            if (hasDiscount) ...[
+              const SizedBox(width: 12),
+              Padding(
+                padding: const EdgeInsets.only(bottom: 4.0),
+                child: Text(
+                  'Rs. ${originalPrice.toStringAsFixed(0)}',
+                  style: GoogleFonts.inter(
+                    fontSize: 18,
+                    color: AppColors.textMuted,
+                    decoration: TextDecoration.lineThrough,
+                    fontWeight: FontWeight.w600,
+                  ),
                 ),
               ),
-            ),
+            ],
           ],
         ),
       ],
@@ -182,6 +203,9 @@ class ProductDetailsScreen extends ConsumerWidget {
   }
 
   Widget _buildInformationCards(BuildContext context) {
+    final category = productData['category'] ?? 'General';
+    final location = productData['location'] ?? 'Ask Staff';
+
     return Row(
       children: [
         Expanded(
@@ -189,7 +213,7 @@ class ProductDetailsScreen extends ConsumerWidget {
             context,
             icon: Icons.category_outlined,
             title: 'Category',
-            value: 'Dairy',
+            value: category,
           ),
         ),
         const SizedBox(width: 12),
@@ -198,7 +222,7 @@ class ProductDetailsScreen extends ConsumerWidget {
             context,
             icon: Icons.place_outlined,
             title: 'Location',
-            value: 'Aisle 3 • Shelf 2',
+            value: location,
           ),
         ),
         const SizedBox(width: 12),
@@ -208,7 +232,7 @@ class ProductDetailsScreen extends ConsumerWidget {
             icon: Icons.inventory_outlined,
             title: 'Stock',
             value: 'Available',
-            valueColor: AppColors.success,
+            valueColor: AppColors.primaryGreen,
           ),
         ),
       ],
@@ -262,6 +286,7 @@ class ProductDetailsScreen extends ConsumerWidget {
 
 
   Widget _buildAlternativeSection(BuildContext context, WidgetRef ref) {
+    final name = productData['name'] ?? 'Product';
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
@@ -312,7 +337,7 @@ class ProductDetailsScreen extends ConsumerWidget {
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
                     Text(
-                      'Fresh Milk 1L',
+                      '$name (Store Brand)',
                       style: GoogleFonts.inter(
                         fontWeight: FontWeight.bold,
                         fontSize: 16,
@@ -399,23 +424,23 @@ class ProductDetailsScreen extends ConsumerWidget {
           onPressed: () {
             ref.read(basketProvider.notifier).addItem(
               BasketItem(
-                id: 'p1',
-                name: 'Fresh Milk 1L',
-                price: 450,
-                category: 'Dairy',
+                id: productData['id'] ?? 'unknown',
+                name: productData['name'] ?? 'Product',
+                price: (productData['price'] as num?)?.toDouble() ?? 0.0,
+                category: productData['category'] ?? 'General',
               )
             );
             ScaffoldMessenger.of(context).showSnackBar(
-              const SnackBar(content: Text('Added to Cart')),
+              SnackBar(content: Text('Added ${productData['name']} to Cart')),
             );
             context.push('/cart');
           },
           style: ElevatedButton.styleFrom(
             padding: const EdgeInsets.symmetric(vertical: 20),
             shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(16)),
-            backgroundColor: AppColors.primary,
+            backgroundColor: AppColors.primaryGreen,
             elevation: 8,
-            shadowColor: AppColors.primary.withValues(alpha: 0.4),
+            shadowColor: AppColors.primaryGreen.withValues(alpha: 0.4),
           ),
           child: Row(
             mainAxisAlignment: MainAxisAlignment.center,

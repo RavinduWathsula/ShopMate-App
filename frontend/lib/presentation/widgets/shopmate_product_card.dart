@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import '../../core/theme/app_colors.dart';
+import 'package:go_router/go_router.dart';
 
 class ShopMateProductCard extends StatelessWidget {
   final String name;
@@ -11,6 +12,7 @@ class ShopMateProductCard extends StatelessWidget {
   final String? discountText;
   final String? location;
   final IconData? productIcon;
+  final String? imageUrl;
   final VoidCallback? onAddToCart;
   final VoidCallback? onTap;
   final bool isCompact;
@@ -25,6 +27,7 @@ class ShopMateProductCard extends StatelessWidget {
     this.discountText,
     this.location,
     this.productIcon,
+    this.imageUrl,
     this.onAddToCart,
     this.onTap,
     this.isCompact = false,
@@ -37,7 +40,20 @@ class ShopMateProductCard extends StatelessWidget {
     if (isCompact) {
       // Horizontal card for lists / carts / alternatives
       return InkWell(
-        onTap: onTap,
+        onTap: onTap ?? () {
+          context.push('/productdetails', extra: {
+            'id': name.toLowerCase().replaceAll(' ', '_'),
+            'name': name,
+            'brand': brand,
+            'size': size,
+            'price': price,
+            'originalPrice': originalPrice,
+            'discountText': discountText,
+            'location': location,
+            'imageUrl': imageUrl,
+            'category': 'General',
+          });
+        },
         borderRadius: BorderRadius.circular(18),
         child: Container(
           padding: const EdgeInsets.all(12),
@@ -63,11 +79,19 @@ class ShopMateProductCard extends StatelessWidget {
                   color: AppColors.primaryLight,
                   borderRadius: BorderRadius.circular(14),
                 ),
-                child: Icon(
-                  productIcon ?? Icons.fastfood_rounded,
-                  color: AppColors.primaryGreenDark,
-                  size: 28,
-                ),
+                child: imageUrl != null
+                  ? ClipRRect(
+                      borderRadius: BorderRadius.circular(14),
+                      child: Image.asset(
+                        imageUrl!,
+                        fit: BoxFit.cover,
+                      ),
+                    )
+                  : Icon(
+                      productIcon ?? Icons.fastfood_rounded,
+                      color: AppColors.primaryGreenDark,
+                      size: 28,
+                    ),
               ),
               const SizedBox(width: 14),
               // Details
@@ -142,7 +166,20 @@ class ShopMateProductCard extends StatelessWidget {
 
     // Vertical card for grids or horizontal carousels
     return InkWell(
-      onTap: onTap,
+      onTap: onTap ?? () {
+        context.push('/productdetails', extra: {
+          'id': name.toLowerCase().replaceAll(' ', '_'),
+          'name': name,
+          'brand': brand,
+          'size': size,
+          'price': price,
+          'originalPrice': originalPrice,
+          'discountText': discountText,
+          'location': location,
+          'imageUrl': imageUrl,
+          'category': 'General',
+        });
+      },
       borderRadius: BorderRadius.circular(20),
       child: Container(
         width: 165,
@@ -172,13 +209,21 @@ class ShopMateProductCard extends StatelessWidget {
                     color: Color(0xFFF1F5F9),
                     borderRadius: BorderRadius.vertical(top: Radius.circular(19)),
                   ),
-                  child: Center(
-                    child: Icon(
-                      productIcon ?? Icons.shopping_basket_rounded,
-                      size: 40,
-                      color: AppColors.primaryGreen,
-                    ),
-                  ),
+                  child: imageUrl != null
+                    ? ClipRRect(
+                        borderRadius: const BorderRadius.vertical(top: Radius.circular(19)),
+                        child: Image.asset(
+                          imageUrl!,
+                          fit: BoxFit.cover,
+                        ),
+                      )
+                    : Center(
+                        child: Icon(
+                          productIcon ?? Icons.shopping_basket_rounded,
+                          size: 40,
+                          color: AppColors.primaryGreen,
+                        ),
+                      ),
                 ),
                 if (discountText != null || hasDiscount)
                   Positioned(
