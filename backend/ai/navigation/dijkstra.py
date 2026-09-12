@@ -14,10 +14,10 @@ def dijkstra_shortest_path(graph: Dict[str, Dict[str, float]], start: str, end: 
         
     distances = {node: float('inf') for node in graph}
     distances[start] = 0
-    previous = {node: None for node in graph}
+    previous: Dict[str, str] = {}
     
     # Priority queue: (distance, node)
-    pq = [(0, start)]
+    pq: List[Tuple[float, str]] = [(0.0, start)]
     
     while pq:
         current_distance, current_node = heapq.heappop(pq)

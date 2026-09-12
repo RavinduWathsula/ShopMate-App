@@ -118,6 +118,8 @@ class SpendingPredictionModel:
         # Convert to DataFrame to match expected sklearn input format
         input_data = pd.DataFrame([[features.get(f, 0.0) for f in feature_order]], columns=feature_order)
         
+        if self.best_model is None:
+            raise RuntimeError("Model is not trained.")
         predicted_total = self.best_model.predict(input_data)[0]
         budget = features.get('budget', 0.0)
         

@@ -1,7 +1,7 @@
-USE shopmate;
+USE shopmate_db;
 
 -- Seed Generic Test Users
-INSERT INTO users (email, password_hash, preferences_json) VALUES
+INSERT INTO users (email, password_hash, preferences) VALUES
 ('testuser@shopmate.com', '$2b$12$e/jM/p.Z8n8gZ6P7.8G2rO.4.Z8n8gZ6P7.8G2rO.4.Z8n8gZ6P7', '{"dietary": ["vegan"], "max_budget_default": 100.00}');
 
 -- Seed Shops

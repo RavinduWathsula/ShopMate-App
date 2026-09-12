@@ -3,17 +3,18 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:go_router/go_router.dart';
 import 'package:google_fonts/google_fonts.dart';
 import '../core/theme/app_colors.dart';
-import '../providers/shopping_list_provider.dart';
 import '../providers/basket_provider.dart';
 
 class CameraRecognitionScreen extends ConsumerStatefulWidget {
   const CameraRecognitionScreen({super.key});
 
   @override
-  ConsumerState<CameraRecognitionScreen> createState() => _CameraRecognitionScreenState();
+  ConsumerState<CameraRecognitionScreen> createState() =>
+      _CameraRecognitionScreenState();
 }
 
-class _CameraRecognitionScreenState extends ConsumerState<CameraRecognitionScreen> {
+class _CameraRecognitionScreenState
+    extends ConsumerState<CameraRecognitionScreen> {
   bool _isFlashOn = false;
 
   final List<Map<String, dynamic>> _quickSampleProducts = [
@@ -60,7 +61,11 @@ class _CameraRecognitionScreenState extends ConsumerState<CameraRecognitionScree
       SnackBar(
         content: Row(
           children: [
-            const Icon(Icons.check_circle_rounded, color: Colors.white, size: 20),
+            const Icon(
+              Icons.check_circle_rounded,
+              color: Colors.white,
+              size: 20,
+            ),
             const SizedBox(width: 8),
             Expanded(
               child: Text(
@@ -98,7 +103,11 @@ class _CameraRecognitionScreenState extends ConsumerState<CameraRecognitionScree
                   errorBuilder: (ctx, err, stack) => Container(
                     color: const Color(0xFF1A1A1A),
                     child: const Center(
-                      child: Icon(Icons.shelves, color: Colors.white24, size: 80),
+                      child: Icon(
+                        Icons.shelves,
+                        color: Colors.white24,
+                        size: 80,
+                      ),
                     ),
                   ),
                 ),
@@ -121,7 +130,10 @@ class _CameraRecognitionScreenState extends ConsumerState<CameraRecognitionScree
                     }
                   }),
                   Container(
-                    padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 6),
+                    padding: const EdgeInsets.symmetric(
+                      horizontal: 12,
+                      vertical: 6,
+                    ),
                     decoration: BoxDecoration(
                       color: Colors.black.withValues(alpha: 0.6),
                       borderRadius: BorderRadius.circular(20),
@@ -129,7 +141,11 @@ class _CameraRecognitionScreenState extends ConsumerState<CameraRecognitionScree
                     ),
                     child: Row(
                       children: [
-                        const Icon(Icons.auto_awesome_rounded, color: Colors.amberAccent, size: 14),
+                        const Icon(
+                          Icons.auto_awesome_rounded,
+                          color: Colors.amberAccent,
+                          size: 14,
+                        ),
                         const SizedBox(width: 6),
                         Text(
                           'Cargills AI Scanner',
@@ -145,7 +161,9 @@ class _CameraRecognitionScreenState extends ConsumerState<CameraRecognitionScree
                   Row(
                     children: [
                       _buildIconButton(
-                        _isFlashOn ? Icons.flash_on_rounded : Icons.flash_off_rounded,
+                        _isFlashOn
+                            ? Icons.flash_on_rounded
+                            : Icons.flash_off_rounded,
                         () => setState(() => _isFlashOn = !_isFlashOn),
                       ),
                       const SizedBox(width: 12),
@@ -177,7 +195,9 @@ class _CameraRecognitionScreenState extends ConsumerState<CameraRecognitionScree
                           color: AppColors.primaryGreen,
                           boxShadow: [
                             BoxShadow(
-                              color: AppColors.primaryGreen.withValues(alpha: 0.8),
+                              color: AppColors.primaryGreen.withValues(
+                                alpha: 0.8,
+                              ),
                               blurRadius: 10,
                               spreadRadius: 2,
                             ),
@@ -188,7 +208,10 @@ class _CameraRecognitionScreenState extends ConsumerState<CameraRecognitionScree
                   ),
                   const SizedBox(height: 18),
                   Container(
-                    padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 8),
+                    padding: const EdgeInsets.symmetric(
+                      horizontal: 16,
+                      vertical: 8,
+                    ),
                     decoration: BoxDecoration(
                       color: Colors.black.withValues(alpha: 0.65),
                       borderRadius: BorderRadius.circular(20),
@@ -196,7 +219,11 @@ class _CameraRecognitionScreenState extends ConsumerState<CameraRecognitionScree
                     child: Row(
                       mainAxisSize: MainAxisSize.min,
                       children: [
-                        const Icon(Icons.bolt_rounded, color: AppColors.primaryGreenLight, size: 16),
+                        const Icon(
+                          Icons.bolt_rounded,
+                          color: AppColors.primaryGreenLight,
+                          size: 16,
+                        ),
                         const SizedBox(width: 6),
                         Text(
                           'Capturing will auto-add to your Shopping List',
@@ -242,9 +269,15 @@ class _CameraRecognitionScreenState extends ConsumerState<CameraRecognitionScree
                           return Padding(
                             padding: const EdgeInsets.only(right: 8.0),
                             child: ActionChip(
-                              avatar: Icon(p['icon'], size: 16, color: AppColors.primaryGreen),
+                              avatar: Icon(
+                                p['icon'],
+                                size: 16,
+                                color: AppColors.primaryGreen,
+                              ),
                               label: Text(p['name']),
-                              backgroundColor: Colors.white.withValues(alpha: 0.18),
+                              backgroundColor: Colors.white.withValues(
+                                alpha: 0.18,
+                              ),
                               side: BorderSide.none,
                               labelStyle: GoogleFonts.inter(
                                 color: Colors.white,
@@ -293,12 +326,9 @@ class _CameraRecognitionScreenState extends ConsumerState<CameraRecognitionScree
                             ),
                           ),
                         ),
-                        _buildCircleButton(
-                          Icons.image_rounded,
-                          () {
-                            _captureProduct();
-                          },
-                        ),
+                        _buildCircleButton(Icons.image_rounded, () {
+                          _captureProduct();
+                        }),
                       ],
                     ),
                   ],
@@ -359,16 +389,32 @@ class ScannerBracketsPainter extends CustomPainter {
     canvas.drawLine(const Offset(0, 0), const Offset(0, length), paint);
 
     // Top-Right
-    canvas.drawLine(Offset(size.width, 0), Offset(size.width - length, 0), paint);
+    canvas.drawLine(
+      Offset(size.width, 0),
+      Offset(size.width - length, 0),
+      paint,
+    );
     canvas.drawLine(Offset(size.width, 0), Offset(size.width, length), paint);
 
     // Bottom-Left
     canvas.drawLine(Offset(0, size.height), Offset(length, size.height), paint);
-    canvas.drawLine(Offset(0, size.height), Offset(0, size.height - length), paint);
+    canvas.drawLine(
+      Offset(0, size.height),
+      Offset(0, size.height - length),
+      paint,
+    );
 
     // Bottom-Right
-    canvas.drawLine(Offset(size.width, size.height), Offset(size.width - length, size.height), paint);
-    canvas.drawLine(Offset(size.width, size.height), Offset(size.width, size.height - length), paint);
+    canvas.drawLine(
+      Offset(size.width, size.height),
+      Offset(size.width - length, size.height),
+      paint,
+    );
+    canvas.drawLine(
+      Offset(size.width, size.height),
+      Offset(size.width, size.height - length),
+      paint,
+    );
   }
 
   @override

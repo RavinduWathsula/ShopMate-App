@@ -1,0 +1,16 @@
+version: '3.8'
+
+services:
+  db:
+    image: mysql:8.0
+    container_name: shopmate-db
+    environment:
+      MYSQL_ROOT_PASSWORD: password
+      MYSQL_DATABASE: shopmate_db
+    ports:
+      - "3306:3306"
+    volumes:
+      # Mount the schema and seed scripts so they run automatically when the DB starts for the first time
+      - ./db/schema.sql:/docker-entrypoint-initdb.d/1_schema.sql
+      - ./db/seed_data.sql:/docker-entrypoint-initdb.d/2_seed_data.sql
+    restart: unless-stopped

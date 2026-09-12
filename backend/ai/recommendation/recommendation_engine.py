@@ -1,4 +1,4 @@
-from typing import List, Dict, Any
+from typing import List, Dict, Any, cast
 from .deal_score import calculate_discount_benefit, calculate_price_impact
 from .similarity import calculate_product_similarity
 from .scoring import compute_final_score
@@ -64,6 +64,6 @@ def generate_recommendations(
         })
         
     # Sort by recommendation score descending
-    recommendations.sort(key=lambda x: x["recommendation_score"], reverse=True)
+    recommendations.sort(key=lambda x: cast(float, x["recommendation_score"]), reverse=True)
     
     return recommendations

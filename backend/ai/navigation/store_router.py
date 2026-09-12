@@ -1,4 +1,4 @@
-from typing import Dict, List, Any
+from typing import Dict, List, Any, Optional
 from .dijkstra import compute_all_pairs_distances
 
 # A mock configurable supermarket graph for demonstration.
@@ -18,7 +18,7 @@ DEFAULT_SUPERMARKET_GRAPH = {
 def calculate_optimal_route(
     customer_location: str,
     selected_products: List[Dict[str, Any]],
-    store_graph: Dict[str, Dict[str, float]] = None
+    store_graph: Optional[Dict[str, Dict[str, float]]] = None
 ) -> Dict[str, Any]:
     """
     Calculates the shortest route that visits all required product locations,
