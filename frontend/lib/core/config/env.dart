@@ -1,3 +1,5 @@
+import 'package:flutter/foundation.dart';
+
 class Env {
   static String get baseUrl {
     const String envUrl = String.fromEnvironment('API_URL');
@@ -5,7 +7,15 @@ class Env {
       return envUrl;
     }
 
-    // Using the host's local network IP for physical device / emulator compatibility
-    return 'http://192.168.8.127:8000';
+    // Default URLs for local development
+    // 10.0.2.2 is used for Android emulator to access the host loopback interface
+    // 127.0.0.1 is used for Windows desktop / iOS simulator
+    if (kIsWeb) {
+      return 'http://127.0.0.1:8000';
+    } else if (defaultTargetPlatform == TargetPlatform.android) {
+      return 'http://10.0.2.2:8000';
+    } else {
+      return 'http://127.0.0.1:8000';
+    }
   }
 }

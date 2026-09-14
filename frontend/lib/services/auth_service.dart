@@ -17,8 +17,17 @@ class AuthService {
       await _storage.write(key: 'jwt_token', value: token);
       await _storage.write(key: 'user_email', value: email);
       return true;
+    } on DioException catch (e) {
+      if (e.response != null) {
+        if (e.response?.statusCode == 400) {
+          throw Exception(e.response?.data['detail'] ?? 'Invalid email or password');
+        } else {
+          throw Exception('Server error: ${e.response?.statusCode}');
+        }
+      }
+      throw Exception('Network error: Unable to connect to server');
     } catch (e) {
-      return false;
+      throw Exception('An unexpected error occurred: $e');
     }
   }
 
@@ -30,8 +39,17 @@ class AuthService {
       });
       await _storage.write(key: 'user_email', value: email);
       return true;
+    } on DioException catch (e) {
+      if (e.response != null) {
+        if (e.response?.statusCode == 400) {
+          throw Exception(e.response?.data['detail'] ?? 'Registration failed');
+        } else {
+          throw Exception('Server error: ${e.response?.statusCode}');
+        }
+      }
+      throw Exception('Network error: Unable to connect to server');
     } catch (e) {
-      return false;
+      throw Exception('An unexpected error occurred: $e');
     }
   }
 

@@ -40,13 +40,13 @@ class _RegisterScreenState extends ConsumerState<RegisterScreen> {
         return;
       }
       
-      final success = await ref.read(authStateProvider.notifier).register(
-        _emailController.text,
-        _passwordController.text,
-      );
+      try {
+        final success = await ref.read(authStateProvider.notifier).register(
+          _emailController.text,
+          _passwordController.text,
+        );
 
-      if (mounted) {
-        if (success) {
+        if (mounted && success) {
           ScaffoldMessenger.of(context).showSnackBar(
             const SnackBar(content: Text('Registration successful. Please login.')),
           );
@@ -56,9 +56,11 @@ class _RegisterScreenState extends ConsumerState<RegisterScreen> {
               context.go('/login');
             }
           });
-        } else {
+        }
+      } catch (e) {
+        if (mounted) {
           ScaffoldMessenger.of(context).showSnackBar(
-            const SnackBar(content: Text('Registration failed. Email might already be in use or network error.')),
+            SnackBar(content: Text(e.toString().replaceAll('Exception: ', ''))),
           );
         }
       }

@@ -28,17 +28,19 @@ class _LoginScreenState extends ConsumerState<LoginScreen> {
 
   Future<void> _handleLogin() async {
     if (_formKey.currentState!.validate()) {
-      final success = await ref.read(authStateProvider.notifier).login(
-        _emailController.text,
-        _passwordController.text,
-      );
-      
-      if (mounted) {
-        if (success) {
+      try {
+        final success = await ref.read(authStateProvider.notifier).login(
+          _emailController.text,
+          _passwordController.text,
+        );
+        
+        if (mounted && success) {
           context.go('/homedashboard');
-        } else {
+        }
+      } catch (e) {
+        if (mounted) {
           ScaffoldMessenger.of(context).showSnackBar(
-            const SnackBar(content: Text('Invalid email or password. Please try again.')),
+            SnackBar(content: Text(e.toString().replaceAll('Exception: ', ''))),
           );
         }
       }

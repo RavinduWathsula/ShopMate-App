@@ -29,7 +29,7 @@ class AuthNotifier extends StateNotifier<AsyncValue<bool>> {
       return success;
     } catch (e) {
       state = AsyncValue.error(e, StackTrace.current);
-      return false;
+      rethrow;
     }
   }
 
@@ -41,7 +41,7 @@ class AuthNotifier extends StateNotifier<AsyncValue<bool>> {
       return success;
     } catch (e) {
       state = AsyncValue.error(e, StackTrace.current);
-      return false;
+      rethrow;
     }
   }
 
