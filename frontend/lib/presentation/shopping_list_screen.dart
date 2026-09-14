@@ -503,8 +503,6 @@ class _ShoppingListScreenState extends ConsumerState<ShoppingListScreen> {
                                     onTap: () {
                                       if (item.quantity > 1) {
                                         ref.read(shoppingListProvider.notifier).updateQuantity(item.id, -1);
-                                      } else {
-                                        ref.read(shoppingListProvider.notifier).removeItem(item.id);
                                       }
                                     },
                                     borderRadius: BorderRadius.circular(8),
