@@ -80,6 +80,42 @@ class ShoppingListNotifier extends StateNotifier<List<ShoppingListItem>> {
             isChecked: false,
             icon: Icons.egg_rounded,
           ),
+          const ShoppingListItem(
+            id: '5',
+            name: 'Munchee Super Cream Cracker 490g',
+            category: 'Snacks',
+            price: 360.0,
+            quantity: 2,
+            isChecked: false,
+            icon: Icons.cookie_outlined,
+          ),
+          const ShoppingListItem(
+            id: '6',
+            name: 'Anchor Butter 227g',
+            category: 'Dairy',
+            price: 850.0,
+            quantity: 1,
+            isChecked: false,
+            icon: Icons.local_drink_rounded,
+          ),
+          const ShoppingListItem(
+            id: '7',
+            name: 'Cargills Magic Vanilla Ice Cream 1L',
+            category: 'Household',
+            price: 540.0,
+            quantity: 1,
+            isChecked: false,
+            icon: Icons.ac_unit_rounded,
+          ),
+          const ShoppingListItem(
+            id: '8',
+            name: 'Sunlight Washing Powder 1kg',
+            category: 'Household',
+            price: 600.0,
+            quantity: 1,
+            isChecked: false,
+            icon: Icons.cleaning_services_rounded,
+          ),
         ]);
 
   void addItem(ShoppingListItem item) {

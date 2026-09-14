@@ -1,7 +1,11 @@
 class Env {
-  static const String baseUrl = String.fromEnvironment(
-    'API_URL', 
-    defaultValue: 'http://127.0.0.1:8000'
-  );
-}
+  static String get baseUrl {
+    const String envUrl = String.fromEnvironment('API_URL');
+    if (envUrl.isNotEmpty) {
+      return envUrl;
+    }
 
+    // Using the host's local network IP for physical device / emulator compatibility
+    return 'http://192.168.8.127:8000';
+  }
+}

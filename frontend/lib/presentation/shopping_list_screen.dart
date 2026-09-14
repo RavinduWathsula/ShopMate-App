@@ -7,6 +7,7 @@ import 'widgets/shopmate_app_bar.dart';
 import 'widgets/shopmate_bottom_nav.dart';
 import '../providers/shopping_list_provider.dart';
 import '../providers/budget_provider.dart';
+import '../providers/basket_provider.dart';
 
 class ShoppingListScreen extends ConsumerStatefulWidget {
   const ShoppingListScreen({super.key});
@@ -220,7 +221,7 @@ class _ShoppingListScreenState extends ConsumerState<ShoppingListScreen> {
       return matchesCat && matchesSearch;
     }).toList();
 
-    final estimatedTotal = items.fold(0.0, (sum, item) => sum + (item.price * item.quantity));
+    final estimatedTotal = items.where((item) => item.isChecked).fold(0.0, (sum, item) => sum + (item.price * item.quantity));
     final remainingBudget = budgetState.budget - estimatedTotal;
     final totalUnits = items.fold(0, (sum, item) => sum + item.quantity);
     final checkedCount = items.where((item) => item.isChecked).length;
@@ -231,18 +232,6 @@ class _ShoppingListScreenState extends ConsumerState<ShoppingListScreen> {
         title: 'Shopping List',
         showBack: true,
         actions: [
-          IconButton(
-            onPressed: () => context.push('/camerarecognition'),
-            tooltip: 'Scan & Auto Add',
-            icon: Container(
-              padding: const EdgeInsets.all(6),
-              decoration: BoxDecoration(
-                color: AppColors.aiPurple.withValues(alpha: 0.12),
-                shape: BoxShape.circle,
-              ),
-              child: const Icon(Icons.camera_alt_rounded, color: AppColors.aiPurple, size: 20),
-            ),
-          ),
           IconButton(
             onPressed: _addNewItemDialog,
             tooltip: 'Add item manually',
@@ -643,10 +632,40 @@ class _ShoppingListScreenState extends ConsumerState<ShoppingListScreen> {
                     width: double.infinity,
                     height: 50,
                     child: ElevatedButton.icon(
-                      onPressed: () => context.push('/camerarecognition'),
-                      icon: const Icon(Icons.camera_alt_rounded, color: Colors.white, size: 20),
+                      onPressed: () {
+                        final checkedItems = items.where((i) => i.isChecked).toList();
+                        if (checkedItems.isEmpty) {
+                          ScaffoldMessenger.of(context).showSnackBar(
+                            const SnackBar(
+                              content: Text('Please select items to add to cart'),
+                              backgroundColor: AppColors.warningRed,
+                            ),
+                          );
+                          return;
+                        }
+                        for (var item in checkedItems) {
+                          ref.read(basketProvider.notifier).addItem(
+                            BasketItem(
+                              id: 'cart_${item.id}',
+                              name: item.name,
+                              price: item.price,
+                              quantity: item.quantity,
+                              category: item.category,
+                              isSelected: true,
+                            )
+                          );
+                        }
+                        ScaffoldMessenger.of(context).showSnackBar(
+                          const SnackBar(
+                            content: Text('Items added to cart successfully!'),
+                            backgroundColor: AppColors.primaryGreenDark,
+                          ),
+                        );
+                        context.push('/cart');
+                      },
+                      icon: const Icon(Icons.shopping_cart_checkout_rounded, color: Colors.white, size: 20),
                       label: Text(
-                        'Start Shopping (Scan Items)',
+                        'Save Items to Cart',
                         style: GoogleFonts.inter(
                           fontSize: 15.5,
                           fontWeight: FontWeight.w700,
