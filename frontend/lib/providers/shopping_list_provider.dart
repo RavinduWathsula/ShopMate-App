@@ -9,6 +9,7 @@ class ShoppingListItem {
   final int quantity;
   final bool isChecked;
   final IconData icon;
+  final String? imageUrl;
 
   const ShoppingListItem({
     required this.id,
@@ -18,6 +19,7 @@ class ShoppingListItem {
     required this.quantity,
     this.isChecked = false,
     required this.icon,
+    this.imageUrl,
   });
 
   ShoppingListItem copyWith({
@@ -28,6 +30,7 @@ class ShoppingListItem {
     int? quantity,
     bool? isChecked,
     IconData? icon,
+    String? imageUrl,
   }) {
     return ShoppingListItem(
       id: id ?? this.id,
@@ -37,6 +40,7 @@ class ShoppingListItem {
       quantity: quantity ?? this.quantity,
       isChecked: isChecked ?? this.isChecked,
       icon: icon ?? this.icon,
+      imageUrl: imageUrl ?? this.imageUrl,
     );
   }
 }
@@ -52,6 +56,7 @@ class ShoppingListNotifier extends StateNotifier<List<ShoppingListItem>> {
             quantity: 1,
             isChecked: false,
             icon: Icons.local_drink_rounded,
+            imageUrl: 'https://images.unsplash.com/photo-1550583724-b2692b85b150?w=200',
           ),
           const ShoppingListItem(
             id: '2',
@@ -61,6 +66,7 @@ class ShoppingListNotifier extends StateNotifier<List<ShoppingListItem>> {
             quantity: 1,
             isChecked: false,
             icon: Icons.grain_rounded,
+            imageUrl: 'https://images.unsplash.com/photo-1586201375761-83865001e31c?w=200',
           ),
           const ShoppingListItem(
             id: '3',
@@ -70,6 +76,7 @@ class ShoppingListNotifier extends StateNotifier<List<ShoppingListItem>> {
             quantity: 1,
             isChecked: false,
             icon: Icons.bakery_dining_rounded,
+            imageUrl: 'https://images.unsplash.com/photo-1509440159596-0249088772ff?w=200',
           ),
           const ShoppingListItem(
             id: '4',
@@ -79,6 +86,7 @@ class ShoppingListNotifier extends StateNotifier<List<ShoppingListItem>> {
             quantity: 1,
             isChecked: false,
             icon: Icons.egg_rounded,
+            imageUrl: 'https://images.unsplash.com/photo-1582722872445-44dc5f7e3c8f?w=200',
           ),
           const ShoppingListItem(
             id: '5',
@@ -88,6 +96,7 @@ class ShoppingListNotifier extends StateNotifier<List<ShoppingListItem>> {
             quantity: 2,
             isChecked: false,
             icon: Icons.cookie_outlined,
+            imageUrl: 'https://images.unsplash.com/photo-1590080875515-8a3a8dc5735e?w=200',
           ),
           const ShoppingListItem(
             id: '6',
@@ -97,6 +106,7 @@ class ShoppingListNotifier extends StateNotifier<List<ShoppingListItem>> {
             quantity: 1,
             isChecked: false,
             icon: Icons.local_drink_rounded,
+            imageUrl: 'https://images.unsplash.com/photo-1589985270826-4b7bb135bc9d?w=200',
           ),
           const ShoppingListItem(
             id: '7',
@@ -106,6 +116,7 @@ class ShoppingListNotifier extends StateNotifier<List<ShoppingListItem>> {
             quantity: 1,
             isChecked: false,
             icon: Icons.ac_unit_rounded,
+            imageUrl: 'https://images.unsplash.com/photo-1563805042-7684c019e1cb?w=200',
           ),
           const ShoppingListItem(
             id: '8',
@@ -115,6 +126,7 @@ class ShoppingListNotifier extends StateNotifier<List<ShoppingListItem>> {
             quantity: 1,
             isChecked: false,
             icon: Icons.cleaning_services_rounded,
+            imageUrl: 'https://images.unsplash.com/photo-1626806819282-2c1dc01a5e0c?w=200',
           ),
         ]);
 

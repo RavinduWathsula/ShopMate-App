@@ -43,44 +43,7 @@ class BasketItem {
 
 class BasketNotifier extends StateNotifier<List<BasketItem>> {
   BasketNotifier()
-      : super([
-          BasketItem(
-            id: 'cart_1',
-            name: 'Anchor Full Cream Milk 1L',
-            price: 480.0,
-            quantity: 2,
-            category: 'Dairy',
-            imageUrl: 'https://images.unsplash.com/photo-1550583724-b2692b85b150?w=200',
-            isSelected: true,
-          ),
-          BasketItem(
-            id: 'cart_2',
-            name: 'Prima Special Bread 450g',
-            price: 190.0,
-            quantity: 1,
-            category: 'Bakery',
-            imageUrl: 'https://images.unsplash.com/photo-1509440159596-0249088772ff?w=200',
-            isSelected: true,
-          ),
-          BasketItem(
-            id: 'cart_3',
-            name: 'Munchee Super Cream Cracker 490g',
-            price: 360.0,
-            quantity: 1,
-            category: 'Snacks',
-            imageUrl: 'https://images.unsplash.com/photo-1590080875515-8a3a8dc5735e?w=200',
-            isSelected: false,
-          ),
-          BasketItem(
-            id: 'cart_4',
-            name: 'Cargills Magic Vanilla Ice Cream 1L',
-            price: 540.0,
-            quantity: 1,
-            category: 'Frozen',
-            imageUrl: 'https://images.unsplash.com/photo-1563805042-7684c019e1cb?w=200',
-            isSelected: true,
-          ),
-        ]);
+      : super([]);
 
   void addItem(BasketItem item) {
     final existingIndex = state.indexWhere((i) => i.id == item.id);

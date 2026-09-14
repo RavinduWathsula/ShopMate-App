@@ -6,7 +6,6 @@ import '../core/theme/app_colors.dart';
 import 'widgets/shopmate_app_bar.dart';
 import 'widgets/shopmate_bottom_nav.dart';
 import '../providers/shopping_list_provider.dart';
-import '../providers/budget_provider.dart';
 import '../providers/basket_provider.dart';
 
 class ShoppingListScreen extends ConsumerStatefulWidget {
@@ -213,18 +212,12 @@ class _ShoppingListScreenState extends ConsumerState<ShoppingListScreen> {
   @override
   Widget build(BuildContext context) {
     final items = ref.watch(shoppingListProvider);
-    final budgetState = ref.watch(budgetProvider);
 
     final filteredItems = items.where((item) {
       final matchesCat = _selectedCategory == 'All' || item.category.toLowerCase() == _selectedCategory.toLowerCase();
       final matchesSearch = item.name.toLowerCase().contains(_searchQuery.toLowerCase());
       return matchesCat && matchesSearch;
     }).toList();
-
-    final estimatedTotal = items.where((item) => item.isChecked).fold(0.0, (sum, item) => sum + (item.price * item.quantity));
-    final remainingBudget = budgetState.budget - estimatedTotal;
-    final totalUnits = items.fold(0, (sum, item) => sum + item.quantity);
-    final checkedCount = items.where((item) => item.isChecked).length;
 
     return Scaffold(
       backgroundColor: AppColors.background,
@@ -435,19 +428,25 @@ class _ShoppingListScreenState extends ConsumerState<ShoppingListScreen> {
                                 ),
                               ),
                               const SizedBox(width: 12),
-                              // Product Icon
+                              // Product Icon or Image
                               Container(
                                 width: 44,
                                 height: 44,
                                 decoration: BoxDecoration(
                                   color: AppColors.primaryLight,
                                   borderRadius: BorderRadius.circular(12),
+                                  image: item.imageUrl != null ? DecorationImage(
+                                    image: NetworkImage(item.imageUrl!),
+                                    fit: BoxFit.cover,
+                                  ) : null,
                                 ),
-                                child: Icon(
-                                  item.icon,
-                                  color: AppColors.primaryGreenDark,
-                                  size: 22,
-                                ),
+                                child: item.imageUrl == null
+                                  ? Icon(
+                                      item.icon,
+                                      color: AppColors.primaryGreenDark,
+                                      size: 22,
+                                    )
+                                  : null,
                               ),
                               const SizedBox(width: 12),
                               // Title & Price
@@ -579,55 +578,7 @@ class _ShoppingListScreenState extends ConsumerState<ShoppingListScreen> {
               child: Column(
                 mainAxisSize: MainAxisSize.min,
                 children: [
-                  Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                    children: [
-                      Column(
-                        crossAxisAlignment: CrossAxisAlignment.start,
-                        children: [
-                          Text(
-                            'Items: $totalUnits ($checkedCount checked)',
-                            style: GoogleFonts.inter(
-                              fontSize: 12,
-                              color: AppColors.textSecondary,
-                              fontWeight: FontWeight.w600,
-                            ),
-                          ),
-                          const SizedBox(height: 2),
-                          Text(
-                            'Estimated total: Rs. ${estimatedTotal.toStringAsFixed(0)}',
-                            style: GoogleFonts.inter(
-                              fontSize: 16,
-                              fontWeight: FontWeight.w900,
-                              color: AppColors.primaryGreenDark,
-                            ),
-                          ),
-                        ],
-                      ),
-                      Column(
-                        crossAxisAlignment: CrossAxisAlignment.end,
-                        children: [
-                          Text(
-                            'Remaining Budget',
-                            style: GoogleFonts.inter(
-                              fontSize: 11,
-                              color: AppColors.textSecondary,
-                              fontWeight: FontWeight.w500,
-                            ),
-                          ),
-                          Text(
-                            'Rs. ${remainingBudget.toStringAsFixed(0)}',
-                            style: GoogleFonts.inter(
-                              fontSize: 15,
-                              fontWeight: FontWeight.w800,
-                              color: remainingBudget >= 0 ? AppColors.primaryGreen : AppColors.warningRed,
-                            ),
-                          ),
-                        ],
-                      ),
-                    ],
-                  ),
-                  const SizedBox(height: 16),
+
                   SizedBox(
                     width: double.infinity,
                     height: 50,
@@ -651,6 +602,7 @@ class _ShoppingListScreenState extends ConsumerState<ShoppingListScreen> {
                               price: item.price,
                               quantity: item.quantity,
                               category: item.category,
+                              imageUrl: item.imageUrl,
                               isSelected: true,
                             )
                           );
