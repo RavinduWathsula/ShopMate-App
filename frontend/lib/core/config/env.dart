@@ -7,15 +7,11 @@ class Env {
       return envUrl;
     }
 
-    // Default URLs for local development
-    // 192.168.8.127 is used for Android physical device/emulator to access the local backend
-    // 127.0.0.1 is used for Windows desktop / iOS simulator
-    if (kIsWeb) {
-      return 'http://127.0.0.1:8000';
-    } else if (defaultTargetPlatform == TargetPlatform.android) {
-      return 'http://192.168.8.127:8000';
+    // Platform-specific routing
+    if (kIsWeb || defaultTargetPlatform == TargetPlatform.windows || defaultTargetPlatform == TargetPlatform.macOS) {
+      return 'http://127.0.0.1:8000'; // Avoids Chrome's Private Network Access blocks
     } else {
-      return 'http://127.0.0.1:8000';
+      return 'http://192.168.8.127:8000'; // For physical Android/iOS devices on Wi-Fi
     }
   }
 }

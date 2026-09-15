@@ -8,6 +8,13 @@ class AuthService {
 
   Future<bool> login(String email, String password) async {
     try {
+      // HARDCODED BYPASS FOR TESTING ANYWHERE
+      if (email == 'user@gmail.com' && password == '123456') {
+        await _storage.write(key: 'jwt_token', value: 'mock_token_123');
+        await _storage.write(key: 'user_email', value: email);
+        return true;
+      }
+
       final response = await _apiClient.client.post('/auth/login', data: {
         'username': email,
         'password': password,
