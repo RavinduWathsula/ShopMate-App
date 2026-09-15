@@ -96,7 +96,7 @@ class ProductDetailsScreen extends ConsumerWidget {
                       bottomLeft: Radius.circular(32),
                       bottomRight: Radius.circular(32),
                     ),
-                    child: Image.asset(imageUrl, fit: BoxFit.cover, width: double.infinity, height: double.infinity),
+                    child: Image.asset(imageUrl, fit: BoxFit.contain, width: double.infinity, height: double.infinity),
                   )
                 : Icon(
                     Icons.inventory_2_outlined,
@@ -343,6 +343,8 @@ class ProductDetailsScreen extends ConsumerWidget {
                         fontSize: 16,
                         color: AppColors.textPrimary,
                       ),
+                      maxLines: 2,
+                      overflow: TextOverflow.ellipsis,
                     ),
                     const SizedBox(height: 4),
                     Text(

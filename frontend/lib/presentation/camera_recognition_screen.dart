@@ -1,3 +1,4 @@
+import 'package:camera/camera.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:go_router/go_router.dart';
@@ -16,6 +17,39 @@ class CameraRecognitionScreen extends ConsumerStatefulWidget {
 class _CameraRecognitionScreenState
     extends ConsumerState<CameraRecognitionScreen> {
   bool _isFlashOn = false;
+  CameraController? _cameraController;
+  List<CameraDescription>? _cameras;
+
+  @override
+  void initState() {
+    super.initState();
+    _initCamera();
+  }
+
+  Future<void> _initCamera() async {
+    try {
+      _cameras = await availableCameras();
+      if (_cameras != null && _cameras!.isNotEmpty) {
+        _cameraController = CameraController(
+          _cameras![0],
+          ResolutionPreset.max,
+          enableAudio: false,
+        );
+        await _cameraController!.initialize();
+        if (mounted) {
+          setState(() {});
+        }
+      }
+    } catch (e) {
+      debugPrint('Error initializing camera: $e');
+    }
+  }
+
+  @override
+  void dispose() {
+    _cameraController?.dispose();
+    super.dispose();
+  }
 
   final List<Map<String, dynamic>> _quickSampleProducts = [
     {
@@ -86,6 +120,22 @@ class _CameraRecognitionScreenState
     });
   }
 
+  void _toggleFlash() async {
+    if (_cameraController == null) return;
+    try {
+      if (_isFlashOn) {
+        await _cameraController!.setFlashMode(FlashMode.off);
+      } else {
+        await _cameraController!.setFlashMode(FlashMode.torch);
+      }
+      setState(() {
+        _isFlashOn = !_isFlashOn;
+      });
+    } catch (e) {
+      debugPrint('Flash error: $e');
+    }
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -95,23 +145,11 @@ class _CameraRecognitionScreenState
           children: [
             // Camera Background Preview
             Positioned.fill(
-              child: Opacity(
-                opacity: 0.65,
-                child: Image.network(
-                  'https://images.unsplash.com/photo-1578916171728-46686eac8d58?q=80&w=2874&auto=format&fit=crop',
-                  fit: BoxFit.cover,
-                  errorBuilder: (ctx, err, stack) => Container(
-                    color: const Color(0xFF1A1A1A),
-                    child: const Center(
-                      child: Icon(
-                        Icons.shelves,
-                        color: Colors.white24,
-                        size: 80,
-                      ),
+              child: (_cameraController != null && _cameraController!.value.isInitialized)
+                  ? CameraPreview(_cameraController!)
+                  : const Center(
+                      child: CircularProgressIndicator(color: AppColors.primaryGreen),
                     ),
-                  ),
-                ),
-              ),
             ),
 
             // Top Bar
@@ -164,7 +202,7 @@ class _CameraRecognitionScreenState
                         _isFlashOn
                             ? Icons.flash_on_rounded
                             : Icons.flash_off_rounded,
-                        () => setState(() => _isFlashOn = !_isFlashOn),
+                        _toggleFlash,
                       ),
                       const SizedBox(width: 12),
                       _buildIconButton(Icons.checklist_rounded, () {

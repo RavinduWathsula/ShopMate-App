@@ -9,11 +9,8 @@ import 'package:device_preview/device_preview.dart';
 
 void main() {
   runApp(
-    ProviderScope(
-      child: DevicePreview(
-        enabled: true,
-        builder: (context) => const ShopMateApp(),
-      ),
+    const ProviderScope(
+      child: ShopMateApp(),
     ),
   );
 }
@@ -28,8 +25,6 @@ class ShopMateApp extends StatelessWidget {
       debugShowCheckedModeBanner: false,
       theme: AppTheme.lightTheme,
       routerConfig: AppRouter.router,
-      locale: DevicePreview.locale(context),
-      builder: DevicePreview.appBuilder,
       scrollBehavior: const MaterialScrollBehavior().copyWith(
         dragDevices: {
           PointerDeviceKind.mouse,

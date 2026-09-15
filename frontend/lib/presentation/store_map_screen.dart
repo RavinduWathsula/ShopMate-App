@@ -229,10 +229,10 @@ class SupermarketMapPainter extends CustomPainter {
     drawZone(const Rect.fromLTWH(240, 20, 90, 50), 'Bakery', color: Colors.blue.withValues(alpha: 0.1));
     
     // Left Zone
-    drawZone(const Rect.fromLTWH(10, 90, 30, 310), 'Drinks', color: Colors.blue.withValues(alpha: 0.1));
+    drawZone(const Rect.fromLTWH(5, 90, 45, 310), 'Drinks', color: Colors.blue.withValues(alpha: 0.1));
     
     // Right Zone
-    drawZone(const Rect.fromLTWH(310, 90, 30, 310), 'Snacks', color: Colors.blue.withValues(alpha: 0.1));
+    drawZone(const Rect.fromLTWH(300, 90, 45, 310), 'Snacks', color: Colors.blue.withValues(alpha: 0.1));
 
     // Route (Mock Dijkstra Path)
     final path = Path();
