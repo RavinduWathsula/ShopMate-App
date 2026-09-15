@@ -12,3 +12,5 @@ scikit-learn
 numpy
 types-python-jose
 pillow
+psycopg2-binary
+gunicorn
