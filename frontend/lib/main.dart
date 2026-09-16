@@ -4,8 +4,9 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'core/routing/app_router.dart';
 import 'core/theme/app_theme.dart';
 import 'core/constants/app_constants.dart';
-import 'package:device_preview/device_preview.dart';
 
+
+import 'core/theme/theme_provider.dart';
 
 void main() {
   runApp(
@@ -15,15 +16,19 @@ void main() {
   );
 }
 
-class ShopMateApp extends StatelessWidget {
+class ShopMateApp extends ConsumerWidget {
   const ShopMateApp({super.key});
 
   @override
-  Widget build(BuildContext context) {
+  Widget build(BuildContext context, WidgetRef ref) {
+    final themeMode = ref.watch(themeModeProvider);
+
     return MaterialApp.router(
       title: AppConstants.appName,
       debugShowCheckedModeBanner: false,
       theme: AppTheme.lightTheme,
+      darkTheme: AppTheme.darkTheme,
+      themeMode: themeMode,
       routerConfig: AppRouter.router,
       scrollBehavior: const MaterialScrollBehavior().copyWith(
         dragDevices: {
