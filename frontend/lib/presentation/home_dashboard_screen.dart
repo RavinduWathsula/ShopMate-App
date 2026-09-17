@@ -757,21 +757,20 @@ class _HomeDashboardScreenState extends ConsumerState<HomeDashboardScreen> {
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                Row(
+                Wrap(
+                  crossAxisAlignment: WrapCrossAlignment.center,
+                  spacing: 8,
+                  runSpacing: 6,
                   children: [
-                    Flexible(
-                      child: Text(
-                        title,
-                        style: GoogleFonts.inter(
-                          fontSize: 17,
-                          fontWeight: FontWeight.w800,
-                          color: AppColors.textPrimary,
-                        ),
-                        overflow: TextOverflow.ellipsis,
+                    Text(
+                      title,
+                      style: GoogleFonts.inter(
+                        fontSize: 17,
+                        fontWeight: FontWeight.w800,
+                        color: AppColors.textPrimary,
                       ),
                     ),
-                    if (badgeText != null) ...[
-                      const SizedBox(width: 8),
+                    if (badgeText != null)
                       Container(
                         padding: const EdgeInsets.symmetric(horizontal: 6, vertical: 2),
                         decoration: BoxDecoration(
@@ -787,7 +786,6 @@ class _HomeDashboardScreenState extends ConsumerState<HomeDashboardScreen> {
                           ),
                         ),
                       ),
-                    ],
                   ],
                 ),
                 if (subtitle != null) ...[

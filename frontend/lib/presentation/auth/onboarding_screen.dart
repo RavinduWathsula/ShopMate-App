@@ -78,6 +78,7 @@ class _OnboardingScreenState extends ConsumerState<OnboardingScreen> {
                             textAlign: TextAlign.center,
                             style: Theme.of(context).textTheme.displayMedium?.copyWith(
                                   fontWeight: FontWeight.w800,
+                                  color: AppColors.textPrimary,
                                 ),
                           ),
                           const SizedBox(height: 16),

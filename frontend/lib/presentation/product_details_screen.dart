@@ -43,7 +43,7 @@ class ProductDetailsScreen extends ConsumerWidget {
             Padding(
               padding: const EdgeInsets.all(24.0),
               child: Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
+                crossAxisAlignment: CrossAxisAlignment.stretch,
                 children: [
                   _buildHeaderAndPrice(context),
                   const SizedBox(height: 24),
@@ -88,22 +88,19 @@ class ProductDetailsScreen extends ConsumerWidget {
       ),
       child: SafeArea(
         child: Center(
-          child: Hero(
-            tag: 'product_image_${productData['id'] ?? 'unknown'}',
-            child: imageUrl != null
-                ? ClipRRect(
-                    borderRadius: const BorderRadius.only(
-                      bottomLeft: Radius.circular(32),
-                      bottomRight: Radius.circular(32),
-                    ),
-                    child: Image.asset(imageUrl, fit: BoxFit.contain, width: double.infinity, height: double.infinity),
-                  )
-                : Icon(
-                    Icons.inventory_2_outlined,
-                    size: 150,
-                    color: AppColors.primaryGreen.withValues(alpha: 0.5),
+          child: imageUrl != null
+              ? ClipRRect(
+                  borderRadius: const BorderRadius.only(
+                    bottomLeft: Radius.circular(32),
+                    bottomRight: Radius.circular(32),
                   ),
-          ),
+                  child: Image.asset(imageUrl, fit: BoxFit.contain),
+                )
+              : Icon(
+                  Icons.inventory_2_outlined,
+                  size: 150,
+                  color: AppColors.primaryGreen.withValues(alpha: 0.5),
+                ),
         ),
       ),
     );
@@ -117,7 +114,7 @@ class ProductDetailsScreen extends ConsumerWidget {
     final hasDiscount = originalPrice != null && originalPrice > price;
 
     return Column(
-      crossAxisAlignment: CrossAxisAlignment.start,
+      crossAxisAlignment: CrossAxisAlignment.stretch,
       children: [
         Row(
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -169,8 +166,9 @@ class ProductDetailsScreen extends ConsumerWidget {
           ],
         ),
         const SizedBox(height: 16),
-        Row(
-          crossAxisAlignment: CrossAxisAlignment.end,
+        Wrap(
+          crossAxisAlignment: WrapCrossAlignment.end,
+          spacing: 12,
           children: [
             Text(
               'Rs. ${price.toStringAsFixed(0)}',
@@ -181,8 +179,7 @@ class ProductDetailsScreen extends ConsumerWidget {
                 letterSpacing: -1,
               ),
             ),
-            if (hasDiscount) ...[
-              const SizedBox(width: 12),
+            if (hasDiscount)
               Padding(
                 padding: const EdgeInsets.only(bottom: 4.0),
                 child: Text(
@@ -195,7 +192,6 @@ class ProductDetailsScreen extends ConsumerWidget {
                   ),
                 ),
               ),
-            ],
           ],
         ),
       ],
@@ -288,7 +284,7 @@ class ProductDetailsScreen extends ConsumerWidget {
   Widget _buildAlternativeSection(BuildContext context, WidgetRef ref) {
     final name = productData['name'] ?? 'Product';
     return Column(
-      crossAxisAlignment: CrossAxisAlignment.start,
+      crossAxisAlignment: CrossAxisAlignment.stretch,
       children: [
         Text(
           'Cheaper Alternative',
@@ -356,7 +352,10 @@ class ProductDetailsScreen extends ConsumerWidget {
                       ),
                     ),
                     const SizedBox(height: 8),
-                    Row(
+                    Wrap(
+                      crossAxisAlignment: WrapCrossAlignment.center,
+                      spacing: 8,
+                      runSpacing: 4,
                       children: [
                         Text(
                           'Rs. 420',
@@ -366,7 +365,6 @@ class ProductDetailsScreen extends ConsumerWidget {
                             fontSize: 16,
                           ),
                         ),
-                        const SizedBox(width: 8),
                         Container(
                           padding: const EdgeInsets.symmetric(horizontal: 8, vertical: 2),
                           decoration: BoxDecoration(

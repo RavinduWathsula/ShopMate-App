@@ -7,11 +7,17 @@ import 'core/constants/app_constants.dart';
 
 
 import 'core/theme/theme_provider.dart';
+import 'core/theme/app_colors.dart';
+
+import 'package:device_preview/device_preview.dart';
 
 void main() {
   runApp(
-    const ProviderScope(
-      child: ShopMateApp(),
+    DevicePreview(
+      enabled: true,
+      builder: (context) => const ProviderScope(
+        child: ShopMateApp(),
+      ),
     ),
   );
 }
@@ -30,6 +36,8 @@ class ShopMateApp extends ConsumerWidget {
       darkTheme: AppTheme.darkTheme,
       themeMode: themeMode,
       routerConfig: AppRouter.router,
+      builder: DevicePreview.appBuilder,
+      locale: DevicePreview.locale(context),
       scrollBehavior: const MaterialScrollBehavior().copyWith(
         dragDevices: {
           PointerDeviceKind.mouse,
@@ -41,3 +49,5 @@ class ShopMateApp extends ConsumerWidget {
     );
   }
 }
+
+

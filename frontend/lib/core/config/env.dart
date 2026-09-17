@@ -7,7 +7,6 @@ class Env {
       return envUrl;
     }
 
-    // Platform-specific routing
     if (kIsWeb || defaultTargetPlatform == TargetPlatform.windows || defaultTargetPlatform == TargetPlatform.macOS) {
       return 'http://127.0.0.1:8000'; // Avoids Chrome's Private Network Access blocks
     } else {

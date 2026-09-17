@@ -98,13 +98,13 @@ class _AIInsightCardState extends State<AIInsightCard> with SingleTickerProvider
 
   @override
   Widget build(BuildContext context) {
-    return AnimatedBuilder(
-      animation: _glowAnimation,
-      builder: (context, child) {
-        return InkWell(
-          onTap: widget.onTap,
-          borderRadius: BorderRadius.circular(20),
-          child: Container(
+    return InkWell(
+      onTap: widget.onTap,
+      borderRadius: BorderRadius.circular(20),
+      child: AnimatedBuilder(
+        animation: _glowAnimation,
+        builder: (context, child) {
+          return Container(
             padding: const EdgeInsets.all(20),
             decoration: BoxDecoration(
               color: AppColors.surface,
@@ -177,9 +177,9 @@ class _AIInsightCardState extends State<AIInsightCard> with SingleTickerProvider
                 ]
               ],
             ),
-          ),
-        );
-      }
+          );
+        }
+      ),
     );
   }
 }

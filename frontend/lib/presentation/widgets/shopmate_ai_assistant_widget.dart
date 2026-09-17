@@ -73,128 +73,129 @@ class _ShopMateAiAssistantWidgetState extends State<ShopMateAiAssistantWidget>
             ),
           ),
           padding: EdgeInsets.all(widget.compact ? 12.0 : 16.0),
-          child: Row(
-            crossAxisAlignment: CrossAxisAlignment.center,
+          child: child,
+        );
+      },
+      child: Row(
+        crossAxisAlignment: CrossAxisAlignment.center,
+        children: [
+          // Friendly AI Robot Avatar with glowing ring
+          Stack(
+            alignment: Alignment.center,
             children: [
-              // Friendly AI Robot Avatar with glowing ring
-              Stack(
-                alignment: Alignment.center,
-                children: [
-                  Container(
-                    width: widget.compact ? 42 : 52,
-                    height: widget.compact ? 42 : 52,
-                    decoration: BoxDecoration(
-                      shape: BoxShape.circle,
-                      gradient: const RadialGradient(
-                        colors: [Color(0xFF8B5CF6), Color(0xFF6D28D9)],
-                      ),
-                      boxShadow: [
-                        BoxShadow(
-                          color: const Color(0xFFA78BFA).withValues(alpha: 0.5),
-                          blurRadius: 10,
-                          spreadRadius: 1,
-                        ),
-                      ],
-                    ),
-                    child: Center(
-                      child: Icon(
-                        Icons.smart_toy_rounded,
-                        color: Colors.white,
-                        size: widget.compact ? 22 : 28,
-                      ),
-                    ),
+              Container(
+                width: widget.compact ? 42 : 52,
+                height: widget.compact ? 42 : 52,
+                decoration: BoxDecoration(
+                  shape: BoxShape.circle,
+                  gradient: const RadialGradient(
+                    colors: [Color(0xFF8B5CF6), Color(0xFF6D28D9)],
                   ),
-                  Positioned(
-                    top: 2,
-                    right: 2,
-                    child: Container(
-                      width: 10,
-                      height: 10,
+                  boxShadow: [
+                    BoxShadow(
+                      color: const Color(0xFFA78BFA).withValues(alpha: 0.5),
+                      blurRadius: 10,
+                      spreadRadius: 1,
+                    ),
+                  ],
+                ),
+                child: Center(
+                  child: Icon(
+                    Icons.smart_toy_rounded,
+                    color: Colors.white,
+                    size: widget.compact ? 22 : 28,
+                  ),
+                ),
+              ),
+              Positioned(
+                top: 2,
+                right: 2,
+                child: Container(
+                  width: 10,
+                  height: 10,
+                  decoration: BoxDecoration(
+                    color: AppColors.primaryGreen,
+                    shape: BoxShape.circle,
+                    border: Border.all(color: Colors.white, width: 1.5),
+                  ),
+                ),
+              ),
+            ],
+          ),
+          const SizedBox(width: 14),
+          // Speech bubble text
+          Expanded(
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              mainAxisSize: MainAxisSize.min,
+              children: [
+                Row(
+                  children: [
+                    Container(
+                      padding: const EdgeInsets.symmetric(horizontal: 8, vertical: 2),
                       decoration: BoxDecoration(
-                        color: AppColors.primaryGreen,
-                        shape: BoxShape.circle,
-                        border: Border.all(color: Colors.white, width: 1.5),
+                        color: AppColors.aiPurpleLight.withValues(alpha: 0.3),
+                        borderRadius: BorderRadius.circular(10),
                       ),
+                      child: Text(
+                        'SHOPMATE AI INSIGHT',
+                        style: GoogleFonts.inter(
+                          fontSize: 9,
+                          fontWeight: FontWeight.w800,
+                          color: const Color(0xFFE9D5FF),
+                          letterSpacing: 0.8,
+                        ),
+                      ),
+                    ),
+                  ],
+                ),
+                const SizedBox(height: 6),
+                Text(
+                  widget.message,
+                  style: GoogleFonts.inter(
+                    fontSize: widget.compact ? 13 : 14,
+                    fontWeight: FontWeight.w600,
+                    color: Colors.white,
+                    height: 1.3,
+                  ),
+                ),
+                if (widget.subtitle != null) ...[
+                  const SizedBox(height: 4),
+                  Text(
+                    widget.subtitle!,
+                    style: GoogleFonts.inter(
+                      fontSize: 12,
+                      color: const Color(0xFFCBD5E1),
+                      height: 1.2,
                     ),
                   ),
                 ],
-              ),
-              const SizedBox(width: 14),
-              // Speech bubble text
-              Expanded(
-                child: Column(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  mainAxisSize: MainAxisSize.min,
-                  children: [
-                    Row(
-                      children: [
-                        Container(
-                          padding: const EdgeInsets.symmetric(horizontal: 8, vertical: 2),
-                          decoration: BoxDecoration(
-                            color: AppColors.aiPurpleLight.withValues(alpha: 0.3),
-                            borderRadius: BorderRadius.circular(10),
-                          ),
-                          child: Text(
-                            'SHOPMATE AI INSIGHT',
-                            style: GoogleFonts.inter(
-                              fontSize: 9,
-                              fontWeight: FontWeight.w800,
-                              color: const Color(0xFFE9D5FF),
-                              letterSpacing: 0.8,
-                            ),
-                          ),
-                        ),
-                      ],
-                    ),
-                    const SizedBox(height: 6),
-                    Text(
-                      widget.message,
-                      style: GoogleFonts.inter(
-                        fontSize: widget.compact ? 13 : 14,
-                        fontWeight: FontWeight.w600,
-                        color: Colors.white,
-                        height: 1.3,
-                      ),
-                    ),
-                    if (widget.subtitle != null) ...[
-                      const SizedBox(height: 4),
-                      Text(
-                        widget.subtitle!,
-                        style: GoogleFonts.inter(
-                          fontSize: 12,
-                          color: const Color(0xFFCBD5E1),
-                          height: 1.2,
-                        ),
-                      ),
-                    ],
-                  ],
-                ),
-              ),
-              if (widget.actionLabel != null && widget.onTap != null) ...[
-                const SizedBox(width: 8),
-                TextButton(
-                  onPressed: widget.onTap,
-                  style: TextButton.styleFrom(
-                    backgroundColor: Colors.white.withValues(alpha: 0.15),
-                    foregroundColor: Colors.white,
-                    padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 8),
-                    shape: RoundedRectangleBorder(
-                      borderRadius: BorderRadius.circular(12),
-                    ),
-                  ),
-                  child: Text(
-                    widget.actionLabel!,
-                    style: GoogleFonts.inter(
-                      fontSize: 12,
-                      fontWeight: FontWeight.w700,
-                    ),
-                  ),
-                ),
               ],
-            ],
+            ),
           ),
-        );
-      },
+          if (widget.actionLabel != null && widget.onTap != null) ...[
+            const SizedBox(width: 8),
+            TextButton(
+              onPressed: widget.onTap,
+              style: TextButton.styleFrom(
+                backgroundColor: Colors.white.withValues(alpha: 0.15),
+                foregroundColor: Colors.white,
+                padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 8),
+                shape: RoundedRectangleBorder(
+                  borderRadius: BorderRadius.circular(12),
+                ),
+              ),
+              child: Text(
+                widget.actionLabel!,
+                style: GoogleFonts.inter(
+                  fontSize: 12,
+                  fontWeight: FontWeight.w700,
+                ),
+              ),
+            ),
+          ],
+        ],
+      ),
     );
   }
 }
