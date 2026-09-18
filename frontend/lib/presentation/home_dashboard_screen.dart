@@ -247,29 +247,9 @@ class _HomeDashboardScreenState extends ConsumerState<HomeDashboardScreen> {
 
               const SizedBox(height: 10),
 
-              // Today's Deals Section
-              _buildSectionHeader(
-                context,
-                title: "Cargills Food City Deals",
-                badgeText: "HOT SAVINGS",
-                onSeeAll: () => context.push('/discounts'),
-              ),
-              const SizedBox(height: 14),
-              _buildDealsCarousel(context),
 
-              const SizedBox(height: 28),
 
-              // Featured Pantry Picks (Cargills Best Sellers)
-              _buildSectionHeader(
-                context,
-                title: "Featured Pantry Picks",
-                subtitle: "Special offers and household favorites",
-                onSeeAll: () => context.push('/discounts'),
-              ),
-              const SizedBox(height: 14),
-              _buildRecommendationsList(context),
 
-              const SizedBox(height: 28),
 
               // Popular Supermarket Products
               _buildSectionHeader(

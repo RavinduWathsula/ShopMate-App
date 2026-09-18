@@ -68,7 +68,7 @@ class AppRouter {
         builder: (context, state) {
           final extra = state.extra;
           final extraMap = extra is Map
-              ? extra.cast<String, dynamic>()
+              ? Map<String, dynamic>.from(extra)
               : <String, dynamic>{};
           return ProductDetailsScreen(productData: extraMap);
         },
