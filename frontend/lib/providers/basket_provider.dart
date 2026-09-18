@@ -42,15 +42,14 @@ class BasketItem {
 }
 
 class BasketNotifier extends StateNotifier<List<BasketItem>> {
-  BasketNotifier()
-      : super([]);
+  BasketNotifier() : super([]);
 
   void addItem(BasketItem item) {
     final existingIndex = state.indexWhere((i) => i.id == item.id);
     if (existingIndex >= 0) {
       final updated = List<BasketItem>.from(state);
       updated[existingIndex] = updated[existingIndex].copyWith(
-        quantity: updated[existingIndex].quantity + item.quantity
+        quantity: updated[existingIndex].quantity + item.quantity,
       );
       state = updated;
     } else {
@@ -80,7 +79,9 @@ class BasketNotifier extends StateNotifier<List<BasketItem>> {
     final updated = List<BasketItem>.from(state);
     final index = updated.indexWhere((i) => i.id == id);
     if (index >= 0) {
-      updated[index] = updated[index].copyWith(isSelected: !updated[index].isSelected);
+      updated[index] = updated[index].copyWith(
+        isSelected: !updated[index].isSelected,
+      );
       state = updated;
     }
   }
@@ -88,17 +89,21 @@ class BasketNotifier extends StateNotifier<List<BasketItem>> {
   void toggleAllSelection(bool selectAll) {
     state = state.map((item) => item.copyWith(isSelected: selectAll)).toList();
   }
-  
+
   void clear() {
     state = [];
   }
 }
 
-final basketProvider = StateNotifierProvider<BasketNotifier, List<BasketItem>>((ref) => BasketNotifier());
+final basketProvider = StateNotifierProvider<BasketNotifier, List<BasketItem>>(
+  (ref) => BasketNotifier(),
+);
 
 final basketTotalProvider = Provider<double>((ref) {
   final items = ref.watch(basketProvider);
-  return items.where((item) => item.isSelected).fold(0.0, (total, item) => total + (item.price * item.quantity));
+  return items
+      .where((item) => item.isSelected)
+      .fold(0.0, (total, item) => total + (item.price * item.quantity));
 });
 
 final budgetPercentageProvider = Provider<double>((ref) {

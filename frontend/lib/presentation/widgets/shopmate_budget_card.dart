@@ -29,7 +29,11 @@ class ShopMateBudgetCard extends StatelessWidget {
       decoration: BoxDecoration(
         gradient: LinearGradient(
           colors: isOverBudget && showWarningIfOver
-              ? [const Color(0xFFB91C1C), const Color(0xFFDC2626), const Color(0xFF7F1D1D)]
+              ? [
+                  const Color(0xFFB91C1C),
+                  const Color(0xFFDC2626),
+                  const Color(0xFF7F1D1D),
+                ]
               : [
                   const Color(0xFF00C853), // ShopMate Green
                   const Color(0xFF009624), // Rich Green
@@ -41,8 +45,11 @@ class ShopMateBudgetCard extends StatelessWidget {
         borderRadius: BorderRadius.circular(24),
         boxShadow: [
           BoxShadow(
-            color: (isOverBudget && showWarningIfOver ? AppColors.warningRed : AppColors.primaryGreen)
-                .withValues(alpha: 0.35),
+            color:
+                (isOverBudget && showWarningIfOver
+                        ? AppColors.warningRed
+                        : AppColors.primaryGreen)
+                    .withValues(alpha: 0.35),
             blurRadius: 20,
             offset: const Offset(0, 8),
           ),
@@ -84,7 +91,10 @@ class ShopMateBudgetCard extends StatelessWidget {
                 onTap: onEdit,
                 borderRadius: BorderRadius.circular(20),
                 child: Container(
-                  padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 4),
+                  padding: const EdgeInsets.symmetric(
+                    horizontal: 10,
+                    vertical: 4,
+                  ),
                   decoration: BoxDecoration(
                     color: Colors.white.withValues(alpha: 0.2),
                     borderRadius: BorderRadius.circular(20),
@@ -179,7 +189,9 @@ class ShopMateBudgetCard extends StatelessWidget {
                       Text(
                         'Rs. ${remaining.abs().toStringAsFixed(0)}',
                         style: GoogleFonts.inter(
-                          color: isOverBudget ? const Color(0xFFFFCDD2) : const Color(0xFFB9F6CA),
+                          color: isOverBudget
+                              ? const Color(0xFFFFCDD2)
+                              : const Color(0xFFB9F6CA),
                           fontSize: 16,
                           fontWeight: FontWeight.w800,
                         ),
@@ -200,7 +212,9 @@ class ShopMateBudgetCard extends StatelessWidget {
               valueColor: AlwaysStoppedAnimation<Color>(
                 isOverBudget
                     ? Colors.white
-                    : (progress > 0.8 ? AppColors.dealOrange : const Color(0xFFFFD600)),
+                    : (progress > 0.8
+                          ? AppColors.dealOrange
+                          : const Color(0xFFFFD600)),
               ),
               minHeight: 8,
             ),

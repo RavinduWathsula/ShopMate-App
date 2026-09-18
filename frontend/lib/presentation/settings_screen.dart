@@ -24,10 +24,7 @@ class _SettingsScreenState extends ConsumerState<SettingsScreen> {
 
     return Scaffold(
       backgroundColor: theme.scaffoldBackgroundColor,
-      appBar: const ShopMateAppBar(
-        title: 'Settings',
-        showBack: true,
-      ),
+      appBar: const ShopMateAppBar(title: 'Settings', showBack: true),
       body: SafeArea(
         child: ListView(
           padding: const EdgeInsets.all(20),
@@ -48,37 +45,86 @@ class _SettingsScreenState extends ConsumerState<SettingsScreen> {
               child: Column(
                 children: [
                   SwitchListTile(
-                    title: Text('Dark Mode', style: theme.textTheme.titleMedium?.copyWith(fontSize: 14.5)),
-                    subtitle: Text('Enable dark theme for the app', style: theme.textTheme.bodyMedium),
+                    title: Text(
+                      'Dark Mode',
+                      style: theme.textTheme.titleMedium?.copyWith(
+                        fontSize: 14.5,
+                      ),
+                    ),
+                    subtitle: Text(
+                      'Enable dark theme for the app',
+                      style: theme.textTheme.bodyMedium,
+                    ),
                     value: isDarkMode,
                     activeThumbColor: AppColors.primaryGreen,
                     activeTrackColor: AppColors.primaryGreenLight,
                     onChanged: (val) {
-                      ref.read(themeModeProvider.notifier).state = val ? ThemeMode.dark : ThemeMode.light;
+                      ref.read(themeModeProvider.notifier).state = val
+                          ? ThemeMode.dark
+                          : ThemeMode.light;
                     },
                   ),
-                  const Divider(height: 1, indent: 16, endIndent: 16, color: AppColors.border),
+                  const Divider(
+                    height: 1,
+                    indent: 16,
+                    endIndent: 16,
+                    color: AppColors.border,
+                  ),
                   SwitchListTile(
-                    title: Text('Push Notifications', style: theme.textTheme.titleMedium?.copyWith(fontSize: 14.5)),
-                    subtitle: Text('Receive deal alerts and shopping reminders', style: theme.textTheme.bodyMedium),
+                    title: Text(
+                      'Push Notifications',
+                      style: theme.textTheme.titleMedium?.copyWith(
+                        fontSize: 14.5,
+                      ),
+                    ),
+                    subtitle: Text(
+                      'Receive deal alerts and shopping reminders',
+                      style: theme.textTheme.bodyMedium,
+                    ),
                     value: _notifications,
                     activeThumbColor: AppColors.primaryGreen,
                     activeTrackColor: AppColors.primaryGreenLight,
                     onChanged: (val) => setState(() => _notifications = val),
                   ),
-                  const Divider(height: 1, indent: 16, endIndent: 16, color: AppColors.border),
+                  const Divider(
+                    height: 1,
+                    indent: 16,
+                    endIndent: 16,
+                    color: AppColors.border,
+                  ),
                   SwitchListTile(
-                    title: Text('In-Store Beep Sound', style: theme.textTheme.titleMedium?.copyWith(fontSize: 14.5)),
-                    subtitle: Text('Play confirmation tone on barcode scan', style: theme.textTheme.bodyMedium),
+                    title: Text(
+                      'In-Store Beep Sound',
+                      style: theme.textTheme.titleMedium?.copyWith(
+                        fontSize: 14.5,
+                      ),
+                    ),
+                    subtitle: Text(
+                      'Play confirmation tone on barcode scan',
+                      style: theme.textTheme.bodyMedium,
+                    ),
                     value: _sound,
                     activeThumbColor: AppColors.primaryGreen,
                     activeTrackColor: AppColors.primaryGreenLight,
                     onChanged: (val) => setState(() => _sound = val),
                   ),
-                  const Divider(height: 1, indent: 16, endIndent: 16, color: AppColors.border),
+                  const Divider(
+                    height: 1,
+                    indent: 16,
+                    endIndent: 16,
+                    color: AppColors.border,
+                  ),
                   SwitchListTile(
-                    title: Text('Offline Basket Mode', style: theme.textTheme.titleMedium?.copyWith(fontSize: 14.5)),
-                    subtitle: Text('Cache product data for poor supermarket connectivity', style: theme.textTheme.bodyMedium),
+                    title: Text(
+                      'Offline Basket Mode',
+                      style: theme.textTheme.titleMedium?.copyWith(
+                        fontSize: 14.5,
+                      ),
+                    ),
+                    subtitle: Text(
+                      'Cache product data for poor supermarket connectivity',
+                      style: theme.textTheme.bodyMedium,
+                    ),
                     value: _offlineMode,
                     activeThumbColor: AppColors.primaryGreen,
                     activeTrackColor: AppColors.primaryGreenLight,

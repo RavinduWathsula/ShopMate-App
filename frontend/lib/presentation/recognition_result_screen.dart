@@ -11,10 +11,12 @@ class RecognitionResultScreen extends ConsumerStatefulWidget {
   const RecognitionResultScreen({super.key});
 
   @override
-  ConsumerState<RecognitionResultScreen> createState() => _RecognitionResultScreenState();
+  ConsumerState<RecognitionResultScreen> createState() =>
+      _RecognitionResultScreenState();
 }
 
-class _RecognitionResultScreenState extends ConsumerState<RecognitionResultScreen> {
+class _RecognitionResultScreenState
+    extends ConsumerState<RecognitionResultScreen> {
   final String _productName = 'Kotmale Fresh Milk 1L';
   final String _category = 'Dairy';
   final double _price = 450.0;
@@ -25,17 +27,19 @@ class _RecognitionResultScreenState extends ConsumerState<RecognitionResultScree
     super.initState();
     // Ensure the recognized item is in the Shopping List
     WidgetsBinding.instance.addPostFrameCallback((_) {
-      ref.read(shoppingListProvider.notifier).addItem(
-        ShoppingListItem(
-          id: 'rec_${DateTime.now().millisecondsSinceEpoch}',
-          name: _productName,
-          category: _category,
-          price: _price,
-          quantity: 1,
-          isChecked: false,
-          icon: Icons.local_drink_rounded,
-        ),
-      );
+      ref
+          .read(shoppingListProvider.notifier)
+          .addItem(
+            ShoppingListItem(
+              id: 'rec_${DateTime.now().millisecondsSinceEpoch}',
+              name: _productName,
+              category: _category,
+              price: _price,
+              quantity: 1,
+              isChecked: false,
+              icon: Icons.local_drink_rounded,
+            ),
+          );
     });
   }
 
@@ -52,7 +56,10 @@ class _RecognitionResultScreenState extends ConsumerState<RecognitionResultScree
             children: [
               // Auto-Add Success Banner
               Container(
-                padding: const EdgeInsets.symmetric(vertical: 12, horizontal: 16),
+                padding: const EdgeInsets.symmetric(
+                  vertical: 12,
+                  horizontal: 16,
+                ),
                 decoration: BoxDecoration(
                   gradient: const LinearGradient(
                     colors: [Color(0xFFE8F8EE), Color(0xFFD1F2DD)],
@@ -60,7 +67,9 @@ class _RecognitionResultScreenState extends ConsumerState<RecognitionResultScree
                     end: Alignment.bottomRight,
                   ),
                   borderRadius: BorderRadius.circular(16),
-                  border: Border.all(color: AppColors.primaryGreen.withValues(alpha: 0.4)),
+                  border: Border.all(
+                    color: AppColors.primaryGreen.withValues(alpha: 0.4),
+                  ),
                   boxShadow: [
                     BoxShadow(
                       color: AppColors.primaryGreen.withValues(alpha: 0.1),
@@ -77,7 +86,11 @@ class _RecognitionResultScreenState extends ConsumerState<RecognitionResultScree
                         color: AppColors.primaryGreenDark,
                         shape: BoxShape.circle,
                       ),
-                      child: const Icon(Icons.check_rounded, color: Colors.white, size: 16),
+                      child: const Icon(
+                        Icons.check_rounded,
+                        color: Colors.white,
+                        size: 16,
+                      ),
                     ),
                     const SizedBox(width: 12),
                     Expanded(
@@ -137,7 +150,10 @@ class _RecognitionResultScreenState extends ConsumerState<RecognitionResultScree
                     top: 14,
                     right: 14,
                     child: Container(
-                      padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 6),
+                      padding: const EdgeInsets.symmetric(
+                        horizontal: 12,
+                        vertical: 6,
+                      ),
                       decoration: BoxDecoration(
                         gradient: const LinearGradient(
                           colors: [AppColors.aiPurple, AppColors.aiPurpleDark],
@@ -148,13 +164,17 @@ class _RecognitionResultScreenState extends ConsumerState<RecognitionResultScree
                             color: AppColors.aiPurple.withValues(alpha: 0.35),
                             blurRadius: 8,
                             offset: const Offset(0, 3),
-                          )
+                          ),
                         ],
                       ),
                       child: Row(
                         mainAxisSize: MainAxisSize.min,
                         children: [
-                          const Icon(Icons.auto_awesome_rounded, color: Colors.amberAccent, size: 14),
+                          const Icon(
+                            Icons.auto_awesome_rounded,
+                            color: Colors.amberAccent,
+                            size: 14,
+                          ),
                           const SizedBox(width: 6),
                           Text(
                             '96% AI Match',
@@ -244,15 +264,25 @@ class _RecognitionResultScreenState extends ConsumerState<RecognitionResultScree
               // 1. View in Shopping List
               ElevatedButton.icon(
                 onPressed: () => context.push('/shoppinglist'),
-                icon: const Icon(Icons.checklist_rounded, color: Colors.white, size: 20),
+                icon: const Icon(
+                  Icons.checklist_rounded,
+                  color: Colors.white,
+                  size: 20,
+                ),
                 label: Text(
                   'View in Shopping List',
-                  style: GoogleFonts.inter(fontSize: 15.5, fontWeight: FontWeight.w700, color: Colors.white),
+                  style: GoogleFonts.inter(
+                    fontSize: 15.5,
+                    fontWeight: FontWeight.w700,
+                    color: Colors.white,
+                  ),
                 ),
                 style: ElevatedButton.styleFrom(
                   backgroundColor: AppColors.primaryGreen,
                   padding: const EdgeInsets.symmetric(vertical: 16),
-                  shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(16)),
+                  shape: RoundedRectangleBorder(
+                    borderRadius: BorderRadius.circular(16),
+                  ),
                   elevation: 0,
                 ),
               ),
@@ -261,14 +291,16 @@ class _RecognitionResultScreenState extends ConsumerState<RecognitionResultScree
               // 2. Add to Cart / Smart Basket
               OutlinedButton.icon(
                 onPressed: () {
-                  ref.read(basketProvider.notifier).addItem(
-                    BasketItem(
-                      id: 'milk_1l',
-                      name: _productName,
-                      price: _price,
-                      category: _category,
-                    ),
-                  );
+                  ref
+                      .read(basketProvider.notifier)
+                      .addItem(
+                        BasketItem(
+                          id: 'milk_1l',
+                          name: _productName,
+                          price: _price,
+                          category: _category,
+                        ),
+                      );
                   ScaffoldMessenger.of(context).showSnackBar(
                     const SnackBar(
                       content: Text('Added Fresh Milk 1L to Cart!'),
@@ -277,15 +309,28 @@ class _RecognitionResultScreenState extends ConsumerState<RecognitionResultScree
                   );
                   context.push('/smartbasket');
                 },
-                icon: const Icon(Icons.shopping_bag_outlined, color: AppColors.primaryGreenDark, size: 20),
+                icon: const Icon(
+                  Icons.shopping_bag_outlined,
+                  color: AppColors.primaryGreenDark,
+                  size: 20,
+                ),
                 label: Text(
                   'Move to Smart Basket',
-                  style: GoogleFonts.inter(fontSize: 15, fontWeight: FontWeight.w700, color: AppColors.primaryGreenDark),
+                  style: GoogleFonts.inter(
+                    fontSize: 15,
+                    fontWeight: FontWeight.w700,
+                    color: AppColors.primaryGreenDark,
+                  ),
                 ),
                 style: OutlinedButton.styleFrom(
-                  side: const BorderSide(color: AppColors.primaryGreen, width: 1.5),
+                  side: const BorderSide(
+                    color: AppColors.primaryGreen,
+                    width: 1.5,
+                  ),
                   padding: const EdgeInsets.symmetric(vertical: 16),
-                  shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(16)),
+                  shape: RoundedRectangleBorder(
+                    borderRadius: BorderRadius.circular(16),
+                  ),
                 ),
               ),
               const SizedBox(height: 12),
@@ -293,10 +338,18 @@ class _RecognitionResultScreenState extends ConsumerState<RecognitionResultScree
               // 3. Scan Another Item
               TextButton.icon(
                 onPressed: () => context.push('/camerarecognition'),
-                icon: const Icon(Icons.camera_alt_outlined, color: AppColors.textSecondary, size: 18),
+                icon: const Icon(
+                  Icons.camera_alt_outlined,
+                  color: AppColors.textSecondary,
+                  size: 18,
+                ),
                 label: Text(
                   'Scan Another Product',
-                  style: GoogleFonts.inter(fontSize: 14, fontWeight: FontWeight.w600, color: AppColors.textSecondary),
+                  style: GoogleFonts.inter(
+                    fontSize: 14,
+                    fontWeight: FontWeight.w600,
+                    color: AppColors.textSecondary,
+                  ),
                 ),
               ),
               const SizedBox(height: 24),
@@ -307,13 +360,22 @@ class _RecognitionResultScreenState extends ConsumerState<RecognitionResultScree
     );
   }
 
-  Widget _buildInfoCard(String title, String value, IconData icon, Color color, {bool highlight = false, bool crossout = false}) {
+  Widget _buildInfoCard(
+    String title,
+    String value,
+    IconData icon,
+    Color color, {
+    bool highlight = false,
+    bool crossout = false,
+  }) {
     return Container(
       padding: const EdgeInsets.all(14),
       decoration: BoxDecoration(
         color: highlight ? color.withValues(alpha: 0.08) : Colors.white,
         borderRadius: BorderRadius.circular(16),
-        border: Border.all(color: highlight ? color.withValues(alpha: 0.3) : AppColors.border),
+        border: Border.all(
+          color: highlight ? color.withValues(alpha: 0.3) : AppColors.border,
+        ),
       ),
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,

@@ -13,4 +13,3 @@ class ProductService {
     return response.data;
   }
 }
-

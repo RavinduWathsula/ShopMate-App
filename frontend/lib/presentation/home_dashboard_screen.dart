@@ -13,11 +13,11 @@ class HomeDashboardScreen extends ConsumerStatefulWidget {
   const HomeDashboardScreen({super.key});
 
   @override
-  ConsumerState<HomeDashboardScreen> createState() => _HomeDashboardScreenState();
+  ConsumerState<HomeDashboardScreen> createState() =>
+      _HomeDashboardScreenState();
 }
 
 class _HomeDashboardScreenState extends ConsumerState<HomeDashboardScreen> {
-
   void _showNotificationSheet(BuildContext context) {
     showModalBottomSheet(
       context: context,
@@ -42,7 +42,11 @@ class _HomeDashboardScreenState extends ConsumerState<HomeDashboardScreen> {
                         color: const Color(0xFFFFEBEE),
                         borderRadius: BorderRadius.circular(12),
                       ),
-                      child: const Icon(Icons.notifications_active_rounded, color: Color(0xFFC62828), size: 22),
+                      child: const Icon(
+                        Icons.notifications_active_rounded,
+                        color: Color(0xFFC62828),
+                        size: 22,
+                      ),
                     ),
                     const SizedBox(width: 12),
                     Text(
@@ -56,7 +60,10 @@ class _HomeDashboardScreenState extends ConsumerState<HomeDashboardScreen> {
                   ],
                 ),
                 IconButton(
-                  icon: const Icon(Icons.close_rounded, color: AppColors.textSecondary),
+                  icon: const Icon(
+                    Icons.close_rounded,
+                    color: AppColors.textSecondary,
+                  ),
                   onPressed: () => Navigator.pop(ctx),
                 ),
               ],
@@ -92,7 +99,13 @@ class _HomeDashboardScreenState extends ConsumerState<HomeDashboardScreen> {
     );
   }
 
-  Widget _buildNotificationItem(String title, String desc, String time, IconData icon, Color color) {
+  Widget _buildNotificationItem(
+    String title,
+    String desc,
+    String time,
+    IconData icon,
+    Color color,
+  ) {
     return Container(
       padding: const EdgeInsets.all(14),
       decoration: BoxDecoration(
@@ -111,17 +124,28 @@ class _HomeDashboardScreenState extends ConsumerState<HomeDashboardScreen> {
               children: [
                 Text(
                   title,
-                  style: GoogleFonts.inter(fontSize: 13.5, fontWeight: FontWeight.w700, color: AppColors.textPrimary),
+                  style: GoogleFonts.inter(
+                    fontSize: 13.5,
+                    fontWeight: FontWeight.w700,
+                    color: AppColors.textPrimary,
+                  ),
                 ),
                 const SizedBox(height: 2),
                 Text(
                   desc,
-                  style: GoogleFonts.inter(fontSize: 11.5, color: AppColors.textSecondary, height: 1.3),
+                  style: GoogleFonts.inter(
+                    fontSize: 11.5,
+                    color: AppColors.textSecondary,
+                    height: 1.3,
+                  ),
                 ),
                 const SizedBox(height: 4),
                 Text(
                   time,
-                  style: GoogleFonts.inter(fontSize: 10, color: AppColors.textMuted),
+                  style: GoogleFonts.inter(
+                    fontSize: 10,
+                    color: AppColors.textMuted,
+                  ),
                 ),
               ],
             ),
@@ -131,16 +155,27 @@ class _HomeDashboardScreenState extends ConsumerState<HomeDashboardScreen> {
     );
   }
 
-  void _addProductToCart(String id, String name, double price, String category) {
-    ref.read(basketProvider.notifier).addItem(
-      BasketItem(id: id, name: name, price: price, category: category),
-    );
+  void _addProductToCart(
+    String id,
+    String name,
+    double price,
+    String category,
+  ) {
+    ref
+        .read(basketProvider.notifier)
+        .addItem(
+          BasketItem(id: id, name: name, price: price, category: category),
+        );
     ScaffoldMessenger.of(context).hideCurrentSnackBar();
     ScaffoldMessenger.of(context).showSnackBar(
       SnackBar(
         content: Row(
           children: [
-            const Icon(Icons.check_circle_rounded, color: Colors.white, size: 20),
+            const Icon(
+              Icons.check_circle_rounded,
+              color: Colors.white,
+              size: 20,
+            ),
             const SizedBox(width: 10),
             Expanded(
               child: Text(
@@ -506,7 +541,11 @@ class _HomeDashboardScreenState extends ConsumerState<HomeDashboardScreen> {
               children: [
                 Row(
                   children: [
-                    const Icon(Icons.wifi_tethering_rounded, color: Colors.greenAccent, size: 15),
+                    const Icon(
+                      Icons.wifi_tethering_rounded,
+                      color: Colors.greenAccent,
+                      size: 15,
+                    ),
                     const SizedBox(width: 6),
                     Text(
                       'In-Store Connected',
@@ -523,7 +562,10 @@ class _HomeDashboardScreenState extends ConsumerState<HomeDashboardScreen> {
                   onTap: () => context.push('/storemap'),
                   borderRadius: BorderRadius.circular(8),
                   child: Container(
-                    padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 4),
+                    padding: const EdgeInsets.symmetric(
+                      horizontal: 10,
+                      vertical: 4,
+                    ),
                     decoration: BoxDecoration(
                       color: Colors.white,
                       borderRadius: BorderRadius.circular(8),
@@ -531,7 +573,11 @@ class _HomeDashboardScreenState extends ConsumerState<HomeDashboardScreen> {
                     child: Row(
                       mainAxisSize: MainAxisSize.min,
                       children: [
-                        const Icon(Icons.map_rounded, color: Color(0xFFC62828), size: 14),
+                        const Icon(
+                          Icons.map_rounded,
+                          color: Color(0xFFC62828),
+                          size: 14,
+                        ),
                         const SizedBox(width: 5),
                         Text(
                           'Aisle Map',
@@ -654,10 +700,7 @@ class _HomeDashboardScreenState extends ConsumerState<HomeDashboardScreen> {
           children: [
             Container(
               padding: const EdgeInsets.all(12),
-              decoration: BoxDecoration(
-                color: bgColor,
-                shape: BoxShape.circle,
-              ),
+              decoration: BoxDecoration(color: bgColor, shape: BoxShape.circle),
               child: Icon(icon, color: iconColor, size: 22),
             ),
             const SizedBox(height: 8),
@@ -772,7 +815,10 @@ class _HomeDashboardScreenState extends ConsumerState<HomeDashboardScreen> {
                     ),
                     if (badgeText != null)
                       Container(
-                        padding: const EdgeInsets.symmetric(horizontal: 6, vertical: 2),
+                        padding: const EdgeInsets.symmetric(
+                          horizontal: 6,
+                          vertical: 2,
+                        ),
                         decoration: BoxDecoration(
                           color: const Color(0xFFC62828),
                           borderRadius: BorderRadius.circular(6),
@@ -832,9 +878,15 @@ class _HomeDashboardScreenState extends ConsumerState<HomeDashboardScreen> {
             size: "1000 ml",
             price: 450,
             originalPrice: 520,
-            imageUrl: 'assets/images/products/fresh_milk_bottle_1789196429739.jpg',
+            imageUrl:
+                'assets/images/products/fresh_milk_bottle_1789196429739.jpg',
             location: "Aisle 2 • Dairy",
-            onAddToCart: () => _addProductToCart('deal1', 'Kotmale Fresh Milk 1L', 450, 'Dairy'),
+            onAddToCart: () => _addProductToCart(
+              'deal1',
+              'Kotmale Fresh Milk 1L',
+              450,
+              'Dairy',
+            ),
           ),
           const SizedBox(width: 14),
           ShopMateProductCard(
@@ -843,9 +895,15 @@ class _HomeDashboardScreenState extends ConsumerState<HomeDashboardScreen> {
             size: "300g",
             price: 380,
             originalPrice: 440,
-            imageUrl: 'assets/images/products/strawberry_jam_jar_1789196446483.jpg',
+            imageUrl:
+                'assets/images/products/strawberry_jam_jar_1789196446483.jpg',
             location: "Aisle 3 • Spreads",
-            onAddToCart: () => _addProductToCart('deal2', 'Cargills Kist Strawberry Jam', 380, 'Pantry'),
+            onAddToCart: () => _addProductToCart(
+              'deal2',
+              'Cargills Kist Strawberry Jam',
+              380,
+              'Pantry',
+            ),
           ),
           const SizedBox(width: 14),
           ShopMateProductCard(
@@ -854,9 +912,15 @@ class _HomeDashboardScreenState extends ConsumerState<HomeDashboardScreen> {
             size: "500g",
             price: 360,
             originalPrice: 410,
-            imageUrl: 'assets/images/products/cream_cracker_pack_1789196459599.jpg',
+            imageUrl:
+                'assets/images/products/cream_cracker_pack_1789196459599.jpg',
             location: "Aisle 4 • Biscuits",
-            onAddToCart: () => _addProductToCart('deal3', 'Munchee Cream Cracker', 360, 'Snacks'),
+            onAddToCart: () => _addProductToCart(
+              'deal3',
+              'Munchee Cream Cracker',
+              360,
+              'Snacks',
+            ),
           ),
           const SizedBox(width: 14),
           ShopMateProductCard(
@@ -867,7 +931,12 @@ class _HomeDashboardScreenState extends ConsumerState<HomeDashboardScreen> {
             originalPrice: 1550,
             imageUrl: 'assets/images/products/rice_bag_5kg_1789196473391.jpg',
             location: "Aisle 1 • Rice & Flour",
-            onAddToCart: () => _addProductToCart('deal4', 'Araliya Keeri Samba 5kg', 1350, 'Grains'),
+            onAddToCart: () => _addProductToCart(
+              'deal4',
+              'Araliya Keeri Samba 5kg',
+              1350,
+              'Grains',
+            ),
           ),
           const SizedBox(width: 14),
           ShopMateProductCard(
@@ -876,9 +945,11 @@ class _HomeDashboardScreenState extends ConsumerState<HomeDashboardScreen> {
             size: "400g",
             price: 190,
             originalPrice: 220,
-            imageUrl: 'assets/images/products/sliced_bread_loaf_1789196500272.jpg',
+            imageUrl:
+                'assets/images/products/sliced_bread_loaf_1789196500272.jpg',
             location: "Aisle 3 • Bakery",
-            onAddToCart: () => _addProductToCart('deal5', 'Prima Sliced Bread', 190, 'Bakery'),
+            onAddToCart: () =>
+                _addProductToCart('deal5', 'Prima Sliced Bread', 190, 'Bakery'),
           ),
           const SizedBox(width: 14),
           ShopMateProductCard(
@@ -887,9 +958,11 @@ class _HomeDashboardScreenState extends ConsumerState<HomeDashboardScreen> {
             size: "500g",
             price: 650,
             originalPrice: 720,
-            imageUrl: 'assets/images/products/butter_block_500g_1789196640197.jpg',
+            imageUrl:
+                'assets/images/products/butter_block_500g_1789196640197.jpg',
             location: "Aisle 2 • Dairy",
-            onAddToCart: () => _addProductToCart('deal6', 'Astra Butter 500g', 650, 'Dairy'),
+            onAddToCart: () =>
+                _addProductToCart('deal6', 'Astra Butter 500g', 650, 'Dairy'),
           ),
           const SizedBox(width: 14),
           ShopMateProductCard(
@@ -900,7 +973,8 @@ class _HomeDashboardScreenState extends ConsumerState<HomeDashboardScreen> {
             originalPrice: 550,
             imageUrl: 'assets/images/products/ceylon_tea_box_1789196653776.jpg',
             location: "Aisle 5 • Tea & Coffee",
-            onAddToCart: () => _addProductToCart('deal7', 'Dilmah Tea Bags', 480, 'Tea'),
+            onAddToCart: () =>
+                _addProductToCart('deal7', 'Dilmah Tea Bags', 480, 'Tea'),
           ),
           const SizedBox(width: 14),
           ShopMateProductCard(
@@ -911,7 +985,12 @@ class _HomeDashboardScreenState extends ConsumerState<HomeDashboardScreen> {
             originalPrice: 330,
             imageUrl: 'assets/images/products/sugar_bag_1kg_1789196668578.jpg',
             location: "Aisle 1 • Baking",
-            onAddToCart: () => _addProductToCart('deal8', 'Cargills White Sugar 1kg', 290, 'Pantry'),
+            onAddToCart: () => _addProductToCart(
+              'deal8',
+              'Cargills White Sugar 1kg',
+              290,
+              'Pantry',
+            ),
           ),
           const SizedBox(width: 14),
           ShopMateProductCard(
@@ -920,9 +999,11 @@ class _HomeDashboardScreenState extends ConsumerState<HomeDashboardScreen> {
             size: "1.5L",
             price: 350,
             originalPrice: 400,
-            imageUrl: 'assets/images/products/coca_cola_bottle_1789196700811.jpg',
+            imageUrl:
+                'assets/images/products/coca_cola_bottle_1789196700811.jpg',
             location: "Aisle 6 • Beverages",
-            onAddToCart: () => _addProductToCart('deal9', 'Coca Cola 1.5L', 350, 'Beverages'),
+            onAddToCart: () =>
+                _addProductToCart('deal9', 'Coca Cola 1.5L', 350, 'Beverages'),
           ),
           const SizedBox(width: 14),
           ShopMateProductCard(
@@ -931,9 +1012,15 @@ class _HomeDashboardScreenState extends ConsumerState<HomeDashboardScreen> {
             size: "400g",
             price: 450,
             originalPrice: 510,
-            imageUrl: 'assets/images/products/tomato_ketchup_bottle_1789196720511.jpg',
+            imageUrl:
+                'assets/images/products/tomato_ketchup_bottle_1789196720511.jpg',
             location: "Aisle 4 • Sauces",
-            onAddToCart: () => _addProductToCart('deal10', 'Maggi Tomato Ketchup', 450, 'Pantry'),
+            onAddToCart: () => _addProductToCart(
+              'deal10',
+              'Maggi Tomato Ketchup',
+              450,
+              'Pantry',
+            ),
           ),
         ],
       ),
@@ -956,7 +1043,12 @@ class _HomeDashboardScreenState extends ConsumerState<HomeDashboardScreen> {
             originalPrice: 1150,
             productIcon: Icons.coffee_rounded,
             location: "Aisle 2 • Milk Powder",
-            onAddToCart: () => _addProductToCart('rec1', 'Anchor Milk Powder 400g', 1080, 'Dairy'),
+            onAddToCart: () => _addProductToCart(
+              'rec1',
+              'Anchor Milk Powder 400g',
+              1080,
+              'Dairy',
+            ),
           ),
           const SizedBox(width: 14),
           ShopMateProductCard(
@@ -967,7 +1059,8 @@ class _HomeDashboardScreenState extends ConsumerState<HomeDashboardScreen> {
             originalPrice: 420,
             productIcon: Icons.local_bar_rounded,
             location: "Aisle 5 • Beverages",
-            onAddToCart: () => _addProductToCart('rec2', 'Cream Soda 1.5L', 390, 'Beverages'),
+            onAddToCart: () =>
+                _addProductToCart('rec2', 'Cream Soda 1.5L', 390, 'Beverages'),
           ),
           const SizedBox(width: 14),
           ShopMateProductCard(
@@ -977,7 +1070,12 @@ class _HomeDashboardScreenState extends ConsumerState<HomeDashboardScreen> {
             price: 790,
             productIcon: Icons.soup_kitchen_rounded,
             location: "Aisle 3 • Cooking",
-            onAddToCart: () => _addProductToCart('rec3', 'Cargills Gold Pure Ghee', 790, 'Cooking'),
+            onAddToCart: () => _addProductToCart(
+              'rec3',
+              'Cargills Gold Pure Ghee',
+              790,
+              'Cooking',
+            ),
           ),
         ],
       ),
@@ -997,7 +1095,12 @@ class _HomeDashboardScreenState extends ConsumerState<HomeDashboardScreen> {
             price: 980,
             originalPrice: 1100,
             productIcon: Icons.soup_kitchen_rounded,
-            onAddToCart: () => _addProductToCart('pop1', 'Fortune Sunflower Oil 1L', 980, 'Pantry'),
+            onAddToCart: () => _addProductToCart(
+              'pop1',
+              'Fortune Sunflower Oil 1L',
+              980,
+              'Pantry',
+            ),
           ),
           const SizedBox(height: 12),
           ShopMateProductCard(
@@ -1007,7 +1110,12 @@ class _HomeDashboardScreenState extends ConsumerState<HomeDashboardScreen> {
             size: "Pack of 10",
             price: 460,
             productIcon: Icons.egg_rounded,
-            onAddToCart: () => _addProductToCart('pop2', 'Kotmale Fresh Eggs (10s)', 460, 'Fresh'),
+            onAddToCart: () => _addProductToCart(
+              'pop2',
+              'Kotmale Fresh Eggs (10s)',
+              460,
+              'Fresh',
+            ),
           ),
         ],
       ),

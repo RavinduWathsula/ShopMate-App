@@ -10,10 +10,7 @@ class DiscountsScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: AppColors.background,
-      appBar: const ShopMateAppBar(
-        title: "Today's Deals",
-        showBack: true,
-      ),
+      appBar: const ShopMateAppBar(title: "Today's Deals", showBack: true),
       body: SafeArea(
         child: Padding(
           padding: const EdgeInsets.all(20.0),
@@ -39,7 +36,11 @@ class DiscountsScreen extends StatelessWidget {
                 ),
                 child: Row(
                   children: [
-                    const Icon(Icons.local_fire_department_rounded, color: Colors.white, size: 28),
+                    const Icon(
+                      Icons.local_fire_department_rounded,
+                      color: Colors.white,
+                      size: 28,
+                    ),
                     const SizedBox(width: 12),
                     Expanded(
                       child: Column(

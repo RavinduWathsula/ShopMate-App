@@ -79,7 +79,10 @@ class _ShoppingListScreenState extends ConsumerState<ShoppingListScreen> {
                     children: [
                       Text(
                         'Add Product to List',
-                        style: GoogleFonts.inter(fontSize: 18, fontWeight: FontWeight.w800),
+                        style: GoogleFonts.inter(
+                          fontSize: 18,
+                          fontWeight: FontWeight.w800,
+                        ),
                       ),
                       IconButton(
                         icon: const Icon(Icons.close_rounded),
@@ -106,7 +109,9 @@ class _ShoppingListScreenState extends ConsumerState<ShoppingListScreen> {
                   const SizedBox(height: 12),
                   TextField(
                     controller: priceController,
-                    keyboardType: const TextInputType.numberWithOptions(decimal: true),
+                    keyboardType: const TextInputType.numberWithOptions(
+                      decimal: true,
+                    ),
                     decoration: InputDecoration(
                       labelText: 'Estimated Price (Rs.)',
                       hintText: 'e.g. 500',
@@ -132,24 +137,36 @@ class _ShoppingListScreenState extends ConsumerState<ShoppingListScreen> {
                   Wrap(
                     spacing: 8,
                     runSpacing: 8,
-                    children: ['Dairy', 'Grains', 'Bakery', 'Drinks', 'Snacks', 'Household'].map((cat) {
-                      final isSelected = selectedCat == cat;
-                      return ChoiceChip(
-                        label: Text(cat),
-                        selected: isSelected,
-                        onSelected: (selected) {
-                          if (selected) {
-                            setModalState(() => selectedCat = cat);
-                          }
-                        },
-                        selectedColor: AppColors.primaryGreen,
-                        labelStyle: GoogleFonts.inter(
-                          fontSize: 12,
-                          color: isSelected ? Colors.white : AppColors.textPrimary,
-                          fontWeight: isSelected ? FontWeight.w700 : FontWeight.w500,
-                        ),
-                      );
-                    }).toList(),
+                    children:
+                        [
+                          'Dairy',
+                          'Grains',
+                          'Bakery',
+                          'Drinks',
+                          'Snacks',
+                          'Household',
+                        ].map((cat) {
+                          final isSelected = selectedCat == cat;
+                          return ChoiceChip(
+                            label: Text(cat),
+                            selected: isSelected,
+                            onSelected: (selected) {
+                              if (selected) {
+                                setModalState(() => selectedCat = cat);
+                              }
+                            },
+                            selectedColor: AppColors.primaryGreen,
+                            labelStyle: GoogleFonts.inter(
+                              fontSize: 12,
+                              color: isSelected
+                                  ? Colors.white
+                                  : AppColors.textPrimary,
+                              fontWeight: isSelected
+                                  ? FontWeight.w700
+                                  : FontWeight.w500,
+                            ),
+                          );
+                        }).toList(),
                   ),
                   const SizedBox(height: 20),
                   SizedBox(
@@ -158,7 +175,9 @@ class _ShoppingListScreenState extends ConsumerState<ShoppingListScreen> {
                     child: ElevatedButton(
                       onPressed: () {
                         if (nameController.text.trim().isNotEmpty) {
-                          final price = double.tryParse(priceController.text.trim()) ?? 350.0;
+                          final price =
+                              double.tryParse(priceController.text.trim()) ??
+                              350.0;
                           final newItem = ShoppingListItem(
                             id: 'item_${DateTime.now().millisecondsSinceEpoch}',
                             name: nameController.text.trim(),
@@ -169,8 +188,10 @@ class _ShoppingListScreenState extends ConsumerState<ShoppingListScreen> {
                             icon: _iconForCategory(selectedCat),
                           );
 
-                          ref.read(shoppingListProvider.notifier).addItem(newItem);
-                          
+                          ref
+                              .read(shoppingListProvider.notifier)
+                              .addItem(newItem);
+
                           Navigator.pop(ctx);
 
                           // Ensure new item is visible in current filter
@@ -182,7 +203,9 @@ class _ShoppingListScreenState extends ConsumerState<ShoppingListScreen> {
 
                           ScaffoldMessenger.of(context).showSnackBar(
                             SnackBar(
-                              content: Text('Added "${newItem.name}" to Shopping List'),
+                              content: Text(
+                                'Added "${newItem.name}" to Shopping List',
+                              ),
                               backgroundColor: AppColors.primaryGreenDark,
                               duration: const Duration(seconds: 2),
                             ),
@@ -191,12 +214,18 @@ class _ShoppingListScreenState extends ConsumerState<ShoppingListScreen> {
                       },
                       style: ElevatedButton.styleFrom(
                         backgroundColor: AppColors.primaryGreen,
-                        shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(14)),
+                        shape: RoundedRectangleBorder(
+                          borderRadius: BorderRadius.circular(14),
+                        ),
                         elevation: 0,
                       ),
                       child: Text(
                         'Add to Shopping List',
-                        style: GoogleFonts.inter(fontWeight: FontWeight.w700, fontSize: 15, color: Colors.white),
+                        style: GoogleFonts.inter(
+                          fontWeight: FontWeight.w700,
+                          fontSize: 15,
+                          color: Colors.white,
+                        ),
                       ),
                     ),
                   ),
@@ -214,8 +243,12 @@ class _ShoppingListScreenState extends ConsumerState<ShoppingListScreen> {
     final items = ref.watch(shoppingListProvider);
 
     final filteredItems = items.where((item) {
-      final matchesCat = _selectedCategory == 'All' || item.category.toLowerCase() == _selectedCategory.toLowerCase();
-      final matchesSearch = item.name.toLowerCase().contains(_searchQuery.toLowerCase());
+      final matchesCat =
+          _selectedCategory == 'All' ||
+          item.category.toLowerCase() == _selectedCategory.toLowerCase();
+      final matchesSearch = item.name.toLowerCase().contains(
+        _searchQuery.toLowerCase(),
+      );
       return matchesCat && matchesSearch;
     }).toList();
 
@@ -266,7 +299,10 @@ class _ShoppingListScreenState extends ConsumerState<ShoppingListScreen> {
                   },
                   decoration: InputDecoration(
                     hintText: 'Search products in your list...',
-                    prefixIcon: const Icon(Icons.search_rounded, color: AppColors.textSecondary),
+                    prefixIcon: const Icon(
+                      Icons.search_rounded,
+                      color: AppColors.textSecondary,
+                    ),
                     suffixIcon: _searchQuery.isNotEmpty
                         ? IconButton(
                             icon: const Icon(Icons.clear_rounded, size: 18),
@@ -319,7 +355,9 @@ class _ShoppingListScreenState extends ConsumerState<ShoppingListScreen> {
                     shape: RoundedRectangleBorder(
                       borderRadius: BorderRadius.circular(12),
                       side: BorderSide(
-                        color: isSelected ? AppColors.primaryGreen : AppColors.border,
+                        color: isSelected
+                            ? AppColors.primaryGreen
+                            : AppColors.border,
                       ),
                     ),
                   );
@@ -334,7 +372,10 @@ class _ShoppingListScreenState extends ConsumerState<ShoppingListScreen> {
               child: filteredItems.isEmpty
                   ? Center(
                       child: SingleChildScrollView(
-                        padding: const EdgeInsets.symmetric(horizontal: 32, vertical: 24),
+                        padding: const EdgeInsets.symmetric(
+                          horizontal: 32,
+                          vertical: 24,
+                        ),
                         child: Column(
                           mainAxisAlignment: MainAxisAlignment.center,
                           children: [
@@ -342,7 +383,9 @@ class _ShoppingListScreenState extends ConsumerState<ShoppingListScreen> {
                               width: 88,
                               height: 88,
                               decoration: BoxDecoration(
-                                color: AppColors.primaryGreen.withValues(alpha: 0.08),
+                                color: AppColors.primaryGreen.withValues(
+                                  alpha: 0.08,
+                                ),
                                 shape: BoxShape.circle,
                               ),
                               child: const Icon(
@@ -379,9 +422,13 @@ class _ShoppingListScreenState extends ConsumerState<ShoppingListScreen> {
                       ),
                     )
                   : ListView.separated(
-                      padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 8),
+                      padding: const EdgeInsets.symmetric(
+                        horizontal: 20,
+                        vertical: 8,
+                      ),
                       itemCount: filteredItems.length,
-                      separatorBuilder: (context, index) => const SizedBox(height: 10),
+                      separatorBuilder: (context, index) =>
+                          const SizedBox(height: 10),
                       itemBuilder: (context, index) {
                         final item = filteredItems[index];
 
@@ -392,7 +439,9 @@ class _ShoppingListScreenState extends ConsumerState<ShoppingListScreen> {
                             borderRadius: BorderRadius.circular(18),
                             border: Border.all(
                               color: item.isChecked
-                                  ? AppColors.primaryGreen.withValues(alpha: 0.3)
+                                  ? AppColors.primaryGreen.withValues(
+                                      alpha: 0.3,
+                                    )
                                   : AppColors.border,
                             ),
                             boxShadow: [
@@ -408,22 +457,32 @@ class _ShoppingListScreenState extends ConsumerState<ShoppingListScreen> {
                               // Checkbox
                               InkWell(
                                 onTap: () {
-                                  ref.read(shoppingListProvider.notifier).toggleCheck(item.id);
+                                  ref
+                                      .read(shoppingListProvider.notifier)
+                                      .toggleCheck(item.id);
                                 },
                                 borderRadius: BorderRadius.circular(8),
                                 child: Container(
                                   width: 26,
                                   height: 26,
                                   decoration: BoxDecoration(
-                                    color: item.isChecked ? AppColors.primaryGreen : Colors.transparent,
+                                    color: item.isChecked
+                                        ? AppColors.primaryGreen
+                                        : Colors.transparent,
                                     borderRadius: BorderRadius.circular(8),
                                     border: Border.all(
-                                      color: item.isChecked ? AppColors.primaryGreen : AppColors.border,
+                                      color: item.isChecked
+                                          ? AppColors.primaryGreen
+                                          : AppColors.border,
                                       width: 2,
                                     ),
                                   ),
                                   child: item.isChecked
-                                      ? const Icon(Icons.check, color: Colors.white, size: 16)
+                                      ? const Icon(
+                                          Icons.check,
+                                          color: Colors.white,
+                                          size: 16,
+                                        )
                                       : null,
                                 ),
                               ),
@@ -435,18 +494,20 @@ class _ShoppingListScreenState extends ConsumerState<ShoppingListScreen> {
                                 decoration: BoxDecoration(
                                   color: AppColors.primaryLight,
                                   borderRadius: BorderRadius.circular(12),
-                                  image: item.imageUrl != null ? DecorationImage(
-                                    image: NetworkImage(item.imageUrl!),
-                                    fit: BoxFit.cover,
-                                  ) : null,
+                                  image: item.imageUrl != null
+                                      ? DecorationImage(
+                                          image: NetworkImage(item.imageUrl!),
+                                          fit: BoxFit.cover,
+                                        )
+                                      : null,
                                 ),
                                 child: item.imageUrl == null
-                                  ? Icon(
-                                      item.icon,
-                                      color: AppColors.primaryGreenDark,
-                                      size: 22,
-                                    )
-                                  : null,
+                                    ? Icon(
+                                        item.icon,
+                                        color: AppColors.primaryGreenDark,
+                                        size: 22,
+                                      )
+                                    : null,
                               ),
                               const SizedBox(width: 12),
                               // Title & Price
@@ -459,8 +520,12 @@ class _ShoppingListScreenState extends ConsumerState<ShoppingListScreen> {
                                       style: GoogleFonts.inter(
                                         fontSize: 13.5,
                                         fontWeight: FontWeight.w700,
-                                        color: item.isChecked ? AppColors.textMuted : AppColors.textPrimary,
-                                        decoration: item.isChecked ? TextDecoration.lineThrough : null,
+                                        color: item.isChecked
+                                            ? AppColors.textMuted
+                                            : AppColors.textPrimary,
+                                        decoration: item.isChecked
+                                            ? TextDecoration.lineThrough
+                                            : null,
                                       ),
                                       maxLines: 1,
                                       overflow: TextOverflow.ellipsis,
@@ -478,10 +543,15 @@ class _ShoppingListScreenState extends ConsumerState<ShoppingListScreen> {
                                         ),
                                         const SizedBox(width: 8),
                                         Container(
-                                          padding: const EdgeInsets.symmetric(horizontal: 6, vertical: 1),
+                                          padding: const EdgeInsets.symmetric(
+                                            horizontal: 6,
+                                            vertical: 1,
+                                          ),
                                           decoration: BoxDecoration(
                                             color: AppColors.background,
-                                            borderRadius: BorderRadius.circular(6),
+                                            borderRadius: BorderRadius.circular(
+                                              6,
+                                            ),
                                           ),
                                           child: Text(
                                             item.category,
@@ -502,7 +572,9 @@ class _ShoppingListScreenState extends ConsumerState<ShoppingListScreen> {
                                   InkWell(
                                     onTap: () {
                                       if (item.quantity > 1) {
-                                        ref.read(shoppingListProvider.notifier).updateQuantity(item.id, -1);
+                                        ref
+                                            .read(shoppingListProvider.notifier)
+                                            .updateQuantity(item.id, -1);
                                       }
                                     },
                                     borderRadius: BorderRadius.circular(8),
@@ -512,11 +584,17 @@ class _ShoppingListScreenState extends ConsumerState<ShoppingListScreen> {
                                         color: AppColors.background,
                                         borderRadius: BorderRadius.circular(8),
                                       ),
-                                      child: const Icon(Icons.remove, size: 16, color: AppColors.textPrimary),
+                                      child: const Icon(
+                                        Icons.remove,
+                                        size: 16,
+                                        color: AppColors.textPrimary,
+                                      ),
                                     ),
                                   ),
                                   Padding(
-                                    padding: const EdgeInsets.symmetric(horizontal: 8),
+                                    padding: const EdgeInsets.symmetric(
+                                      horizontal: 8,
+                                    ),
                                     child: Text(
                                       '${item.quantity}',
                                       style: GoogleFonts.inter(
@@ -527,7 +605,9 @@ class _ShoppingListScreenState extends ConsumerState<ShoppingListScreen> {
                                   ),
                                   InkWell(
                                     onTap: () {
-                                      ref.read(shoppingListProvider.notifier).updateQuantity(item.id, 1);
+                                      ref
+                                          .read(shoppingListProvider.notifier)
+                                          .updateQuantity(item.id, 1);
                                     },
                                     borderRadius: BorderRadius.circular(8),
                                     child: Container(
@@ -536,19 +616,29 @@ class _ShoppingListScreenState extends ConsumerState<ShoppingListScreen> {
                                         color: AppColors.background,
                                         borderRadius: BorderRadius.circular(8),
                                       ),
-                                      child: const Icon(Icons.add, size: 16, color: AppColors.textPrimary),
+                                      child: const Icon(
+                                        Icons.add,
+                                        size: 16,
+                                        color: AppColors.textPrimary,
+                                      ),
                                     ),
                                   ),
                                   const SizedBox(width: 8),
                                   // Explicit Delete Button
                                   InkWell(
                                     onTap: () {
-                                      ref.read(shoppingListProvider.notifier).removeItem(item.id);
+                                      ref
+                                          .read(shoppingListProvider.notifier)
+                                          .removeItem(item.id);
                                     },
                                     borderRadius: BorderRadius.circular(8),
                                     child: Container(
                                       padding: const EdgeInsets.all(4),
-                                      child: const Icon(Icons.delete_outline_rounded, size: 20, color: AppColors.warningRed),
+                                      child: const Icon(
+                                        Icons.delete_outline_rounded,
+                                        size: 20,
+                                        color: AppColors.warningRed,
+                                      ),
                                     ),
                                   ),
                                 ],
@@ -576,34 +666,39 @@ class _ShoppingListScreenState extends ConsumerState<ShoppingListScreen> {
               child: Column(
                 mainAxisSize: MainAxisSize.min,
                 children: [
-
                   SizedBox(
                     width: double.infinity,
                     height: 50,
                     child: ElevatedButton.icon(
                       onPressed: () {
-                        final checkedItems = items.where((i) => i.isChecked).toList();
+                        final checkedItems = items
+                            .where((i) => i.isChecked)
+                            .toList();
                         if (checkedItems.isEmpty) {
                           ScaffoldMessenger.of(context).showSnackBar(
                             const SnackBar(
-                              content: Text('Please select items to add to cart'),
+                              content: Text(
+                                'Please select items to add to cart',
+                              ),
                               backgroundColor: AppColors.warningRed,
                             ),
                           );
                           return;
                         }
                         for (var item in checkedItems) {
-                          ref.read(basketProvider.notifier).addItem(
-                            BasketItem(
-                              id: 'cart_${item.id}',
-                              name: item.name,
-                              price: item.price,
-                              quantity: item.quantity,
-                              category: item.category,
-                              imageUrl: item.imageUrl,
-                              isSelected: true,
-                            )
-                          );
+                          ref
+                              .read(basketProvider.notifier)
+                              .addItem(
+                                BasketItem(
+                                  id: 'cart_${item.id}',
+                                  name: item.name,
+                                  price: item.price,
+                                  quantity: item.quantity,
+                                  category: item.category,
+                                  imageUrl: item.imageUrl,
+                                  isSelected: true,
+                                ),
+                              );
                         }
                         ScaffoldMessenger.of(context).showSnackBar(
                           const SnackBar(
@@ -613,7 +708,11 @@ class _ShoppingListScreenState extends ConsumerState<ShoppingListScreen> {
                         );
                         context.push('/cart');
                       },
-                      icon: const Icon(Icons.shopping_cart_checkout_rounded, color: Colors.white, size: 20),
+                      icon: const Icon(
+                        Icons.shopping_cart_checkout_rounded,
+                        color: Colors.white,
+                        size: 20,
+                      ),
                       label: Text(
                         'Save Items to Cart',
                         style: GoogleFonts.inter(

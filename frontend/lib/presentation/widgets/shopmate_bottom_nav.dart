@@ -8,10 +8,7 @@ import '../../providers/basket_provider.dart';
 class ShopMateBottomNav extends ConsumerWidget {
   final int currentIndex;
 
-  const ShopMateBottomNav({
-    super.key,
-    required this.currentIndex,
-  });
+  const ShopMateBottomNav({super.key, required this.currentIndex});
 
   void _onItemTapped(BuildContext context, int index) {
     if (index == currentIndex) return;
@@ -56,8 +53,19 @@ class ShopMateBottomNav extends ConsumerWidget {
               _buildNavItem(context, 0, Icons.home_rounded, 'HOME'),
               _buildNavItem(context, 1, Icons.checklist_rounded, 'LIST'),
               _buildCenterScanButton(context),
-              _buildNavItem(context, 2, Icons.shopping_bag_outlined, 'CART', badgeCount: cartCount),
-              _buildNavItem(context, 3, Icons.person_outline_rounded, 'PROFILE'),
+              _buildNavItem(
+                context,
+                2,
+                Icons.shopping_bag_outlined,
+                'CART',
+                badgeCount: cartCount,
+              ),
+              _buildNavItem(
+                context,
+                3,
+                Icons.person_outline_rounded,
+                'PROFILE',
+              ),
             ],
           ),
         ),
@@ -65,7 +73,13 @@ class ShopMateBottomNav extends ConsumerWidget {
     );
   }
 
-  Widget _buildNavItem(BuildContext context, int index, IconData icon, String label, {int? badgeCount}) {
+  Widget _buildNavItem(
+    BuildContext context,
+    int index,
+    IconData icon,
+    String label, {
+    int? badgeCount,
+  }) {
     final isSelected = currentIndex == index;
     const activeColor = AppColors.primaryGreen;
 
@@ -84,7 +98,9 @@ class ShopMateBottomNav extends ConsumerWidget {
                   duration: const Duration(milliseconds: 200),
                   padding: const EdgeInsets.all(4),
                   decoration: BoxDecoration(
-                    color: isSelected ? activeColor.withValues(alpha: 0.12) : Colors.transparent,
+                    color: isSelected
+                        ? activeColor.withValues(alpha: 0.12)
+                        : Colors.transparent,
                     shape: BoxShape.circle,
                   ),
                   child: Icon(

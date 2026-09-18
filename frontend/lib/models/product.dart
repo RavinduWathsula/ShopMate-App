@@ -21,4 +21,3 @@ class Product {
 
   double get finalPrice => price - discount;
 }
-

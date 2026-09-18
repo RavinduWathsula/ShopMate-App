@@ -11,10 +11,7 @@ class RecommendationsScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: AppColors.background,
-      appBar: const ShopMateAppBar(
-        title: 'AI Recommendations',
-        showBack: true,
-      ),
+      appBar: const ShopMateAppBar(title: 'AI Recommendations', showBack: true),
       bottomNavigationBar: const ShopMateBottomNav(currentIndex: 2),
       body: SafeArea(
         child: Padding(
@@ -27,7 +24,9 @@ class RecommendationsScreen extends StatelessWidget {
                 decoration: BoxDecoration(
                   color: AppColors.aiPurpleSoft,
                   borderRadius: BorderRadius.circular(16),
-                  border: Border.all(color: AppColors.aiPurple.withValues(alpha: 0.2)),
+                  border: Border.all(
+                    color: AppColors.aiPurple.withValues(alpha: 0.2),
+                  ),
                 ),
                 child: Row(
                   children: [
@@ -37,7 +36,11 @@ class RecommendationsScreen extends StatelessWidget {
                         color: AppColors.aiPurple,
                         borderRadius: BorderRadius.circular(12),
                       ),
-                      child: const Icon(Icons.auto_awesome_rounded, color: Colors.white, size: 20),
+                      child: const Icon(
+                        Icons.auto_awesome_rounded,
+                        color: Colors.white,
+                        size: 20,
+                      ),
                     ),
                     const SizedBox(width: 14),
                     Expanded(
@@ -158,7 +161,10 @@ class RecommendationsScreen extends StatelessWidget {
                 const SizedBox(height: 2),
                 Text(
                   reason,
-                  style: GoogleFonts.inter(fontSize: 11.5, color: AppColors.textSecondary),
+                  style: GoogleFonts.inter(
+                    fontSize: 11.5,
+                    color: AppColors.textSecondary,
+                  ),
                 ),
                 const SizedBox(height: 4),
                 Text(
@@ -177,12 +183,18 @@ class RecommendationsScreen extends StatelessWidget {
             style: ElevatedButton.styleFrom(
               backgroundColor: AppColors.primaryGreen,
               padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 8),
-              shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(10)),
+              shape: RoundedRectangleBorder(
+                borderRadius: BorderRadius.circular(10),
+              ),
               elevation: 0,
             ),
             child: Text(
               'Add',
-              style: GoogleFonts.inter(fontSize: 12, fontWeight: FontWeight.w600, color: Colors.white),
+              style: GoogleFonts.inter(
+                fontSize: 12,
+                fontWeight: FontWeight.w600,
+                color: Colors.white,
+              ),
             ),
           ),
         ],

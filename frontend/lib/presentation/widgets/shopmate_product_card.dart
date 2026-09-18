@@ -40,20 +40,25 @@ class ShopMateProductCard extends StatelessWidget {
     if (isCompact) {
       // Horizontal card for lists / carts / alternatives
       return InkWell(
-        onTap: onTap ?? () {
-          context.push('/productdetails', extra: {
-            'id': name.toLowerCase().replaceAll(' ', '_'),
-            'name': name,
-            'brand': brand,
-            'size': size,
-            'price': price,
-            'originalPrice': originalPrice,
-            'discountText': discountText,
-            'location': location,
-            'imageUrl': imageUrl,
-            'category': 'General',
-          });
-        },
+        onTap:
+            onTap ??
+            () {
+              context.push(
+                '/productdetails',
+                extra: {
+                  'id': name.toLowerCase().replaceAll(' ', '_'),
+                  'name': name,
+                  'brand': brand,
+                  'size': size,
+                  'price': price,
+                  'originalPrice': originalPrice,
+                  'discountText': discountText,
+                  'location': location,
+                  'imageUrl': imageUrl,
+                  'category': 'General',
+                },
+              );
+            },
         borderRadius: BorderRadius.circular(18),
         child: Container(
           padding: const EdgeInsets.all(12),
@@ -80,18 +85,15 @@ class ShopMateProductCard extends StatelessWidget {
                   borderRadius: BorderRadius.circular(14),
                 ),
                 child: imageUrl != null
-                  ? ClipRRect(
-                      borderRadius: BorderRadius.circular(14),
-                      child: Image.asset(
-                        imageUrl!,
-                        fit: BoxFit.cover,
+                    ? ClipRRect(
+                        borderRadius: BorderRadius.circular(14),
+                        child: Image.asset(imageUrl!, fit: BoxFit.cover),
+                      )
+                    : Icon(
+                        productIcon ?? Icons.fastfood_rounded,
+                        color: AppColors.primaryGreenDark,
+                        size: 28,
                       ),
-                    )
-                  : Icon(
-                      productIcon ?? Icons.fastfood_rounded,
-                      color: AppColors.primaryGreenDark,
-                      size: 28,
-                    ),
               ),
               const SizedBox(width: 14),
               // Details
@@ -166,20 +168,25 @@ class ShopMateProductCard extends StatelessWidget {
 
     // Vertical card for grids or horizontal carousels
     return InkWell(
-      onTap: onTap ?? () {
-        context.push('/productdetails', extra: {
-          'id': name.toLowerCase().replaceAll(' ', '_'),
-          'name': name,
-          'brand': brand,
-          'size': size,
-          'price': price,
-          'originalPrice': originalPrice,
-          'discountText': discountText,
-          'location': location,
-          'imageUrl': imageUrl,
-          'category': 'General',
-        });
-      },
+      onTap:
+          onTap ??
+          () {
+            context.push(
+              '/productdetails',
+              extra: {
+                'id': name.toLowerCase().replaceAll(' ', '_'),
+                'name': name,
+                'brand': brand,
+                'size': size,
+                'price': price,
+                'originalPrice': originalPrice,
+                'discountText': discountText,
+                'location': location,
+                'imageUrl': imageUrl,
+                'category': 'General',
+              },
+            );
+          },
       borderRadius: BorderRadius.circular(20),
       child: Container(
         width: 165,
@@ -207,30 +214,34 @@ class ShopMateProductCard extends StatelessWidget {
                   width: double.infinity,
                   decoration: const BoxDecoration(
                     color: Color(0xFFF1F5F9),
-                    borderRadius: BorderRadius.vertical(top: Radius.circular(19)),
+                    borderRadius: BorderRadius.vertical(
+                      top: Radius.circular(19),
+                    ),
                   ),
                   child: imageUrl != null
-                    ? ClipRRect(
-                        borderRadius: const BorderRadius.vertical(top: Radius.circular(19)),
-                        child: Image.asset(
-                          imageUrl!,
-                          fit: BoxFit.cover,
+                      ? ClipRRect(
+                          borderRadius: const BorderRadius.vertical(
+                            top: Radius.circular(19),
+                          ),
+                          child: Image.asset(imageUrl!, fit: BoxFit.cover),
+                        )
+                      : Center(
+                          child: Icon(
+                            productIcon ?? Icons.shopping_basket_rounded,
+                            size: 40,
+                            color: AppColors.primaryGreen,
+                          ),
                         ),
-                      )
-                    : Center(
-                        child: Icon(
-                          productIcon ?? Icons.shopping_basket_rounded,
-                          size: 40,
-                          color: AppColors.primaryGreen,
-                        ),
-                      ),
                 ),
                 if (discountText != null || hasDiscount)
                   Positioned(
                     top: 8,
                     left: 8,
                     child: Container(
-                      padding: const EdgeInsets.symmetric(horizontal: 6, vertical: 2),
+                      padding: const EdgeInsets.symmetric(
+                        horizontal: 6,
+                        vertical: 2,
+                      ),
                       decoration: BoxDecoration(
                         gradient: const LinearGradient(
                           colors: [AppColors.discount, AppColors.dealOrange],
@@ -238,7 +249,8 @@ class ShopMateProductCard extends StatelessWidget {
                         borderRadius: BorderRadius.circular(8),
                       ),
                       child: Text(
-                        discountText ?? '${(((originalPrice! - price) / originalPrice!) * 100).round()}% OFF',
+                        discountText ??
+                            '${(((originalPrice! - price) / originalPrice!) * 100).round()}% OFF',
                         style: GoogleFonts.inter(
                           color: Colors.white,
                           fontSize: 9,
@@ -252,7 +264,10 @@ class ShopMateProductCard extends StatelessWidget {
                     bottom: 6,
                     right: 8,
                     child: Container(
-                      padding: const EdgeInsets.symmetric(horizontal: 6, vertical: 2),
+                      padding: const EdgeInsets.symmetric(
+                        horizontal: 6,
+                        vertical: 2,
+                      ),
                       decoration: BoxDecoration(
                         color: Colors.black.withValues(alpha: 0.6),
                         borderRadius: BorderRadius.circular(6),

@@ -88,7 +88,10 @@ class _BudgetSetupScreenState extends ConsumerState<BudgetSetupScreen> {
               // Selected Budget Display Card
               Container(
                 width: double.infinity,
-                padding: const EdgeInsets.symmetric(vertical: 20, horizontal: 16),
+                padding: const EdgeInsets.symmetric(
+                  vertical: 20,
+                  horizontal: 16,
+                ),
                 decoration: BoxDecoration(
                   color: Colors.white,
                   borderRadius: BorderRadius.circular(24),
@@ -129,9 +132,13 @@ class _BudgetSetupScreenState extends ConsumerState<BudgetSetupScreen> {
                         activeTrackColor: AppColors.primaryGreen,
                         inactiveTrackColor: AppColors.border,
                         thumbColor: AppColors.primaryGreenDark,
-                        overlayColor: AppColors.primaryGreen.withValues(alpha: 0.2),
+                        overlayColor: AppColors.primaryGreen.withValues(
+                          alpha: 0.2,
+                        ),
                         trackHeight: 6,
-                        thumbShape: const RoundSliderThumbShape(enabledThumbRadius: 12),
+                        thumbShape: const RoundSliderThumbShape(
+                          enabledThumbRadius: 12,
+                        ),
                       ),
                       child: Slider(
                         value: _budget,
@@ -150,8 +157,20 @@ class _BudgetSetupScreenState extends ConsumerState<BudgetSetupScreen> {
                       child: Row(
                         mainAxisAlignment: MainAxisAlignment.spaceBetween,
                         children: [
-                          Text('Rs. 500', style: GoogleFonts.inter(fontSize: 11, color: AppColors.textMuted)),
-                          Text('Rs. 20,000', style: GoogleFonts.inter(fontSize: 11, color: AppColors.textMuted)),
+                          Text(
+                            'Rs. 500',
+                            style: GoogleFonts.inter(
+                              fontSize: 11,
+                              color: AppColors.textMuted,
+                            ),
+                          ),
+                          Text(
+                            'Rs. 20,000',
+                            style: GoogleFonts.inter(
+                              fontSize: 11,
+                              color: AppColors.textMuted,
+                            ),
+                          ),
                         ],
                       ),
                     ),
@@ -189,20 +208,28 @@ class _BudgetSetupScreenState extends ConsumerState<BudgetSetupScreen> {
                           duration: const Duration(milliseconds: 150),
                           padding: const EdgeInsets.symmetric(vertical: 12),
                           decoration: BoxDecoration(
-                            color: isSelected ? AppColors.primaryLight : Colors.white,
+                            color: isSelected
+                                ? AppColors.primaryLight
+                                : Colors.white,
                             borderRadius: BorderRadius.circular(14),
                             border: Border.all(
-                              color: isSelected ? AppColors.primaryGreen : AppColors.border,
+                              color: isSelected
+                                  ? AppColors.primaryGreen
+                                  : AppColors.border,
                               width: isSelected ? 2 : 1,
                             ),
                           ),
                           child: Center(
                             child: Text(
-                              amt >= 1000 ? '${(amt / 1000).toStringAsFixed(0)}k' : amt.toStringAsFixed(0),
+                              amt >= 1000
+                                  ? '${(amt / 1000).toStringAsFixed(0)}k'
+                                  : amt.toStringAsFixed(0),
                               style: GoogleFonts.inter(
                                 fontSize: 12,
                                 fontWeight: FontWeight.w700,
-                                color: isSelected ? AppColors.primaryGreenDark : AppColors.textPrimary,
+                                color: isSelected
+                                    ? AppColors.primaryGreenDark
+                                    : AppColors.textPrimary,
                               ),
                             ),
                           ),
@@ -224,7 +251,9 @@ class _BudgetSetupScreenState extends ConsumerState<BudgetSetupScreen> {
                     end: Alignment.bottomRight,
                   ),
                   borderRadius: BorderRadius.circular(20),
-                  border: Border.all(color: AppColors.aiPurpleLight.withValues(alpha: 0.5)),
+                  border: Border.all(
+                    color: AppColors.aiPurpleLight.withValues(alpha: 0.5),
+                  ),
                 ),
                 child: Row(
                   children: [
@@ -288,14 +317,20 @@ class _BudgetSetupScreenState extends ConsumerState<BudgetSetupScreen> {
                       style: TextButton.styleFrom(
                         backgroundColor: AppColors.aiPurple,
                         foregroundColor: Colors.white,
-                        padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 6),
+                        padding: const EdgeInsets.symmetric(
+                          horizontal: 10,
+                          vertical: 6,
+                        ),
                         shape: RoundedRectangleBorder(
                           borderRadius: BorderRadius.circular(10),
                         ),
                       ),
                       child: Text(
                         'Use Suggested',
-                        style: GoogleFonts.inter(fontSize: 11, fontWeight: FontWeight.bold),
+                        style: GoogleFonts.inter(
+                          fontSize: 11,
+                          fontWeight: FontWeight.bold,
+                        ),
                       ),
                     ),
                   ],
@@ -306,10 +341,12 @@ class _BudgetSetupScreenState extends ConsumerState<BudgetSetupScreen> {
               ElevatedButton(
                 onPressed: () {
                   ref.read(budgetProvider.notifier).setBudget(_budget);
-                  
+
                   ScaffoldMessenger.of(context).showSnackBar(
                     SnackBar(
-                      content: Text('Budget saved: Rs. ${_budget.toStringAsFixed(2)}'),
+                      content: Text(
+                        'Budget saved: Rs. ${_budget.toStringAsFixed(2)}',
+                      ),
                       backgroundColor: AppColors.primaryGreenDark,
                     ),
                   );

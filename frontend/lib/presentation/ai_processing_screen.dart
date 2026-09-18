@@ -10,7 +10,8 @@ class AIProcessingScreen extends StatefulWidget {
   State<AIProcessingScreen> createState() => _AIProcessingScreenState();
 }
 
-class _AIProcessingScreenState extends State<AIProcessingScreen> with SingleTickerProviderStateMixin {
+class _AIProcessingScreenState extends State<AIProcessingScreen>
+    with SingleTickerProviderStateMixin {
   int _currentStep = 0;
   late AnimationController _pulseController;
   late Animation<double> _pulseAnimation;
@@ -80,7 +81,7 @@ class _AIProcessingScreenState extends State<AIProcessingScreen> with SingleTick
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
               const Spacer(flex: 3),
-              
+
               // Glowing Robot Icon
               AnimatedBuilder(
                 animation: _pulseAnimation,
@@ -91,10 +92,14 @@ class _AIProcessingScreenState extends State<AIProcessingScreen> with SingleTick
                       padding: const EdgeInsets.all(24),
                       decoration: BoxDecoration(
                         shape: BoxShape.circle,
-                        color: AppColors.primaryGreenDark.withValues(alpha: 0.2),
+                        color: AppColors.primaryGreenDark.withValues(
+                          alpha: 0.2,
+                        ),
                         boxShadow: [
                           BoxShadow(
-                            color: AppColors.primaryGreen.withValues(alpha: 0.3),
+                            color: AppColors.primaryGreen.withValues(
+                              alpha: 0.3,
+                            ),
                             blurRadius: 40,
                             spreadRadius: 10,
                           ),
@@ -109,9 +114,9 @@ class _AIProcessingScreenState extends State<AIProcessingScreen> with SingleTick
                   );
                 },
               ),
-              
+
               const SizedBox(height: 48),
-              
+
               Text(
                 'ShopMate AI is analyzing your product...',
                 textAlign: TextAlign.center,
@@ -122,9 +127,9 @@ class _AIProcessingScreenState extends State<AIProcessingScreen> with SingleTick
                   letterSpacing: 0.5,
                 ),
               ),
-              
+
               const SizedBox(height: 40),
-              
+
               // Steps List
               Padding(
                 padding: const EdgeInsets.symmetric(horizontal: 48),
@@ -143,13 +148,23 @@ class _AIProcessingScreenState extends State<AIProcessingScreen> with SingleTick
                             width: 24,
                             height: 24,
                             child: isCompleted
-                                ? const Icon(Icons.check_circle_rounded, color: AppColors.primaryGreen, size: 24)
+                                ? const Icon(
+                                    Icons.check_circle_rounded,
+                                    color: AppColors.primaryGreen,
+                                    size: 24,
+                                  )
                                 : isActive
-                                    ? const CircularProgressIndicator(
-                                        strokeWidth: 2.5,
-                                        valueColor: AlwaysStoppedAnimation<Color>(AppColors.primaryGreen),
-                                      )
-                                    : Icon(Icons.radio_button_unchecked_rounded, color: Colors.white.withValues(alpha: 0.2), size: 24),
+                                ? const CircularProgressIndicator(
+                                    strokeWidth: 2.5,
+                                    valueColor: AlwaysStoppedAnimation<Color>(
+                                      AppColors.primaryGreen,
+                                    ),
+                                  )
+                                : Icon(
+                                    Icons.radio_button_unchecked_rounded,
+                                    color: Colors.white.withValues(alpha: 0.2),
+                                    size: 24,
+                                  ),
                           ),
                           const SizedBox(width: 16),
                           // Status Text
@@ -160,10 +175,12 @@ class _AIProcessingScreenState extends State<AIProcessingScreen> with SingleTick
                                 color: isCompleted
                                     ? Colors.white
                                     : isActive
-                                        ? Colors.white
-                                        : Colors.white.withValues(alpha: 0.4),
+                                    ? Colors.white
+                                    : Colors.white.withValues(alpha: 0.4),
                                 fontSize: 14,
-                                fontWeight: isActive ? FontWeight.w700 : FontWeight.w500,
+                                fontWeight: isActive
+                                    ? FontWeight.w700
+                                    : FontWeight.w500,
                               ),
                             ),
                           ),
@@ -173,9 +190,9 @@ class _AIProcessingScreenState extends State<AIProcessingScreen> with SingleTick
                   }),
                 ),
               ),
-              
+
               const Spacer(flex: 4),
-              
+
               // Animated Dots at bottom
               Row(
                 mainAxisAlignment: MainAxisAlignment.center,
@@ -201,8 +218,9 @@ class _AIProcessingScreenState extends State<AIProcessingScreen> with SingleTick
       builder: (context, child) {
         final double offset = (index * 0.3);
         final double value = ((_pulseController.value + offset) % 1.0);
-        final double opacity = (0.3 + (0.7 * (1 - (value - 0.5).abs() * 2))).clamp(0.3, 1.0);
-        
+        final double opacity = (0.3 + (0.7 * (1 - (value - 0.5).abs() * 2)))
+            .clamp(0.3, 1.0);
+
         return Container(
           width: 8,
           height: 8,

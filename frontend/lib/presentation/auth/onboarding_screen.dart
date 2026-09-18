@@ -20,7 +20,8 @@ class _OnboardingScreenState extends ConsumerState<OnboardingScreen> {
   final List<Map<String, String>> _pages = [
     {
       'title': 'Shop Smarter',
-      'description': 'Build your shopping list and manage your spending with ease.',
+      'description':
+          'Build your shopping list and manage your spending with ease.',
     },
     {
       'title': 'AI Product Recognition',
@@ -65,7 +66,10 @@ class _OnboardingScreenState extends ConsumerState<OnboardingScreen> {
                 itemBuilder: (context, index) {
                   return SingleChildScrollView(
                     child: Padding(
-                      padding: const EdgeInsets.symmetric(horizontal: 32.0, vertical: 24.0),
+                      padding: const EdgeInsets.symmetric(
+                        horizontal: 32.0,
+                        vertical: 24.0,
+                      ),
                       child: Column(
                         mainAxisAlignment: MainAxisAlignment.center,
                         children: [
@@ -76,7 +80,8 @@ class _OnboardingScreenState extends ConsumerState<OnboardingScreen> {
                           Text(
                             _pages[index]['title']!,
                             textAlign: TextAlign.center,
-                            style: Theme.of(context).textTheme.displayMedium?.copyWith(
+                            style: Theme.of(context).textTheme.displayMedium
+                                ?.copyWith(
                                   fontWeight: FontWeight.w800,
                                   color: AppColors.textPrimary,
                                 ),
@@ -85,7 +90,8 @@ class _OnboardingScreenState extends ConsumerState<OnboardingScreen> {
                           Text(
                             _pages[index]['description']!,
                             textAlign: TextAlign.center,
-                            style: Theme.of(context).textTheme.bodyLarge?.copyWith(
+                            style: Theme.of(context).textTheme.bodyLarge
+                                ?.copyWith(
                                   color: AppColors.textSecondary,
                                   height: 1.5,
                                 ),
@@ -106,7 +112,11 @@ class _OnboardingScreenState extends ConsumerState<OnboardingScreen> {
                     onPressed: _completeOnboarding,
                     child: Text(
                       'Skip',
-                      style: TextStyle(color: AppColors.textSecondary, fontSize: 16, fontWeight: FontWeight.w600),
+                      style: TextStyle(
+                        color: AppColors.textSecondary,
+                        fontSize: 16,
+                        fontWeight: FontWeight.w600,
+                      ),
                     ),
                   ),
                   Row(
@@ -117,7 +127,9 @@ class _OnboardingScreenState extends ConsumerState<OnboardingScreen> {
                         height: 8,
                         width: _currentPage == index ? 24 : 8,
                         decoration: BoxDecoration(
-                          color: _currentPage == index ? AppColors.primaryGreen : AppColors.border,
+                          color: _currentPage == index
+                              ? AppColors.primaryGreen
+                              : AppColors.border,
                           borderRadius: BorderRadius.circular(4),
                         ),
                       ),
@@ -128,7 +140,9 @@ class _OnboardingScreenState extends ConsumerState<OnboardingScreen> {
                       backgroundColor: AppColors.primaryGreen,
                       foregroundColor: Colors.white,
                       minimumSize: const Size(120, 50),
-                      shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(25)),
+                      shape: RoundedRectangleBorder(
+                        borderRadius: BorderRadius.circular(25),
+                      ),
                       elevation: 0,
                     ),
                     onPressed: () {
@@ -142,8 +156,13 @@ class _OnboardingScreenState extends ConsumerState<OnboardingScreen> {
                       }
                     },
                     child: Text(
-                      _currentPage == _pages.length - 1 ? 'Get Started' : 'Next',
-                      style: const TextStyle(fontSize: 16, fontWeight: FontWeight.bold),
+                      _currentPage == _pages.length - 1
+                          ? 'Get Started'
+                          : 'Next',
+                      style: const TextStyle(
+                        fontSize: 16,
+                        fontWeight: FontWeight.bold,
+                      ),
                     ),
                   ),
                 ],
@@ -174,10 +193,7 @@ class _OnboardingScreenState extends ConsumerState<OnboardingScreen> {
             ),
             Positioned(
               bottom: 40,
-              child: Text(
-                '🍎',
-                style: TextStyle(fontSize: 80),
-              ),
+              child: Text('🍎', style: TextStyle(fontSize: 80)),
             ),
             Positioned(
               bottom: 30,
@@ -218,12 +234,20 @@ class _OnboardingScreenState extends ConsumerState<OnboardingScreen> {
             Positioned(
               top: 40,
               right: 20,
-              child: Icon(Icons.auto_awesome, color: AppColors.aiPurple, size: 30),
+              child: Icon(
+                Icons.auto_awesome,
+                color: AppColors.aiPurple,
+                size: 30,
+              ),
             ),
             Positioned(
               bottom: 100,
               left: 10,
-              child: Icon(Icons.auto_awesome, color: AppColors.dealOrange, size: 20),
+              child: Icon(
+                Icons.auto_awesome,
+                color: AppColors.dealOrange,
+                size: 20,
+              ),
             ),
           ],
         ),
@@ -304,19 +328,13 @@ class _OnboardingScreenState extends ConsumerState<OnboardingScreen> {
             Positioned(
               bottom: 40,
               right: 40,
-              child: Text(
-                '🛒',
-                style: TextStyle(fontSize: 70),
-              ),
+              child: Text('🛒', style: TextStyle(fontSize: 70)),
             ),
             // Cash emoji
             Positioned(
               top: 50,
               right: 50,
-              child: Text(
-                '💵',
-                style: TextStyle(fontSize: 40),
-              ),
+              child: Text('💵', style: TextStyle(fontSize: 40)),
             ),
             // Green success icon
             Positioned(
@@ -335,12 +353,20 @@ class _OnboardingScreenState extends ConsumerState<OnboardingScreen> {
             Positioned(
               top: 20,
               left: 80,
-              child: Icon(Icons.auto_awesome, color: AppColors.dealOrange, size: 24),
+              child: Icon(
+                Icons.auto_awesome,
+                color: AppColors.dealOrange,
+                size: 24,
+              ),
             ),
             Positioned(
               bottom: 20,
               right: 20,
-              child: Icon(Icons.auto_awesome, color: AppColors.aiPurple, size: 30),
+              child: Icon(
+                Icons.auto_awesome,
+                color: AppColors.aiPurple,
+                size: 30,
+              ),
             ),
           ],
         ),

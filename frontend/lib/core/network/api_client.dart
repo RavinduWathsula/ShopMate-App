@@ -6,7 +6,13 @@ class ApiClient {
   final Dio _dio;
   final FlutterSecureStorage _storage = const FlutterSecureStorage();
 
-  ApiClient() : _dio = Dio(BaseOptions(baseUrl: Env.baseUrl, connectTimeout: const Duration(seconds: 10))) {
+  ApiClient()
+    : _dio = Dio(
+        BaseOptions(
+          baseUrl: Env.baseUrl,
+          connectTimeout: const Duration(seconds: 10),
+        ),
+      ) {
     _dio.interceptors.add(
       InterceptorsWrapper(
         onRequest: (options, handler) async {
@@ -29,4 +35,3 @@ class ApiClient {
 
   Dio get client => _dio;
 }
-

@@ -9,7 +9,7 @@ class AppConstants {
   static const Color accentColor = Color(0xFFFFB800);
   static const Color textPrimary = Colors.white;
   static const Color textSecondary = Color(0xFFB0ACCA);
-  
+
   // Dimensions
   static const double defaultPadding = 16.0;
   static const double paddingSmall = 8.0;
@@ -18,11 +18,10 @@ class AppConstants {
 
   static const double defaultRadius = 12.0;
   static const double cardRadius = 24.0;
-  
+
   // Legacy aliases to prevent compile errors
   static const double padding = 16.0;
   static const double borderRadius = 12.0;
 
   static const String appName = 'ShopMate';
 }
-

@@ -18,4 +18,3 @@ class AppSizes {
   static const double radiusExtraLarge = 16.0;
   static const double radiusCircular = 100.0;
 }
-

@@ -8,8 +8,10 @@ final productsProvider = FutureProvider<List<dynamic>>((ref) async {
   return await service.getProducts();
 });
 
-final productDetailsProvider = FutureProvider.family<dynamic, int>((ref, id) async {
+final productDetailsProvider = FutureProvider.family<dynamic, int>((
+  ref,
+  id,
+) async {
   final service = ref.read(productServiceProvider);
   return await service.getProductDetails(id);
 });
-

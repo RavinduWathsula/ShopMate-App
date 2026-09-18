@@ -21,7 +21,11 @@ class _RegisterScreenState extends State<RegisterScreen> {
         backgroundColor: Colors.white,
         elevation: 0,
         leading: IconButton(
-          icon: const Icon(Icons.arrow_back_ios, color: Colors.black87, size: 20),
+          icon: const Icon(
+            Icons.arrow_back_ios,
+            color: Colors.black87,
+            size: 20,
+          ),
           onPressed: () => context.pop(),
         ),
       ),
@@ -43,25 +47,16 @@ class _RegisterScreenState extends State<RegisterScreen> {
               const SizedBox(height: 8),
               const Text(
                 'Join ShopMate today',
-                style: TextStyle(
-                  fontSize: 16,
-                  color: Colors.grey,
-                ),
+                style: TextStyle(fontSize: 16, color: Colors.grey),
               ),
               const SizedBox(height: 32),
-              
-              _buildInputField(
-                hint: 'Full Name',
-                icon: Icons.person_outline,
-              ),
+
+              _buildInputField(hint: 'Full Name', icon: Icons.person_outline),
               const SizedBox(height: 16),
-              
-              _buildInputField(
-                hint: 'Email',
-                icon: Icons.mail_outline,
-              ),
+
+              _buildInputField(hint: 'Email', icon: Icons.mail_outline),
               const SizedBox(height: 16),
-              
+
               _buildPasswordField(
                 hint: 'Password',
                 obscure: _obscurePassword,
@@ -72,7 +67,7 @@ class _RegisterScreenState extends State<RegisterScreen> {
                 },
               ),
               const SizedBox(height: 16),
-              
+
               _buildPasswordField(
                 hint: 'Confirm Password',
                 obscure: _obscureConfirmPassword,
@@ -83,7 +78,7 @@ class _RegisterScreenState extends State<RegisterScreen> {
                 },
               ),
               const SizedBox(height: 24),
-              
+
               // Terms & Conditions
               Row(
                 children: [
@@ -98,19 +93,27 @@ class _RegisterScreenState extends State<RegisterScreen> {
                         });
                       },
                       activeColor: Theme.of(context).primaryColor,
-                      shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(4)),
+                      shape: RoundedRectangleBorder(
+                        borderRadius: BorderRadius.circular(4),
+                      ),
                     ),
                   ),
                   const SizedBox(width: 12),
-                  const Text('I agree to the ', style: TextStyle(color: Colors.black87)),
+                  const Text(
+                    'I agree to the ',
+                    style: TextStyle(color: Colors.black87),
+                  ),
                   Text(
                     'Terms & Conditions',
-                    style: TextStyle(color: Theme.of(context).primaryColor, fontWeight: FontWeight.bold),
+                    style: TextStyle(
+                      color: Theme.of(context).primaryColor,
+                      fontWeight: FontWeight.bold,
+                    ),
                   ),
                 ],
               ),
               const SizedBox(height: 32),
-              
+
               // Create Account Button
               SizedBox(
                 width: double.infinity,
@@ -129,18 +132,25 @@ class _RegisterScreenState extends State<RegisterScreen> {
                   ),
                   child: const Text(
                     'Create Account',
-                    style: TextStyle(fontSize: 16, fontWeight: FontWeight.bold, color: Colors.white),
+                    style: TextStyle(
+                      fontSize: 16,
+                      fontWeight: FontWeight.bold,
+                      color: Colors.white,
+                    ),
                   ),
                 ),
               ),
-              
+
               const SizedBox(height: 32),
-              
+
               // Login Link
               Row(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
-                  const Text("Already have an account? ", style: TextStyle(color: Colors.grey)),
+                  const Text(
+                    "Already have an account? ",
+                    style: TextStyle(color: Colors.grey),
+                  ),
                   GestureDetector(
                     onTap: () {
                       context.pop();
@@ -171,7 +181,10 @@ class _RegisterScreenState extends State<RegisterScreen> {
         prefixIcon: Icon(icon, color: Colors.grey.shade400),
         filled: true,
         fillColor: Colors.grey.shade50,
-        contentPadding: const EdgeInsets.symmetric(horizontal: 16, vertical: 16),
+        contentPadding: const EdgeInsets.symmetric(
+          horizontal: 16,
+          vertical: 16,
+        ),
         border: OutlineInputBorder(
           borderRadius: BorderRadius.circular(12),
           borderSide: BorderSide(color: Colors.grey.shade300),
@@ -184,7 +197,11 @@ class _RegisterScreenState extends State<RegisterScreen> {
     );
   }
 
-  Widget _buildPasswordField({required String hint, required bool obscure, required VoidCallback onToggle}) {
+  Widget _buildPasswordField({
+    required String hint,
+    required bool obscure,
+    required VoidCallback onToggle,
+  }) {
     return TextField(
       obscureText: obscure,
       decoration: InputDecoration(
@@ -193,7 +210,10 @@ class _RegisterScreenState extends State<RegisterScreen> {
         prefixIcon: Icon(Icons.lock_outline, color: Colors.grey.shade400),
         filled: true,
         fillColor: Colors.grey.shade50,
-        contentPadding: const EdgeInsets.symmetric(horizontal: 16, vertical: 16),
+        contentPadding: const EdgeInsets.symmetric(
+          horizontal: 16,
+          vertical: 16,
+        ),
         border: OutlineInputBorder(
           borderRadius: BorderRadius.circular(12),
           borderSide: BorderSide(color: Colors.grey.shade300),
@@ -213,4 +233,3 @@ class _RegisterScreenState extends State<RegisterScreen> {
     );
   }
 }
-

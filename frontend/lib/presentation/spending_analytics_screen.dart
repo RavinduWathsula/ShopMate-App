@@ -10,10 +10,7 @@ class SpendingAnalyticsScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: AppColors.background,
-      appBar: const ShopMateAppBar(
-        title: 'Spending Analytics',
-        showBack: true,
-      ),
+      appBar: const ShopMateAppBar(title: 'Spending Analytics', showBack: true),
       body: SafeArea(
         child: SingleChildScrollView(
           padding: const EdgeInsets.all(20.0),
@@ -64,7 +61,10 @@ class SpendingAnalyticsScreen extends StatelessWidget {
                     Row(
                       children: [
                         Container(
-                          padding: const EdgeInsets.symmetric(horizontal: 8, vertical: 3),
+                          padding: const EdgeInsets.symmetric(
+                            horizontal: 8,
+                            vertical: 3,
+                          ),
                           decoration: BoxDecoration(
                             color: Colors.white.withValues(alpha: 0.2),
                             borderRadius: BorderRadius.circular(6),
@@ -81,7 +81,10 @@ class SpendingAnalyticsScreen extends StatelessWidget {
                         const SizedBox(width: 8),
                         Text(
                           'Rs. 15,350 remaining',
-                          style: GoogleFonts.inter(fontSize: 12, color: Colors.white70),
+                          style: GoogleFonts.inter(
+                            fontSize: 12,
+                            color: Colors.white70,
+                          ),
                         ),
                       ],
                     ),
@@ -98,15 +101,40 @@ class SpendingAnalyticsScreen extends StatelessWidget {
                 ),
               ),
               const SizedBox(height: 12),
-              _buildCategoryRow('Dairy & Eggs', 'Rs. 7,800', 0.32, AppColors.primaryGreen),
+              _buildCategoryRow(
+                'Dairy & Eggs',
+                'Rs. 7,800',
+                0.32,
+                AppColors.primaryGreen,
+              ),
               const SizedBox(height: 12),
-              _buildCategoryRow('Fresh Produce', 'Rs. 6,400', 0.26, AppColors.aiPurple),
+              _buildCategoryRow(
+                'Fresh Produce',
+                'Rs. 6,400',
+                0.26,
+                AppColors.aiPurple,
+              ),
               const SizedBox(height: 12),
-              _buildCategoryRow('Pantry & Grains', 'Rs. 5,200', 0.21, AppColors.dealOrange),
+              _buildCategoryRow(
+                'Pantry & Grains',
+                'Rs. 5,200',
+                0.21,
+                AppColors.dealOrange,
+              ),
               const SizedBox(height: 12),
-              _buildCategoryRow('Snacks & Beverages', 'Rs. 3,100', 0.13, AppColors.electricBlue),
+              _buildCategoryRow(
+                'Snacks & Beverages',
+                'Rs. 3,100',
+                0.13,
+                AppColors.electricBlue,
+              ),
               const SizedBox(height: 12),
-              _buildCategoryRow('Household Essentials', 'Rs. 2,150', 0.08, Colors.pinkAccent),
+              _buildCategoryRow(
+                'Household Essentials',
+                'Rs. 2,150',
+                0.08,
+                Colors.pinkAccent,
+              ),
             ],
           ),
         ),
@@ -114,7 +142,12 @@ class SpendingAnalyticsScreen extends StatelessWidget {
     );
   }
 
-  Widget _buildCategoryRow(String name, String amount, double percentage, Color color) {
+  Widget _buildCategoryRow(
+    String name,
+    String amount,
+    double percentage,
+    Color color,
+  ) {
     return Container(
       padding: const EdgeInsets.all(16),
       decoration: BoxDecoration(
@@ -136,7 +169,10 @@ class SpendingAnalyticsScreen extends StatelessWidget {
             children: [
               Text(
                 name,
-                style: GoogleFonts.inter(fontSize: 14, fontWeight: FontWeight.w600),
+                style: GoogleFonts.inter(
+                  fontSize: 14,
+                  fontWeight: FontWeight.w600,
+                ),
               ),
               Text(
                 amount,

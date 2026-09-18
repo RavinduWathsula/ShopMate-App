@@ -4,9 +4,11 @@ import 'package:flutter_secure_storage/flutter_secure_storage.dart';
 
 final authServiceProvider = Provider<AuthService>((ref) => AuthService());
 
-final authStateProvider = StateNotifierProvider<AuthNotifier, AsyncValue<bool>>((ref) {
-  return AuthNotifier(ref.read(authServiceProvider));
-});
+final authStateProvider = StateNotifierProvider<AuthNotifier, AsyncValue<bool>>(
+  (ref) {
+    return AuthNotifier(ref.read(authServiceProvider));
+  },
+);
 
 class AuthNotifier extends StateNotifier<AsyncValue<bool>> {
   final AuthService _authService;
@@ -50,4 +52,3 @@ class AuthNotifier extends StateNotifier<AsyncValue<bool>> {
     state = const AsyncValue.data(false);
   }
 }
-

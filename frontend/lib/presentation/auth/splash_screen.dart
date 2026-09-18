@@ -14,10 +14,11 @@ class SplashScreen extends ConsumerStatefulWidget {
   ConsumerState<SplashScreen> createState() => _SplashScreenState();
 }
 
-class _SplashScreenState extends ConsumerState<SplashScreen> with TickerProviderStateMixin {
+class _SplashScreenState extends ConsumerState<SplashScreen>
+    with TickerProviderStateMixin {
   late AnimationController _mainController;
   late AnimationController _floatController;
-  
+
   late Animation<double> _fadeAnimation;
   late Animation<double> _scaleAnimation;
   late Animation<double> _glowAnimation;
@@ -25,7 +26,7 @@ class _SplashScreenState extends ConsumerState<SplashScreen> with TickerProvider
   @override
   void initState() {
     super.initState();
-    
+
     // Main entrance animation
     _mainController = AnimationController(
       vsync: this,
@@ -44,7 +45,7 @@ class _SplashScreenState extends ConsumerState<SplashScreen> with TickerProvider
         curve: const Interval(0.0, 0.6, curve: Curves.easeIn),
       ),
     );
-    
+
     _scaleAnimation = Tween<double>(begin: 0.6, end: 1.0).animate(
       CurvedAnimation(
         parent: _mainController,
@@ -63,19 +64,20 @@ class _SplashScreenState extends ConsumerState<SplashScreen> with TickerProvider
   Future<void> _checkRouting() async {
     // Wait for splash duration to finish
     await Future.delayed(const Duration(milliseconds: 3000));
-    
+
     if (!mounted) return;
-    
+
     try {
       final prefs = await SharedPreferences.getInstance();
-      final hasCompletedOnboarding = prefs.getBool('has_completed_onboarding') ?? false;
-      
+      final hasCompletedOnboarding =
+          prefs.getBool('has_completed_onboarding') ?? false;
+
       if (!mounted) return;
 
       if (hasCompletedOnboarding) {
         final authState = ref.read(authStateProvider);
         final isLoggedIn = authState.valueOrNull ?? false;
-        
+
         if (isLoggedIn) {
           context.go('/homedashboard');
         } else {
@@ -100,7 +102,9 @@ class _SplashScreenState extends ConsumerState<SplashScreen> with TickerProvider
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: const Color(0xFF0F1714), // Premium dark supermarket background
+      backgroundColor: const Color(
+        0xFF0F1714,
+      ), // Premium dark supermarket background
       body: Stack(
         children: [
           // Background Gradient Lighting
@@ -117,13 +121,15 @@ class _SplashScreenState extends ConsumerState<SplashScreen> with TickerProvider
                     shape: BoxShape.circle,
                     gradient: RadialGradient(
                       colors: [
-                        AppColors.primaryGreen.withValues(alpha: 0.15 * _glowAnimation.value),
+                        AppColors.primaryGreen.withValues(
+                          alpha: 0.15 * _glowAnimation.value,
+                        ),
                         Colors.transparent,
                       ],
                     ),
                   ),
                 );
-              }
+              },
             ),
           ),
           Positioned(
@@ -139,16 +145,18 @@ class _SplashScreenState extends ConsumerState<SplashScreen> with TickerProvider
                     shape: BoxShape.circle,
                     gradient: RadialGradient(
                       colors: [
-                        AppColors.aiPurple.withValues(alpha: 0.15 * (1.4 - _glowAnimation.value)),
+                        AppColors.aiPurple.withValues(
+                          alpha: 0.15 * (1.4 - _glowAnimation.value),
+                        ),
                         Colors.transparent,
                       ],
                     ),
                   ),
                 );
-              }
+              },
             ),
           ),
-          
+
           // Floating Products
           _buildFloatingProduct(context, "🍎", -40, 120, 0.0, 34),
           _buildFloatingProduct(context, "🥦", 60, -140, 0.5, 38),
@@ -182,14 +190,16 @@ class _SplashScreenState extends ConsumerState<SplashScreen> with TickerProvider
                                   shape: BoxShape.circle,
                                   boxShadow: [
                                     BoxShadow(
-                                      color: AppColors.primaryGreen.withValues(alpha: 0.3 * _glowAnimation.value),
+                                      color: AppColors.primaryGreen.withValues(
+                                        alpha: 0.3 * _glowAnimation.value,
+                                      ),
                                       blurRadius: 40,
                                       spreadRadius: 10,
                                     ),
                                   ],
                                 ),
                               );
-                            }
+                            },
                           ),
                           // Logo Container
                           Container(
@@ -252,7 +262,7 @@ class _SplashScreenState extends ConsumerState<SplashScreen> with TickerProvider
                       ),
                     ),
                     const Spacer(),
-                    
+
                     // Loading Section
                     Column(
                       children: [
@@ -262,7 +272,9 @@ class _SplashScreenState extends ConsumerState<SplashScreen> with TickerProvider
                             borderRadius: BorderRadius.circular(10),
                             child: const LinearProgressIndicator(
                               backgroundColor: Color(0xFF2A3631),
-                              valueColor: AlwaysStoppedAnimation<Color>(AppColors.primaryGreen),
+                              valueColor: AlwaysStoppedAnimation<Color>(
+                                AppColors.primaryGreen,
+                              ),
                               minHeight: 4,
                             ),
                           ),
@@ -289,24 +301,32 @@ class _SplashScreenState extends ConsumerState<SplashScreen> with TickerProvider
     );
   }
 
-  Widget _buildFloatingProduct(BuildContext context, String emoji, double offsetX, double offsetY, double delay, double size) {
+  Widget _buildFloatingProduct(
+    BuildContext context,
+    String emoji,
+    double offsetX,
+    double offsetY,
+    double delay,
+    double size,
+  ) {
     return Align(
       alignment: Alignment.center,
       child: AnimatedBuilder(
         animation: _floatController,
         builder: (context, child) {
           // Calculate floating offset based on sine wave and delay
-          final floatOffset = math.sin((_floatController.value * 2 * math.pi) + (delay * math.pi * 2)) * 15;
+          final floatOffset =
+              math.sin(
+                (_floatController.value * 2 * math.pi) + (delay * math.pi * 2),
+              ) *
+              15;
           return Transform.translate(
             offset: Offset(offsetX, offsetY + floatOffset),
             child: FadeTransition(
               opacity: _fadeAnimation,
               child: Opacity(
                 opacity: 0.8,
-                child: Text(
-                  emoji,
-                  style: TextStyle(fontSize: size),
-                ),
+                child: Text(emoji, style: TextStyle(fontSize: size)),
               ),
             ),
           );

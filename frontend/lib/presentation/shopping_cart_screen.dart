@@ -33,25 +33,38 @@ class ShoppingCartScreen extends ConsumerWidget {
                 color: AppColors.warningRed.withValues(alpha: 0.1),
                 shape: BoxShape.circle,
               ),
-              child: const Icon(Icons.delete_sweep_rounded, color: AppColors.warningRed, size: 24),
+              child: const Icon(
+                Icons.delete_sweep_rounded,
+                color: AppColors.warningRed,
+                size: 24,
+              ),
             ),
             const SizedBox(width: 12),
             Text(
               'Clear Cart',
-              style: GoogleFonts.inter(fontWeight: FontWeight.w700, fontSize: 18),
+              style: GoogleFonts.inter(
+                fontWeight: FontWeight.w700,
+                fontSize: 18,
+              ),
             ),
           ],
         ),
         content: Text(
           'Are you sure you want to remove all items from your cart?',
-          style: GoogleFonts.inter(fontSize: 14, color: AppColors.textSecondary),
+          style: GoogleFonts.inter(
+            fontSize: 14,
+            color: AppColors.textSecondary,
+          ),
         ),
         actions: [
           TextButton(
             onPressed: () => Navigator.pop(ctx),
             child: Text(
               'Cancel',
-              style: GoogleFonts.inter(color: AppColors.textSecondary, fontWeight: FontWeight.w600),
+              style: GoogleFonts.inter(
+                color: AppColors.textSecondary,
+                fontWeight: FontWeight.w600,
+              ),
             ),
           ),
           ElevatedButton(
@@ -62,10 +75,15 @@ class ShoppingCartScreen extends ConsumerWidget {
             style: ElevatedButton.styleFrom(
               backgroundColor: AppColors.warningRed,
               foregroundColor: Colors.white,
-              shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(12)),
+              shape: RoundedRectangleBorder(
+                borderRadius: BorderRadius.circular(12),
+              ),
               elevation: 0,
             ),
-            child: Text('Clear All', style: GoogleFonts.inter(fontWeight: FontWeight.w700)),
+            child: Text(
+              'Clear All',
+              style: GoogleFonts.inter(fontWeight: FontWeight.w700),
+            ),
           ),
         ],
       ),
@@ -80,10 +98,13 @@ class ShoppingCartScreen extends ConsumerWidget {
     final totalBudget = budgetState.budget > 0 ? budgetState.budget : 4000.0;
 
     final selectedItems = cartItems.where((item) => item.isSelected).toList();
-    final isAllSelected = cartItems.isNotEmpty && cartItems.every((item) => item.isSelected);
+    final isAllSelected =
+        cartItems.isNotEmpty && cartItems.every((item) => item.isSelected);
     final remainingBudget = totalBudget - selectedTotal;
     final isOverBudget = selectedTotal > totalBudget;
-    final budgetUsagePercent = totalBudget > 0 ? (selectedTotal / totalBudget).clamp(0.0, 1.0) : 0.0;
+    final budgetUsagePercent = totalBudget > 0
+        ? (selectedTotal / totalBudget).clamp(0.0, 1.0)
+        : 0.0;
 
     return Scaffold(
       backgroundColor: AppColors.background,
@@ -99,7 +120,11 @@ class ShoppingCartScreen extends ConsumerWidget {
                   color: AppColors.warningRed.withValues(alpha: 0.1),
                   shape: BoxShape.circle,
                 ),
-                child: const Icon(Icons.delete_outline_rounded, color: AppColors.warningRed, size: 20),
+                child: const Icon(
+                  Icons.delete_outline_rounded,
+                  color: AppColors.warningRed,
+                  size: 20,
+                ),
               ),
               tooltip: 'Clear Cart',
               onPressed: () => _confirmClearCart(context, ref),
@@ -111,7 +136,11 @@ class ShoppingCartScreen extends ConsumerWidget {
                 color: AppColors.primaryGreen.withValues(alpha: 0.1),
                 shape: BoxShape.circle,
               ),
-              child: const Icon(Icons.camera_alt_rounded, color: AppColors.primaryGreen, size: 20),
+              child: const Icon(
+                Icons.camera_alt_rounded,
+                color: AppColors.primaryGreen,
+                size: 20,
+              ),
             ),
             tooltip: 'Scan Barcode',
             onPressed: () => context.push('/camerarecognition'),
@@ -125,14 +154,21 @@ class ShoppingCartScreen extends ConsumerWidget {
             : Column(
                 children: [
                   // Store & Selection Control Header
-                  _buildSelectAllHeader(context, ref, cartItems, selectedItems, isAllSelected),
+                  _buildSelectAllHeader(
+                    context,
+                    ref,
+                    cartItems,
+                    selectedItems,
+                    isAllSelected,
+                  ),
 
                   // Cart Items List
                   Expanded(
                     child: ListView.separated(
                       padding: const EdgeInsets.fromLTRB(16, 4, 16, 16),
                       itemCount: cartItems.length,
-                      separatorBuilder: (context, index) => const SizedBox(height: 12),
+                      separatorBuilder: (context, index) =>
+                          const SizedBox(height: 12),
                       itemBuilder: (context, index) {
                         final item = cartItems[index];
                         return _buildCreativeCartCard(context, ref, item);
@@ -184,7 +220,9 @@ class ShoppingCartScreen extends ConsumerWidget {
           // Select All Checkbox
           InkWell(
             onTap: () {
-              ref.read(basketProvider.notifier).toggleAllSelection(!isAllSelected);
+              ref
+                  .read(basketProvider.notifier)
+                  .toggleAllSelection(!isAllSelected);
             },
             borderRadius: BorderRadius.circular(8),
             child: Row(
@@ -196,9 +234,13 @@ class ShoppingCartScreen extends ConsumerWidget {
                   child: Checkbox(
                     value: isAllSelected,
                     activeColor: AppColors.primaryGreen,
-                    shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(6)),
+                    shape: RoundedRectangleBorder(
+                      borderRadius: BorderRadius.circular(6),
+                    ),
                     onChanged: (val) {
-                      ref.read(basketProvider.notifier).toggleAllSelection(val ?? true);
+                      ref
+                          .read(basketProvider.notifier)
+                          .toggleAllSelection(val ?? true);
                     },
                   ),
                 ),
@@ -235,7 +277,11 @@ class ShoppingCartScreen extends ConsumerWidget {
           Row(
             mainAxisSize: MainAxisSize.min,
             children: [
-              const Icon(Icons.storefront_rounded, size: 14, color: AppColors.textSecondary),
+              const Icon(
+                Icons.storefront_rounded,
+                size: 14,
+                color: AppColors.textSecondary,
+              ),
               const SizedBox(width: 4),
               Text(
                 'Cargills Food City',
@@ -252,7 +298,11 @@ class ShoppingCartScreen extends ConsumerWidget {
     );
   }
 
-  Widget _buildCreativeCartCard(BuildContext context, WidgetRef ref, BasketItem item) {
+  Widget _buildCreativeCartCard(
+    BuildContext context,
+    WidgetRef ref,
+    BasketItem item,
+  ) {
     final itemTotal = item.price * item.quantity;
 
     return Container(
@@ -290,7 +340,9 @@ class ShoppingCartScreen extends ConsumerWidget {
                 child: Checkbox(
                   value: item.isSelected,
                   activeColor: AppColors.primaryGreen,
-                  shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(6)),
+                  shape: RoundedRectangleBorder(
+                    borderRadius: BorderRadius.circular(6),
+                  ),
                   onChanged: (val) {
                     ref.read(basketProvider.notifier).toggleSelection(item.id);
                   },
@@ -309,7 +361,8 @@ class ShoppingCartScreen extends ConsumerWidget {
                       ? Image.network(
                           item.imageUrl!,
                           fit: BoxFit.cover,
-                          errorBuilder: (ctx, err, stack) => _buildFallbackIcon(item.category),
+                          errorBuilder: (ctx, err, stack) =>
+                              _buildFallbackIcon(item.category),
                         )
                       : _buildFallbackIcon(item.category),
                 ),
@@ -324,7 +377,10 @@ class ShoppingCartScreen extends ConsumerWidget {
                     Row(
                       children: [
                         Container(
-                          padding: const EdgeInsets.symmetric(horizontal: 7, vertical: 2),
+                          padding: const EdgeInsets.symmetric(
+                            horizontal: 7,
+                            vertical: 2,
+                          ),
                           decoration: BoxDecoration(
                             color: AppColors.inputBackground,
                             borderRadius: BorderRadius.circular(6),
@@ -341,11 +397,17 @@ class ShoppingCartScreen extends ConsumerWidget {
                         ),
                         const Spacer(),
                         InkWell(
-                          onTap: () => ref.read(basketProvider.notifier).removeItem(item.id),
+                          onTap: () => ref
+                              .read(basketProvider.notifier)
+                              .removeItem(item.id),
                           borderRadius: BorderRadius.circular(12),
                           child: const Padding(
                             padding: EdgeInsets.all(2),
-                            child: Icon(Icons.close_rounded, size: 18, color: AppColors.textMuted),
+                            child: Icon(
+                              Icons.close_rounded,
+                              size: 18,
+                              color: AppColors.textMuted,
+                            ),
                           ),
                         ),
                       ],
@@ -358,7 +420,9 @@ class ShoppingCartScreen extends ConsumerWidget {
                       style: GoogleFonts.inter(
                         fontWeight: FontWeight.w700,
                         fontSize: 14,
-                        color: item.isSelected ? AppColors.textPrimary : AppColors.textMuted,
+                        color: item.isSelected
+                            ? AppColors.textPrimary
+                            : AppColors.textMuted,
                       ),
                     ),
                     const SizedBox(height: 6),
@@ -380,7 +444,9 @@ class ShoppingCartScreen extends ConsumerWidget {
                               style: GoogleFonts.inter(
                                 fontSize: 15,
                                 fontWeight: FontWeight.w800,
-                                color: item.isSelected ? AppColors.primaryGreenDark : AppColors.textMuted,
+                                color: item.isSelected
+                                    ? AppColors.primaryGreenDark
+                                    : AppColors.textMuted,
                               ),
                             ),
                           ],
@@ -398,16 +464,29 @@ class ShoppingCartScreen extends ConsumerWidget {
                             children: [
                               InkWell(
                                 onTap: () {
-                                  ref.read(basketProvider.notifier).updateQuantity(item.id, -1);
+                                  ref
+                                      .read(basketProvider.notifier)
+                                      .updateQuantity(item.id, -1);
                                 },
-                                borderRadius: const BorderRadius.horizontal(left: Radius.circular(12)),
+                                borderRadius: const BorderRadius.horizontal(
+                                  left: Radius.circular(12),
+                                ),
                                 child: const Padding(
-                                  padding: EdgeInsets.symmetric(horizontal: 8, vertical: 5),
-                                  child: Icon(Icons.remove_rounded, size: 16, color: AppColors.textSecondary),
+                                  padding: EdgeInsets.symmetric(
+                                    horizontal: 8,
+                                    vertical: 5,
+                                  ),
+                                  child: Icon(
+                                    Icons.remove_rounded,
+                                    size: 16,
+                                    color: AppColors.textSecondary,
+                                  ),
                                 ),
                               ),
                               Padding(
-                                padding: const EdgeInsets.symmetric(horizontal: 6),
+                                padding: const EdgeInsets.symmetric(
+                                  horizontal: 6,
+                                ),
                                 child: Text(
                                   '${item.quantity}',
                                   style: GoogleFonts.inter(
@@ -419,12 +498,23 @@ class ShoppingCartScreen extends ConsumerWidget {
                               ),
                               InkWell(
                                 onTap: () {
-                                  ref.read(basketProvider.notifier).updateQuantity(item.id, 1);
+                                  ref
+                                      .read(basketProvider.notifier)
+                                      .updateQuantity(item.id, 1);
                                 },
-                                borderRadius: const BorderRadius.horizontal(right: Radius.circular(12)),
+                                borderRadius: const BorderRadius.horizontal(
+                                  right: Radius.circular(12),
+                                ),
                                 child: const Padding(
-                                  padding: EdgeInsets.symmetric(horizontal: 8, vertical: 5),
-                                  child: Icon(Icons.add_rounded, size: 16, color: AppColors.primaryGreen),
+                                  padding: EdgeInsets.symmetric(
+                                    horizontal: 8,
+                                    vertical: 5,
+                                  ),
+                                  child: Icon(
+                                    Icons.add_rounded,
+                                    size: 16,
+                                    color: AppColors.primaryGreen,
+                                  ),
                                 ),
                               ),
                             ],
@@ -519,9 +609,13 @@ class ShoppingCartScreen extends ConsumerWidget {
                     Row(
                       children: [
                         Icon(
-                          isOverBudget ? Icons.warning_amber_rounded : Icons.account_balance_wallet_outlined,
+                          isOverBudget
+                              ? Icons.warning_amber_rounded
+                              : Icons.account_balance_wallet_outlined,
                           size: 16,
-                          color: isOverBudget ? AppColors.warningRed : AppColors.primaryGreenDark,
+                          color: isOverBudget
+                              ? AppColors.warningRed
+                              : AppColors.primaryGreenDark,
                         ),
                         const SizedBox(width: 6),
                         Text(
@@ -529,7 +623,9 @@ class ShoppingCartScreen extends ConsumerWidget {
                           style: GoogleFonts.inter(
                             fontSize: 12,
                             fontWeight: FontWeight.w700,
-                            color: isOverBudget ? AppColors.warningRed : AppColors.primaryGreenDark,
+                            color: isOverBudget
+                                ? AppColors.warningRed
+                                : AppColors.primaryGreenDark,
                           ),
                         ),
                       ],
@@ -541,7 +637,9 @@ class ShoppingCartScreen extends ConsumerWidget {
                       style: GoogleFonts.inter(
                         fontSize: 12,
                         fontWeight: FontWeight.w700,
-                        color: isOverBudget ? AppColors.warningRed : AppColors.primaryGreenDark,
+                        color: isOverBudget
+                            ? AppColors.warningRed
+                            : AppColors.primaryGreenDark,
                       ),
                     ),
                   ],
@@ -554,7 +652,9 @@ class ShoppingCartScreen extends ConsumerWidget {
                     minHeight: 5,
                     backgroundColor: Colors.grey.shade200,
                     valueColor: AlwaysStoppedAnimation<Color>(
-                      isOverBudget ? AppColors.warningRed : AppColors.primaryGreen,
+                      isOverBudget
+                          ? AppColors.warningRed
+                          : AppColors.primaryGreen,
                     ),
                   ),
                 ),
@@ -582,7 +682,10 @@ class ShoppingCartScreen extends ConsumerWidget {
                       ),
                       const SizedBox(width: 6),
                       Container(
-                        padding: const EdgeInsets.symmetric(horizontal: 6, vertical: 2),
+                        padding: const EdgeInsets.symmetric(
+                          horizontal: 6,
+                          vertical: 2,
+                        ),
                         decoration: BoxDecoration(
                           color: AppColors.dealYellow.withValues(alpha: 0.15),
                           borderRadius: BorderRadius.circular(6),
@@ -590,7 +693,11 @@ class ShoppingCartScreen extends ConsumerWidget {
                         child: Row(
                           mainAxisSize: MainAxisSize.min,
                           children: [
-                            const Icon(Icons.stars_rounded, size: 12, color: Colors.amber),
+                            const Icon(
+                              Icons.stars_rounded,
+                              size: 12,
+                              color: Colors.amber,
+                            ),
                             const SizedBox(width: 2),
                             Text(
                               '+$starPoints Pts',
@@ -619,7 +726,11 @@ class ShoppingCartScreen extends ConsumerWidget {
               // Smart suggestions link button
               TextButton.icon(
                 onPressed: () => context.push('/smartbasket'),
-                icon: const Icon(Icons.auto_awesome_rounded, size: 15, color: AppColors.aiPurple),
+                icon: const Icon(
+                  Icons.auto_awesome_rounded,
+                  size: 15,
+                  color: AppColors.aiPurple,
+                ),
                 label: Text(
                   'Smart Basket',
                   style: GoogleFonts.inter(
@@ -630,8 +741,13 @@ class ShoppingCartScreen extends ConsumerWidget {
                 ),
                 style: TextButton.styleFrom(
                   backgroundColor: AppColors.aiPurple.withValues(alpha: 0.08),
-                  padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 6),
-                  shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(10)),
+                  padding: const EdgeInsets.symmetric(
+                    horizontal: 10,
+                    vertical: 6,
+                  ),
+                  shape: RoundedRectangleBorder(
+                    borderRadius: BorderRadius.circular(10),
+                  ),
                 ),
               ),
             ],
@@ -649,13 +765,19 @@ class ShoppingCartScreen extends ConsumerWidget {
               style: ElevatedButton.styleFrom(
                 backgroundColor: AppColors.primaryGreen,
                 disabledBackgroundColor: Colors.grey.shade300,
-                shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(16)),
+                shape: RoundedRectangleBorder(
+                  borderRadius: BorderRadius.circular(16),
+                ),
                 elevation: selectedCount > 0 ? 3 : 0,
               ),
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
-                  const Icon(Icons.check_circle_outline_rounded, color: Colors.white, size: 20),
+                  const Icon(
+                    Icons.check_circle_outline_rounded,
+                    color: Colors.white,
+                    size: 20,
+                  ),
                   const SizedBox(width: 8),
                   Text(
                     selectedCount > 0
@@ -721,14 +843,24 @@ class ShoppingCartScreen extends ConsumerWidget {
               height: 48,
               child: ElevatedButton.icon(
                 onPressed: () => context.push('/camerarecognition'),
-                icon: const Icon(Icons.camera_alt_rounded, size: 18, color: Colors.white),
+                icon: const Icon(
+                  Icons.camera_alt_rounded,
+                  size: 18,
+                  color: Colors.white,
+                ),
                 label: Text(
                   'Scan Products Now',
-                  style: GoogleFonts.inter(fontWeight: FontWeight.w700, fontSize: 15, color: Colors.white),
+                  style: GoogleFonts.inter(
+                    fontWeight: FontWeight.w700,
+                    fontSize: 15,
+                    color: Colors.white,
+                  ),
                 ),
                 style: ElevatedButton.styleFrom(
                   backgroundColor: AppColors.primaryGreen,
-                  shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(14)),
+                  shape: RoundedRectangleBorder(
+                    borderRadius: BorderRadius.circular(14),
+                  ),
                   elevation: 0,
                 ),
               ),
@@ -739,7 +871,11 @@ class ShoppingCartScreen extends ConsumerWidget {
               height: 48,
               child: OutlinedButton.icon(
                 onPressed: () => context.push('/shoppinglist'),
-                icon: const Icon(Icons.checklist_rounded, size: 18, color: AppColors.primaryGreen),
+                icon: const Icon(
+                  Icons.checklist_rounded,
+                  size: 18,
+                  color: AppColors.primaryGreen,
+                ),
                 label: Text(
                   'View Shopping List',
                   style: GoogleFonts.inter(
@@ -750,7 +886,9 @@ class ShoppingCartScreen extends ConsumerWidget {
                 ),
                 style: OutlinedButton.styleFrom(
                   side: const BorderSide(color: AppColors.primaryGreen),
-                  shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(14)),
+                  shape: RoundedRectangleBorder(
+                    borderRadius: BorderRadius.circular(14),
+                  ),
                 ),
               ),
             ),

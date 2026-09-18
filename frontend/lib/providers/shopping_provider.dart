@@ -4,9 +4,10 @@ import '../services/shopping_service.dart';
 
 final shoppingServiceProvider = Provider((ref) => ShoppingService());
 
-final activeSessionProvider = StateNotifierProvider<ShoppingSessionNotifier, AsyncValue<dynamic>>((ref) {
-  return ShoppingSessionNotifier(ref.read(shoppingServiceProvider));
-});
+final activeSessionProvider =
+    StateNotifierProvider<ShoppingSessionNotifier, AsyncValue<dynamic>>((ref) {
+      return ShoppingSessionNotifier(ref.read(shoppingServiceProvider));
+    });
 
 class ShoppingSessionNotifier extends StateNotifier<AsyncValue<dynamic>> {
   final ShoppingService _service;
@@ -38,4 +39,3 @@ class ShoppingSessionNotifier extends StateNotifier<AsyncValue<dynamic>> {
     }
   }
 }
-

@@ -3,10 +3,7 @@ import 'package:flutter/material.dart';
 class MobileAppShell extends StatelessWidget {
   final Widget child;
 
-  const MobileAppShell({
-    super.key,
-    required this.child,
-  });
+  const MobileAppShell({super.key, required this.child});
 
   @override
   Widget build(BuildContext context) {
@@ -20,7 +17,8 @@ class MobileAppShell extends StatelessWidget {
               child: ConstrainedBox(
                 constraints: const BoxConstraints(
                   maxWidth: 390,
-                  maxHeight: 932, // iPhone 14 Pro Max height as a reasonable max
+                  maxHeight:
+                      932, // iPhone 14 Pro Max height as a reasonable max
                 ),
                 child: Padding(
                   padding: const EdgeInsets.symmetric(vertical: 24.0),
@@ -40,10 +38,21 @@ class MobileAppShell extends StatelessWidget {
                       borderRadius: BorderRadius.circular(40),
                       child: MediaQuery(
                         data: MediaQuery.of(context).copyWith(
-                          size: Size(390, constraints.maxHeight > 932 ? 932 : constraints.maxHeight),
-                          padding: const EdgeInsets.only(top: 48, bottom: 34), // Simulated safe area
+                          size: Size(
+                            390,
+                            constraints.maxHeight > 932
+                                ? 932
+                                : constraints.maxHeight,
+                          ),
+                          padding: const EdgeInsets.only(
+                            top: 48,
+                            bottom: 34,
+                          ), // Simulated safe area
                           viewInsets: EdgeInsets.zero,
-                          viewPadding: const EdgeInsets.only(top: 48, bottom: 34),
+                          viewPadding: const EdgeInsets.only(
+                            top: 48,
+                            bottom: 34,
+                          ),
                         ),
                         child: child,
                       ),

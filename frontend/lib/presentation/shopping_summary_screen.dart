@@ -11,15 +11,15 @@ class ShoppingSummaryScreen extends ConsumerStatefulWidget {
   const ShoppingSummaryScreen({super.key});
 
   @override
-  ConsumerState<ShoppingSummaryScreen> createState() => _ShoppingSummaryScreenState();
+  ConsumerState<ShoppingSummaryScreen> createState() =>
+      _ShoppingSummaryScreenState();
 }
 
-class _ShoppingSummaryScreenState extends ConsumerState<ShoppingSummaryScreen> with SingleTickerProviderStateMixin {
+class _ShoppingSummaryScreenState extends ConsumerState<ShoppingSummaryScreen>
+    with SingleTickerProviderStateMixin {
   late AnimationController _controller;
   late Animation<double> _scaleAnimation;
   late Animation<double> _fadeAnimation;
-
-
 
   @override
   void initState() {
@@ -28,8 +28,16 @@ class _ShoppingSummaryScreenState extends ConsumerState<ShoppingSummaryScreen> w
       vsync: this,
       duration: const Duration(milliseconds: 1200),
     );
-    _scaleAnimation = CurvedAnimation(parent: _controller, curve: const Interval(0.0, 0.6, curve: Curves.elasticOut));
-    _fadeAnimation = Tween<double>(begin: 0.0, end: 1.0).animate(CurvedAnimation(parent: _controller, curve: const Interval(0.4, 1.0, curve: Curves.easeIn)));
+    _scaleAnimation = CurvedAnimation(
+      parent: _controller,
+      curve: const Interval(0.0, 0.6, curve: Curves.elasticOut),
+    );
+    _fadeAnimation = Tween<double>(begin: 0.0, end: 1.0).animate(
+      CurvedAnimation(
+        parent: _controller,
+        curve: const Interval(0.4, 1.0, curve: Curves.easeIn),
+      ),
+    );
     _controller.forward();
   }
 
@@ -89,7 +97,12 @@ class _ShoppingSummaryScreenState extends ConsumerState<ShoppingSummaryScreen> w
   Widget _buildHeader() {
     return Container(
       width: double.infinity,
-      padding: EdgeInsets.only(top: MediaQuery.of(context).padding.top + 16, bottom: 40, left: 20, right: 20),
+      padding: EdgeInsets.only(
+        top: MediaQuery.of(context).padding.top + 16,
+        bottom: 40,
+        left: 20,
+        right: 20,
+      ),
       decoration: const BoxDecoration(
         color: AppColors.primary,
         borderRadius: BorderRadius.only(
@@ -136,10 +149,14 @@ class _ShoppingSummaryScreenState extends ConsumerState<ShoppingSummaryScreen> w
                     color: Colors.black.withValues(alpha: 0.1),
                     blurRadius: 20,
                     offset: const Offset(0, 10),
-                  )
+                  ),
                 ],
               ),
-              child: const Icon(Icons.check_rounded, color: AppColors.primary, size: 60),
+              child: const Icon(
+                Icons.check_rounded,
+                color: AppColors.primary,
+                size: 60,
+              ),
             ),
           ),
           const SizedBox(height: 24),
@@ -173,7 +190,7 @@ class _ShoppingSummaryScreenState extends ConsumerState<ShoppingSummaryScreen> w
     final budget = ref.watch(budgetProvider).budget;
     final originalTotal = ref.watch(originalTotalProvider);
     final discounts = ref.watch(savingsProvider);
-    
+
     final remaining = budget - finalTotal;
     final isOverBudget = remaining < 0;
 
@@ -197,21 +214,36 @@ class _ShoppingSummaryScreenState extends ConsumerState<ShoppingSummaryScreen> w
           const Divider(height: 24),
           _buildRow('Original Total', 'Rs. ${_formatCurrency(originalTotal)}'),
           const SizedBox(height: 12),
-          _buildRow('Discounts', 'Rs. ${_formatCurrency(discounts)}', color: AppColors.primary),
+          _buildRow(
+            'Discounts',
+            'Rs. ${_formatCurrency(discounts)}',
+            color: AppColors.primary,
+          ),
           const Padding(
             padding: EdgeInsets.symmetric(vertical: 16),
             child: Divider(thickness: 1.5),
           ),
-          _buildRow('Final Estimated Total', 'Rs. ${_formatCurrency(finalTotal)}', isBold: true, size: 18),
+          _buildRow(
+            'Final Estimated Total',
+            'Rs. ${_formatCurrency(finalTotal)}',
+            isBold: true,
+            size: 18,
+          ),
           const SizedBox(height: 16),
           _buildRow('Budget', 'Rs. ${_formatCurrency(budget)}'),
           const SizedBox(height: 12),
           Container(
             padding: const EdgeInsets.all(12),
             decoration: BoxDecoration(
-              color: isOverBudget ? AppColors.error.withValues(alpha: 0.1) : AppColors.primary.withValues(alpha: 0.1),
+              color: isOverBudget
+                  ? AppColors.error.withValues(alpha: 0.1)
+                  : AppColors.primary.withValues(alpha: 0.1),
               borderRadius: BorderRadius.circular(12),
-              border: Border.all(color: isOverBudget ? AppColors.error.withValues(alpha: 0.3) : AppColors.primary.withValues(alpha: 0.3)),
+              border: Border.all(
+                color: isOverBudget
+                    ? AppColors.error.withValues(alpha: 0.3)
+                    : AppColors.primary.withValues(alpha: 0.3),
+              ),
             ),
             child: Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -219,8 +251,12 @@ class _ShoppingSummaryScreenState extends ConsumerState<ShoppingSummaryScreen> w
                 Row(
                   children: [
                     Icon(
-                      isOverBudget ? Icons.warning_amber_rounded : Icons.check_circle_outline,
-                      color: isOverBudget ? AppColors.error : AppColors.primaryDark,
+                      isOverBudget
+                          ? Icons.warning_amber_rounded
+                          : Icons.check_circle_outline,
+                      color: isOverBudget
+                          ? AppColors.error
+                          : AppColors.primaryDark,
                       size: 20,
                     ),
                     const SizedBox(width: 8),
@@ -229,7 +265,9 @@ class _ShoppingSummaryScreenState extends ConsumerState<ShoppingSummaryScreen> w
                       style: GoogleFonts.inter(
                         fontSize: 15,
                         fontWeight: FontWeight.w600,
-                        color: isOverBudget ? AppColors.error : AppColors.primaryDark,
+                        color: isOverBudget
+                            ? AppColors.error
+                            : AppColors.primaryDark,
                       ),
                     ),
                   ],
@@ -239,7 +277,9 @@ class _ShoppingSummaryScreenState extends ConsumerState<ShoppingSummaryScreen> w
                   style: GoogleFonts.inter(
                     fontSize: 16,
                     fontWeight: FontWeight.w800,
-                    color: isOverBudget ? AppColors.error : AppColors.primaryDark,
+                    color: isOverBudget
+                        ? AppColors.error
+                        : AppColors.primaryDark,
                   ),
                 ),
               ],
@@ -250,7 +290,13 @@ class _ShoppingSummaryScreenState extends ConsumerState<ShoppingSummaryScreen> w
     );
   }
 
-  Widget _buildRow(String label, String value, {Color? color, bool isBold = false, double size = 15}) {
+  Widget _buildRow(
+    String label,
+    String value, {
+    Color? color,
+    bool isBold = false,
+    double size = 15,
+  }) {
     return Row(
       mainAxisAlignment: MainAxisAlignment.spaceBetween,
       children: [
@@ -302,10 +348,16 @@ class _ShoppingSummaryScreenState extends ConsumerState<ShoppingSummaryScreen> w
                   color: Colors.white,
                   shape: BoxShape.circle,
                   boxShadow: [
-                    BoxShadow(color: AppColors.primary.withValues(alpha: 0.2), blurRadius: 10),
+                    BoxShadow(
+                      color: AppColors.primary.withValues(alpha: 0.2),
+                      blurRadius: 10,
+                    ),
                   ],
                 ),
-                child: const Icon(Icons.savings_rounded, color: AppColors.primary),
+                child: const Icon(
+                  Icons.savings_rounded,
+                  color: AppColors.primary,
+                ),
               ),
               const SizedBox(width: 16),
               Text(
@@ -333,7 +385,8 @@ class _ShoppingSummaryScreenState extends ConsumerState<ShoppingSummaryScreen> w
 
   Widget _buildAIInsight() {
     return const AIInsightCard(
-      message: "You made smart choices! Keep it up and you'll save even more next time.",
+      message:
+          "You made smart choices! Keep it up and you'll save even more next time.",
       state: AIInsightState.success,
       customTitle: 'AI Insight',
     );
@@ -367,7 +420,9 @@ class _ShoppingSummaryScreenState extends ConsumerState<ShoppingSummaryScreen> w
             },
             style: ElevatedButton.styleFrom(
               padding: const EdgeInsets.symmetric(vertical: 18),
-              shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(16)),
+              shape: RoundedRectangleBorder(
+                borderRadius: BorderRadius.circular(16),
+              ),
               backgroundColor: AppColors.primary,
               elevation: 0,
             ),
@@ -385,4 +440,3 @@ class _ShoppingSummaryScreenState extends ConsumerState<ShoppingSummaryScreen> w
     );
   }
 }
-

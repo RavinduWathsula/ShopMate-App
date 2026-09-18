@@ -19,7 +19,8 @@ class ShopMateAiAssistantWidget extends StatefulWidget {
   });
 
   @override
-  State<ShopMateAiAssistantWidget> createState() => _ShopMateAiAssistantWidgetState();
+  State<ShopMateAiAssistantWidget> createState() =>
+      _ShopMateAiAssistantWidgetState();
 }
 
 class _ShopMateAiAssistantWidgetState extends State<ShopMateAiAssistantWidget>
@@ -62,13 +63,17 @@ class _ShopMateAiAssistantWidgetState extends State<ShopMateAiAssistantWidget>
             borderRadius: BorderRadius.circular(20),
             boxShadow: [
               BoxShadow(
-                color: AppColors.aiPurple.withValues(alpha: 0.25 + (glowValue * 0.15)),
+                color: AppColors.aiPurple.withValues(
+                  alpha: 0.25 + (glowValue * 0.15),
+                ),
                 blurRadius: 16 + (glowValue * 8),
                 offset: const Offset(0, 6),
               ),
             ],
             border: Border.all(
-              color: AppColors.aiPurpleLight.withValues(alpha: 0.4 + (glowValue * 0.2)),
+              color: AppColors.aiPurpleLight.withValues(
+                alpha: 0.4 + (glowValue * 0.2),
+              ),
               width: 1.2,
             ),
           ),
@@ -132,7 +137,10 @@ class _ShopMateAiAssistantWidgetState extends State<ShopMateAiAssistantWidget>
                 Row(
                   children: [
                     Container(
-                      padding: const EdgeInsets.symmetric(horizontal: 8, vertical: 2),
+                      padding: const EdgeInsets.symmetric(
+                        horizontal: 8,
+                        vertical: 2,
+                      ),
                       decoration: BoxDecoration(
                         color: AppColors.aiPurpleLight.withValues(alpha: 0.3),
                         borderRadius: BorderRadius.circular(10),
@@ -180,7 +188,10 @@ class _ShopMateAiAssistantWidgetState extends State<ShopMateAiAssistantWidget>
               style: TextButton.styleFrom(
                 backgroundColor: Colors.white.withValues(alpha: 0.15),
                 foregroundColor: Colors.white,
-                padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 8),
+                padding: const EdgeInsets.symmetric(
+                  horizontal: 12,
+                  vertical: 8,
+                ),
                 shape: RoundedRectangleBorder(
                   borderRadius: BorderRadius.circular(12),
                 ),

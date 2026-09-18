@@ -71,7 +71,10 @@ class AppTheme {
           borderRadius: BorderRadius.circular(AppConstants.cardRadius),
           borderSide: const BorderSide(color: AppConstants.primaryColor),
         ),
-        contentPadding: const EdgeInsets.symmetric(horizontal: 20, vertical: 16),
+        contentPadding: const EdgeInsets.symmetric(
+          horizontal: 20,
+          vertical: 16,
+        ),
       ),
     );
   }
@@ -79,4 +82,3 @@ class AppTheme {
   // Map light to dark as well since this is a dark-only app design
   static ThemeData get lightTheme => darkTheme;
 }
-

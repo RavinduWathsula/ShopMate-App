@@ -11,4 +11,3 @@ class Store {
     required this.imageUrl,
   });
 }
-

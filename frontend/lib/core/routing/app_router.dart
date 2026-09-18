@@ -34,10 +34,7 @@ class AppRouter {
         path: '/onboarding',
         builder: (context, state) => const OnboardingScreen(),
       ),
-      GoRoute(
-        path: '/login',
-        builder: (context, state) => const LoginScreen(),
-      ),
+      GoRoute(path: '/login', builder: (context, state) => const LoginScreen()),
       GoRoute(
         path: '/register',
         builder: (context, state) => const RegisterScreen(),
@@ -69,8 +66,11 @@ class AppRouter {
       GoRoute(
         path: '/productdetails',
         builder: (context, state) {
-          final extra = state.extra as Map<String, dynamic>? ?? {};
-          return ProductDetailsScreen(productData: extra);
+          final extra = state.extra;
+          final extraMap = extra is Map
+              ? extra.cast<String, dynamic>()
+              : <String, dynamic>{};
+          return ProductDetailsScreen(productData: extraMap);
         },
       ),
       GoRoute(

@@ -16,7 +16,14 @@ class _StoreMapScreenState extends State<StoreMapScreen> {
     return Scaffold(
       backgroundColor: AppColors.background,
       appBar: AppBar(
-        title: Text('Optimized Route', style: GoogleFonts.inter(fontWeight: FontWeight.bold, color: Colors.white, fontSize: 18)),
+        title: Text(
+          'Optimized Route',
+          style: GoogleFonts.inter(
+            fontWeight: FontWeight.bold,
+            color: Colors.white,
+            fontSize: 18,
+          ),
+        ),
         backgroundColor: AppColors.primary,
         elevation: 0,
         leading: IconButton(
@@ -33,9 +40,7 @@ class _StoreMapScreenState extends State<StoreMapScreen> {
       body: Column(
         children: [
           _buildLegend(),
-          Expanded(
-            child: _buildMapArea(),
-          ),
+          Expanded(child: _buildMapArea()),
           _buildBottomPanel(),
         ],
       ),
@@ -53,7 +58,11 @@ class _StoreMapScreenState extends State<StoreMapScreen> {
         children: [
           _buildLegendItem(Icons.meeting_room, Colors.green, 'Entrance'),
           _buildLegendItem(Icons.my_location, Colors.blue, 'Your Location'),
-          _buildLegendItem(Icons.shopping_basket, AppColors.primary, 'Products'),
+          _buildLegendItem(
+            Icons.shopping_basket,
+            AppColors.primary,
+            'Products',
+          ),
           _buildLegendItem(Icons.point_of_sale, Colors.orange, 'Checkout'),
         ],
       ),
@@ -66,7 +75,14 @@ class _StoreMapScreenState extends State<StoreMapScreen> {
       children: [
         Icon(icon, size: 16, color: color),
         const SizedBox(width: 4),
-        Text(label, style: GoogleFonts.inter(fontSize: 12, fontWeight: FontWeight.w600, color: AppColors.textSecondary)),
+        Text(
+          label,
+          style: GoogleFonts.inter(
+            fontSize: 12,
+            fontWeight: FontWeight.w600,
+            color: AppColors.textSecondary,
+          ),
+        ),
       ],
     );
   }
@@ -86,7 +102,10 @@ class _StoreMapScreenState extends State<StoreMapScreen> {
               color: Colors.white,
               borderRadius: BorderRadius.circular(16),
               boxShadow: [
-                BoxShadow(color: Colors.black.withValues(alpha: 0.05), blurRadius: 10),
+                BoxShadow(
+                  color: Colors.black.withValues(alpha: 0.05),
+                  blurRadius: 10,
+                ),
               ],
             ),
             child: CustomPaint(
@@ -132,7 +151,9 @@ class _StoreMapScreenState extends State<StoreMapScreen> {
               },
               style: ElevatedButton.styleFrom(
                 padding: const EdgeInsets.symmetric(vertical: 16),
-                shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(12)),
+                shape: RoundedRectangleBorder(
+                  borderRadius: BorderRadius.circular(12),
+                ),
                 backgroundColor: AppColors.primary,
                 elevation: 0,
               ),
@@ -158,11 +179,24 @@ class _StoreMapScreenState extends State<StoreMapScreen> {
           children: [
             Icon(icon, size: 22, color: AppColors.primary),
             const SizedBox(width: 8),
-            Text(value, style: GoogleFonts.inter(fontSize: 18, fontWeight: FontWeight.bold, color: AppColors.textPrimary)),
+            Text(
+              value,
+              style: GoogleFonts.inter(
+                fontSize: 18,
+                fontWeight: FontWeight.bold,
+                color: AppColors.textPrimary,
+              ),
+            ),
           ],
         ),
         const SizedBox(height: 6),
-        Text(label, style: GoogleFonts.inter(fontSize: 13, color: AppColors.textSecondary)),
+        Text(
+          label,
+          style: GoogleFonts.inter(
+            fontSize: 13,
+            color: AppColors.textSecondary,
+          ),
+        ),
       ],
     );
   }
@@ -191,25 +225,46 @@ class SupermarketMapPainter extends CustomPainter {
 
     void drawZone(Rect rect, String label, {Color? color}) {
       paint.color = color ?? const Color(0xFFF1F5F9);
-      canvas.drawRRect(RRect.fromRectAndRadius(rect, const Radius.circular(6)), paint);
-      canvas.drawRRect(RRect.fromRectAndRadius(rect, const Radius.circular(6)), borderPaint);
+      canvas.drawRRect(
+        RRect.fromRectAndRadius(rect, const Radius.circular(6)),
+        paint,
+      );
+      canvas.drawRRect(
+        RRect.fromRectAndRadius(rect, const Radius.circular(6)),
+        borderPaint,
+      );
 
       textPainter.text = TextSpan(
         text: label,
-        style: GoogleFonts.inter(fontSize: 11, fontWeight: FontWeight.bold, color: const Color(0xFF475569)),
+        style: GoogleFonts.inter(
+          fontSize: 11,
+          fontWeight: FontWeight.bold,
+          color: const Color(0xFF475569),
+        ),
       );
       textPainter.layout(minWidth: rect.width, maxWidth: rect.width);
-      textPainter.paint(canvas, Offset(rect.left, rect.top + (rect.height - textPainter.height) / 2));
+      textPainter.paint(
+        canvas,
+        Offset(rect.left, rect.top + (rect.height - textPainter.height) / 2),
+      );
     }
 
     // Floor Plan Layout
     // Width: 350, Height: 480
 
     // Entrance
-    drawZone(const Rect.fromLTWH(20, 420, 80, 40), 'Entrance', color: Colors.green.withValues(alpha: 0.15));
-    
+    drawZone(
+      const Rect.fromLTWH(20, 420, 80, 40),
+      'Entrance',
+      color: Colors.green.withValues(alpha: 0.15),
+    );
+
     // Checkout
-    drawZone(const Rect.fromLTWH(220, 420, 110, 40), 'Checkout', color: Colors.orange.withValues(alpha: 0.15));
+    drawZone(
+      const Rect.fromLTWH(220, 420, 110, 40),
+      'Checkout',
+      color: Colors.orange.withValues(alpha: 0.15),
+    );
 
     // Aisles 1-5
     double aisleWidth = 32;
@@ -219,20 +274,43 @@ class SupermarketMapPainter extends CustomPainter {
     double spacing = 48;
 
     for (int i = 0; i < 5; i++) {
-      drawZone(Rect.fromLTWH(startX + (i * spacing), startY, aisleWidth, aisleHeight), 'Aisle\n${i + 1}');
+      drawZone(
+        Rect.fromLTWH(startX + (i * spacing), startY, aisleWidth, aisleHeight),
+        'Aisle\n${i + 1}',
+      );
     }
 
     // Perimeter Zones
     // Top Zones
-    drawZone(const Rect.fromLTWH(20, 20, 90, 50), 'Household', color: Colors.blue.withValues(alpha: 0.1));
-    drawZone(const Rect.fromLTWH(130, 20, 90, 50), 'Dairy', color: Colors.blue.withValues(alpha: 0.1));
-    drawZone(const Rect.fromLTWH(240, 20, 90, 50), 'Bakery', color: Colors.blue.withValues(alpha: 0.1));
-    
+    drawZone(
+      const Rect.fromLTWH(20, 20, 90, 50),
+      'Household',
+      color: Colors.blue.withValues(alpha: 0.1),
+    );
+    drawZone(
+      const Rect.fromLTWH(130, 20, 90, 50),
+      'Dairy',
+      color: Colors.blue.withValues(alpha: 0.1),
+    );
+    drawZone(
+      const Rect.fromLTWH(240, 20, 90, 50),
+      'Bakery',
+      color: Colors.blue.withValues(alpha: 0.1),
+    );
+
     // Left Zone
-    drawZone(const Rect.fromLTWH(5, 90, 45, 310), 'Drinks', color: Colors.blue.withValues(alpha: 0.1));
-    
+    drawZone(
+      const Rect.fromLTWH(5, 90, 45, 310),
+      'Drinks',
+      color: Colors.blue.withValues(alpha: 0.1),
+    );
+
     // Right Zone
-    drawZone(const Rect.fromLTWH(300, 90, 45, 310), 'Snacks', color: Colors.blue.withValues(alpha: 0.1));
+    drawZone(
+      const Rect.fromLTWH(300, 90, 45, 310),
+      'Snacks',
+      color: Colors.blue.withValues(alpha: 0.1),
+    );
 
     // Route (Mock Dijkstra Path)
     final path = Path();
@@ -256,13 +334,16 @@ class SupermarketMapPainter extends CustomPainter {
       ..strokeCap = StrokeCap.round;
 
     // Draw shadow for route line
-    canvas.drawPath(path, Paint()
-      ..style = PaintingStyle.stroke
-      ..color = primaryColor.withValues(alpha: 0.2)
-      ..strokeWidth = 10
-      ..strokeJoin = StrokeJoin.round
-      ..strokeCap = StrokeCap.round);
-      
+    canvas.drawPath(
+      path,
+      Paint()
+        ..style = PaintingStyle.stroke
+        ..color = primaryColor.withValues(alpha: 0.2)
+        ..strokeWidth = 10
+        ..strokeJoin = StrokeJoin.round
+        ..strokeCap = StrokeCap.round,
+    );
+
     // Draw solid route line
     canvas.drawPath(path, routePaint);
 
@@ -275,13 +356,23 @@ class SupermarketMapPainter extends CustomPainter {
     void drawProduct(Offset offset) {
       canvas.drawCircle(offset, 10, Paint()..color = Colors.white);
       canvas.drawCircle(offset, 8, productPaint);
-      
+
       textPainter.text = TextSpan(
         text: '★',
-        style: GoogleFonts.inter(fontSize: 10, fontWeight: FontWeight.bold, color: Colors.white),
+        style: GoogleFonts.inter(
+          fontSize: 10,
+          fontWeight: FontWeight.bold,
+          color: Colors.white,
+        ),
       );
       textPainter.layout();
-      textPainter.paint(canvas, Offset(offset.dx - textPainter.width / 2, offset.dy - textPainter.height / 2));
+      textPainter.paint(
+        canvas,
+        Offset(
+          offset.dx - textPainter.width / 2,
+          offset.dy - textPainter.height / 2,
+        ),
+      );
     }
 
     drawProduct(const Offset(100, 260)); // Aisle 1
@@ -289,10 +380,13 @@ class SupermarketMapPainter extends CustomPainter {
     drawProduct(const Offset(175, 290)); // Aisle 3
 
     // Draw End pin
-    canvas.drawCircle(const Offset(260, 420), 8, Paint()..color = Colors.orange);
+    canvas.drawCircle(
+      const Offset(260, 420),
+      8,
+      Paint()..color = Colors.orange,
+    );
   }
 
   @override
   bool shouldRepaint(covariant CustomPainter oldDelegate) => false;
 }
-

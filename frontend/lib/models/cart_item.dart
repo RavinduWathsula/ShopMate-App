@@ -4,10 +4,7 @@ class CartItem {
   final Product product;
   final int quantity;
 
-  const CartItem({
-    required this.product,
-    this.quantity = 1,
-  });
+  const CartItem({required this.product, this.quantity = 1});
 
   CartItem copyWith({Product? product, int? quantity}) {
     return CartItem(
@@ -18,4 +15,3 @@ class CartItem {
 
   double get totalPrice => product.finalPrice * quantity;
 }
-

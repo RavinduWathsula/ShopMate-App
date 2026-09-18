@@ -2,13 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import '../../core/theme/app_colors.dart';
 
-enum AIInsightState {
-  success,
-  warning,
-  saving,
-  recommendation,
-  information
-}
+enum AIInsightState { success, warning, saving, recommendation, information }
 
 class AIInsightCard extends StatefulWidget {
   final String message;
@@ -30,7 +24,8 @@ class AIInsightCard extends StatefulWidget {
   State<AIInsightCard> createState() => _AIInsightCardState();
 }
 
-class _AIInsightCardState extends State<AIInsightCard> with SingleTickerProviderStateMixin {
+class _AIInsightCardState extends State<AIInsightCard>
+    with SingleTickerProviderStateMixin {
   late AnimationController _glowController;
   late Animation<double> _glowAnimation;
 
@@ -98,88 +93,95 @@ class _AIInsightCardState extends State<AIInsightCard> with SingleTickerProvider
 
   @override
   Widget build(BuildContext context) {
+    final cardContent = AnimatedBuilder(
+      animation: _glowAnimation,
+      builder: (context, child) {
+        return Container(
+          padding: const EdgeInsets.all(20),
+          decoration: BoxDecoration(
+            color: AppColors.surface,
+            borderRadius: BorderRadius.circular(20),
+            border: Border.all(
+              color: _stateColor.withValues(alpha: _glowAnimation.value),
+              width: 1.5,
+            ),
+            boxShadow: [
+              BoxShadow(
+                color: _stateColor.withValues(alpha: _glowAnimation.value * 0.2),
+                blurRadius: 15,
+                spreadRadius: 2,
+                offset: const Offset(0, 5),
+              ),
+              BoxShadow(
+                color: Colors.black.withValues(alpha: 0.03),
+                blurRadius: 10,
+                offset: const Offset(0, 4),
+              ),
+            ],
+          ),
+          child: Row(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              Container(
+                padding: const EdgeInsets.all(10),
+                decoration: BoxDecoration(
+                  color: AppColors.aiPurple.withValues(alpha: 0.1),
+                  borderRadius: BorderRadius.circular(12),
+                ),
+                child: const Text('🤖', style: TextStyle(fontSize: 24)),
+              ),
+              const SizedBox(width: 16),
+              Expanded(
+                child: Column(
+                  mainAxisSize: MainAxisSize.min,
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    Row(
+                      children: [
+                        Icon(_stateIcon, color: _stateColor, size: 16),
+                        const SizedBox(width: 6),
+                        Expanded(
+                          child: Text(
+                            _title,
+                            style: GoogleFonts.inter(
+                              fontSize: 14,
+                              fontWeight: FontWeight.w700,
+                              color: _stateColor,
+                            ),
+                          ),
+                        ),
+                      ],
+                    ),
+                    const SizedBox(height: 6),
+                    Text(
+                      widget.message,
+                      style: GoogleFonts.inter(
+                        fontSize: 14,
+                        color: AppColors.textSecondary,
+                        height: 1.4,
+                      ),
+                    ),
+                  ],
+                ),
+              ),
+              if (widget.trailing != null) ...[
+                const SizedBox(width: 12),
+                widget.trailing!,
+              ],
+            ],
+          ),
+        );
+      },
+    );
+
+    if (widget.onTap == null) {
+      return cardContent;
+    }
+
     return InkWell(
       onTap: widget.onTap,
       borderRadius: BorderRadius.circular(20),
-      child: AnimatedBuilder(
-        animation: _glowAnimation,
-        builder: (context, child) {
-          return Container(
-            padding: const EdgeInsets.all(20),
-            decoration: BoxDecoration(
-              color: AppColors.surface,
-              borderRadius: BorderRadius.circular(20),
-              border: Border.all(
-                color: _stateColor.withValues(alpha: _glowAnimation.value),
-                width: 1.5,
-              ),
-              boxShadow: [
-                BoxShadow(
-                  color: _stateColor.withValues(alpha: _glowAnimation.value * 0.2),
-                  blurRadius: 15,
-                  spreadRadius: 2,
-                  offset: const Offset(0, 5),
-                ),
-                BoxShadow(
-                  color: Colors.black.withValues(alpha: 0.03),
-                  blurRadius: 10,
-                  offset: const Offset(0, 4),
-                ),
-              ],
-            ),
-            child: Row(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: [
-                Container(
-                  padding: const EdgeInsets.all(10),
-                  decoration: BoxDecoration(
-                    color: AppColors.aiPurple.withValues(alpha: 0.1),
-                    borderRadius: BorderRadius.circular(12),
-                  ),
-                  child: const Text('🤖', style: TextStyle(fontSize: 24)),
-                ),
-                const SizedBox(width: 16),
-                Expanded(
-                  child: Column(
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: [
-                      Row(
-                        children: [
-                          Icon(_stateIcon, color: _stateColor, size: 16),
-                          const SizedBox(width: 6),
-                          Expanded(
-                            child: Text(
-                              _title,
-                              style: GoogleFonts.inter(
-                                fontSize: 14,
-                                fontWeight: FontWeight.w700,
-                                color: _stateColor,
-                              ),
-                            ),
-                          ),
-                        ],
-                      ),
-                      const SizedBox(height: 6),
-                      Text(
-                        widget.message,
-                        style: GoogleFonts.inter(
-                          fontSize: 14,
-                          color: AppColors.textSecondary,
-                          height: 1.4,
-                        ),
-                      ),
-                    ],
-                  ),
-                ),
-                if (widget.trailing != null) ...[
-                  const SizedBox(width: 12),
-                  widget.trailing!,
-                ]
-              ],
-            ),
-          );
-        }
-      ),
+      child: cardContent,
     );
   }
 }

@@ -5,7 +5,6 @@ import 'core/routing/app_router.dart';
 import 'core/theme/app_theme.dart';
 import 'core/constants/app_constants.dart';
 
-
 import 'core/theme/theme_provider.dart';
 import 'core/theme/app_colors.dart';
 
@@ -15,9 +14,7 @@ void main() {
   runApp(
     DevicePreview(
       enabled: true,
-      builder: (context) => const ProviderScope(
-        child: ShopMateApp(),
-      ),
+      builder: (context) => const ProviderScope(child: ShopMateApp()),
     ),
   );
 }
@@ -49,5 +46,3 @@ class ShopMateApp extends ConsumerWidget {
     );
   }
 }
-
-

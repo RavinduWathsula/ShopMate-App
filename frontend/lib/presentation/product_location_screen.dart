@@ -10,10 +10,7 @@ class ProductLocationScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: AppColors.background,
-      appBar: const ShopMateAppBar(
-        title: 'Product Location',
-        showBack: true,
-      ),
+      appBar: const ShopMateAppBar(title: 'Product Location', showBack: true),
       body: SafeArea(
         child: Padding(
           padding: const EdgeInsets.all(20.0),
@@ -41,7 +38,11 @@ class ProductLocationScreen extends StatelessWidget {
                         color: AppColors.primaryGreen.withValues(alpha: 0.12),
                         borderRadius: BorderRadius.circular(12),
                       ),
-                      child: const Icon(Icons.location_on_rounded, color: AppColors.primaryGreenDark, size: 28),
+                      child: const Icon(
+                        Icons.location_on_rounded,
+                        color: AppColors.primaryGreenDark,
+                        size: 28,
+                      ),
                     ),
                     const SizedBox(width: 14),
                     Expanded(
@@ -83,7 +84,11 @@ class ProductLocationScreen extends StatelessWidget {
                   child: Column(
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: [
-                      const Icon(Icons.map_rounded, size: 50, color: AppColors.textMuted),
+                      const Icon(
+                        Icons.map_rounded,
+                        size: 50,
+                        color: AppColors.textMuted,
+                      ),
                       const SizedBox(height: 10),
                       Text(
                         'Indoor Store Map Pinpointed',

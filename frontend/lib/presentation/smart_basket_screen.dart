@@ -23,7 +23,11 @@ class _SmartBasketScreenState extends ConsumerState<SmartBasketScreen> {
       appBar: AppBar(
         title: Text(
           'Smart Basket Suggestions',
-          style: GoogleFonts.inter(fontWeight: FontWeight.bold, color: Colors.white, fontSize: 18),
+          style: GoogleFonts.inter(
+            fontWeight: FontWeight.bold,
+            color: Colors.white,
+            fontSize: 18,
+          ),
         ),
         backgroundColor: AppColors.primary,
         elevation: 0,
@@ -86,20 +90,38 @@ class _SmartBasketScreenState extends ConsumerState<SmartBasketScreen> {
       ),
       child: Column(
         children: [
-          _buildSummaryRow('Original Total:', 'Rs. ${formatCurrency(originalTotal)}', isTotal: false),
+          _buildSummaryRow(
+            'Original Total:',
+            'Rs. ${formatCurrency(originalTotal)}',
+            isTotal: false,
+          ),
           const SizedBox(height: 12),
-          _buildSummaryRow('Optimized Total:', 'Rs. ${formatCurrency(optimizedTotal)}', isTotal: false),
+          _buildSummaryRow(
+            'Optimized Total:',
+            'Rs. ${formatCurrency(optimizedTotal)}',
+            isTotal: false,
+          ),
           const Padding(
             padding: EdgeInsets.symmetric(vertical: 12),
             child: Divider(),
           ),
-          _buildSummaryRow('You Save:', 'Rs. ${formatCurrency(savings)}', isTotal: true, valueColor: AppColors.primary),
+          _buildSummaryRow(
+            'You Save:',
+            'Rs. ${formatCurrency(savings)}',
+            isTotal: true,
+            valueColor: AppColors.primary,
+          ),
         ],
       ),
     );
   }
 
-  Widget _buildSummaryRow(String label, String value, {bool isTotal = false, Color? valueColor}) {
+  Widget _buildSummaryRow(
+    String label,
+    String value, {
+    bool isTotal = false,
+    Color? valueColor,
+  }) {
     return Row(
       mainAxisAlignment: MainAxisAlignment.spaceBetween,
       children: [
@@ -134,27 +156,77 @@ class _SmartBasketScreenState extends ConsumerState<SmartBasketScreen> {
         children: [
           Row(
             children: [
-              const Icon(Icons.remove_circle_outline, color: AppColors.error, size: 20),
+              const Icon(
+                Icons.remove_circle_outline,
+                color: AppColors.error,
+                size: 20,
+              ),
               const SizedBox(width: 8),
-              Text('Brand A Cereal', style: GoogleFonts.inter(fontSize: 15, decoration: TextDecoration.lineThrough, color: AppColors.textSecondary)),
+              Text(
+                'Brand A Cereal',
+                style: GoogleFonts.inter(
+                  fontSize: 15,
+                  decoration: TextDecoration.lineThrough,
+                  color: AppColors.textSecondary,
+                ),
+              ),
               const Spacer(),
-              Text('Rs. 750', style: GoogleFonts.inter(fontSize: 15, decoration: TextDecoration.lineThrough, color: AppColors.textSecondary)),
+              Text(
+                'Rs. 750',
+                style: GoogleFonts.inter(
+                  fontSize: 15,
+                  decoration: TextDecoration.lineThrough,
+                  color: AppColors.textSecondary,
+                ),
+              ),
             ],
           ),
           const SizedBox(height: 8),
           Row(
             children: [
-              const Icon(Icons.add_circle_outline, color: AppColors.primary, size: 20),
+              const Icon(
+                Icons.add_circle_outline,
+                color: AppColors.primary,
+                size: 20,
+              ),
               const SizedBox(width: 8),
-              Text('Brand B Cereal', style: GoogleFonts.inter(fontSize: 15, fontWeight: FontWeight.w600, color: AppColors.textPrimary)),
+              Text(
+                'Brand B Cereal',
+                style: GoogleFonts.inter(
+                  fontSize: 15,
+                  fontWeight: FontWeight.w600,
+                  color: AppColors.textPrimary,
+                ),
+              ),
               const Spacer(),
-              Text('Rs. 600', style: GoogleFonts.inter(fontSize: 15, fontWeight: FontWeight.bold, color: AppColors.primaryDark)),
+              Text(
+                'Rs. 600',
+                style: GoogleFonts.inter(
+                  fontSize: 15,
+                  fontWeight: FontWeight.bold,
+                  color: AppColors.primaryDark,
+                ),
+              ),
             ],
           ),
           const SizedBox(height: 16),
-          Text('Save: Rs. 150', style: GoogleFonts.inter(fontSize: 14, fontWeight: FontWeight.bold, color: AppColors.primary)),
+          Text(
+            'Save: Rs. 150',
+            style: GoogleFonts.inter(
+              fontSize: 14,
+              fontWeight: FontWeight.bold,
+              color: AppColors.primary,
+            ),
+          ),
           const SizedBox(height: 4),
-          Text('Reason: Similar product at a lower price.', style: GoogleFonts.inter(fontSize: 13, color: AppColors.textSecondary, fontStyle: FontStyle.italic)),
+          Text(
+            'Reason: Similar product at a lower price.',
+            style: GoogleFonts.inter(
+              fontSize: 13,
+              color: AppColors.textSecondary,
+              fontStyle: FontStyle.italic,
+            ),
+          ),
         ],
       ),
     );
@@ -169,9 +241,23 @@ class _SmartBasketScreenState extends ConsumerState<SmartBasketScreen> {
       content: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          Text('Save: Rs. 300', style: GoogleFonts.inter(fontSize: 14, fontWeight: FontWeight.bold, color: AppColors.primary)),
+          Text(
+            'Save: Rs. 300',
+            style: GoogleFonts.inter(
+              fontSize: 14,
+              fontWeight: FontWeight.bold,
+              color: AppColors.primary,
+            ),
+          ),
           const SizedBox(height: 4),
-          Text('Reason: Lower priority compared with your other items.', style: GoogleFonts.inter(fontSize: 13, color: AppColors.textSecondary, fontStyle: FontStyle.italic)),
+          Text(
+            'Reason: Lower priority compared with your other items.',
+            style: GoogleFonts.inter(
+              fontSize: 13,
+              color: AppColors.textSecondary,
+              fontStyle: FontStyle.italic,
+            ),
+          ),
         ],
       ),
     );
@@ -188,7 +274,10 @@ class _SmartBasketScreenState extends ConsumerState<SmartBasketScreen> {
       decoration: BoxDecoration(
         color: AppColors.surface,
         borderRadius: BorderRadius.circular(16),
-        border: Border.all(color: isSelected ? AppColors.primary : AppColors.border, width: isSelected ? 2 : 1),
+        border: Border.all(
+          color: isSelected ? AppColors.primary : AppColors.border,
+          width: isSelected ? 2 : 1,
+        ),
         boxShadow: [
           BoxShadow(
             color: Colors.black.withValues(alpha: 0.03),
@@ -203,20 +292,39 @@ class _SmartBasketScreenState extends ConsumerState<SmartBasketScreen> {
           Container(
             padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 12),
             decoration: BoxDecoration(
-              color: isSelected ? AppColors.primary.withValues(alpha: 0.1) : AppColors.background,
-              borderRadius: const BorderRadius.only(topLeft: Radius.circular(15), topRight: Radius.circular(15)),
-              border: Border(bottom: BorderSide(color: isSelected ? AppColors.primary.withValues(alpha: 0.2) : AppColors.border)),
+              color: isSelected
+                  ? AppColors.primary.withValues(alpha: 0.1)
+                  : AppColors.background,
+              borderRadius: const BorderRadius.only(
+                topLeft: Radius.circular(15),
+                topRight: Radius.circular(15),
+              ),
+              border: Border(
+                bottom: BorderSide(
+                  color: isSelected
+                      ? AppColors.primary.withValues(alpha: 0.2)
+                      : AppColors.border,
+                ),
+              ),
             ),
             child: Row(
               children: [
-                Icon(icon, color: isSelected ? AppColors.primary : AppColors.textSecondary, size: 20),
+                Icon(
+                  icon,
+                  color: isSelected
+                      ? AppColors.primary
+                      : AppColors.textSecondary,
+                  size: 20,
+                ),
                 const SizedBox(width: 8),
                 Expanded(
                   child: Text(
                     title,
                     style: GoogleFonts.inter(
                       fontWeight: FontWeight.bold,
-                      color: isSelected ? AppColors.primaryDark : AppColors.textPrimary,
+                      color: isSelected
+                          ? AppColors.primaryDark
+                          : AppColors.textPrimary,
                       fontSize: 14,
                     ),
                   ),
@@ -225,15 +333,14 @@ class _SmartBasketScreenState extends ConsumerState<SmartBasketScreen> {
                   value: isSelected,
                   onChanged: onChanged,
                   activeColor: AppColors.primary,
-                  shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(4)),
+                  shape: RoundedRectangleBorder(
+                    borderRadius: BorderRadius.circular(4),
+                  ),
                 ),
               ],
             ),
           ),
-          Padding(
-            padding: const EdgeInsets.all(16.0),
-            child: content,
-          ),
+          Padding(padding: const EdgeInsets.all(16.0), child: content),
         ],
       ),
     );
@@ -261,13 +368,24 @@ class _SmartBasketScreenState extends ConsumerState<SmartBasketScreen> {
               onPressed: () {
                 // Apply mock changes here
                 if (_option1Selected) {
-                  ref.read(basketProvider.notifier).addItem(BasketItem(id: 'cereal-b', name: 'Brand B Cereal', price: 600, category: 'Breakfast'));
+                  ref
+                      .read(basketProvider.notifier)
+                      .addItem(
+                        BasketItem(
+                          id: 'cereal-b',
+                          name: 'Brand B Cereal',
+                          price: 600,
+                          category: 'Breakfast',
+                        ),
+                      );
                 }
                 context.push('/storemap');
               },
               style: ElevatedButton.styleFrom(
                 padding: const EdgeInsets.symmetric(vertical: 16),
-                shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(12)),
+                shape: RoundedRectangleBorder(
+                  borderRadius: BorderRadius.circular(12),
+                ),
                 backgroundColor: AppColors.primary,
                 elevation: 0,
               ),
@@ -285,7 +403,9 @@ class _SmartBasketScreenState extends ConsumerState<SmartBasketScreen> {
               onPressed: () => context.push('/storemap'),
               style: OutlinedButton.styleFrom(
                 padding: const EdgeInsets.symmetric(vertical: 16),
-                shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(12)),
+                shape: RoundedRectangleBorder(
+                  borderRadius: BorderRadius.circular(12),
+                ),
                 side: const BorderSide(color: AppColors.border, width: 2),
               ),
               child: Text(

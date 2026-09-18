@@ -29,7 +29,10 @@ class ProductDetailsScreen extends ConsumerWidget {
         ),
         actions: [
           IconButton(
-            icon: const Icon(Icons.favorite_border, color: AppColors.textPrimary),
+            icon: const Icon(
+              Icons.favorite_border,
+              color: AppColors.textPrimary,
+            ),
             onPressed: () {},
           ),
         ],
@@ -37,12 +40,14 @@ class ProductDetailsScreen extends ConsumerWidget {
       extendBodyBehindAppBar: true,
       body: SingleChildScrollView(
         child: Column(
+          mainAxisSize: MainAxisSize.min,
           crossAxisAlignment: CrossAxisAlignment.stretch,
           children: [
             _buildProductImage(context),
             Padding(
               padding: const EdgeInsets.all(24.0),
               child: Column(
+                mainAxisSize: MainAxisSize.min,
                 crossAxisAlignment: CrossAxisAlignment.stretch,
                 children: [
                   _buildHeaderAndPrice(context),
@@ -114,6 +119,7 @@ class ProductDetailsScreen extends ConsumerWidget {
     final hasDiscount = originalPrice != null && originalPrice > price;
 
     return Column(
+      mainAxisSize: MainAxisSize.min,
       crossAxisAlignment: CrossAxisAlignment.stretch,
       children: [
         Row(
@@ -122,6 +128,7 @@ class ProductDetailsScreen extends ConsumerWidget {
           children: [
             Expanded(
               child: Column(
+                mainAxisSize: MainAxisSize.min,
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                   Text(
@@ -149,9 +156,14 @@ class ProductDetailsScreen extends ConsumerWidget {
             if (hasDiscount)
               Container(
                 margin: const EdgeInsets.only(left: 12),
-                padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 6),
+                padding: const EdgeInsets.symmetric(
+                  horizontal: 12,
+                  vertical: 6,
+                ),
                 decoration: BoxDecoration(
-                  gradient: const LinearGradient(colors: [AppColors.discount, AppColors.dealOrange]),
+                  gradient: const LinearGradient(
+                    colors: [AppColors.discount, AppColors.dealOrange],
+                  ),
                   borderRadius: BorderRadius.circular(20),
                 ),
                 child: Text(
@@ -235,7 +247,13 @@ class ProductDetailsScreen extends ConsumerWidget {
     );
   }
 
-  Widget _buildInfoCard(BuildContext context, {required IconData icon, required String title, required String value, Color? valueColor}) {
+  Widget _buildInfoCard(
+    BuildContext context, {
+    required IconData icon,
+    required String title,
+    required String value,
+    Color? valueColor,
+  }) {
     return Container(
       padding: const EdgeInsets.all(12),
       decoration: BoxDecoration(
@@ -251,6 +269,7 @@ class ProductDetailsScreen extends ConsumerWidget {
         ],
       ),
       child: Column(
+        mainAxisSize: MainAxisSize.min,
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           Icon(icon, size: 24, color: AppColors.primary),
@@ -279,11 +298,10 @@ class ProductDetailsScreen extends ConsumerWidget {
     );
   }
 
-
-
   Widget _buildAlternativeSection(BuildContext context, WidgetRef ref) {
     final name = productData['name'] ?? 'Product';
     return Column(
+      mainAxisSize: MainAxisSize.min,
       crossAxisAlignment: CrossAxisAlignment.stretch,
       children: [
         Text(
@@ -325,11 +343,15 @@ class ProductDetailsScreen extends ConsumerWidget {
                     ),
                   ],
                 ),
-                child: const Icon(Icons.inventory_2_outlined, color: AppColors.primary),
+                child: const Icon(
+                  Icons.inventory_2_outlined,
+                  color: AppColors.primary,
+                ),
               ),
               const SizedBox(width: 16),
               Expanded(
                 child: Column(
+                  mainAxisSize: MainAxisSize.min,
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
                     Text(
@@ -366,7 +388,10 @@ class ProductDetailsScreen extends ConsumerWidget {
                           ),
                         ),
                         Container(
-                          padding: const EdgeInsets.symmetric(horizontal: 8, vertical: 2),
+                          padding: const EdgeInsets.symmetric(
+                            horizontal: 8,
+                            vertical: 2,
+                          ),
                           decoration: BoxDecoration(
                             color: Colors.green.withValues(alpha: 0.1),
                             borderRadius: BorderRadius.circular(12),
@@ -387,14 +412,16 @@ class ProductDetailsScreen extends ConsumerWidget {
               ),
               ElevatedButton(
                 onPressed: () {
-                  ref.read(basketProvider.notifier).addItem(
-                    BasketItem(
-                      id: 'alt1',
-                      name: 'Alternative Brand',
-                      price: 420,
-                      category: 'Dairy',
-                    )
-                  );
+                  ref
+                      .read(basketProvider.notifier)
+                      .addItem(
+                        BasketItem(
+                          id: 'alt1',
+                          name: 'Alternative Brand',
+                          price: 420,
+                          category: 'Dairy',
+                        ),
+                      );
                   ScaffoldMessenger.of(context).showSnackBar(
                     const SnackBar(content: Text('Alternative Added to Cart')),
                   );
@@ -405,10 +432,16 @@ class ProductDetailsScreen extends ConsumerWidget {
                   shape: RoundedRectangleBorder(
                     borderRadius: BorderRadius.circular(12),
                   ),
-                  padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 12),
+                  padding: const EdgeInsets.symmetric(
+                    horizontal: 16,
+                    vertical: 12,
+                  ),
                   elevation: 2,
                 ),
-                child: Text('Add', style: GoogleFonts.inter(fontWeight: FontWeight.bold)),
+                child: Text(
+                  'Add',
+                  style: GoogleFonts.inter(fontWeight: FontWeight.bold),
+                ),
               ),
             ],
           ),
@@ -422,14 +455,16 @@ class ProductDetailsScreen extends ConsumerWidget {
       builder: (context, ref, child) {
         return ElevatedButton(
           onPressed: () {
-            ref.read(basketProvider.notifier).addItem(
-              BasketItem(
-                id: productData['id'] ?? 'unknown',
-                name: productData['name'] ?? 'Product',
-                price: (productData['price'] as num?)?.toDouble() ?? 0.0,
-                category: productData['category'] ?? 'General',
-              )
-            );
+            ref
+                .read(basketProvider.notifier)
+                .addItem(
+                  BasketItem(
+                    id: productData['id'] ?? 'unknown',
+                    name: productData['name'] ?? 'Product',
+                    price: (productData['price'] as num?)?.toDouble() ?? 0.0,
+                    category: productData['category'] ?? 'General',
+                  ),
+                );
             ScaffoldMessenger.of(context).showSnackBar(
               SnackBar(content: Text('Added ${productData['name']} to Cart')),
             );
@@ -437,7 +472,9 @@ class ProductDetailsScreen extends ConsumerWidget {
           },
           style: ElevatedButton.styleFrom(
             padding: const EdgeInsets.symmetric(vertical: 20),
-            shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(16)),
+            shape: RoundedRectangleBorder(
+              borderRadius: BorderRadius.circular(16),
+            ),
             backgroundColor: AppColors.primaryGreen,
             elevation: 8,
             shadowColor: AppColors.primaryGreen.withValues(alpha: 0.4),
@@ -458,8 +495,7 @@ class ProductDetailsScreen extends ConsumerWidget {
             ],
           ),
         );
-      }
+      },
     );
   }
 }
-

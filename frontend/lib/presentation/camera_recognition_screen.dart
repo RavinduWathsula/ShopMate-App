@@ -145,10 +145,14 @@ class _CameraRecognitionScreenState
           children: [
             // Camera Background Preview
             Positioned.fill(
-              child: (_cameraController != null && _cameraController!.value.isInitialized)
+              child:
+                  (_cameraController != null &&
+                      _cameraController!.value.isInitialized)
                   ? CameraPreview(_cameraController!)
                   : const Center(
-                      child: CircularProgressIndicator(color: AppColors.primaryGreen),
+                      child: CircularProgressIndicator(
+                        color: AppColors.primaryGreen,
+                      ),
                     ),
             ),
 

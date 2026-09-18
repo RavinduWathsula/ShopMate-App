@@ -5,15 +5,9 @@ class BudgetState {
   final double budget;
   final double spent;
 
-  const BudgetState({
-    required this.budget,
-    required this.spent,
-  });
+  const BudgetState({required this.budget, required this.spent});
 
-  BudgetState copyWith({
-    double? budget,
-    double? spent,
-  }) {
+  BudgetState copyWith({double? budget, double? spent}) {
     return BudgetState(
       budget: budget ?? this.budget,
       spent: spent ?? this.spent,
@@ -43,13 +37,14 @@ class BudgetNotifier extends StateNotifier<BudgetState> {
   void setSpent(double spent) {
     state = state.copyWith(spent: spent);
   }
-  
+
   void addSpent(double amount) {
     state = state.copyWith(spent: state.spent + amount);
   }
 }
 
-final budgetProvider = StateNotifierProvider<BudgetNotifier, BudgetState>((ref) {
+final budgetProvider = StateNotifierProvider<BudgetNotifier, BudgetState>((
+  ref,
+) {
   return BudgetNotifier();
 });
-

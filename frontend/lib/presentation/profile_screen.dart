@@ -32,8 +32,10 @@ class _ProfileScreenState extends ConsumerState<ProfileScreen> {
     if (name.isNotEmpty) {
       name = name[0].toUpperCase() + name.substring(1);
     }
-    String initials = name.isNotEmpty ? name.substring(0, name.length >= 2 ? 2 : 1).toUpperCase() : 'U';
-    
+    String initials = name.isNotEmpty
+        ? name.substring(0, name.length >= 2 ? 2 : 1).toUpperCase()
+        : 'U';
+
     if (mounted) {
       setState(() {
         _userEmail = email;
@@ -147,11 +149,23 @@ class _ProfileScreenState extends ConsumerState<ProfileScreen> {
             Row(
               mainAxisAlignment: MainAxisAlignment.spaceAround,
               children: [
-                _buildModalStat('Loyalty Points', '2,850 pts', AppColors.primaryGreenDark),
+                _buildModalStat(
+                  'Loyalty Points',
+                  '2,850 pts',
+                  AppColors.primaryGreenDark,
+                ),
                 Container(width: 1, height: 32, color: AppColors.border),
-                _buildModalStat('Cashback Value', 'Rs. 2,850', AppColors.aiPurple),
+                _buildModalStat(
+                  'Cashback Value',
+                  'Rs. 2,850',
+                  AppColors.aiPurple,
+                ),
                 Container(width: 1, height: 32, color: AppColors.border),
-                _buildModalStat('Partner Tier', 'VIP Gold', AppColors.dealOrange),
+                _buildModalStat(
+                  'Partner Tier',
+                  'VIP Gold',
+                  AppColors.dealOrange,
+                ),
               ],
             ),
             const SizedBox(height: 24),
@@ -218,14 +232,20 @@ class _ProfileScreenState extends ConsumerState<ProfileScreen> {
         ),
         content: Text(
           'Your active shopping list, saved preferences, and budget targets will stay safe.',
-          style: GoogleFonts.inter(color: AppColors.textSecondary, fontSize: 14),
+          style: GoogleFonts.inter(
+            color: AppColors.textSecondary,
+            fontSize: 14,
+          ),
         ),
         actions: [
           TextButton(
             onPressed: () => Navigator.pop(ctx),
             child: Text(
               'Cancel',
-              style: GoogleFonts.inter(color: AppColors.textSecondary, fontWeight: FontWeight.w600),
+              style: GoogleFonts.inter(
+                color: AppColors.textSecondary,
+                fontWeight: FontWeight.w600,
+              ),
             ),
           ),
           ElevatedButton(
@@ -238,12 +258,17 @@ class _ProfileScreenState extends ConsumerState<ProfileScreen> {
             },
             style: ElevatedButton.styleFrom(
               backgroundColor: AppColors.warningRed,
-              shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(12)),
+              shape: RoundedRectangleBorder(
+                borderRadius: BorderRadius.circular(12),
+              ),
               elevation: 0,
             ),
             child: Text(
               'Log Out',
-              style: GoogleFonts.inter(fontWeight: FontWeight.w600, color: Colors.white),
+              style: GoogleFonts.inter(
+                fontWeight: FontWeight.w600,
+                color: Colors.white,
+              ),
             ),
           ),
         ],
@@ -287,28 +312,40 @@ class _ProfileScreenState extends ConsumerState<ProfileScreen> {
                   const SizedBox(height: 24),
 
                   // Dietary & Shopping Preferences Section
-                  _buildSectionHeader('Smart Shopping Preferences', 'Personalize AI recommendations'),
+                  _buildSectionHeader(
+                    'Smart Shopping Preferences',
+                    'Personalize AI recommendations',
+                  ),
                   const SizedBox(height: 12),
                   _buildPreferencesChips(),
 
                   const SizedBox(height: 26),
 
                   // Quick Shortcuts Section (Budget, Analytics, Cart)
-                  _buildSectionHeader('Finance & Analytics', 'Manage spending goals'),
+                  _buildSectionHeader(
+                    'Finance & Analytics',
+                    'Manage spending goals',
+                  ),
                   const SizedBox(height: 12),
                   _buildFinanceShortcuts(context),
 
                   const SizedBox(height: 26),
 
                   // AI Automation & Smart Features Toggles
-                  _buildSectionHeader('AI Automation', 'Smart assistant behavior'),
+                  _buildSectionHeader(
+                    'AI Automation',
+                    'Smart assistant behavior',
+                  ),
                   const SizedBox(height: 12),
                   _buildAutomationCard(),
 
                   const SizedBox(height: 26),
 
                   // App Settings & Preferences
-                  _buildSectionHeader('Account & Preferences', 'Security, alerts and display'),
+                  _buildSectionHeader(
+                    'Account & Preferences',
+                    'Security, alerts and display',
+                  ),
                   const SizedBox(height: 12),
                   _buildAccountSettingsCard(),
 
@@ -358,11 +395,7 @@ class _ProfileScreenState extends ConsumerState<ProfileScreen> {
         background: Container(
           decoration: const BoxDecoration(
             gradient: LinearGradient(
-              colors: [
-                Color(0xFF0D1B2A),
-                Color(0xFF1B263B),
-                Color(0xFF00C853),
-              ],
+              colors: [Color(0xFF0D1B2A), Color(0xFF1B263B), Color(0xFF00C853)],
               begin: Alignment.topLeft,
               end: Alignment.bottomRight,
             ),
@@ -397,7 +430,10 @@ class _ProfileScreenState extends ConsumerState<ProfileScreen> {
               // User Info Content
               SafeArea(
                 child: Padding(
-                  padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 12),
+                  padding: const EdgeInsets.symmetric(
+                    horizontal: 20,
+                    vertical: 12,
+                  ),
                   child: Column(
                     mainAxisAlignment: MainAxisAlignment.end,
                     children: [
@@ -415,12 +451,17 @@ class _ProfileScreenState extends ConsumerState<ProfileScreen> {
                                   color: Colors.white,
                                   boxShadow: [
                                     BoxShadow(
-                                      color: Colors.black.withValues(alpha: 0.18),
+                                      color: Colors.black.withValues(
+                                        alpha: 0.18,
+                                      ),
                                       blurRadius: 14,
                                       offset: const Offset(0, 4),
                                     ),
                                   ],
-                                  border: Border.all(color: Colors.white, width: 3),
+                                  border: Border.all(
+                                    color: Colors.white,
+                                    width: 3,
+                                  ),
                                 ),
                                 child: ClipOval(
                                   child: Container(
@@ -446,7 +487,10 @@ class _ProfileScreenState extends ConsumerState<ProfileScreen> {
                                   decoration: BoxDecoration(
                                     color: AppColors.dealOrange,
                                     shape: BoxShape.circle,
-                                    border: Border.all(color: Colors.white, width: 2),
+                                    border: Border.all(
+                                      color: Colors.white,
+                                      width: 2,
+                                    ),
                                   ),
                                   child: const Icon(
                                     Icons.edit_rounded,
@@ -645,10 +689,7 @@ class _ProfileScreenState extends ConsumerState<ProfileScreen> {
         decoration: BoxDecoration(
           borderRadius: BorderRadius.circular(22),
           gradient: const LinearGradient(
-            colors: [
-              Color(0xFF1E293B),
-              Color(0xFF0F172A),
-            ],
+            colors: [Color(0xFF1E293B), Color(0xFF0F172A)],
             begin: Alignment.topLeft,
             end: Alignment.bottomRight,
           ),
@@ -746,7 +787,10 @@ class _ProfileScreenState extends ConsumerState<ProfileScreen> {
                   ],
                 ),
                 Container(
-                  padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 8),
+                  padding: const EdgeInsets.symmetric(
+                    horizontal: 12,
+                    vertical: 8,
+                  ),
                   decoration: BoxDecoration(
                     color: Colors.white.withValues(alpha: 0.15),
                     borderRadius: BorderRadius.circular(12),
@@ -755,7 +799,11 @@ class _ProfileScreenState extends ConsumerState<ProfileScreen> {
                   child: Row(
                     mainAxisSize: MainAxisSize.min,
                     children: [
-                      const Icon(Icons.qr_code_rounded, color: Colors.white, size: 16),
+                      const Icon(
+                        Icons.qr_code_rounded,
+                        color: Colors.white,
+                        size: 16,
+                      ),
                       const SizedBox(width: 6),
                       Text(
                         'TAP BARCODE',
@@ -1070,10 +1118,7 @@ class _ProfileScreenState extends ConsumerState<ProfileScreen> {
       ),
       subtitle: Text(
         subtitle,
-        style: GoogleFonts.inter(
-          fontSize: 12,
-          color: AppColors.textSecondary,
-        ),
+        style: GoogleFonts.inter(fontSize: 12, color: AppColors.textSecondary),
       ),
       trailing: const Icon(
         Icons.chevron_right_rounded,
@@ -1112,10 +1157,7 @@ class _ProfileScreenState extends ConsumerState<ProfileScreen> {
       ),
       subtitle: Text(
         subtitle,
-        style: GoogleFonts.inter(
-          fontSize: 12,
-          color: AppColors.textSecondary,
-        ),
+        style: GoogleFonts.inter(fontSize: 12, color: AppColors.textSecondary),
       ),
       trailing: Switch(
         value: value,
@@ -1133,7 +1175,11 @@ class _ProfileScreenState extends ConsumerState<ProfileScreen> {
       height: 52,
       child: OutlinedButton.icon(
         onPressed: () => _showLogoutDialog(context),
-        icon: const Icon(Icons.logout_rounded, color: AppColors.warningRed, size: 20),
+        icon: const Icon(
+          Icons.logout_rounded,
+          color: AppColors.warningRed,
+          size: 20,
+        ),
         label: Text(
           'Log Out of Account',
           style: GoogleFonts.inter(

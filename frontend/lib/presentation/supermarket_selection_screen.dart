@@ -11,10 +11,12 @@ class SupermarketSelectionScreen extends ConsumerStatefulWidget {
   const SupermarketSelectionScreen({super.key});
 
   @override
-  ConsumerState<SupermarketSelectionScreen> createState() => _SupermarketSelectionScreenState();
+  ConsumerState<SupermarketSelectionScreen> createState() =>
+      _SupermarketSelectionScreenState();
 }
 
-class _SupermarketSelectionScreenState extends ConsumerState<SupermarketSelectionScreen> {
+class _SupermarketSelectionScreenState
+    extends ConsumerState<SupermarketSelectionScreen> {
   final List<Map<String, dynamic>> _stores = [
     {
       'name': 'Food City',
@@ -82,7 +84,10 @@ class _SupermarketSelectionScreenState extends ConsumerState<SupermarketSelectio
                 child: TextField(
                   decoration: InputDecoration(
                     hintText: 'Search stores...',
-                    prefixIcon: const Icon(Icons.search_rounded, color: AppColors.textSecondary),
+                    prefixIcon: const Icon(
+                      Icons.search_rounded,
+                      color: AppColors.textSecondary,
+                    ),
                     filled: true,
                     fillColor: Colors.white,
                     border: OutlineInputBorder(
@@ -102,7 +107,8 @@ class _SupermarketSelectionScreenState extends ConsumerState<SupermarketSelectio
               child: ListView.separated(
                 padding: const EdgeInsets.symmetric(horizontal: 20),
                 itemCount: _stores.length,
-                separatorBuilder: (context, index) => const SizedBox(height: 14),
+                separatorBuilder: (context, index) =>
+                    const SizedBox(height: 14),
                 itemBuilder: (context, index) {
                   final store = _stores[index];
                   final isSelected = selectedStoreName == store['name'];
@@ -110,8 +116,9 @@ class _SupermarketSelectionScreenState extends ConsumerState<SupermarketSelectio
                   return InkWell(
                     onTap: () {
                       // Update Riverpod state
-                      ref.read(selectedStoreProvider.notifier).state = store['name'] as String;
-                      
+                      ref.read(selectedStoreProvider.notifier).state =
+                          store['name'] as String;
+
                       ScaffoldMessenger.of(context).showSnackBar(
                         SnackBar(
                           content: Text('Switched to ${store['name']}'),
@@ -129,7 +136,9 @@ class _SupermarketSelectionScreenState extends ConsumerState<SupermarketSelectio
                         color: Colors.white,
                         borderRadius: BorderRadius.circular(20),
                         border: Border.all(
-                          color: isSelected ? AppColors.primaryGreen : AppColors.border,
+                          color: isSelected
+                              ? AppColors.primaryGreen
+                              : AppColors.border,
                           width: isSelected ? 2 : 1,
                         ),
                         boxShadow: [
@@ -149,7 +158,9 @@ class _SupermarketSelectionScreenState extends ConsumerState<SupermarketSelectio
                             width: 52,
                             height: 52,
                             decoration: BoxDecoration(
-                              color: (store['color'] as Color).withValues(alpha: 0.1),
+                              color: (store['color'] as Color).withValues(
+                                alpha: 0.1,
+                              ),
                               borderRadius: BorderRadius.circular(14),
                             ),
                             child: Icon(
@@ -196,10 +207,16 @@ class _SupermarketSelectionScreenState extends ConsumerState<SupermarketSelectio
                                   children: [
                                     if (store['isOpen'] == true)
                                       Container(
-                                        padding: const EdgeInsets.symmetric(horizontal: 8, vertical: 3),
+                                        padding: const EdgeInsets.symmetric(
+                                          horizontal: 8,
+                                          vertical: 3,
+                                        ),
                                         decoration: BoxDecoration(
-                                          color: AppColors.primaryGreen.withValues(alpha: 0.1),
-                                          borderRadius: BorderRadius.circular(8),
+                                          color: AppColors.primaryGreen
+                                              .withValues(alpha: 0.1),
+                                          borderRadius: BorderRadius.circular(
+                                            8,
+                                          ),
                                         ),
                                         child: Text(
                                           'Open',
@@ -213,7 +230,10 @@ class _SupermarketSelectionScreenState extends ConsumerState<SupermarketSelectio
                                     if (store['isOpen'] == true)
                                       const SizedBox(width: 8),
                                     Container(
-                                      padding: const EdgeInsets.symmetric(horizontal: 8, vertical: 3),
+                                      padding: const EdgeInsets.symmetric(
+                                        horizontal: 8,
+                                        vertical: 3,
+                                      ),
                                       decoration: BoxDecoration(
                                         color: AppColors.primaryLight,
                                         borderRadius: BorderRadius.circular(8),

@@ -22,7 +22,7 @@ class AppColors {
   static const Color dealYellow = Color(0xFFFFC107);
   static const Color discount = Color(0xFFFF3D00);
   static const Color electricBlue = Color(0xFF2962FF);
-  
+
   // Status Colors
   static const Color success = Color(0xFF00C853);
   static const Color warning = Color(0xFFFF9100);

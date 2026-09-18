@@ -35,20 +35,23 @@ class _RegisterScreenState extends ConsumerState<RegisterScreen> {
     if (_formKey.currentState!.validate()) {
       if (!_termsAccepted) {
         ScaffoldMessenger.of(context).showSnackBar(
-          const SnackBar(content: Text('Please accept the Terms and Conditions')),
+          const SnackBar(
+            content: Text('Please accept the Terms and Conditions'),
+          ),
         );
         return;
       }
-      
+
       try {
-        final success = await ref.read(authStateProvider.notifier).register(
-          _emailController.text,
-          _passwordController.text,
-        );
+        final success = await ref
+            .read(authStateProvider.notifier)
+            .register(_emailController.text, _passwordController.text);
 
         if (mounted && success) {
           ScaffoldMessenger.of(context).showSnackBar(
-            const SnackBar(content: Text('Registration successful. Please login.')),
+            const SnackBar(
+              content: Text('Registration successful. Please login.'),
+            ),
           );
           // Wait briefly so the user sees the success message
           Future.delayed(const Duration(seconds: 1), () {
@@ -107,7 +110,10 @@ class _RegisterScreenState extends ConsumerState<RegisterScreen> {
         backgroundColor: Colors.transparent,
         elevation: 0,
         leading: IconButton(
-          icon: const Icon(Icons.arrow_back_ios_new, color: AppColors.textPrimary),
+          icon: const Icon(
+            Icons.arrow_back_ios_new,
+            color: AppColors.textPrimary,
+          ),
           onPressed: () {
             if (context.canPop()) {
               context.pop();
@@ -120,7 +126,10 @@ class _RegisterScreenState extends ConsumerState<RegisterScreen> {
       body: SafeArea(
         child: Center(
           child: SingleChildScrollView(
-            padding: const EdgeInsets.symmetric(horizontal: 24.0, vertical: 8.0),
+            padding: const EdgeInsets.symmetric(
+              horizontal: 24.0,
+              vertical: 8.0,
+            ),
             child: Form(
               key: _formKey,
               child: Column(
@@ -131,19 +140,19 @@ class _RegisterScreenState extends ConsumerState<RegisterScreen> {
                   Text(
                     'Create Account',
                     style: Theme.of(context).textTheme.displayMedium?.copyWith(
-                          fontWeight: FontWeight.w800,
-                          color: AppColors.textPrimary,
-                        ),
+                      fontWeight: FontWeight.w800,
+                      color: AppColors.textPrimary,
+                    ),
                   ),
                   const SizedBox(height: 8),
                   Text(
                     'Join ShopMate today',
                     style: Theme.of(context).textTheme.bodyLarge?.copyWith(
-                          color: AppColors.textSecondary,
-                        ),
+                      color: AppColors.textSecondary,
+                    ),
                   ),
                   const SizedBox(height: 32),
-                  
+
                   // Modern illustrated category cards
                   SizedBox(
                     height: 80,
@@ -151,8 +160,16 @@ class _RegisterScreenState extends ConsumerState<RegisterScreen> {
                       scrollDirection: Axis.horizontal,
                       clipBehavior: Clip.none,
                       children: [
-                        _buildCategoryCard('🍎', 'Fresh', AppColors.primaryGreen),
-                        _buildCategoryCard('🍞', 'Bakery', AppColors.dealOrange),
+                        _buildCategoryCard(
+                          '🍎',
+                          'Fresh',
+                          AppColors.primaryGreen,
+                        ),
+                        _buildCategoryCard(
+                          '🍞',
+                          'Bakery',
+                          AppColors.dealOrange,
+                        ),
                         _buildCategoryCard('🥩', 'Meat', Colors.redAccent),
                         _buildCategoryCard('🧴', 'Care', AppColors.aiPurple),
                         _buildCategoryCard('🧀', 'Dairy', Colors.orangeAccent),
@@ -160,11 +177,14 @@ class _RegisterScreenState extends ConsumerState<RegisterScreen> {
                     ),
                   ),
                   const SizedBox(height: 32),
-                  
+
                   // Full Name Field
                   TextFormField(
                     controller: _nameController,
-                    decoration: _buildInputDecoration('Full Name', Icons.person_outline),
+                    decoration: _buildInputDecoration(
+                      'Full Name',
+                      Icons.person_outline,
+                    ),
                     keyboardType: TextInputType.name,
                     validator: (value) {
                       if (value == null || value.trim().isEmpty) {
@@ -174,11 +194,14 @@ class _RegisterScreenState extends ConsumerState<RegisterScreen> {
                     },
                   ),
                   const SizedBox(height: 16),
-                  
+
                   // Email Field
                   TextFormField(
                     controller: _emailController,
-                    decoration: _buildInputDecoration('Email', Icons.email_outlined),
+                    decoration: _buildInputDecoration(
+                      'Email',
+                      Icons.email_outlined,
+                    ),
                     keyboardType: TextInputType.emailAddress,
                     validator: (value) {
                       if (value == null || value.isEmpty) {
@@ -192,24 +215,30 @@ class _RegisterScreenState extends ConsumerState<RegisterScreen> {
                     },
                   ),
                   const SizedBox(height: 16),
-                  
+
                   // Password Field
                   TextFormField(
                     controller: _passwordController,
                     obscureText: _obscureText,
-                    decoration: _buildInputDecoration('Password', Icons.lock_outline).copyWith(
-                      suffixIcon: IconButton(
-                        icon: Icon(
-                          _obscureText ? Icons.visibility_outlined : Icons.visibility_off_outlined,
-                          color: AppColors.textSecondary,
+                    decoration:
+                        _buildInputDecoration(
+                          'Password',
+                          Icons.lock_outline,
+                        ).copyWith(
+                          suffixIcon: IconButton(
+                            icon: Icon(
+                              _obscureText
+                                  ? Icons.visibility_outlined
+                                  : Icons.visibility_off_outlined,
+                              color: AppColors.textSecondary,
+                            ),
+                            onPressed: () {
+                              setState(() {
+                                _obscureText = !_obscureText;
+                              });
+                            },
+                          ),
                         ),
-                        onPressed: () {
-                          setState(() {
-                            _obscureText = !_obscureText;
-                          });
-                        },
-                      ),
-                    ),
                     validator: (value) {
                       if (value == null || value.isEmpty) {
                         return 'Please enter a password';
@@ -226,19 +255,25 @@ class _RegisterScreenState extends ConsumerState<RegisterScreen> {
                   TextFormField(
                     controller: _confirmPasswordController,
                     obscureText: _obscureConfirmText,
-                    decoration: _buildInputDecoration('Confirm Password', Icons.lock_outline).copyWith(
-                      suffixIcon: IconButton(
-                        icon: Icon(
-                          _obscureConfirmText ? Icons.visibility_outlined : Icons.visibility_off_outlined,
-                          color: AppColors.textSecondary,
+                    decoration:
+                        _buildInputDecoration(
+                          'Confirm Password',
+                          Icons.lock_outline,
+                        ).copyWith(
+                          suffixIcon: IconButton(
+                            icon: Icon(
+                              _obscureConfirmText
+                                  ? Icons.visibility_outlined
+                                  : Icons.visibility_off_outlined,
+                              color: AppColors.textSecondary,
+                            ),
+                            onPressed: () {
+                              setState(() {
+                                _obscureConfirmText = !_obscureConfirmText;
+                              });
+                            },
+                          ),
                         ),
-                        onPressed: () {
-                          setState(() {
-                            _obscureConfirmText = !_obscureConfirmText;
-                          });
-                        },
-                      ),
-                    ),
                     validator: (value) {
                       if (value == null || value.isEmpty) {
                         return 'Please confirm your password';
@@ -250,14 +285,16 @@ class _RegisterScreenState extends ConsumerState<RegisterScreen> {
                     },
                   ),
                   const SizedBox(height: 16),
-                  
+
                   // Terms Checkbox
                   Row(
                     children: [
                       Checkbox(
                         value: _termsAccepted,
                         activeColor: AppColors.primaryGreen,
-                        shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(4)),
+                        shape: RoundedRectangleBorder(
+                          borderRadius: BorderRadius.circular(4),
+                        ),
                         onChanged: (value) {
                           setState(() {
                             _termsAccepted = value ?? false;
@@ -267,17 +304,26 @@ class _RegisterScreenState extends ConsumerState<RegisterScreen> {
                       Expanded(
                         child: RichText(
                           text: TextSpan(
-                            style: const TextStyle(color: AppColors.textSecondary, fontSize: 13),
+                            style: const TextStyle(
+                              color: AppColors.textSecondary,
+                              fontSize: 13,
+                            ),
                             children: [
                               const TextSpan(text: 'I agree to the '),
                               TextSpan(
                                 text: 'Terms of Service',
-                                style: const TextStyle(color: AppColors.primaryGreen, fontWeight: FontWeight.bold),
+                                style: const TextStyle(
+                                  color: AppColors.primaryGreen,
+                                  fontWeight: FontWeight.bold,
+                                ),
                               ),
                               const TextSpan(text: ' and '),
                               TextSpan(
                                 text: 'Privacy Policy',
-                                style: const TextStyle(color: AppColors.primaryGreen, fontWeight: FontWeight.bold),
+                                style: const TextStyle(
+                                  color: AppColors.primaryGreen,
+                                  fontWeight: FontWeight.bold,
+                                ),
                               ),
                             ],
                           ),
@@ -286,7 +332,7 @@ class _RegisterScreenState extends ConsumerState<RegisterScreen> {
                     ],
                   ),
                   const SizedBox(height: 32),
-                  
+
                   // Register Button
                   ElevatedButton(
                     style: ElevatedButton.styleFrom(
@@ -299,24 +345,42 @@ class _RegisterScreenState extends ConsumerState<RegisterScreen> {
                       elevation: 0,
                     ),
                     onPressed: isLoading ? null : _handleRegister,
-                    child: isLoading 
+                    child: isLoading
                         ? const SizedBox(
-                            width: 24, 
-                            height: 24, 
-                            child: CircularProgressIndicator(color: Colors.white, strokeWidth: 2)
+                            width: 24,
+                            height: 24,
+                            child: CircularProgressIndicator(
+                              color: Colors.white,
+                              strokeWidth: 2,
+                            ),
                           )
-                        : const Text('Create Account', style: TextStyle(fontSize: 16, fontWeight: FontWeight.bold)),
+                        : const Text(
+                            'Create Account',
+                            style: TextStyle(
+                              fontSize: 16,
+                              fontWeight: FontWeight.bold,
+                            ),
+                          ),
                   ),
                   const SizedBox(height: 24),
-                  
+
                   // Login Link
                   Row(
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: [
-                      const Text("Already have an account?", style: TextStyle(color: AppColors.textSecondary)),
+                      const Text(
+                        "Already have an account?",
+                        style: TextStyle(color: AppColors.textSecondary),
+                      ),
                       TextButton(
                         onPressed: () => context.go('/login'),
-                        child: const Text('Login', style: TextStyle(color: AppColors.aiPurple, fontWeight: FontWeight.bold)),
+                        child: const Text(
+                          'Login',
+                          style: TextStyle(
+                            color: AppColors.aiPurple,
+                            fontWeight: FontWeight.bold,
+                          ),
+                        ),
                       ),
                     ],
                   ),

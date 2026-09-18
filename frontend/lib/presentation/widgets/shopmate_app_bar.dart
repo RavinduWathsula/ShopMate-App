@@ -26,7 +26,8 @@ class ShopMateAppBar extends StatelessWidget implements PreferredSizeWidget {
       elevation: 0,
       scrolledUnderElevation: 0,
       centerTitle: true,
-      leading: leading ??
+      leading:
+          leading ??
           (showBack
               ? IconButton(
                   icon: Container(
