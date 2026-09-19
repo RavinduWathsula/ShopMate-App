@@ -699,6 +699,11 @@ class _ShoppingListScreenState extends ConsumerState<ShoppingListScreen> {
                                   isSelected: true,
                                 ),
                               );
+                          
+                          // Uncheck the item so it doesn't get added twice if the user returns
+                          ref
+                              .read(shoppingListProvider.notifier)
+                              .toggleCheck(item.id);
                         }
                         ScaffoldMessenger.of(context).showSnackBar(
                           const SnackBar(

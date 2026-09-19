@@ -6,6 +6,7 @@ import '../core/theme/app_colors.dart';
 import 'widgets/shopmate_bottom_nav.dart';
 import 'widgets/shopmate_budget_card.dart';
 import 'widgets/shopmate_product_card.dart';
+import 'widgets/shopmate_flash_sale_section.dart';
 import '../providers/budget_provider.dart';
 import '../providers/basket_provider.dart';
 
@@ -245,11 +246,14 @@ class _HomeDashboardScreenState extends ConsumerState<HomeDashboardScreen> {
 
               const SizedBox(height: 22),
 
-              const SizedBox(height: 10),
 
 
+              // Flash Sale Widget
+              ShopMateFlashSaleSection(
+                onAddToCart: _addProductToCart,
+              ),
 
-
+              const SizedBox(height: 22),
 
               // Popular Supermarket Products
               _buildSectionHeader(
@@ -276,7 +280,8 @@ class _HomeDashboardScreenState extends ConsumerState<HomeDashboardScreen> {
       child: Row(
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: [
-          Column(
+          Expanded(
+            child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               Row(
@@ -305,17 +310,22 @@ class _HomeDashboardScreenState extends ConsumerState<HomeDashboardScreen> {
                     ),
                   ),
                   const SizedBox(width: 6),
-                  Text(
-                    'Smart shopping at Cargills Food City',
-                    style: GoogleFonts.inter(
-                      fontSize: 12.5,
-                      color: AppColors.textSecondary,
-                      fontWeight: FontWeight.w500,
+                  Expanded(
+                    child: Text(
+                      'Smart shopping at Cargills Food City',
+                      style: GoogleFonts.inter(
+                        fontSize: 12.5,
+                        color: AppColors.textSecondary,
+                        fontWeight: FontWeight.w500,
+                      ),
+                      maxLines: 1,
+                      overflow: TextOverflow.ellipsis,
                     ),
                   ),
                 ],
               ),
             ],
+          ),
           ),
           Row(
             children: [
@@ -586,37 +596,48 @@ class _HomeDashboardScreenState extends ConsumerState<HomeDashboardScreen> {
         Row(
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: [
-            _buildActionTile(
-              context,
-              icon: Icons.shopping_basket_rounded,
-              title: 'Smart\nBasket',
-              bgColor: const Color(0xFFE8F8EE),
-              iconColor: AppColors.primaryGreen,
-              onTap: () => context.push('/smartbasket'),
+            Expanded(
+              child: _buildActionTile(
+                context,
+                icon: Icons.shopping_basket_rounded,
+                title: 'Smart\nBasket',
+                bgColor: const Color(0xFFE8F8EE),
+                iconColor: AppColors.primaryGreen,
+                onTap: () => context.push('/smartbasket'),
+              ),
             ),
-            _buildActionTile(
-              context,
-              icon: Icons.qr_code_scanner_rounded,
-              title: 'Scan &\nIdentify',
-              bgColor: const Color(0xFFF3E8FF),
-              iconColor: AppColors.aiPurple,
-              onTap: () => context.push('/camerarecognition'),
+            const SizedBox(width: 8),
+            Expanded(
+              child: _buildActionTile(
+                context,
+                icon: Icons.qr_code_scanner_rounded,
+                title: 'Scan &\nIdentify',
+                bgColor: const Color(0xFFF3E8FF),
+                iconColor: AppColors.aiPurple,
+                onTap: () => context.push('/camerarecognition'),
+              ),
             ),
-            _buildActionTile(
-              context,
-              icon: Icons.checklist_rounded,
-              title: 'Shopping\nList',
-              bgColor: const Color(0xFFFFF7ED),
-              iconColor: AppColors.dealOrange,
-              onTap: () => context.push('/shoppinglist'),
+            const SizedBox(width: 8),
+            Expanded(
+              child: _buildActionTile(
+                context,
+                icon: Icons.checklist_rounded,
+                title: 'Shopping\nList',
+                bgColor: const Color(0xFFFFF7ED),
+                iconColor: AppColors.dealOrange,
+                onTap: () => context.push('/shoppinglist'),
+              ),
             ),
-            _buildActionTile(
-              context,
-              icon: Icons.local_offer_rounded,
-              title: 'Weekly\nDeals',
-              bgColor: const Color(0xFFFFF1F2),
-              iconColor: const Color(0xFFC62828),
-              onTap: () => context.push('/discounts'),
+            const SizedBox(width: 8),
+            Expanded(
+              child: _buildActionTile(
+                context,
+                icon: Icons.local_offer_rounded,
+                title: 'Weekly\nDeals',
+                bgColor: const Color(0xFFFFF1F2),
+                iconColor: const Color(0xFFC62828),
+                onTap: () => context.push('/discounts'),
+              ),
             ),
           ],
         ),
@@ -662,7 +683,6 @@ class _HomeDashboardScreenState extends ConsumerState<HomeDashboardScreen> {
       onTap: onTap,
       borderRadius: BorderRadius.circular(20),
       child: Container(
-        width: 78,
         padding: const EdgeInsets.symmetric(vertical: 12),
         decoration: BoxDecoration(
           color: Colors.white,
@@ -844,223 +864,9 @@ class _HomeDashboardScreenState extends ConsumerState<HomeDashboardScreen> {
     );
   }
 
-  Widget _buildDealsCarousel(BuildContext context) {
-    return SizedBox(
-      height: 240,
-      child: ListView(
-        scrollDirection: Axis.horizontal,
-        physics: const BouncingScrollPhysics(),
-        padding: const EdgeInsets.symmetric(horizontal: 20),
-        children: [
-          ShopMateProductCard(
-            brand: "Kotmale",
-            name: "Pasteurized Fresh Milk 1L",
-            size: "1000 ml",
-            price: 450,
-            originalPrice: 520,
-            imageUrl:
-                'assets/images/products/fresh_milk_bottle_1789196429739.jpg',
-            location: "Aisle 2 • Dairy",
-            onAddToCart: () => _addProductToCart(
-              'deal1',
-              'Kotmale Fresh Milk 1L',
-              450,
-              'Dairy',
-            ),
-          ),
-          const SizedBox(width: 14),
-          ShopMateProductCard(
-            brand: "Cargills Kist",
-            name: "Real Strawberry Jam",
-            size: "300g",
-            price: 380,
-            originalPrice: 440,
-            imageUrl:
-                'assets/images/products/strawberry_jam_jar_1789196446483.jpg',
-            location: "Aisle 3 • Spreads",
-            onAddToCart: () => _addProductToCart(
-              'deal2',
-              'Cargills Kist Strawberry Jam',
-              380,
-              'Pantry',
-            ),
-          ),
-          const SizedBox(width: 14),
-          ShopMateProductCard(
-            brand: "Munchee",
-            name: "Super Cream Cracker",
-            size: "500g",
-            price: 360,
-            originalPrice: 410,
-            imageUrl:
-                'assets/images/products/cream_cracker_pack_1789196459599.jpg',
-            location: "Aisle 4 • Biscuits",
-            onAddToCart: () => _addProductToCart(
-              'deal3',
-              'Munchee Cream Cracker',
-              360,
-              'Snacks',
-            ),
-          ),
-          const SizedBox(width: 14),
-          ShopMateProductCard(
-            brand: "Araliya",
-            name: "Keeri Samba Rice 5kg",
-            size: "5 kg",
-            price: 1350,
-            originalPrice: 1550,
-            imageUrl: 'assets/images/products/rice_bag_5kg_1789196473391.jpg',
-            location: "Aisle 1 • Rice & Flour",
-            onAddToCart: () => _addProductToCart(
-              'deal4',
-              'Araliya Keeri Samba 5kg',
-              1350,
-              'Grains',
-            ),
-          ),
-          const SizedBox(width: 14),
-          ShopMateProductCard(
-            brand: "Prima",
-            name: "Sliced White Bread",
-            size: "400g",
-            price: 190,
-            originalPrice: 220,
-            imageUrl:
-                'assets/images/products/sliced_bread_loaf_1789196500272.jpg',
-            location: "Aisle 3 • Bakery",
-            onAddToCart: () =>
-                _addProductToCart('deal5', 'Prima Sliced Bread', 190, 'Bakery'),
-          ),
-          const SizedBox(width: 14),
-          ShopMateProductCard(
-            brand: "Astra",
-            name: "Fat Spread Butter",
-            size: "500g",
-            price: 650,
-            originalPrice: 720,
-            imageUrl:
-                'assets/images/products/butter_block_500g_1789196640197.jpg',
-            location: "Aisle 2 • Dairy",
-            onAddToCart: () =>
-                _addProductToCart('deal6', 'Astra Butter 500g', 650, 'Dairy'),
-          ),
-          const SizedBox(width: 14),
-          ShopMateProductCard(
-            brand: "Dilmah",
-            name: "Ceylon Black Tea Bags",
-            size: "50s",
-            price: 480,
-            originalPrice: 550,
-            imageUrl: 'assets/images/products/ceylon_tea_box_1789196653776.jpg',
-            location: "Aisle 5 • Tea & Coffee",
-            onAddToCart: () =>
-                _addProductToCart('deal7', 'Dilmah Tea Bags', 480, 'Tea'),
-          ),
-          const SizedBox(width: 14),
-          ShopMateProductCard(
-            brand: "Cargills",
-            name: "Refined White Sugar",
-            size: "1kg",
-            price: 290,
-            originalPrice: 330,
-            imageUrl: 'assets/images/products/sugar_bag_1kg_1789196668578.jpg',
-            location: "Aisle 1 • Baking",
-            onAddToCart: () => _addProductToCart(
-              'deal8',
-              'Cargills White Sugar 1kg',
-              290,
-              'Pantry',
-            ),
-          ),
-          const SizedBox(width: 14),
-          ShopMateProductCard(
-            brand: "Coca Cola",
-            name: "Classic Cola",
-            size: "1.5L",
-            price: 350,
-            originalPrice: 400,
-            imageUrl:
-                'assets/images/products/coca_cola_bottle_1789196700811.jpg',
-            location: "Aisle 6 • Beverages",
-            onAddToCart: () =>
-                _addProductToCart('deal9', 'Coca Cola 1.5L', 350, 'Beverages'),
-          ),
-          const SizedBox(width: 14),
-          ShopMateProductCard(
-            brand: "Maggi",
-            name: "Rich Tomato Ketchup",
-            size: "400g",
-            price: 450,
-            originalPrice: 510,
-            imageUrl:
-                'assets/images/products/tomato_ketchup_bottle_1789196720511.jpg',
-            location: "Aisle 4 • Sauces",
-            onAddToCart: () => _addProductToCart(
-              'deal10',
-              'Maggi Tomato Ketchup',
-              450,
-              'Pantry',
-            ),
-          ),
-        ],
-      ),
-    );
-  }
 
-  Widget _buildRecommendationsList(BuildContext context) {
-    return SizedBox(
-      height: 240,
-      child: ListView(
-        scrollDirection: Axis.horizontal,
-        physics: const BouncingScrollPhysics(),
-        padding: const EdgeInsets.symmetric(horizontal: 20),
-        children: [
-          ShopMateProductCard(
-            brand: "Anchor",
-            name: "Full Cream Milk Powder",
-            size: "400g",
-            price: 1080,
-            originalPrice: 1150,
-            productIcon: Icons.coffee_rounded,
-            location: "Aisle 2 • Milk Powder",
-            onAddToCart: () => _addProductToCart(
-              'rec1',
-              'Anchor Milk Powder 400g',
-              1080,
-              'Dairy',
-            ),
-          ),
-          const SizedBox(width: 14),
-          ShopMateProductCard(
-            brand: "Elephant House",
-            name: "Cream Soda 1.5L",
-            size: "1500 ml",
-            price: 390,
-            originalPrice: 420,
-            productIcon: Icons.local_bar_rounded,
-            location: "Aisle 5 • Beverages",
-            onAddToCart: () =>
-                _addProductToCart('rec2', 'Cream Soda 1.5L', 390, 'Beverages'),
-          ),
-          const SizedBox(width: 14),
-          ShopMateProductCard(
-            brand: "Cargills Gold",
-            name: "Pure Ghee 180ml",
-            size: "180 ml",
-            price: 790,
-            productIcon: Icons.soup_kitchen_rounded,
-            location: "Aisle 3 • Cooking",
-            onAddToCart: () => _addProductToCart(
-              'rec3',
-              'Cargills Gold Pure Ghee',
-              790,
-              'Cooking',
-            ),
-          ),
-        ],
-      ),
-    );
-  }
+
+
 
   Widget _buildPopularProductsList(BuildContext context) {
     return Padding(
@@ -1101,4 +907,5 @@ class _HomeDashboardScreenState extends ConsumerState<HomeDashboardScreen> {
       ),
     );
   }
+
 }

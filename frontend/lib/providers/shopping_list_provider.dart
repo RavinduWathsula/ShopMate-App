@@ -97,7 +97,7 @@ class ShoppingListNotifier extends StateNotifier<List<ShoppingListItem>> {
           name: 'Munchee Super Cream Cracker 490g',
           category: 'Snacks',
           price: 360.0,
-          quantity: 2,
+          quantity: 1,
           isChecked: false,
           icon: Icons.cookie_outlined,
           imageUrl:
@@ -152,7 +152,7 @@ class ShoppingListNotifier extends StateNotifier<List<ShoppingListItem>> {
           name: 'Maliban Lemon Puff 200g',
           category: 'Snacks',
           price: 250.0,
-          quantity: 3,
+          quantity: 1,
           isChecked: false,
           icon: Icons.cookie_outlined,
           imageUrl:
@@ -185,7 +185,7 @@ class ShoppingListNotifier extends StateNotifier<List<ShoppingListItem>> {
           name: 'Potatoes 1kg',
           category: 'Vegetables',
           price: 350.0,
-          quantity: 2,
+          quantity: 1,
           isChecked: false,
           icon: Icons.eco_rounded,
           imageUrl:
@@ -218,7 +218,7 @@ class ShoppingListNotifier extends StateNotifier<List<ShoppingListItem>> {
           name: 'Maggi Noodles 400g',
           category: 'Snacks',
           price: 320.0,
-          quantity: 2,
+          quantity: 1,
           isChecked: false,
           icon: Icons.fastfood_rounded,
           imageUrl:
@@ -240,7 +240,7 @@ class ShoppingListNotifier extends StateNotifier<List<ShoppingListItem>> {
           name: 'Lifebuoy Soap 100g',
           category: 'Household',
           price: 150.0,
-          quantity: 4,
+          quantity: 1,
           isChecked: false,
           icon: Icons.wash_rounded,
           imageUrl:
@@ -251,7 +251,7 @@ class ShoppingListNotifier extends StateNotifier<List<ShoppingListItem>> {
           name: 'Sera Coconut Milk 400ml',
           category: 'Dairy',
           price: 250.0,
-          quantity: 2,
+          quantity: 1,
           isChecked: false,
           icon: Icons.local_drink_rounded,
           imageUrl:
