@@ -1,0 +1,2001 @@
+label_id,product_id,class_id,class_name,display_name,confidence_threshold,image_folder,yolo_class_id
+L0001,P0001,0,branda_pet_food_item_1,BrandA Pet Food Item 1,0.7,images/P0001,0
+L0002,P0002,1,healthyo_spices_item_2,HealthyO Spices Item 2,0.7,images/P0002,1
+L0003,P0003,2,branda_sauces_item_3,BrandA Sauces Item 3,0.7,images/P0003,2
+L0004,P0004,3,purelife_baby_products_item_4,PureLife Baby Products Item 4,0.7,images/P0004,3
+L0005,P0005,4,brandb_white_rice_1kg_var_5,BrandB White Rice 1kg - Var 5,0.7,images/P0005,4
+L0006,P0006,5,purelife_seafood_item_6,PureLife Seafood Item 6,0.7,images/P0006,5
+L0007,P0007,6,healthyo_water_1l_var_7,HealthyO Water 1L - Var 7,0.7,images/P0007,6
+L0008,P0008,7,brandb_croissant_2pcs_var_8,BrandB Croissant 2pcs - Var 8,0.7,images/P0008,7
+L0009,P0009,8,brandc_baby_products_item_9,BrandC Baby Products Item 9,0.7,images/P0009,8
+L0010,P0010,9,naturebites_stationery_item_10,NatureBites Stationery Item 10,0.7,images/P0010,9
+L0011,P0011,10,freshfarms_pet_food_item_11,FreshFarms Pet Food Item 11,0.7,images/P0011,10
+L0012,P0012,11,purelife_meat_item_12,PureLife Meat Item 12,0.7,images/P0012,11
+L0013,P0013,12,brandc_household_item_13,BrandC Household Item 13,0.7,images/P0013,12
+L0014,P0014,13,cleanplus_floor_cleaner_1l_var_14,CleanPlus Floor Cleaner 1L - Var 14,0.7,images/P0014,13
+L0015,P0015,14,brandc_soft_drink_1.5l_var_15,BrandC Soft Drink 1.5L - Var 15,0.7,images/P0015,14
+L0016,P0016,15,cleanplus_stationery_item_16,CleanPlus Stationery Item 16,0.7,images/P0016,15
+L0017,P0017,16,glow_chocolate_100g_var_17,Glow Chocolate 100g - Var 17,0.7,images/P0017,16
+L0018,P0018,17,purelife_baby_products_item_18,PureLife Baby Products Item 18,0.7,images/P0018,17
+L0019,P0019,18,healthyo_pet_food_item_19,HealthyO Pet Food Item 19,0.7,images/P0019,18
+L0020,P0020,19,dailychoice_stationery_item_20,DailyChoice Stationery Item 20,0.7,images/P0020,19
+L0021,P0021,20,brandb_frozen_food_item_21,BrandB Frozen Food Item 21,0.7,images/P0021,20
+L0022,P0022,21,purelife_red_rice_1kg_var_22,PureLife Red Rice 1kg - Var 22,0.7,images/P0022,21
+L0023,P0023,22,purelife_spices_item_23,PureLife Spices Item 23,0.7,images/P0023,22
+L0024,P0024,23,brandb_frozen_food_item_24,BrandB Frozen Food Item 24,0.7,images/P0024,23
+L0025,P0025,24,freshfarms_milk_1l_var_25,FreshFarms Milk 1L - Var 25,0.7,images/P0025,24
+L0026,P0026,25,purelife_juice_1l_var_26,PureLife Juice 1L - Var 26,0.7,images/P0026,25
+L0027,P0027,26,freshfarms_laundry_detergent_1kg_var_27,FreshFarms Laundry Detergent 1kg - Var 27,0.7,images/P0027,26
+L0028,P0028,27,brandb_canned_food_item_28,BrandB Canned Food Item 28,0.7,images/P0028,27
+L0029,P0029,28,cleanplus_bread_500g_var_29,CleanPlus Bread 500g - Var 29,0.7,images/P0029,28
+L0030,P0030,29,freshfarms_frozen_food_item_30,FreshFarms Frozen Food Item 30,0.7,images/P0030,29
+L0031,P0031,30,brandb_baby_products_item_31,BrandB Baby Products Item 31,0.7,images/P0031,30
+L0032,P0032,31,cleanplus_juice_1l_var_32,CleanPlus Juice 1L - Var 32,0.7,images/P0032,31
+L0033,P0033,32,branda_cake_1kg_var_33,BrandA Cake 1kg - Var 33,0.7,images/P0033,32
+L0034,P0034,33,brandc_tomato_500g_var_34,BrandC Tomato 500g - Var 34,0.7,images/P0034,33
+L0035,P0035,34,glow_dishwashing_liquid_500ml_var_35,Glow Dishwashing Liquid 500ml - Var 35,0.7,images/P0035,34
+L0036,P0036,35,brandc_sauces_item_36,BrandC Sauces Item 36,0.7,images/P0036,35
+L0037,P0037,36,brandb_frozen_food_item_37,BrandB Frozen Food Item 37,0.7,images/P0037,36
+L0038,P0038,37,purelife_toothpaste_120g_var_38,PureLife Toothpaste 120g - Var 38,0.7,images/P0038,37
+L0039,P0039,38,cleanplus_frozen_food_item_39,CleanPlus Frozen Food Item 39,0.7,images/P0039,38
+L0040,P0040,39,brandb_milk_1l_var_40,BrandB Milk 1L - Var 40,0.7,images/P0040,39
+L0041,P0041,40,freshfarms_basmati_rice_1kg_var_41,FreshFarms Basmati Rice 1kg - Var 41,0.7,images/P0041,40
+L0042,P0042,41,healthyo_spices_item_42,HealthyO Spices Item 42,0.7,images/P0042,41
+L0043,P0043,42,brandb_basmati_rice_1kg_var_43,BrandB Basmati Rice 1kg - Var 43,0.7,images/P0043,42
+L0044,P0044,43,glow_potato_1kg_var_44,Glow Potato 1kg - Var 44,0.7,images/P0044,43
+L0045,P0045,44,purelife_sauces_item_45,PureLife Sauces Item 45,0.7,images/P0045,44
+L0046,P0046,45,brandc_croissant_2pcs_var_46,BrandC Croissant 2pcs - Var 46,0.7,images/P0046,45
+L0047,P0047,46,naturebites_spices_item_47,NatureBites Spices Item 47,0.7,images/P0047,46
+L0048,P0048,47,naturebites_seafood_item_48,NatureBites Seafood Item 48,0.7,images/P0048,47
+L0049,P0049,48,freshfarms_buns_4pcs_var_49,FreshFarms Buns 4pcs - Var 49,0.7,images/P0049,48
+L0050,P0050,49,freshfarms_stationery_item_50,FreshFarms Stationery Item 50,0.7,images/P0050,49
+L0051,P0051,50,brandc_toothpaste_120g_var_51,BrandC Toothpaste 120g - Var 51,0.7,images/P0051,50
+L0052,P0052,51,freshfarms_buns_4pcs_var_52,FreshFarms Buns 4pcs - Var 52,0.7,images/P0052,51
+L0053,P0053,52,freshfarms_frozen_food_item_53,FreshFarms Frozen Food Item 53,0.7,images/P0053,52
+L0054,P0054,53,cleanplus_seafood_item_54,CleanPlus Seafood Item 54,0.7,images/P0054,53
+L0055,P0055,54,purelife_pasta_item_55,PureLife Pasta Item 55,0.7,images/P0055,54
+L0056,P0056,55,cleanplus_shampoo_200ml_var_56,CleanPlus Shampoo 200ml - Var 56,0.7,images/P0056,55
+L0057,P0057,56,glow_soap_100g_var_57,Glow Soap 100g - Var 57,0.7,images/P0057,56
+L0058,P0058,57,brandb_stationery_item_58,BrandB Stationery Item 58,0.7,images/P0058,57
+L0059,P0059,58,purelife_meat_item_59,PureLife Meat Item 59,0.7,images/P0059,58
+L0060,P0060,59,healthyo_pasta_item_60,HealthyO Pasta Item 60,0.7,images/P0060,59
+L0061,P0061,60,healthyo_canned_food_item_61,HealthyO Canned Food Item 61,0.7,images/P0061,60
+L0062,P0062,61,brandc_sauces_item_62,BrandC Sauces Item 62,0.7,images/P0062,61
+L0063,P0063,62,freshfarms_water_1l_var_63,FreshFarms Water 1L - Var 63,0.7,images/P0063,62
+L0064,P0064,63,healthyo_frozen_food_item_64,HealthyO Frozen Food Item 64,0.7,images/P0064,63
+L0065,P0065,64,freshfarms_breakfast_item_65,FreshFarms Breakfast Item 65,0.7,images/P0065,64
+L0066,P0066,65,naturebites_frozen_food_item_66,NatureBites Frozen Food Item 66,0.7,images/P0066,65
+L0067,P0067,66,dailychoice_baby_products_item_67,DailyChoice Baby Products Item 67,0.7,images/P0067,66
+L0068,P0068,67,brandc_spices_item_68,BrandC Spices Item 68,0.7,images/P0068,67
+L0069,P0069,68,naturebites_pet_food_item_69,NatureBites Pet Food Item 69,0.7,images/P0069,68
+L0070,P0070,69,glow_frozen_food_item_70,Glow Frozen Food Item 70,0.7,images/P0070,69
+L0071,P0071,70,cleanplus_basmati_rice_1kg_var_71,CleanPlus Basmati Rice 1kg - Var 71,0.7,images/P0071,70
+L0072,P0072,71,cleanplus_soap_100g_var_72,CleanPlus Soap 100g - Var 72,0.7,images/P0072,71
+L0073,P0073,72,branda_laundry_detergent_1kg_var_73,BrandA Laundry Detergent 1kg - Var 73,0.7,images/P0073,72
+L0074,P0074,73,dailychoice_soap_100g_var_74,DailyChoice Soap 100g - Var 74,0.7,images/P0074,73
+L0075,P0075,74,cleanplus_cheese_250g_var_75,CleanPlus Cheese 250g - Var 75,0.7,images/P0075,74
+L0076,P0076,75,cleanplus_basmati_rice_1kg_var_76,CleanPlus Basmati Rice 1kg - Var 76,0.7,images/P0076,75
+L0077,P0077,76,dailychoice_juice_1l_var_77,DailyChoice Juice 1L - Var 77,0.7,images/P0077,76
+L0078,P0078,77,dailychoice_meat_item_78,DailyChoice Meat Item 78,0.7,images/P0078,77
+L0079,P0079,78,branda_grapes_500g_var_79,BrandA Grapes 500g - Var 79,0.7,images/P0079,78
+L0080,P0080,79,branda_frozen_food_item_80,BrandA Frozen Food Item 80,0.7,images/P0080,79
+L0081,P0081,80,dailychoice_frozen_food_item_81,DailyChoice Frozen Food Item 81,0.7,images/P0081,80
+L0082,P0082,81,healthyo_seafood_item_82,HealthyO Seafood Item 82,0.7,images/P0082,81
+L0083,P0083,82,healthyo_laundry_detergent_1kg_var_83,HealthyO Laundry Detergent 1kg - Var 83,0.7,images/P0083,82
+L0084,P0084,83,brandb_juice_1l_var_84,BrandB Juice 1L - Var 84,0.7,images/P0084,83
+L0085,P0085,84,naturebites_laundry_detergent_1kg_var_85,NatureBites Laundry Detergent 1kg - Var 85,0.7,images/P0085,84
+L0086,P0086,85,branda_sauces_item_86,BrandA Sauces Item 86,0.7,images/P0086,85
+L0087,P0087,86,naturebites_red_rice_1kg_var_87,NatureBites Red Rice 1kg - Var 87,0.7,images/P0087,86
+L0088,P0088,87,healthyo_baby_products_item_88,HealthyO Baby Products Item 88,0.7,images/P0088,87
+L0089,P0089,88,healthyo_frozen_food_item_89,HealthyO Frozen Food Item 89,0.7,images/P0089,88
+L0090,P0090,89,freshfarms_pasta_item_90,FreshFarms Pasta Item 90,0.7,images/P0090,89
+L0091,P0091,90,naturebites_spices_item_91,NatureBites Spices Item 91,0.7,images/P0091,90
+L0092,P0092,91,dailychoice_breakfast_item_92,DailyChoice Breakfast Item 92,0.7,images/P0092,91
+L0093,P0093,92,dailychoice_onion_1kg_var_93,DailyChoice Onion 1kg - Var 93,0.7,images/P0093,92
+L0094,P0094,93,glow_spices_item_94,Glow Spices Item 94,0.7,images/P0094,93
+L0095,P0095,94,brandb_chocolate_100g_var_95,BrandB Chocolate 100g - Var 95,0.7,images/P0095,94
+L0096,P0096,95,dailychoice_canned_food_item_96,DailyChoice Canned Food Item 96,0.7,images/P0096,95
+L0097,P0097,96,purelife_seafood_item_97,PureLife Seafood Item 97,0.7,images/P0097,96
+L0098,P0098,97,branda_basmati_rice_1kg_var_98,BrandA Basmati Rice 1kg - Var 98,0.7,images/P0098,97
+L0099,P0099,98,brandc_baby_products_item_99,BrandC Baby Products Item 99,0.7,images/P0099,98
+L0100,P0100,99,brandb_household_item_100,BrandB Household Item 100,0.7,images/P0100,99
+L0101,P0101,100,naturebites_soft_drink_1.5l_var_101,NatureBites Soft Drink 1.5L - Var 101,0.7,images/P0101,100
+L0102,P0102,101,dailychoice_sauces_item_102,DailyChoice Sauces Item 102,0.7,images/P0102,101
+L0103,P0103,102,freshfarms_stationery_item_103,FreshFarms Stationery Item 103,0.7,images/P0103,102
+L0104,P0104,103,brandb_pasta_item_104,BrandB Pasta Item 104,0.7,images/P0104,103
+L0105,P0105,104,purelife_potato_1kg_var_105,PureLife Potato 1kg - Var 105,0.7,images/P0105,104
+L0106,P0106,105,healthyo_water_1l_var_106,HealthyO Water 1L - Var 106,0.7,images/P0106,105
+L0107,P0107,106,brandc_spices_item_107,BrandC Spices Item 107,0.7,images/P0107,106
+L0108,P0108,107,purelife_stationery_item_108,PureLife Stationery Item 108,0.7,images/P0108,107
+L0109,P0109,108,dailychoice_grapes_500g_var_109,DailyChoice Grapes 500g - Var 109,0.7,images/P0109,108
+L0110,P0110,109,purelife_meat_item_110,PureLife Meat Item 110,0.7,images/P0110,109
+L0111,P0111,110,brandc_apple_1kg_var_111,BrandC Apple 1kg - Var 111,0.7,images/P0111,110
+L0112,P0112,111,dailychoice_grapes_500g_var_112,DailyChoice Grapes 500g - Var 112,0.7,images/P0112,111
+L0113,P0113,112,brandb_meat_item_113,BrandB Meat Item 113,0.7,images/P0113,112
+L0114,P0114,113,dailychoice_spices_item_114,DailyChoice Spices Item 114,0.7,images/P0114,113
+L0115,P0115,114,naturebites_sauces_item_115,NatureBites Sauces Item 115,0.7,images/P0115,114
+L0116,P0116,115,dailychoice_stationery_item_116,DailyChoice Stationery Item 116,0.7,images/P0116,115
+L0117,P0117,116,brandb_baby_products_item_117,BrandB Baby Products Item 117,0.7,images/P0117,116
+L0118,P0118,117,brandb_spices_item_118,BrandB Spices Item 118,0.7,images/P0118,117
+L0119,P0119,118,naturebites_breakfast_item_119,NatureBites Breakfast Item 119,0.7,images/P0119,118
+L0120,P0120,119,brandc_baby_products_item_120,BrandC Baby Products Item 120,0.7,images/P0120,119
+L0121,P0121,120,glow_energy_drink_250ml_var_121,Glow Energy Drink 250ml - Var 121,0.7,images/P0121,120
+L0122,P0122,121,brandc_tomato_500g_var_122,BrandC Tomato 500g - Var 122,0.7,images/P0122,121
+L0123,P0123,122,naturebites_meat_item_123,NatureBites Meat Item 123,0.7,images/P0123,122
+L0124,P0124,123,cleanplus_dishwashing_liquid_500ml_var_124,CleanPlus Dishwashing Liquid 500ml - Var 124,0.7,images/P0124,123
+L0125,P0125,124,brandc_household_item_125,BrandC Household Item 125,0.7,images/P0125,124
+L0126,P0126,125,naturebites_biscuits_200g_var_126,NatureBites Biscuits 200g - Var 126,0.7,images/P0126,125
+L0127,P0127,126,dailychoice_shampoo_200ml_var_127,DailyChoice Shampoo 200ml - Var 127,0.7,images/P0127,126
+L0128,P0128,127,glow_pet_food_item_128,Glow Pet Food Item 128,0.7,images/P0128,127
+L0129,P0129,128,freshfarms_stationery_item_129,FreshFarms Stationery Item 129,0.7,images/P0129,128
+L0130,P0130,129,dailychoice_pet_food_item_130,DailyChoice Pet Food Item 130,0.7,images/P0130,129
+L0131,P0131,130,cleanplus_onion_1kg_var_131,CleanPlus Onion 1kg - Var 131,0.7,images/P0131,130
+L0132,P0132,131,brandc_dishwashing_liquid_500ml_var_132,BrandC Dishwashing Liquid 500ml - Var 132,0.7,images/P0132,131
+L0133,P0133,132,dailychoice_stationery_item_133,DailyChoice Stationery Item 133,0.7,images/P0133,132
+L0134,P0134,133,branda_baby_products_item_134,BrandA Baby Products Item 134,0.7,images/P0134,133
+L0135,P0135,134,healthyo_baby_products_item_135,HealthyO Baby Products Item 135,0.7,images/P0135,134
+L0136,P0136,135,dailychoice_canned_food_item_136,DailyChoice Canned Food Item 136,0.7,images/P0136,135
+L0137,P0137,136,purelife_tomato_500g_var_137,PureLife Tomato 500g - Var 137,0.7,images/P0137,136
+L0138,P0138,137,purelife_stationery_item_138,PureLife Stationery Item 138,0.7,images/P0138,137
+L0139,P0139,138,purelife_basmati_rice_1kg_var_139,PureLife Basmati Rice 1kg - Var 139,0.7,images/P0139,138
+L0140,P0140,139,glow_white_rice_1kg_var_140,Glow White Rice 1kg - Var 140,0.7,images/P0140,139
+L0141,P0141,140,naturebites_white_rice_1kg_var_141,NatureBites White Rice 1kg - Var 141,0.7,images/P0141,140
+L0142,P0142,141,glow_orange_1kg_var_142,Glow Orange 1kg - Var 142,0.7,images/P0142,141
+L0143,P0143,142,naturebites_frozen_food_item_143,NatureBites Frozen Food Item 143,0.7,images/P0143,142
+L0144,P0144,143,purelife_baby_products_item_144,PureLife Baby Products Item 144,0.7,images/P0144,143
+L0145,P0145,144,healthyo_breakfast_item_145,HealthyO Breakfast Item 145,0.7,images/P0145,144
+L0146,P0146,145,purelife_pet_food_item_146,PureLife Pet Food Item 146,0.7,images/P0146,145
+L0147,P0147,146,brandb_carrot_500g_var_147,BrandB Carrot 500g - Var 147,0.7,images/P0147,146
+L0148,P0148,147,naturebites_baby_products_item_148,NatureBites Baby Products Item 148,0.7,images/P0148,147
+L0149,P0149,148,purelife_stationery_item_149,PureLife Stationery Item 149,0.7,images/P0149,148
+L0150,P0150,149,glow_seafood_item_150,Glow Seafood Item 150,0.7,images/P0150,149
+L0151,P0151,150,freshfarms_biscuits_200g_var_151,FreshFarms Biscuits 200g - Var 151,0.7,images/P0151,150
+L0152,P0152,151,brandc_buns_4pcs_var_152,BrandC Buns 4pcs - Var 152,0.7,images/P0152,151
+L0153,P0153,152,healthyo_spices_item_153,HealthyO Spices Item 153,0.7,images/P0153,152
+L0154,P0154,153,naturebites_banana_1kg_var_154,NatureBites Banana 1kg - Var 154,0.7,images/P0154,153
+L0155,P0155,154,freshfarms_white_rice_1kg_var_155,FreshFarms White Rice 1kg - Var 155,0.7,images/P0155,154
+L0156,P0156,155,cleanplus_banana_1kg_var_156,CleanPlus Banana 1kg - Var 156,0.7,images/P0156,155
+L0157,P0157,156,glow_breakfast_item_157,Glow Breakfast Item 157,0.7,images/P0157,156
+L0158,P0158,157,dailychoice_sauces_item_158,DailyChoice Sauces Item 158,0.7,images/P0158,157
+L0159,P0159,158,dailychoice_deodorant_150ml_var_159,DailyChoice Deodorant 150ml - Var 159,0.7,images/P0159,158
+L0160,P0160,159,healthyo_water_1l_var_160,HealthyO Water 1L - Var 160,0.7,images/P0160,159
+L0161,P0161,160,naturebites_household_item_161,NatureBites Household Item 161,0.7,images/P0161,160
+L0162,P0162,161,freshfarms_pet_food_item_162,FreshFarms Pet Food Item 162,0.7,images/P0162,161
+L0163,P0163,162,brandb_household_item_163,BrandB Household Item 163,0.7,images/P0163,162
+L0164,P0164,163,brandb_breakfast_item_164,BrandB Breakfast Item 164,0.7,images/P0164,163
+L0165,P0165,164,healthyo_basmati_rice_1kg_var_165,HealthyO Basmati Rice 1kg - Var 165,0.7,images/P0165,164
+L0166,P0166,165,branda_deodorant_150ml_var_166,BrandA Deodorant 150ml - Var 166,0.7,images/P0166,165
+L0167,P0167,166,brandc_potato_chips_50g_var_167,BrandC Potato Chips 50g - Var 167,0.7,images/P0167,166
+L0168,P0168,167,glow_seafood_item_168,Glow Seafood Item 168,0.7,images/P0168,167
+L0169,P0169,168,healthyo_spices_item_169,HealthyO Spices Item 169,0.7,images/P0169,168
+L0170,P0170,169,glow_orange_1kg_var_170,Glow Orange 1kg - Var 170,0.7,images/P0170,169
+L0171,P0171,170,brandc_dishwashing_liquid_500ml_var_171,BrandC Dishwashing Liquid 500ml - Var 171,0.7,images/P0171,170
+L0172,P0172,171,cleanplus_sauces_item_172,CleanPlus Sauces Item 172,0.7,images/P0172,171
+L0173,P0173,172,healthyo_meat_item_173,HealthyO Meat Item 173,0.7,images/P0173,172
+L0174,P0174,173,cleanplus_energy_drink_250ml_var_174,CleanPlus Energy Drink 250ml - Var 174,0.7,images/P0174,173
+L0175,P0175,174,glow_apple_1kg_var_175,Glow Apple 1kg - Var 175,0.7,images/P0175,174
+L0176,P0176,175,branda_sauces_item_176,BrandA Sauces Item 176,0.7,images/P0176,175
+L0177,P0177,176,purelife_potato_1kg_var_177,PureLife Potato 1kg - Var 177,0.7,images/P0177,176
+L0178,P0178,177,brandc_breakfast_item_178,BrandC Breakfast Item 178,0.7,images/P0178,177
+L0179,P0179,178,cleanplus_soft_drink_1.5l_var_179,CleanPlus Soft Drink 1.5L - Var 179,0.7,images/P0179,178
+L0180,P0180,179,cleanplus_meat_item_180,CleanPlus Meat Item 180,0.7,images/P0180,179
+L0181,P0181,180,glow_household_item_181,Glow Household Item 181,0.7,images/P0181,180
+L0182,P0182,181,healthyo_nuts_100g_var_182,HealthyO Nuts 100g - Var 182,0.7,images/P0182,181
+L0183,P0183,182,glow_potato_1kg_var_183,Glow Potato 1kg - Var 183,0.7,images/P0183,182
+L0184,P0184,183,freshfarms_sauces_item_184,FreshFarms Sauces Item 184,0.7,images/P0184,183
+L0185,P0185,184,brandc_red_rice_1kg_var_185,BrandC Red Rice 1kg - Var 185,0.7,images/P0185,184
+L0186,P0186,185,dailychoice_pasta_item_186,DailyChoice Pasta Item 186,0.7,images/P0186,185
+L0187,P0187,186,brandc_pet_food_item_187,BrandC Pet Food Item 187,0.7,images/P0187,186
+L0188,P0188,187,glow_apple_1kg_var_188,Glow Apple 1kg - Var 188,0.7,images/P0188,187
+L0189,P0189,188,branda_baby_products_item_189,BrandA Baby Products Item 189,0.7,images/P0189,188
+L0190,P0190,189,naturebites_baby_products_item_190,NatureBites Baby Products Item 190,0.7,images/P0190,189
+L0191,P0191,190,dailychoice_meat_item_191,DailyChoice Meat Item 191,0.7,images/P0191,190
+L0192,P0192,191,branda_juice_1l_var_192,BrandA Juice 1L - Var 192,0.7,images/P0192,191
+L0193,P0193,192,healthyo_sauces_item_193,HealthyO Sauces Item 193,0.7,images/P0193,192
+L0194,P0194,193,branda_meat_item_194,BrandA Meat Item 194,0.7,images/P0194,193
+L0195,P0195,194,glow_potato_1kg_var_195,Glow Potato 1kg - Var 195,0.7,images/P0195,194
+L0196,P0196,195,cleanplus_seafood_item_196,CleanPlus Seafood Item 196,0.7,images/P0196,195
+L0197,P0197,196,cleanplus_basmati_rice_1kg_var_197,CleanPlus Basmati Rice 1kg - Var 197,0.7,images/P0197,196
+L0198,P0198,197,glow_potato_1kg_var_198,Glow Potato 1kg - Var 198,0.7,images/P0198,197
+L0199,P0199,198,purelife_basmati_rice_1kg_var_199,PureLife Basmati Rice 1kg - Var 199,0.7,images/P0199,198
+L0200,P0200,199,brandc_meat_item_200,BrandC Meat Item 200,0.7,images/P0200,199
+L0201,P0201,200,cleanplus_baby_products_item_201,CleanPlus Baby Products Item 201,0.7,images/P0201,200
+L0202,P0202,201,freshfarms_frozen_food_item_202,FreshFarms Frozen Food Item 202,0.7,images/P0202,201
+L0203,P0203,202,cleanplus_baby_products_item_203,CleanPlus Baby Products Item 203,0.7,images/P0203,202
+L0204,P0204,203,glow_grapes_500g_var_204,Glow Grapes 500g - Var 204,0.7,images/P0204,203
+L0205,P0205,204,purelife_potato_1kg_var_205,PureLife Potato 1kg - Var 205,0.7,images/P0205,204
+L0206,P0206,205,glow_energy_drink_250ml_var_206,Glow Energy Drink 250ml - Var 206,0.7,images/P0206,205
+L0207,P0207,206,freshfarms_sauces_item_207,FreshFarms Sauces Item 207,0.7,images/P0207,206
+L0208,P0208,207,brandc_potato_chips_50g_var_208,BrandC Potato Chips 50g - Var 208,0.7,images/P0208,207
+L0209,P0209,208,healthyo_dhal_1kg_var_209,HealthyO Dhal 1kg - Var 209,0.7,images/P0209,208
+L0210,P0210,209,naturebites_canned_food_item_210,NatureBites Canned Food Item 210,0.7,images/P0210,209
+L0211,P0211,210,cleanplus_potato_chips_50g_var_211,CleanPlus Potato Chips 50g - Var 211,0.7,images/P0211,210
+L0212,P0212,211,naturebites_biscuits_200g_var_212,NatureBites Biscuits 200g - Var 212,0.7,images/P0212,211
+L0213,P0213,212,healthyo_carrot_500g_var_213,HealthyO Carrot 500g - Var 213,0.7,images/P0213,212
+L0214,P0214,213,naturebites_pasta_item_214,NatureBites Pasta Item 214,0.7,images/P0214,213
+L0215,P0215,214,branda_household_item_215,BrandA Household Item 215,0.7,images/P0215,214
+L0216,P0216,215,glow_seafood_item_216,Glow Seafood Item 216,0.7,images/P0216,215
+L0217,P0217,216,naturebites_white_rice_1kg_var_217,NatureBites White Rice 1kg - Var 217,0.7,images/P0217,216
+L0218,P0218,217,brandc_breakfast_item_218,BrandC Breakfast Item 218,0.7,images/P0218,217
+L0219,P0219,218,glow_canned_food_item_219,Glow Canned Food Item 219,0.7,images/P0219,218
+L0220,P0220,219,purelife_pet_food_item_220,PureLife Pet Food Item 220,0.7,images/P0220,219
+L0221,P0221,220,cleanplus_seafood_item_221,CleanPlus Seafood Item 221,0.7,images/P0221,220
+L0222,P0222,221,naturebites_breakfast_item_222,NatureBites Breakfast Item 222,0.7,images/P0222,221
+L0223,P0223,222,naturebites_stationery_item_223,NatureBites Stationery Item 223,0.7,images/P0223,222
+L0224,P0224,223,brandc_tomato_500g_var_224,BrandC Tomato 500g - Var 224,0.7,images/P0224,223
+L0225,P0225,224,purelife_cake_1kg_var_225,PureLife Cake 1kg - Var 225,0.7,images/P0225,224
+L0226,P0226,225,brandc_seafood_item_226,BrandC Seafood Item 226,0.7,images/P0226,225
+L0227,P0227,226,glow_water_1l_var_227,Glow Water 1L - Var 227,0.7,images/P0227,226
+L0228,P0228,227,glow_baby_products_item_228,Glow Baby Products Item 228,0.7,images/P0228,227
+L0229,P0229,228,purelife_household_item_229,PureLife Household Item 229,0.7,images/P0229,228
+L0230,P0230,229,purelife_spices_item_230,PureLife Spices Item 230,0.7,images/P0230,229
+L0231,P0231,230,brandc_canned_food_item_231,BrandC Canned Food Item 231,0.7,images/P0231,230
+L0232,P0232,231,naturebites_seafood_item_232,NatureBites Seafood Item 232,0.7,images/P0232,231
+L0233,P0233,232,freshfarms_seafood_item_233,FreshFarms Seafood Item 233,0.7,images/P0233,232
+L0234,P0234,233,dailychoice_cheese_250g_var_234,DailyChoice Cheese 250g - Var 234,0.7,images/P0234,233
+L0235,P0235,234,dailychoice_energy_drink_250ml_var_235,DailyChoice Energy Drink 250ml - Var 235,0.7,images/P0235,234
+L0236,P0236,235,glow_dishwashing_liquid_500ml_var_236,Glow Dishwashing Liquid 500ml - Var 236,0.7,images/P0236,235
+L0237,P0237,236,brandc_sauces_item_237,BrandC Sauces Item 237,0.7,images/P0237,236
+L0238,P0238,237,purelife_potato_chips_50g_var_238,PureLife Potato Chips 50g - Var 238,0.7,images/P0238,237
+L0239,P0239,238,purelife_seafood_item_239,PureLife Seafood Item 239,0.7,images/P0239,238
+L0240,P0240,239,healthyo_pet_food_item_240,HealthyO Pet Food Item 240,0.7,images/P0240,239
+L0241,P0241,240,healthyo_pasta_item_241,HealthyO Pasta Item 241,0.7,images/P0241,240
+L0242,P0242,241,healthyo_pet_food_item_242,HealthyO Pet Food Item 242,0.7,images/P0242,241
+L0243,P0243,242,cleanplus_breakfast_item_243,CleanPlus Breakfast Item 243,0.7,images/P0243,242
+L0244,P0244,243,freshfarms_deodorant_150ml_var_244,FreshFarms Deodorant 150ml - Var 244,0.7,images/P0244,243
+L0245,P0245,244,cleanplus_meat_item_245,CleanPlus Meat Item 245,0.7,images/P0245,244
+L0246,P0246,245,brandb_frozen_food_item_246,BrandB Frozen Food Item 246,0.7,images/P0246,245
+L0247,P0247,246,freshfarms_tomato_500g_var_247,FreshFarms Tomato 500g - Var 247,0.7,images/P0247,246
+L0248,P0248,247,dailychoice_canned_food_item_248,DailyChoice Canned Food Item 248,0.7,images/P0248,247
+L0249,P0249,248,freshfarms_energy_drink_250ml_var_249,FreshFarms Energy Drink 250ml - Var 249,0.7,images/P0249,248
+L0250,P0250,249,healthyo_cake_1kg_var_250,HealthyO Cake 1kg - Var 250,0.7,images/P0250,249
+L0251,P0251,250,brandb_spices_item_251,BrandB Spices Item 251,0.7,images/P0251,250
+L0252,P0252,251,cleanplus_seafood_item_252,CleanPlus Seafood Item 252,0.7,images/P0252,251
+L0253,P0253,252,dailychoice_household_item_253,DailyChoice Household Item 253,0.7,images/P0253,252
+L0254,P0254,253,glow_household_item_254,Glow Household Item 254,0.7,images/P0254,253
+L0255,P0255,254,branda_sauces_item_255,BrandA Sauces Item 255,0.7,images/P0255,254
+L0256,P0256,255,brandc_sauces_item_256,BrandC Sauces Item 256,0.7,images/P0256,255
+L0257,P0257,256,healthyo_stationery_item_257,HealthyO Stationery Item 257,0.7,images/P0257,256
+L0258,P0258,257,brandb_cheese_250g_var_258,BrandB Cheese 250g - Var 258,0.7,images/P0258,257
+L0259,P0259,258,purelife_stationery_item_259,PureLife Stationery Item 259,0.7,images/P0259,258
+L0260,P0260,259,healthyo_pasta_item_260,HealthyO Pasta Item 260,0.7,images/P0260,259
+L0261,P0261,260,dailychoice_canned_food_item_261,DailyChoice Canned Food Item 261,0.7,images/P0261,260
+L0262,P0262,261,branda_deodorant_150ml_var_262,BrandA Deodorant 150ml - Var 262,0.7,images/P0262,261
+L0263,P0263,262,dailychoice_spices_item_263,DailyChoice Spices Item 263,0.7,images/P0263,262
+L0264,P0264,263,purelife_spices_item_264,PureLife Spices Item 264,0.7,images/P0264,263
+L0265,P0265,264,purelife_frozen_food_item_265,PureLife Frozen Food Item 265,0.7,images/P0265,264
+L0266,P0266,265,purelife_seafood_item_266,PureLife Seafood Item 266,0.7,images/P0266,265
+L0267,P0267,266,purelife_seafood_item_267,PureLife Seafood Item 267,0.7,images/P0267,266
+L0268,P0268,267,dailychoice_pet_food_item_268,DailyChoice Pet Food Item 268,0.7,images/P0268,267
+L0269,P0269,268,freshfarms_red_rice_1kg_var_269,FreshFarms Red Rice 1kg - Var 269,0.7,images/P0269,268
+L0270,P0270,269,branda_pet_food_item_270,BrandA Pet Food Item 270,0.7,images/P0270,269
+L0271,P0271,270,cleanplus_butter_200g_var_271,CleanPlus Butter 200g - Var 271,0.7,images/P0271,270
+L0272,P0272,271,branda_onion_1kg_var_272,BrandA Onion 1kg - Var 272,0.7,images/P0272,271
+L0273,P0273,272,brandc_spices_item_273,BrandC Spices Item 273,0.7,images/P0273,272
+L0274,P0274,273,branda_pasta_item_274,BrandA Pasta Item 274,0.7,images/P0274,273
+L0275,P0275,274,brandc_tomato_500g_var_275,BrandC Tomato 500g - Var 275,0.7,images/P0275,274
+L0276,P0276,275,dailychoice_potato_chips_50g_var_276,DailyChoice Potato Chips 50g - Var 276,0.7,images/P0276,275
+L0277,P0277,276,healthyo_cheese_250g_var_277,HealthyO Cheese 250g - Var 277,0.7,images/P0277,276
+L0278,P0278,277,cleanplus_stationery_item_278,CleanPlus Stationery Item 278,0.7,images/P0278,277
+L0279,P0279,278,dailychoice_pasta_item_279,DailyChoice Pasta Item 279,0.7,images/P0279,278
+L0280,P0280,279,glow_baby_products_item_280,Glow Baby Products Item 280,0.7,images/P0280,279
+L0281,P0281,280,purelife_cake_1kg_var_281,PureLife Cake 1kg - Var 281,0.7,images/P0281,280
+L0282,P0282,281,healthyo_chocolate_100g_var_282,HealthyO Chocolate 100g - Var 282,0.7,images/P0282,281
+L0283,P0283,282,dailychoice_breakfast_item_283,DailyChoice Breakfast Item 283,0.7,images/P0283,282
+L0284,P0284,283,freshfarms_spices_item_284,FreshFarms Spices Item 284,0.7,images/P0284,283
+L0285,P0285,284,branda_soft_drink_1.5l_var_285,BrandA Soft Drink 1.5L - Var 285,0.7,images/P0285,284
+L0286,P0286,285,naturebites_pasta_item_286,NatureBites Pasta Item 286,0.7,images/P0286,285
+L0287,P0287,286,branda_energy_drink_250ml_var_287,BrandA Energy Drink 250ml - Var 287,0.7,images/P0287,286
+L0288,P0288,287,branda_baby_products_item_288,BrandA Baby Products Item 288,0.7,images/P0288,287
+L0289,P0289,288,branda_household_item_289,BrandA Household Item 289,0.7,images/P0289,288
+L0290,P0290,289,naturebites_seafood_item_290,NatureBites Seafood Item 290,0.7,images/P0290,289
+L0291,P0291,290,cleanplus_pasta_item_291,CleanPlus Pasta Item 291,0.7,images/P0291,290
+L0292,P0292,291,glow_spices_item_292,Glow Spices Item 292,0.7,images/P0292,291
+L0293,P0293,292,branda_frozen_food_item_293,BrandA Frozen Food Item 293,0.7,images/P0293,292
+L0294,P0294,293,dailychoice_frozen_food_item_294,DailyChoice Frozen Food Item 294,0.7,images/P0294,293
+L0295,P0295,294,freshfarms_bread_500g_var_295,FreshFarms Bread 500g - Var 295,0.7,images/P0295,294
+L0296,P0296,295,branda_baby_products_item_296,BrandA Baby Products Item 296,0.7,images/P0296,295
+L0297,P0297,296,freshfarms_croissant_2pcs_var_297,FreshFarms Croissant 2pcs - Var 297,0.7,images/P0297,296
+L0298,P0298,297,brandc_frozen_food_item_298,BrandC Frozen Food Item 298,0.7,images/P0298,297
+L0299,P0299,298,brandc_spices_item_299,BrandC Spices Item 299,0.7,images/P0299,298
+L0300,P0300,299,naturebites_pet_food_item_300,NatureBites Pet Food Item 300,0.7,images/P0300,299
+L0301,P0301,300,dailychoice_pasta_item_301,DailyChoice Pasta Item 301,0.7,images/P0301,300
+L0302,P0302,301,cleanplus_cake_1kg_var_302,CleanPlus Cake 1kg - Var 302,0.7,images/P0302,301
+L0303,P0303,302,freshfarms_frozen_food_item_303,FreshFarms Frozen Food Item 303,0.7,images/P0303,302
+L0304,P0304,303,healthyo_cake_1kg_var_304,HealthyO Cake 1kg - Var 304,0.7,images/P0304,303
+L0305,P0305,304,naturebites_canned_food_item_305,NatureBites Canned Food Item 305,0.7,images/P0305,304
+L0306,P0306,305,brandb_canned_food_item_306,BrandB Canned Food Item 306,0.7,images/P0306,305
+L0307,P0307,306,purelife_spices_item_307,PureLife Spices Item 307,0.7,images/P0307,306
+L0308,P0308,307,dailychoice_seafood_item_308,DailyChoice Seafood Item 308,0.7,images/P0308,307
+L0309,P0309,308,glow_canned_food_item_309,Glow Canned Food Item 309,0.7,images/P0309,308
+L0310,P0310,309,purelife_yogurt_80g_var_310,PureLife Yogurt 80g - Var 310,0.7,images/P0310,309
+L0311,P0311,310,freshfarms_household_item_311,FreshFarms Household Item 311,0.7,images/P0311,310
+L0312,P0312,311,glow_baby_products_item_312,Glow Baby Products Item 312,0.7,images/P0312,311
+L0313,P0313,312,naturebites_spices_item_313,NatureBites Spices Item 313,0.7,images/P0313,312
+L0314,P0314,313,brandb_soap_100g_var_314,BrandB Soap 100g - Var 314,0.7,images/P0314,313
+L0315,P0315,314,glow_sauces_item_315,Glow Sauces Item 315,0.7,images/P0315,314
+L0316,P0316,315,cleanplus_spices_item_316,CleanPlus Spices Item 316,0.7,images/P0316,315
+L0317,P0317,316,brandc_yogurt_80g_var_317,BrandC Yogurt 80g - Var 317,0.7,images/P0317,316
+L0318,P0318,317,healthyo_frozen_food_item_318,HealthyO Frozen Food Item 318,0.7,images/P0318,317
+L0319,P0319,318,dailychoice_energy_drink_250ml_var_319,DailyChoice Energy Drink 250ml - Var 319,0.7,images/P0319,318
+L0320,P0320,319,brandb_carrot_500g_var_320,BrandB Carrot 500g - Var 320,0.7,images/P0320,319
+L0321,P0321,320,brandb_buns_4pcs_var_321,BrandB Buns 4pcs - Var 321,0.7,images/P0321,320
+L0322,P0322,321,branda_floor_cleaner_1l_var_322,BrandA Floor Cleaner 1L - Var 322,0.7,images/P0322,321
+L0323,P0323,322,purelife_apple_1kg_var_323,PureLife Apple 1kg - Var 323,0.7,images/P0323,322
+L0324,P0324,323,branda_pasta_item_324,BrandA Pasta Item 324,0.7,images/P0324,323
+L0325,P0325,324,healthyo_potato_1kg_var_325,HealthyO Potato 1kg - Var 325,0.7,images/P0325,324
+L0326,P0326,325,brandb_household_item_326,BrandB Household Item 326,0.7,images/P0326,325
+L0327,P0327,326,glow_energy_drink_250ml_var_327,Glow Energy Drink 250ml - Var 327,0.7,images/P0327,326
+L0328,P0328,327,glow_breakfast_item_328,Glow Breakfast Item 328,0.7,images/P0328,327
+L0329,P0329,328,freshfarms_water_1l_var_329,FreshFarms Water 1L - Var 329,0.7,images/P0329,328
+L0330,P0330,329,cleanplus_red_rice_1kg_var_330,CleanPlus Red Rice 1kg - Var 330,0.7,images/P0330,329
+L0331,P0331,330,glow_yogurt_80g_var_331,Glow Yogurt 80g - Var 331,0.7,images/P0331,330
+L0332,P0332,331,dailychoice_energy_drink_250ml_var_332,DailyChoice Energy Drink 250ml - Var 332,0.7,images/P0332,331
+L0333,P0333,332,glow_biscuits_200g_var_333,Glow Biscuits 200g - Var 333,0.7,images/P0333,332
+L0334,P0334,333,purelife_household_item_334,PureLife Household Item 334,0.7,images/P0334,333
+L0335,P0335,334,cleanplus_dishwashing_liquid_500ml_var_335,CleanPlus Dishwashing Liquid 500ml - Var 335,0.7,images/P0335,334
+L0336,P0336,335,brandb_banana_1kg_var_336,BrandB Banana 1kg - Var 336,0.7,images/P0336,335
+L0337,P0337,336,glow_carrot_500g_var_337,Glow Carrot 500g - Var 337,0.7,images/P0337,336
+L0338,P0338,337,freshfarms_stationery_item_338,FreshFarms Stationery Item 338,0.7,images/P0338,337
+L0339,P0339,338,cleanplus_meat_item_339,CleanPlus Meat Item 339,0.7,images/P0339,338
+L0340,P0340,339,dailychoice_potato_1kg_var_340,DailyChoice Potato 1kg - Var 340,0.7,images/P0340,339
+L0341,P0341,340,glow_potato_1kg_var_341,Glow Potato 1kg - Var 341,0.7,images/P0341,340
+L0342,P0342,341,healthyo_seafood_item_342,HealthyO Seafood Item 342,0.7,images/P0342,341
+L0343,P0343,342,purelife_canned_food_item_343,PureLife Canned Food Item 343,0.7,images/P0343,342
+L0344,P0344,343,brandc_frozen_food_item_344,BrandC Frozen Food Item 344,0.7,images/P0344,343
+L0345,P0345,344,naturebites_floor_cleaner_1l_var_345,NatureBites Floor Cleaner 1L - Var 345,0.7,images/P0345,344
+L0346,P0346,345,healthyo_seafood_item_346,HealthyO Seafood Item 346,0.7,images/P0346,345
+L0347,P0347,346,branda_pasta_item_347,BrandA Pasta Item 347,0.7,images/P0347,346
+L0348,P0348,347,purelife_biscuits_200g_var_348,PureLife Biscuits 200g - Var 348,0.7,images/P0348,347
+L0349,P0349,348,cleanplus_baby_products_item_349,CleanPlus Baby Products Item 349,0.7,images/P0349,348
+L0350,P0350,349,brandb_carrot_500g_var_350,BrandB Carrot 500g - Var 350,0.7,images/P0350,349
+L0351,P0351,350,freshfarms_meat_item_351,FreshFarms Meat Item 351,0.7,images/P0351,350
+L0352,P0352,351,brandb_baby_products_item_352,BrandB Baby Products Item 352,0.7,images/P0352,351
+L0353,P0353,352,brandc_pet_food_item_353,BrandC Pet Food Item 353,0.7,images/P0353,352
+L0354,P0354,353,cleanplus_meat_item_354,CleanPlus Meat Item 354,0.7,images/P0354,353
+L0355,P0355,354,healthyo_household_item_355,HealthyO Household Item 355,0.7,images/P0355,354
+L0356,P0356,355,purelife_canned_food_item_356,PureLife Canned Food Item 356,0.7,images/P0356,355
+L0357,P0357,356,freshfarms_seafood_item_357,FreshFarms Seafood Item 357,0.7,images/P0357,356
+L0358,P0358,357,healthyo_stationery_item_358,HealthyO Stationery Item 358,0.7,images/P0358,357
+L0359,P0359,358,purelife_stationery_item_359,PureLife Stationery Item 359,0.7,images/P0359,358
+L0360,P0360,359,brandb_frozen_food_item_360,BrandB Frozen Food Item 360,0.7,images/P0360,359
+L0361,P0361,360,healthyo_soap_100g_var_361,HealthyO Soap 100g - Var 361,0.7,images/P0361,360
+L0362,P0362,361,brandc_pet_food_item_362,BrandC Pet Food Item 362,0.7,images/P0362,361
+L0363,P0363,362,healthyo_meat_item_363,HealthyO Meat Item 363,0.7,images/P0363,362
+L0364,P0364,363,naturebites_household_item_364,NatureBites Household Item 364,0.7,images/P0364,363
+L0365,P0365,364,brandb_breakfast_item_365,BrandB Breakfast Item 365,0.7,images/P0365,364
+L0366,P0366,365,brandc_orange_1kg_var_366,BrandC Orange 1kg - Var 366,0.7,images/P0366,365
+L0367,P0367,366,brandb_spices_item_367,BrandB Spices Item 367,0.7,images/P0367,366
+L0368,P0368,367,dailychoice_spices_item_368,DailyChoice Spices Item 368,0.7,images/P0368,367
+L0369,P0369,368,purelife_tomato_500g_var_369,PureLife Tomato 500g - Var 369,0.7,images/P0369,368
+L0370,P0370,369,healthyo_frozen_food_item_370,HealthyO Frozen Food Item 370,0.7,images/P0370,369
+L0371,P0371,370,branda_canned_food_item_371,BrandA Canned Food Item 371,0.7,images/P0371,370
+L0372,P0372,371,purelife_meat_item_372,PureLife Meat Item 372,0.7,images/P0372,371
+L0373,P0373,372,brandc_buns_4pcs_var_373,BrandC Buns 4pcs - Var 373,0.7,images/P0373,372
+L0374,P0374,373,dailychoice_frozen_food_item_374,DailyChoice Frozen Food Item 374,0.7,images/P0374,373
+L0375,P0375,374,naturebites_energy_drink_250ml_var_375,NatureBites Energy Drink 250ml - Var 375,0.7,images/P0375,374
+L0376,P0376,375,glow_baby_products_item_376,Glow Baby Products Item 376,0.7,images/P0376,375
+L0377,P0377,376,brandb_pet_food_item_377,BrandB Pet Food Item 377,0.7,images/P0377,376
+L0378,P0378,377,glow_breakfast_item_378,Glow Breakfast Item 378,0.7,images/P0378,377
+L0379,P0379,378,branda_meat_item_379,BrandA Meat Item 379,0.7,images/P0379,378
+L0380,P0380,379,branda_baby_products_item_380,BrandA Baby Products Item 380,0.7,images/P0380,379
+L0381,P0381,380,brandb_pasta_item_381,BrandB Pasta Item 381,0.7,images/P0381,380
+L0382,P0382,381,freshfarms_croissant_2pcs_var_382,FreshFarms Croissant 2pcs - Var 382,0.7,images/P0382,381
+L0383,P0383,382,brandb_yogurt_80g_var_383,BrandB Yogurt 80g - Var 383,0.7,images/P0383,382
+L0384,P0384,383,brandb_cheese_250g_var_384,BrandB Cheese 250g - Var 384,0.7,images/P0384,383
+L0385,P0385,384,brandb_energy_drink_250ml_var_385,BrandB Energy Drink 250ml - Var 385,0.7,images/P0385,384
+L0386,P0386,385,brandc_seafood_item_386,BrandC Seafood Item 386,0.7,images/P0386,385
+L0387,P0387,386,dailychoice_stationery_item_387,DailyChoice Stationery Item 387,0.7,images/P0387,386
+L0388,P0388,387,freshfarms_stationery_item_388,FreshFarms Stationery Item 388,0.7,images/P0388,387
+L0389,P0389,388,glow_seafood_item_389,Glow Seafood Item 389,0.7,images/P0389,388
+L0390,P0390,389,naturebites_butter_200g_var_390,NatureBites Butter 200g - Var 390,0.7,images/P0390,389
+L0391,P0391,390,dailychoice_potato_1kg_var_391,DailyChoice Potato 1kg - Var 391,0.7,images/P0391,390
+L0392,P0392,391,brandb_pet_food_item_392,BrandB Pet Food Item 392,0.7,images/P0392,391
+L0393,P0393,392,naturebites_laundry_detergent_1kg_var_393,NatureBites Laundry Detergent 1kg - Var 393,0.7,images/P0393,392
+L0394,P0394,393,branda_soft_drink_1.5l_var_394,BrandA Soft Drink 1.5L - Var 394,0.7,images/P0394,393
+L0395,P0395,394,purelife_household_item_395,PureLife Household Item 395,0.7,images/P0395,394
+L0396,P0396,395,brandb_orange_1kg_var_396,BrandB Orange 1kg - Var 396,0.7,images/P0396,395
+L0397,P0397,396,cleanplus_spices_item_397,CleanPlus Spices Item 397,0.7,images/P0397,396
+L0398,P0398,397,cleanplus_bread_500g_var_398,CleanPlus Bread 500g - Var 398,0.7,images/P0398,397
+L0399,P0399,398,branda_carrot_500g_var_399,BrandA Carrot 500g - Var 399,0.7,images/P0399,398
+L0400,P0400,399,glow_pasta_item_400,Glow Pasta Item 400,0.7,images/P0400,399
+L0401,P0401,400,cleanplus_chocolate_100g_var_401,CleanPlus Chocolate 100g - Var 401,0.7,images/P0401,400
+L0402,P0402,401,dailychoice_laundry_detergent_1kg_var_402,DailyChoice Laundry Detergent 1kg - Var 402,0.7,images/P0402,401
+L0403,P0403,402,brandc_laundry_detergent_1kg_var_403,BrandC Laundry Detergent 1kg - Var 403,0.7,images/P0403,402
+L0404,P0404,403,branda_frozen_food_item_404,BrandA Frozen Food Item 404,0.7,images/P0404,403
+L0405,P0405,404,brandc_household_item_405,BrandC Household Item 405,0.7,images/P0405,404
+L0406,P0406,405,brandb_meat_item_406,BrandB Meat Item 406,0.7,images/P0406,405
+L0407,P0407,406,naturebites_pasta_item_407,NatureBites Pasta Item 407,0.7,images/P0407,406
+L0408,P0408,407,naturebites_carrot_500g_var_408,NatureBites Carrot 500g - Var 408,0.7,images/P0408,407
+L0409,P0409,408,healthyo_onion_1kg_var_409,HealthyO Onion 1kg - Var 409,0.7,images/P0409,408
+L0410,P0410,409,freshfarms_canned_food_item_410,FreshFarms Canned Food Item 410,0.7,images/P0410,409
+L0411,P0411,410,glow_pet_food_item_411,Glow Pet Food Item 411,0.7,images/P0411,410
+L0412,P0412,411,cleanplus_sauces_item_412,CleanPlus Sauces Item 412,0.7,images/P0412,411
+L0413,P0413,412,cleanplus_frozen_food_item_413,CleanPlus Frozen Food Item 413,0.7,images/P0413,412
+L0414,P0414,413,cleanplus_sauces_item_414,CleanPlus Sauces Item 414,0.7,images/P0414,413
+L0415,P0415,414,glow_grapes_500g_var_415,Glow Grapes 500g - Var 415,0.7,images/P0415,414
+L0416,P0416,415,healthyo_juice_1l_var_416,HealthyO Juice 1L - Var 416,0.7,images/P0416,415
+L0417,P0417,416,glow_baby_products_item_417,Glow Baby Products Item 417,0.7,images/P0417,416
+L0418,P0418,417,dailychoice_baby_products_item_418,DailyChoice Baby Products Item 418,0.7,images/P0418,417
+L0419,P0419,418,freshfarms_stationery_item_419,FreshFarms Stationery Item 419,0.7,images/P0419,418
+L0420,P0420,419,purelife_sauces_item_420,PureLife Sauces Item 420,0.7,images/P0420,419
+L0421,P0421,420,freshfarms_spices_item_421,FreshFarms Spices Item 421,0.7,images/P0421,420
+L0422,P0422,421,freshfarms_buns_4pcs_var_422,FreshFarms Buns 4pcs - Var 422,0.7,images/P0422,421
+L0423,P0423,422,brandb_laundry_detergent_1kg_var_423,BrandB Laundry Detergent 1kg - Var 423,0.7,images/P0423,422
+L0424,P0424,423,brandb_white_rice_1kg_var_424,BrandB White Rice 1kg - Var 424,0.7,images/P0424,423
+L0425,P0425,424,cleanplus_floor_cleaner_1l_var_425,CleanPlus Floor Cleaner 1L - Var 425,0.7,images/P0425,424
+L0426,P0426,425,freshfarms_pasta_item_426,FreshFarms Pasta Item 426,0.7,images/P0426,425
+L0427,P0427,426,purelife_buns_4pcs_var_427,PureLife Buns 4pcs - Var 427,0.7,images/P0427,426
+L0428,P0428,427,cleanplus_croissant_2pcs_var_428,CleanPlus Croissant 2pcs - Var 428,0.7,images/P0428,427
+L0429,P0429,428,branda_pet_food_item_429,BrandA Pet Food Item 429,0.7,images/P0429,428
+L0430,P0430,429,naturebites_seafood_item_430,NatureBites Seafood Item 430,0.7,images/P0430,429
+L0431,P0431,430,branda_stationery_item_431,BrandA Stationery Item 431,0.7,images/P0431,430
+L0432,P0432,431,freshfarms_pasta_item_432,FreshFarms Pasta Item 432,0.7,images/P0432,431
+L0433,P0433,432,cleanplus_frozen_food_item_433,CleanPlus Frozen Food Item 433,0.7,images/P0433,432
+L0434,P0434,433,branda_seafood_item_434,BrandA Seafood Item 434,0.7,images/P0434,433
+L0435,P0435,434,purelife_breakfast_item_435,PureLife Breakfast Item 435,0.7,images/P0435,434
+L0436,P0436,435,branda_stationery_item_436,BrandA Stationery Item 436,0.7,images/P0436,435
+L0437,P0437,436,glow_red_rice_1kg_var_437,Glow Red Rice 1kg - Var 437,0.7,images/P0437,436
+L0438,P0438,437,brandb_chocolate_100g_var_438,BrandB Chocolate 100g - Var 438,0.7,images/P0438,437
+L0439,P0439,438,purelife_laundry_detergent_1kg_var_439,PureLife Laundry Detergent 1kg - Var 439,0.7,images/P0439,438
+L0440,P0440,439,glow_pet_food_item_440,Glow Pet Food Item 440,0.7,images/P0440,439
+L0441,P0441,440,purelife_household_item_441,PureLife Household Item 441,0.7,images/P0441,440
+L0442,P0442,441,healthyo_dishwashing_liquid_500ml_var_442,HealthyO Dishwashing Liquid 500ml - Var 442,0.7,images/P0442,441
+L0443,P0443,442,glow_breakfast_item_443,Glow Breakfast Item 443,0.7,images/P0443,442
+L0444,P0444,443,glow_pet_food_item_444,Glow Pet Food Item 444,0.7,images/P0444,443
+L0445,P0445,444,brandb_seafood_item_445,BrandB Seafood Item 445,0.7,images/P0445,444
+L0446,P0446,445,dailychoice_pasta_item_446,DailyChoice Pasta Item 446,0.7,images/P0446,445
+L0447,P0447,446,dailychoice_dishwashing_liquid_500ml_var_447,DailyChoice Dishwashing Liquid 500ml - Var 447,0.7,images/P0447,446
+L0448,P0448,447,brandb_meat_item_448,BrandB Meat Item 448,0.7,images/P0448,447
+L0449,P0449,448,glow_spices_item_449,Glow Spices Item 449,0.7,images/P0449,448
+L0450,P0450,449,brandc_stationery_item_450,BrandC Stationery Item 450,0.7,images/P0450,449
+L0451,P0451,450,purelife_spices_item_451,PureLife Spices Item 451,0.7,images/P0451,450
+L0452,P0452,451,naturebites_household_item_452,NatureBites Household Item 452,0.7,images/P0452,451
+L0453,P0453,452,freshfarms_energy_drink_250ml_var_453,FreshFarms Energy Drink 250ml - Var 453,0.7,images/P0453,452
+L0454,P0454,453,brandb_pet_food_item_454,BrandB Pet Food Item 454,0.7,images/P0454,453
+L0455,P0455,454,brandc_grapes_500g_var_455,BrandC Grapes 500g - Var 455,0.7,images/P0455,454
+L0456,P0456,455,purelife_baby_products_item_456,PureLife Baby Products Item 456,0.7,images/P0456,455
+L0457,P0457,456,brandb_dishwashing_liquid_500ml_var_457,BrandB Dishwashing Liquid 500ml - Var 457,0.7,images/P0457,456
+L0458,P0458,457,branda_floor_cleaner_1l_var_458,BrandA Floor Cleaner 1L - Var 458,0.7,images/P0458,457
+L0459,P0459,458,purelife_laundry_detergent_1kg_var_459,PureLife Laundry Detergent 1kg - Var 459,0.7,images/P0459,458
+L0460,P0460,459,naturebites_sauces_item_460,NatureBites Sauces Item 460,0.7,images/P0460,459
+L0461,P0461,460,brandc_canned_food_item_461,BrandC Canned Food Item 461,0.7,images/P0461,460
+L0462,P0462,461,glow_stationery_item_462,Glow Stationery Item 462,0.7,images/P0462,461
+L0463,P0463,462,purelife_spices_item_463,PureLife Spices Item 463,0.7,images/P0463,462
+L0464,P0464,463,brandc_potato_chips_50g_var_464,BrandC Potato Chips 50g - Var 464,0.7,images/P0464,463
+L0465,P0465,464,purelife_biscuits_200g_var_465,PureLife Biscuits 200g - Var 465,0.7,images/P0465,464
+L0466,P0466,465,healthyo_grapes_500g_var_466,HealthyO Grapes 500g - Var 466,0.7,images/P0466,465
+L0467,P0467,466,healthyo_banana_1kg_var_467,HealthyO Banana 1kg - Var 467,0.7,images/P0467,466
+L0468,P0468,467,freshfarms_croissant_2pcs_var_468,FreshFarms Croissant 2pcs - Var 468,0.7,images/P0468,467
+L0469,P0469,468,glow_seafood_item_469,Glow Seafood Item 469,0.7,images/P0469,468
+L0470,P0470,469,purelife_frozen_food_item_470,PureLife Frozen Food Item 470,0.7,images/P0470,469
+L0471,P0471,470,freshfarms_stationery_item_471,FreshFarms Stationery Item 471,0.7,images/P0471,470
+L0472,P0472,471,brandb_buns_4pcs_var_472,BrandB Buns 4pcs - Var 472,0.7,images/P0472,471
+L0473,P0473,472,brandc_basmati_rice_1kg_var_473,BrandC Basmati Rice 1kg - Var 473,0.7,images/P0473,472
+L0474,P0474,473,dailychoice_frozen_food_item_474,DailyChoice Frozen Food Item 474,0.7,images/P0474,473
+L0475,P0475,474,cleanplus_baby_products_item_475,CleanPlus Baby Products Item 475,0.7,images/P0475,474
+L0476,P0476,475,dailychoice_breakfast_item_476,DailyChoice Breakfast Item 476,0.7,images/P0476,475
+L0477,P0477,476,brandb_pasta_item_477,BrandB Pasta Item 477,0.7,images/P0477,476
+L0478,P0478,477,freshfarms_frozen_food_item_478,FreshFarms Frozen Food Item 478,0.7,images/P0478,477
+L0479,P0479,478,brandc_breakfast_item_479,BrandC Breakfast Item 479,0.7,images/P0479,478
+L0480,P0480,479,cleanplus_pet_food_item_480,CleanPlus Pet Food Item 480,0.7,images/P0480,479
+L0481,P0481,480,healthyo_tomato_500g_var_481,HealthyO Tomato 500g - Var 481,0.7,images/P0481,480
+L0482,P0482,481,healthyo_spices_item_482,HealthyO Spices Item 482,0.7,images/P0482,481
+L0483,P0483,482,glow_meat_item_483,Glow Meat Item 483,0.7,images/P0483,482
+L0484,P0484,483,branda_sauces_item_484,BrandA Sauces Item 484,0.7,images/P0484,483
+L0485,P0485,484,purelife_cheese_250g_var_485,PureLife Cheese 250g - Var 485,0.7,images/P0485,484
+L0486,P0486,485,glow_dishwashing_liquid_500ml_var_486,Glow Dishwashing Liquid 500ml - Var 486,0.7,images/P0486,485
+L0487,P0487,486,purelife_seafood_item_487,PureLife Seafood Item 487,0.7,images/P0487,486
+L0488,P0488,487,glow_banana_1kg_var_488,Glow Banana 1kg - Var 488,0.7,images/P0488,487
+L0489,P0489,488,cleanplus_frozen_food_item_489,CleanPlus Frozen Food Item 489,0.7,images/P0489,488
+L0490,P0490,489,healthyo_biscuits_200g_var_490,HealthyO Biscuits 200g - Var 490,0.7,images/P0490,489
+L0491,P0491,490,brandb_canned_food_item_491,BrandB Canned Food Item 491,0.7,images/P0491,490
+L0492,P0492,491,glow_red_rice_1kg_var_492,Glow Red Rice 1kg - Var 492,0.7,images/P0492,491
+L0493,P0493,492,brandb_red_rice_1kg_var_493,BrandB Red Rice 1kg - Var 493,0.7,images/P0493,492
+L0494,P0494,493,branda_meat_item_494,BrandA Meat Item 494,0.7,images/P0494,493
+L0495,P0495,494,brandc_breakfast_item_495,BrandC Breakfast Item 495,0.7,images/P0495,494
+L0496,P0496,495,branda_breakfast_item_496,BrandA Breakfast Item 496,0.7,images/P0496,495
+L0497,P0497,496,freshfarms_meat_item_497,FreshFarms Meat Item 497,0.7,images/P0497,496
+L0498,P0498,497,cleanplus_carrot_500g_var_498,CleanPlus Carrot 500g - Var 498,0.7,images/P0498,497
+L0499,P0499,498,purelife_water_1l_var_499,PureLife Water 1L - Var 499,0.7,images/P0499,498
+L0500,P0500,499,dailychoice_toothpaste_120g_var_500,DailyChoice Toothpaste 120g - Var 500,0.7,images/P0500,499
+L0501,P0501,500,freshfarms_household_item_501,FreshFarms Household Item 501,0.7,images/P0501,500
+L0502,P0502,501,cleanplus_biscuits_200g_var_502,CleanPlus Biscuits 200g - Var 502,0.7,images/P0502,501
+L0503,P0503,502,brandb_stationery_item_503,BrandB Stationery Item 503,0.7,images/P0503,502
+L0504,P0504,503,naturebites_household_item_504,NatureBites Household Item 504,0.7,images/P0504,503
+L0505,P0505,504,naturebites_carrot_500g_var_505,NatureBites Carrot 500g - Var 505,0.7,images/P0505,504
+L0506,P0506,505,purelife_shampoo_200ml_var_506,PureLife Shampoo 200ml - Var 506,0.7,images/P0506,505
+L0507,P0507,506,freshfarms_canned_food_item_507,FreshFarms Canned Food Item 507,0.7,images/P0507,506
+L0508,P0508,507,freshfarms_cake_1kg_var_508,FreshFarms Cake 1kg - Var 508,0.7,images/P0508,507
+L0509,P0509,508,brandb_milk_1l_var_509,BrandB Milk 1L - Var 509,0.7,images/P0509,508
+L0510,P0510,509,brandb_soft_drink_1.5l_var_510,BrandB Soft Drink 1.5L - Var 510,0.7,images/P0510,509
+L0511,P0511,510,branda_tomato_500g_var_511,BrandA Tomato 500g - Var 511,0.7,images/P0511,510
+L0512,P0512,511,cleanplus_onion_1kg_var_512,CleanPlus Onion 1kg - Var 512,0.7,images/P0512,511
+L0513,P0513,512,glow_butter_200g_var_513,Glow Butter 200g - Var 513,0.7,images/P0513,512
+L0514,P0514,513,brandc_water_1l_var_514,BrandC Water 1L - Var 514,0.7,images/P0514,513
+L0515,P0515,514,cleanplus_grapes_500g_var_515,CleanPlus Grapes 500g - Var 515,0.7,images/P0515,514
+L0516,P0516,515,cleanplus_bread_500g_var_516,CleanPlus Bread 500g - Var 516,0.7,images/P0516,515
+L0517,P0517,516,cleanplus_pasta_item_517,CleanPlus Pasta Item 517,0.7,images/P0517,516
+L0518,P0518,517,branda_nuts_100g_var_518,BrandA Nuts 100g - Var 518,0.7,images/P0518,517
+L0519,P0519,518,glow_butter_200g_var_519,Glow Butter 200g - Var 519,0.7,images/P0519,518
+L0520,P0520,519,glow_deodorant_150ml_var_520,Glow Deodorant 150ml - Var 520,0.7,images/P0520,519
+L0521,P0521,520,branda_basmati_rice_1kg_var_521,BrandA Basmati Rice 1kg - Var 521,0.7,images/P0521,520
+L0522,P0522,521,brandb_breakfast_item_522,BrandB Breakfast Item 522,0.7,images/P0522,521
+L0523,P0523,522,naturebites_sauces_item_523,NatureBites Sauces Item 523,0.7,images/P0523,522
+L0524,P0524,523,dailychoice_baby_products_item_524,DailyChoice Baby Products Item 524,0.7,images/P0524,523
+L0525,P0525,524,brandb_pet_food_item_525,BrandB Pet Food Item 525,0.7,images/P0525,524
+L0526,P0526,525,naturebites_water_1l_var_526,NatureBites Water 1L - Var 526,0.7,images/P0526,525
+L0527,P0527,526,branda_meat_item_527,BrandA Meat Item 527,0.7,images/P0527,526
+L0528,P0528,527,brandb_seafood_item_528,BrandB Seafood Item 528,0.7,images/P0528,527
+L0529,P0529,528,glow_spices_item_529,Glow Spices Item 529,0.7,images/P0529,528
+L0530,P0530,529,healthyo_toothpaste_120g_var_530,HealthyO Toothpaste 120g - Var 530,0.7,images/P0530,529
+L0531,P0531,530,freshfarms_canned_food_item_531,FreshFarms Canned Food Item 531,0.7,images/P0531,530
+L0532,P0532,531,healthyo_baby_products_item_532,HealthyO Baby Products Item 532,0.7,images/P0532,531
+L0533,P0533,532,healthyo_spices_item_533,HealthyO Spices Item 533,0.7,images/P0533,532
+L0534,P0534,533,naturebites_chocolate_100g_var_534,NatureBites Chocolate 100g - Var 534,0.7,images/P0534,533
+L0535,P0535,534,purelife_orange_1kg_var_535,PureLife Orange 1kg - Var 535,0.7,images/P0535,534
+L0536,P0536,535,purelife_stationery_item_536,PureLife Stationery Item 536,0.7,images/P0536,535
+L0537,P0537,536,healthyo_canned_food_item_537,HealthyO Canned Food Item 537,0.7,images/P0537,536
+L0538,P0538,537,naturebites_pet_food_item_538,NatureBites Pet Food Item 538,0.7,images/P0538,537
+L0539,P0539,538,healthyo_spices_item_539,HealthyO Spices Item 539,0.7,images/P0539,538
+L0540,P0540,539,branda_milk_1l_var_540,BrandA Milk 1L - Var 540,0.7,images/P0540,539
+L0541,P0541,540,brandc_canned_food_item_541,BrandC Canned Food Item 541,0.7,images/P0541,540
+L0542,P0542,541,branda_canned_food_item_542,BrandA Canned Food Item 542,0.7,images/P0542,541
+L0543,P0543,542,cleanplus_pet_food_item_543,CleanPlus Pet Food Item 543,0.7,images/P0543,542
+L0544,P0544,543,glow_household_item_544,Glow Household Item 544,0.7,images/P0544,543
+L0545,P0545,544,healthyo_frozen_food_item_545,HealthyO Frozen Food Item 545,0.7,images/P0545,544
+L0546,P0546,545,brandc_pasta_item_546,BrandC Pasta Item 546,0.7,images/P0546,545
+L0547,P0547,546,brandc_spices_item_547,BrandC Spices Item 547,0.7,images/P0547,546
+L0548,P0548,547,healthyo_croissant_2pcs_var_548,HealthyO Croissant 2pcs - Var 548,0.7,images/P0548,547
+L0549,P0549,548,naturebites_breakfast_item_549,NatureBites Breakfast Item 549,0.7,images/P0549,548
+L0550,P0550,549,brandb_pasta_item_550,BrandB Pasta Item 550,0.7,images/P0550,549
+L0551,P0551,550,freshfarms_juice_1l_var_551,FreshFarms Juice 1L - Var 551,0.7,images/P0551,550
+L0552,P0552,551,naturebites_tomato_500g_var_552,NatureBites Tomato 500g - Var 552,0.7,images/P0552,551
+L0553,P0553,552,freshfarms_seafood_item_553,FreshFarms Seafood Item 553,0.7,images/P0553,552
+L0554,P0554,553,naturebites_household_item_554,NatureBites Household Item 554,0.7,images/P0554,553
+L0555,P0555,554,dailychoice_sauces_item_555,DailyChoice Sauces Item 555,0.7,images/P0555,554
+L0556,P0556,555,brandb_biscuits_200g_var_556,BrandB Biscuits 200g - Var 556,0.7,images/P0556,555
+L0557,P0557,556,naturebites_soap_100g_var_557,NatureBites Soap 100g - Var 557,0.7,images/P0557,556
+L0558,P0558,557,brandc_pet_food_item_558,BrandC Pet Food Item 558,0.7,images/P0558,557
+L0559,P0559,558,purelife_juice_1l_var_559,PureLife Juice 1L - Var 559,0.7,images/P0559,558
+L0560,P0560,559,dailychoice_grapes_500g_var_560,DailyChoice Grapes 500g - Var 560,0.7,images/P0560,559
+L0561,P0561,560,naturebites_milk_1l_var_561,NatureBites Milk 1L - Var 561,0.7,images/P0561,560
+L0562,P0562,561,brandb_floor_cleaner_1l_var_562,BrandB Floor Cleaner 1L - Var 562,0.7,images/P0562,561
+L0563,P0563,562,purelife_carrot_500g_var_563,PureLife Carrot 500g - Var 563,0.7,images/P0563,562
+L0564,P0564,563,naturebites_butter_200g_var_564,NatureBites Butter 200g - Var 564,0.7,images/P0564,563
+L0565,P0565,564,brandc_spices_item_565,BrandC Spices Item 565,0.7,images/P0565,564
+L0566,P0566,565,healthyo_biscuits_200g_var_566,HealthyO Biscuits 200g - Var 566,0.7,images/P0566,565
+L0567,P0567,566,freshfarms_onion_1kg_var_567,FreshFarms Onion 1kg - Var 567,0.7,images/P0567,566
+L0568,P0568,567,freshfarms_pasta_item_568,FreshFarms Pasta Item 568,0.7,images/P0568,567
+L0569,P0569,568,naturebites_spices_item_569,NatureBites Spices Item 569,0.7,images/P0569,568
+L0570,P0570,569,dailychoice_canned_food_item_570,DailyChoice Canned Food Item 570,0.7,images/P0570,569
+L0571,P0571,570,freshfarms_stationery_item_571,FreshFarms Stationery Item 571,0.7,images/P0571,570
+L0572,P0572,571,healthyo_floor_cleaner_1l_var_572,HealthyO Floor Cleaner 1L - Var 572,0.7,images/P0572,571
+L0573,P0573,572,glow_pasta_item_573,Glow Pasta Item 573,0.7,images/P0573,572
+L0574,P0574,573,dailychoice_dhal_1kg_var_574,DailyChoice Dhal 1kg - Var 574,0.7,images/P0574,573
+L0575,P0575,574,brandb_breakfast_item_575,BrandB Breakfast Item 575,0.7,images/P0575,574
+L0576,P0576,575,branda_apple_1kg_var_576,BrandA Apple 1kg - Var 576,0.7,images/P0576,575
+L0577,P0577,576,naturebites_dishwashing_liquid_500ml_var_577,NatureBites Dishwashing Liquid 500ml - Var 577,0.7,images/P0577,576
+L0578,P0578,577,glow_pet_food_item_578,Glow Pet Food Item 578,0.7,images/P0578,577
+L0579,P0579,578,cleanplus_basmati_rice_1kg_var_579,CleanPlus Basmati Rice 1kg - Var 579,0.7,images/P0579,578
+L0580,P0580,579,naturebites_stationery_item_580,NatureBites Stationery Item 580,0.7,images/P0580,579
+L0581,P0581,580,branda_breakfast_item_581,BrandA Breakfast Item 581,0.7,images/P0581,580
+L0582,P0582,581,freshfarms_frozen_food_item_582,FreshFarms Frozen Food Item 582,0.7,images/P0582,581
+L0583,P0583,582,brandb_croissant_2pcs_var_583,BrandB Croissant 2pcs - Var 583,0.7,images/P0583,582
+L0584,P0584,583,cleanplus_banana_1kg_var_584,CleanPlus Banana 1kg - Var 584,0.7,images/P0584,583
+L0585,P0585,584,cleanplus_sauces_item_585,CleanPlus Sauces Item 585,0.7,images/P0585,584
+L0586,P0586,585,naturebites_stationery_item_586,NatureBites Stationery Item 586,0.7,images/P0586,585
+L0587,P0587,586,brandc_canned_food_item_587,BrandC Canned Food Item 587,0.7,images/P0587,586
+L0588,P0588,587,dailychoice_shampoo_200ml_var_588,DailyChoice Shampoo 200ml - Var 588,0.7,images/P0588,587
+L0589,P0589,588,cleanplus_floor_cleaner_1l_var_589,CleanPlus Floor Cleaner 1L - Var 589,0.7,images/P0589,588
+L0590,P0590,589,brandc_dishwashing_liquid_500ml_var_590,BrandC Dishwashing Liquid 500ml - Var 590,0.7,images/P0590,589
+L0591,P0591,590,brandc_croissant_2pcs_var_591,BrandC Croissant 2pcs - Var 591,0.7,images/P0591,590
+L0592,P0592,591,dailychoice_potato_1kg_var_592,DailyChoice Potato 1kg - Var 592,0.7,images/P0592,591
+L0593,P0593,592,cleanplus_pasta_item_593,CleanPlus Pasta Item 593,0.7,images/P0593,592
+L0594,P0594,593,dailychoice_pasta_item_594,DailyChoice Pasta Item 594,0.7,images/P0594,593
+L0595,P0595,594,naturebites_potato_chips_50g_var_595,NatureBites Potato Chips 50g - Var 595,0.7,images/P0595,594
+L0596,P0596,595,brandc_stationery_item_596,BrandC Stationery Item 596,0.7,images/P0596,595
+L0597,P0597,596,healthyo_juice_1l_var_597,HealthyO Juice 1L - Var 597,0.7,images/P0597,596
+L0598,P0598,597,glow_sauces_item_598,Glow Sauces Item 598,0.7,images/P0598,597
+L0599,P0599,598,healthyo_seafood_item_599,HealthyO Seafood Item 599,0.7,images/P0599,598
+L0600,P0600,599,purelife_energy_drink_250ml_var_600,PureLife Energy Drink 250ml - Var 600,0.7,images/P0600,599
+L0601,P0601,600,naturebites_dishwashing_liquid_500ml_var_601,NatureBites Dishwashing Liquid 500ml - Var 601,0.7,images/P0601,600
+L0602,P0602,601,glow_meat_item_602,Glow Meat Item 602,0.7,images/P0602,601
+L0603,P0603,602,healthyo_spices_item_603,HealthyO Spices Item 603,0.7,images/P0603,602
+L0604,P0604,603,brandc_deodorant_150ml_var_604,BrandC Deodorant 150ml - Var 604,0.7,images/P0604,603
+L0605,P0605,604,cleanplus_orange_1kg_var_605,CleanPlus Orange 1kg - Var 605,0.7,images/P0605,604
+L0606,P0606,605,brandc_frozen_food_item_606,BrandC Frozen Food Item 606,0.7,images/P0606,605
+L0607,P0607,606,branda_spices_item_607,BrandA Spices Item 607,0.7,images/P0607,606
+L0608,P0608,607,brandb_dhal_1kg_var_608,BrandB Dhal 1kg - Var 608,0.7,images/P0608,607
+L0609,P0609,608,cleanplus_soft_drink_1.5l_var_609,CleanPlus Soft Drink 1.5L - Var 609,0.7,images/P0609,608
+L0610,P0610,609,brandc_stationery_item_610,BrandC Stationery Item 610,0.7,images/P0610,609
+L0611,P0611,610,healthyo_canned_food_item_611,HealthyO Canned Food Item 611,0.7,images/P0611,610
+L0612,P0612,611,branda_seafood_item_612,BrandA Seafood Item 612,0.7,images/P0612,611
+L0613,P0613,612,freshfarms_household_item_613,FreshFarms Household Item 613,0.7,images/P0613,612
+L0614,P0614,613,naturebites_spices_item_614,NatureBites Spices Item 614,0.7,images/P0614,613
+L0615,P0615,614,healthyo_baby_products_item_615,HealthyO Baby Products Item 615,0.7,images/P0615,614
+L0616,P0616,615,naturebites_spices_item_616,NatureBites Spices Item 616,0.7,images/P0616,615
+L0617,P0617,616,purelife_spices_item_617,PureLife Spices Item 617,0.7,images/P0617,616
+L0618,P0618,617,dailychoice_meat_item_618,DailyChoice Meat Item 618,0.7,images/P0618,617
+L0619,P0619,618,freshfarms_household_item_619,FreshFarms Household Item 619,0.7,images/P0619,618
+L0620,P0620,619,brandb_orange_1kg_var_620,BrandB Orange 1kg - Var 620,0.7,images/P0620,619
+L0621,P0621,620,dailychoice_juice_1l_var_621,DailyChoice Juice 1L - Var 621,0.7,images/P0621,620
+L0622,P0622,621,dailychoice_pasta_item_622,DailyChoice Pasta Item 622,0.7,images/P0622,621
+L0623,P0623,622,freshfarms_canned_food_item_623,FreshFarms Canned Food Item 623,0.7,images/P0623,622
+L0624,P0624,623,branda_breakfast_item_624,BrandA Breakfast Item 624,0.7,images/P0624,623
+L0625,P0625,624,purelife_breakfast_item_625,PureLife Breakfast Item 625,0.7,images/P0625,624
+L0626,P0626,625,brandc_frozen_food_item_626,BrandC Frozen Food Item 626,0.7,images/P0626,625
+L0627,P0627,626,dailychoice_household_item_627,DailyChoice Household Item 627,0.7,images/P0627,626
+L0628,P0628,627,brandb_household_item_628,BrandB Household Item 628,0.7,images/P0628,627
+L0629,P0629,628,dailychoice_frozen_food_item_629,DailyChoice Frozen Food Item 629,0.7,images/P0629,628
+L0630,P0630,629,glow_canned_food_item_630,Glow Canned Food Item 630,0.7,images/P0630,629
+L0631,P0631,630,purelife_dishwashing_liquid_500ml_var_631,PureLife Dishwashing Liquid 500ml - Var 631,0.7,images/P0631,630
+L0632,P0632,631,brandc_canned_food_item_632,BrandC Canned Food Item 632,0.7,images/P0632,631
+L0633,P0633,632,naturebites_pet_food_item_633,NatureBites Pet Food Item 633,0.7,images/P0633,632
+L0634,P0634,633,brandc_household_item_634,BrandC Household Item 634,0.7,images/P0634,633
+L0635,P0635,634,purelife_baby_products_item_635,PureLife Baby Products Item 635,0.7,images/P0635,634
+L0636,P0636,635,cleanplus_seafood_item_636,CleanPlus Seafood Item 636,0.7,images/P0636,635
+L0637,P0637,636,naturebites_onion_1kg_var_637,NatureBites Onion 1kg - Var 637,0.7,images/P0637,636
+L0638,P0638,637,dailychoice_water_1l_var_638,DailyChoice Water 1L - Var 638,0.7,images/P0638,637
+L0639,P0639,638,cleanplus_pet_food_item_639,CleanPlus Pet Food Item 639,0.7,images/P0639,638
+L0640,P0640,639,glow_frozen_food_item_640,Glow Frozen Food Item 640,0.7,images/P0640,639
+L0641,P0641,640,healthyo_orange_1kg_var_641,HealthyO Orange 1kg - Var 641,0.7,images/P0641,640
+L0642,P0642,641,brandc_pasta_item_642,BrandC Pasta Item 642,0.7,images/P0642,641
+L0643,P0643,642,cleanplus_canned_food_item_643,CleanPlus Canned Food Item 643,0.7,images/P0643,642
+L0644,P0644,643,brandb_milk_1l_var_644,BrandB Milk 1L - Var 644,0.7,images/P0644,643
+L0645,P0645,644,purelife_pet_food_item_645,PureLife Pet Food Item 645,0.7,images/P0645,644
+L0646,P0646,645,branda_red_rice_1kg_var_646,BrandA Red Rice 1kg - Var 646,0.7,images/P0646,645
+L0647,P0647,646,naturebites_breakfast_item_647,NatureBites Breakfast Item 647,0.7,images/P0647,646
+L0648,P0648,647,cleanplus_pet_food_item_648,CleanPlus Pet Food Item 648,0.7,images/P0648,647
+L0649,P0649,648,glow_water_1l_var_649,Glow Water 1L - Var 649,0.7,images/P0649,648
+L0650,P0650,649,glow_butter_200g_var_650,Glow Butter 200g - Var 650,0.7,images/P0650,649
+L0651,P0651,650,purelife_breakfast_item_651,PureLife Breakfast Item 651,0.7,images/P0651,650
+L0652,P0652,651,freshfarms_spices_item_652,FreshFarms Spices Item 652,0.7,images/P0652,651
+L0653,P0653,652,purelife_household_item_653,PureLife Household Item 653,0.7,images/P0653,652
+L0654,P0654,653,cleanplus_onion_1kg_var_654,CleanPlus Onion 1kg - Var 654,0.7,images/P0654,653
+L0655,P0655,654,healthyo_tomato_500g_var_655,HealthyO Tomato 500g - Var 655,0.7,images/P0655,654
+L0656,P0656,655,branda_canned_food_item_656,BrandA Canned Food Item 656,0.7,images/P0656,655
+L0657,P0657,656,dailychoice_potato_1kg_var_657,DailyChoice Potato 1kg - Var 657,0.7,images/P0657,656
+L0658,P0658,657,freshfarms_dhal_1kg_var_658,FreshFarms Dhal 1kg - Var 658,0.7,images/P0658,657
+L0659,P0659,658,branda_seafood_item_659,BrandA Seafood Item 659,0.7,images/P0659,658
+L0660,P0660,659,naturebites_household_item_660,NatureBites Household Item 660,0.7,images/P0660,659
+L0661,P0661,660,cleanplus_butter_200g_var_661,CleanPlus Butter 200g - Var 661,0.7,images/P0661,660
+L0662,P0662,661,brandb_canned_food_item_662,BrandB Canned Food Item 662,0.7,images/P0662,661
+L0663,P0663,662,branda_meat_item_663,BrandA Meat Item 663,0.7,images/P0663,662
+L0664,P0664,663,branda_canned_food_item_664,BrandA Canned Food Item 664,0.7,images/P0664,663
+L0665,P0665,664,brandc_meat_item_665,BrandC Meat Item 665,0.7,images/P0665,664
+L0666,P0666,665,healthyo_floor_cleaner_1l_var_666,HealthyO Floor Cleaner 1L - Var 666,0.7,images/P0666,665
+L0667,P0667,666,dailychoice_frozen_food_item_667,DailyChoice Frozen Food Item 667,0.7,images/P0667,666
+L0668,P0668,667,naturebites_pet_food_item_668,NatureBites Pet Food Item 668,0.7,images/P0668,667
+L0669,P0669,668,branda_baby_products_item_669,BrandA Baby Products Item 669,0.7,images/P0669,668
+L0670,P0670,669,naturebites_breakfast_item_670,NatureBites Breakfast Item 670,0.7,images/P0670,669
+L0671,P0671,670,purelife_meat_item_671,PureLife Meat Item 671,0.7,images/P0671,670
+L0672,P0672,671,dailychoice_onion_1kg_var_672,DailyChoice Onion 1kg - Var 672,0.7,images/P0672,671
+L0673,P0673,672,healthyo_pasta_item_673,HealthyO Pasta Item 673,0.7,images/P0673,672
+L0674,P0674,673,dailychoice_canned_food_item_674,DailyChoice Canned Food Item 674,0.7,images/P0674,673
+L0675,P0675,674,brandb_pet_food_item_675,BrandB Pet Food Item 675,0.7,images/P0675,674
+L0676,P0676,675,dailychoice_canned_food_item_676,DailyChoice Canned Food Item 676,0.7,images/P0676,675
+L0677,P0677,676,healthyo_breakfast_item_677,HealthyO Breakfast Item 677,0.7,images/P0677,676
+L0678,P0678,677,brandb_yogurt_80g_var_678,BrandB Yogurt 80g - Var 678,0.7,images/P0678,677
+L0679,P0679,678,glow_spices_item_679,Glow Spices Item 679,0.7,images/P0679,678
+L0680,P0680,679,freshfarms_soft_drink_1.5l_var_680,FreshFarms Soft Drink 1.5L - Var 680,0.7,images/P0680,679
+L0681,P0681,680,freshfarms_spices_item_681,FreshFarms Spices Item 681,0.7,images/P0681,680
+L0682,P0682,681,dailychoice_chocolate_100g_var_682,DailyChoice Chocolate 100g - Var 682,0.7,images/P0682,681
+L0683,P0683,682,naturebites_pasta_item_683,NatureBites Pasta Item 683,0.7,images/P0683,682
+L0684,P0684,683,naturebites_seafood_item_684,NatureBites Seafood Item 684,0.7,images/P0684,683
+L0685,P0685,684,healthyo_stationery_item_685,HealthyO Stationery Item 685,0.7,images/P0685,684
+L0686,P0686,685,dailychoice_seafood_item_686,DailyChoice Seafood Item 686,0.7,images/P0686,685
+L0687,P0687,686,purelife_sauces_item_687,PureLife Sauces Item 687,0.7,images/P0687,686
+L0688,P0688,687,brandb_butter_200g_var_688,BrandB Butter 200g - Var 688,0.7,images/P0688,687
+L0689,P0689,688,healthyo_white_rice_1kg_var_689,HealthyO White Rice 1kg - Var 689,0.7,images/P0689,688
+L0690,P0690,689,healthyo_energy_drink_250ml_var_690,HealthyO Energy Drink 250ml - Var 690,0.7,images/P0690,689
+L0691,P0691,690,dailychoice_breakfast_item_691,DailyChoice Breakfast Item 691,0.7,images/P0691,690
+L0692,P0692,691,glow_water_1l_var_692,Glow Water 1L - Var 692,0.7,images/P0692,691
+L0693,P0693,692,branda_frozen_food_item_693,BrandA Frozen Food Item 693,0.7,images/P0693,692
+L0694,P0694,693,healthyo_meat_item_694,HealthyO Meat Item 694,0.7,images/P0694,693
+L0695,P0695,694,healthyo_household_item_695,HealthyO Household Item 695,0.7,images/P0695,694
+L0696,P0696,695,brandb_white_rice_1kg_var_696,BrandB White Rice 1kg - Var 696,0.7,images/P0696,695
+L0697,P0697,696,purelife_spices_item_697,PureLife Spices Item 697,0.7,images/P0697,696
+L0698,P0698,697,dailychoice_red_rice_1kg_var_698,DailyChoice Red Rice 1kg - Var 698,0.7,images/P0698,697
+L0699,P0699,698,naturebites_spices_item_699,NatureBites Spices Item 699,0.7,images/P0699,698
+L0700,P0700,699,brandb_meat_item_700,BrandB Meat Item 700,0.7,images/P0700,699
+L0701,P0701,700,healthyo_meat_item_701,HealthyO Meat Item 701,0.7,images/P0701,700
+L0702,P0702,701,healthyo_stationery_item_702,HealthyO Stationery Item 702,0.7,images/P0702,701
+L0703,P0703,702,branda_basmati_rice_1kg_var_703,BrandA Basmati Rice 1kg - Var 703,0.7,images/P0703,702
+L0704,P0704,703,brandb_onion_1kg_var_704,BrandB Onion 1kg - Var 704,0.7,images/P0704,703
+L0705,P0705,704,naturebites_meat_item_705,NatureBites Meat Item 705,0.7,images/P0705,704
+L0706,P0706,705,healthyo_spices_item_706,HealthyO Spices Item 706,0.7,images/P0706,705
+L0707,P0707,706,purelife_apple_1kg_var_707,PureLife Apple 1kg - Var 707,0.7,images/P0707,706
+L0708,P0708,707,brandb_bread_500g_var_708,BrandB Bread 500g - Var 708,0.7,images/P0708,707
+L0709,P0709,708,cleanplus_chocolate_100g_var_709,CleanPlus Chocolate 100g - Var 709,0.7,images/P0709,708
+L0710,P0710,709,healthyo_meat_item_710,HealthyO Meat Item 710,0.7,images/P0710,709
+L0711,P0711,710,branda_spices_item_711,BrandA Spices Item 711,0.7,images/P0711,710
+L0712,P0712,711,glow_cheese_250g_var_712,Glow Cheese 250g - Var 712,0.7,images/P0712,711
+L0713,P0713,712,branda_cake_1kg_var_713,BrandA Cake 1kg - Var 713,0.7,images/P0713,712
+L0714,P0714,713,brandc_meat_item_714,BrandC Meat Item 714,0.7,images/P0714,713
+L0715,P0715,714,purelife_laundry_detergent_1kg_var_715,PureLife Laundry Detergent 1kg - Var 715,0.7,images/P0715,714
+L0716,P0716,715,healthyo_canned_food_item_716,HealthyO Canned Food Item 716,0.7,images/P0716,715
+L0717,P0717,716,glow_soap_100g_var_717,Glow Soap 100g - Var 717,0.7,images/P0717,716
+L0718,P0718,717,brandc_pasta_item_718,BrandC Pasta Item 718,0.7,images/P0718,717
+L0719,P0719,718,purelife_deodorant_150ml_var_719,PureLife Deodorant 150ml - Var 719,0.7,images/P0719,718
+L0720,P0720,719,healthyo_basmati_rice_1kg_var_720,HealthyO Basmati Rice 1kg - Var 720,0.7,images/P0720,719
+L0721,P0721,720,freshfarms_stationery_item_721,FreshFarms Stationery Item 721,0.7,images/P0721,720
+L0722,P0722,721,glow_dhal_1kg_var_722,Glow Dhal 1kg - Var 722,0.7,images/P0722,721
+L0723,P0723,722,freshfarms_red_rice_1kg_var_723,FreshFarms Red Rice 1kg - Var 723,0.7,images/P0723,722
+L0724,P0724,723,freshfarms_banana_1kg_var_724,FreshFarms Banana 1kg - Var 724,0.7,images/P0724,723
+L0725,P0725,724,dailychoice_baby_products_item_725,DailyChoice Baby Products Item 725,0.7,images/P0725,724
+L0726,P0726,725,glow_cake_1kg_var_726,Glow Cake 1kg - Var 726,0.7,images/P0726,725
+L0727,P0727,726,dailychoice_sauces_item_727,DailyChoice Sauces Item 727,0.7,images/P0727,726
+L0728,P0728,727,naturebites_cake_1kg_var_728,NatureBites Cake 1kg - Var 728,0.7,images/P0728,727
+L0729,P0729,728,purelife_tomato_500g_var_729,PureLife Tomato 500g - Var 729,0.7,images/P0729,728
+L0730,P0730,729,naturebites_shampoo_200ml_var_730,NatureBites Shampoo 200ml - Var 730,0.7,images/P0730,729
+L0731,P0731,730,brandc_soft_drink_1.5l_var_731,BrandC Soft Drink 1.5L - Var 731,0.7,images/P0731,730
+L0732,P0732,731,glow_household_item_732,Glow Household Item 732,0.7,images/P0732,731
+L0733,P0733,732,purelife_baby_products_item_733,PureLife Baby Products Item 733,0.7,images/P0733,732
+L0734,P0734,733,brandb_baby_products_item_734,BrandB Baby Products Item 734,0.7,images/P0734,733
+L0735,P0735,734,cleanplus_household_item_735,CleanPlus Household Item 735,0.7,images/P0735,734
+L0736,P0736,735,brandc_pasta_item_736,BrandC Pasta Item 736,0.7,images/P0736,735
+L0737,P0737,736,brandc_carrot_500g_var_737,BrandC Carrot 500g - Var 737,0.7,images/P0737,736
+L0738,P0738,737,dailychoice_yogurt_80g_var_738,DailyChoice Yogurt 80g - Var 738,0.7,images/P0738,737
+L0739,P0739,738,healthyo_frozen_food_item_739,HealthyO Frozen Food Item 739,0.7,images/P0739,738
+L0740,P0740,739,branda_stationery_item_740,BrandA Stationery Item 740,0.7,images/P0740,739
+L0741,P0741,740,branda_buns_4pcs_var_741,BrandA Buns 4pcs - Var 741,0.7,images/P0741,740
+L0742,P0742,741,glow_croissant_2pcs_var_742,Glow Croissant 2pcs - Var 742,0.7,images/P0742,741
+L0743,P0743,742,purelife_pasta_item_743,PureLife Pasta Item 743,0.7,images/P0743,742
+L0744,P0744,743,glow_water_1l_var_744,Glow Water 1L - Var 744,0.7,images/P0744,743
+L0745,P0745,744,purelife_spices_item_745,PureLife Spices Item 745,0.7,images/P0745,744
+L0746,P0746,745,freshfarms_sauces_item_746,FreshFarms Sauces Item 746,0.7,images/P0746,745
+L0747,P0747,746,purelife_breakfast_item_747,PureLife Breakfast Item 747,0.7,images/P0747,746
+L0748,P0748,747,naturebites_dhal_1kg_var_748,NatureBites Dhal 1kg - Var 748,0.7,images/P0748,747
+L0749,P0749,748,freshfarms_pasta_item_749,FreshFarms Pasta Item 749,0.7,images/P0749,748
+L0750,P0750,749,freshfarms_baby_products_item_750,FreshFarms Baby Products Item 750,0.7,images/P0750,749
+L0751,P0751,750,branda_spices_item_751,BrandA Spices Item 751,0.7,images/P0751,750
+L0752,P0752,751,branda_onion_1kg_var_752,BrandA Onion 1kg - Var 752,0.7,images/P0752,751
+L0753,P0753,752,healthyo_household_item_753,HealthyO Household Item 753,0.7,images/P0753,752
+L0754,P0754,753,branda_breakfast_item_754,BrandA Breakfast Item 754,0.7,images/P0754,753
+L0755,P0755,754,dailychoice_spices_item_755,DailyChoice Spices Item 755,0.7,images/P0755,754
+L0756,P0756,755,branda_spices_item_756,BrandA Spices Item 756,0.7,images/P0756,755
+L0757,P0757,756,naturebites_yogurt_80g_var_757,NatureBites Yogurt 80g - Var 757,0.7,images/P0757,756
+L0758,P0758,757,brandb_pasta_item_758,BrandB Pasta Item 758,0.7,images/P0758,757
+L0759,P0759,758,glow_juice_1l_var_759,Glow Juice 1L - Var 759,0.7,images/P0759,758
+L0760,P0760,759,glow_pasta_item_760,Glow Pasta Item 760,0.7,images/P0760,759
+L0761,P0761,760,brandc_breakfast_item_761,BrandC Breakfast Item 761,0.7,images/P0761,760
+L0762,P0762,761,freshfarms_red_rice_1kg_var_762,FreshFarms Red Rice 1kg - Var 762,0.7,images/P0762,761
+L0763,P0763,762,branda_sauces_item_763,BrandA Sauces Item 763,0.7,images/P0763,762
+L0764,P0764,763,branda_croissant_2pcs_var_764,BrandA Croissant 2pcs - Var 764,0.7,images/P0764,763
+L0765,P0765,764,freshfarms_meat_item_765,FreshFarms Meat Item 765,0.7,images/P0765,764
+L0766,P0766,765,brandc_potato_chips_50g_var_766,BrandC Potato Chips 50g - Var 766,0.7,images/P0766,765
+L0767,P0767,766,glow_canned_food_item_767,Glow Canned Food Item 767,0.7,images/P0767,766
+L0768,P0768,767,brandb_dishwashing_liquid_500ml_var_768,BrandB Dishwashing Liquid 500ml - Var 768,0.7,images/P0768,767
+L0769,P0769,768,branda_spices_item_769,BrandA Spices Item 769,0.7,images/P0769,768
+L0770,P0770,769,cleanplus_cake_1kg_var_770,CleanPlus Cake 1kg - Var 770,0.7,images/P0770,769
+L0771,P0771,770,purelife_stationery_item_771,PureLife Stationery Item 771,0.7,images/P0771,770
+L0772,P0772,771,dailychoice_dishwashing_liquid_500ml_var_772,DailyChoice Dishwashing Liquid 500ml - Var 772,0.7,images/P0772,771
+L0773,P0773,772,freshfarms_breakfast_item_773,FreshFarms Breakfast Item 773,0.7,images/P0773,772
+L0774,P0774,773,dailychoice_meat_item_774,DailyChoice Meat Item 774,0.7,images/P0774,773
+L0775,P0775,774,purelife_baby_products_item_775,PureLife Baby Products Item 775,0.7,images/P0775,774
+L0776,P0776,775,brandb_meat_item_776,BrandB Meat Item 776,0.7,images/P0776,775
+L0777,P0777,776,dailychoice_spices_item_777,DailyChoice Spices Item 777,0.7,images/P0777,776
+L0778,P0778,777,naturebites_toothpaste_120g_var_778,NatureBites Toothpaste 120g - Var 778,0.7,images/P0778,777
+L0779,P0779,778,healthyo_dishwashing_liquid_500ml_var_779,HealthyO Dishwashing Liquid 500ml - Var 779,0.7,images/P0779,778
+L0780,P0780,779,purelife_baby_products_item_780,PureLife Baby Products Item 780,0.7,images/P0780,779
+L0781,P0781,780,branda_meat_item_781,BrandA Meat Item 781,0.7,images/P0781,780
+L0782,P0782,781,naturebites_dhal_1kg_var_782,NatureBites Dhal 1kg - Var 782,0.7,images/P0782,781
+L0783,P0783,782,glow_canned_food_item_783,Glow Canned Food Item 783,0.7,images/P0783,782
+L0784,P0784,783,cleanplus_stationery_item_784,CleanPlus Stationery Item 784,0.7,images/P0784,783
+L0785,P0785,784,brandb_cheese_250g_var_785,BrandB Cheese 250g - Var 785,0.7,images/P0785,784
+L0786,P0786,785,glow_floor_cleaner_1l_var_786,Glow Floor Cleaner 1L - Var 786,0.7,images/P0786,785
+L0787,P0787,786,brandc_soap_100g_var_787,BrandC Soap 100g - Var 787,0.7,images/P0787,786
+L0788,P0788,787,brandc_seafood_item_788,BrandC Seafood Item 788,0.7,images/P0788,787
+L0789,P0789,788,brandc_dhal_1kg_var_789,BrandC Dhal 1kg - Var 789,0.7,images/P0789,788
+L0790,P0790,789,cleanplus_baby_products_item_790,CleanPlus Baby Products Item 790,0.7,images/P0790,789
+L0791,P0791,790,freshfarms_household_item_791,FreshFarms Household Item 791,0.7,images/P0791,790
+L0792,P0792,791,purelife_frozen_food_item_792,PureLife Frozen Food Item 792,0.7,images/P0792,791
+L0793,P0793,792,healthyo_seafood_item_793,HealthyO Seafood Item 793,0.7,images/P0793,792
+L0794,P0794,793,brandb_baby_products_item_794,BrandB Baby Products Item 794,0.7,images/P0794,793
+L0795,P0795,794,healthyo_pet_food_item_795,HealthyO Pet Food Item 795,0.7,images/P0795,794
+L0796,P0796,795,naturebites_breakfast_item_796,NatureBites Breakfast Item 796,0.7,images/P0796,795
+L0797,P0797,796,healthyo_carrot_500g_var_797,HealthyO Carrot 500g - Var 797,0.7,images/P0797,796
+L0798,P0798,797,healthyo_buns_4pcs_var_798,HealthyO Buns 4pcs - Var 798,0.7,images/P0798,797
+L0799,P0799,798,brandc_carrot_500g_var_799,BrandC Carrot 500g - Var 799,0.7,images/P0799,798
+L0800,P0800,799,purelife_orange_1kg_var_800,PureLife Orange 1kg - Var 800,0.7,images/P0800,799
+L0801,P0801,800,healthyo_stationery_item_801,HealthyO Stationery Item 801,0.7,images/P0801,800
+L0802,P0802,801,brandc_grapes_500g_var_802,BrandC Grapes 500g - Var 802,0.7,images/P0802,801
+L0803,P0803,802,dailychoice_red_rice_1kg_var_803,DailyChoice Red Rice 1kg - Var 803,0.7,images/P0803,802
+L0804,P0804,803,brandc_frozen_food_item_804,BrandC Frozen Food Item 804,0.7,images/P0804,803
+L0805,P0805,804,cleanplus_cake_1kg_var_805,CleanPlus Cake 1kg - Var 805,0.7,images/P0805,804
+L0806,P0806,805,dailychoice_household_item_806,DailyChoice Household Item 806,0.7,images/P0806,805
+L0807,P0807,806,glow_baby_products_item_807,Glow Baby Products Item 807,0.7,images/P0807,806
+L0808,P0808,807,glow_toothpaste_120g_var_808,Glow Toothpaste 120g - Var 808,0.7,images/P0808,807
+L0809,P0809,808,dailychoice_grapes_500g_var_809,DailyChoice Grapes 500g - Var 809,0.7,images/P0809,808
+L0810,P0810,809,glow_floor_cleaner_1l_var_810,Glow Floor Cleaner 1L - Var 810,0.7,images/P0810,809
+L0811,P0811,810,branda_spices_item_811,BrandA Spices Item 811,0.7,images/P0811,810
+L0812,P0812,811,freshfarms_baby_products_item_812,FreshFarms Baby Products Item 812,0.7,images/P0812,811
+L0813,P0813,812,branda_stationery_item_813,BrandA Stationery Item 813,0.7,images/P0813,812
+L0814,P0814,813,cleanplus_juice_1l_var_814,CleanPlus Juice 1L - Var 814,0.7,images/P0814,813
+L0815,P0815,814,purelife_chocolate_100g_var_815,PureLife Chocolate 100g - Var 815,0.7,images/P0815,814
+L0816,P0816,815,purelife_pet_food_item_816,PureLife Pet Food Item 816,0.7,images/P0816,815
+L0817,P0817,816,cleanplus_grapes_500g_var_817,CleanPlus Grapes 500g - Var 817,0.7,images/P0817,816
+L0818,P0818,817,brandb_pasta_item_818,BrandB Pasta Item 818,0.7,images/P0818,817
+L0819,P0819,818,freshfarms_nuts_100g_var_819,FreshFarms Nuts 100g - Var 819,0.7,images/P0819,818
+L0820,P0820,819,brandb_apple_1kg_var_820,BrandB Apple 1kg - Var 820,0.7,images/P0820,819
+L0821,P0821,820,dailychoice_baby_products_item_821,DailyChoice Baby Products Item 821,0.7,images/P0821,820
+L0822,P0822,821,healthyo_meat_item_822,HealthyO Meat Item 822,0.7,images/P0822,821
+L0823,P0823,822,branda_spices_item_823,BrandA Spices Item 823,0.7,images/P0823,822
+L0824,P0824,823,cleanplus_meat_item_824,CleanPlus Meat Item 824,0.7,images/P0824,823
+L0825,P0825,824,freshfarms_water_1l_var_825,FreshFarms Water 1L - Var 825,0.7,images/P0825,824
+L0826,P0826,825,cleanplus_canned_food_item_826,CleanPlus Canned Food Item 826,0.7,images/P0826,825
+L0827,P0827,826,branda_canned_food_item_827,BrandA Canned Food Item 827,0.7,images/P0827,826
+L0828,P0828,827,dailychoice_water_1l_var_828,DailyChoice Water 1L - Var 828,0.7,images/P0828,827
+L0829,P0829,828,glow_meat_item_829,Glow Meat Item 829,0.7,images/P0829,828
+L0830,P0830,829,healthyo_spices_item_830,HealthyO Spices Item 830,0.7,images/P0830,829
+L0831,P0831,830,branda_breakfast_item_831,BrandA Breakfast Item 831,0.7,images/P0831,830
+L0832,P0832,831,healthyo_tomato_500g_var_832,HealthyO Tomato 500g - Var 832,0.7,images/P0832,831
+L0833,P0833,832,brandb_potato_chips_50g_var_833,BrandB Potato Chips 50g - Var 833,0.7,images/P0833,832
+L0834,P0834,833,healthyo_meat_item_834,HealthyO Meat Item 834,0.7,images/P0834,833
+L0835,P0835,834,brandb_laundry_detergent_1kg_var_835,BrandB Laundry Detergent 1kg - Var 835,0.7,images/P0835,834
+L0836,P0836,835,naturebites_pasta_item_836,NatureBites Pasta Item 836,0.7,images/P0836,835
+L0837,P0837,836,brandc_nuts_100g_var_837,BrandC Nuts 100g - Var 837,0.7,images/P0837,836
+L0838,P0838,837,healthyo_milk_1l_var_838,HealthyO Milk 1L - Var 838,0.7,images/P0838,837
+L0839,P0839,838,purelife_red_rice_1kg_var_839,PureLife Red Rice 1kg - Var 839,0.7,images/P0839,838
+L0840,P0840,839,branda_pasta_item_840,BrandA Pasta Item 840,0.7,images/P0840,839
+L0841,P0841,840,glow_pet_food_item_841,Glow Pet Food Item 841,0.7,images/P0841,840
+L0842,P0842,841,healthyo_sauces_item_842,HealthyO Sauces Item 842,0.7,images/P0842,841
+L0843,P0843,842,brandc_canned_food_item_843,BrandC Canned Food Item 843,0.7,images/P0843,842
+L0844,P0844,843,freshfarms_croissant_2pcs_var_844,FreshFarms Croissant 2pcs - Var 844,0.7,images/P0844,843
+L0845,P0845,844,naturebites_bread_500g_var_845,NatureBites Bread 500g - Var 845,0.7,images/P0845,844
+L0846,P0846,845,brandb_breakfast_item_846,BrandB Breakfast Item 846,0.7,images/P0846,845
+L0847,P0847,846,freshfarms_toothpaste_120g_var_847,FreshFarms Toothpaste 120g - Var 847,0.7,images/P0847,846
+L0848,P0848,847,freshfarms_nuts_100g_var_848,FreshFarms Nuts 100g - Var 848,0.7,images/P0848,847
+L0849,P0849,848,cleanplus_dishwashing_liquid_500ml_var_849,CleanPlus Dishwashing Liquid 500ml - Var 849,0.7,images/P0849,848
+L0850,P0850,849,glow_pasta_item_850,Glow Pasta Item 850,0.7,images/P0850,849
+L0851,P0851,850,brandc_orange_1kg_var_851,BrandC Orange 1kg - Var 851,0.7,images/P0851,850
+L0852,P0852,851,dailychoice_apple_1kg_var_852,DailyChoice Apple 1kg - Var 852,0.7,images/P0852,851
+L0853,P0853,852,healthyo_frozen_food_item_853,HealthyO Frozen Food Item 853,0.7,images/P0853,852
+L0854,P0854,853,freshfarms_energy_drink_250ml_var_854,FreshFarms Energy Drink 250ml - Var 854,0.7,images/P0854,853
+L0855,P0855,854,freshfarms_grapes_500g_var_855,FreshFarms Grapes 500g - Var 855,0.7,images/P0855,854
+L0856,P0856,855,branda_floor_cleaner_1l_var_856,BrandA Floor Cleaner 1L - Var 856,0.7,images/P0856,855
+L0857,P0857,856,cleanplus_sauces_item_857,CleanPlus Sauces Item 857,0.7,images/P0857,856
+L0858,P0858,857,naturebites_frozen_food_item_858,NatureBites Frozen Food Item 858,0.7,images/P0858,857
+L0859,P0859,858,branda_frozen_food_item_859,BrandA Frozen Food Item 859,0.7,images/P0859,858
+L0860,P0860,859,brandc_baby_products_item_860,BrandC Baby Products Item 860,0.7,images/P0860,859
+L0861,P0861,860,brandb_pet_food_item_861,BrandB Pet Food Item 861,0.7,images/P0861,860
+L0862,P0862,861,brandb_banana_1kg_var_862,BrandB Banana 1kg - Var 862,0.7,images/P0862,861
+L0863,P0863,862,branda_sauces_item_863,BrandA Sauces Item 863,0.7,images/P0863,862
+L0864,P0864,863,brandc_seafood_item_864,BrandC Seafood Item 864,0.7,images/P0864,863
+L0865,P0865,864,brandb_frozen_food_item_865,BrandB Frozen Food Item 865,0.7,images/P0865,864
+L0866,P0866,865,glow_frozen_food_item_866,Glow Frozen Food Item 866,0.7,images/P0866,865
+L0867,P0867,866,dailychoice_seafood_item_867,DailyChoice Seafood Item 867,0.7,images/P0867,866
+L0868,P0868,867,glow_baby_products_item_868,Glow Baby Products Item 868,0.7,images/P0868,867
+L0869,P0869,868,purelife_household_item_869,PureLife Household Item 869,0.7,images/P0869,868
+L0870,P0870,869,freshfarms_breakfast_item_870,FreshFarms Breakfast Item 870,0.7,images/P0870,869
+L0871,P0871,870,cleanplus_breakfast_item_871,CleanPlus Breakfast Item 871,0.7,images/P0871,870
+L0872,P0872,871,glow_frozen_food_item_872,Glow Frozen Food Item 872,0.7,images/P0872,871
+L0873,P0873,872,healthyo_baby_products_item_873,HealthyO Baby Products Item 873,0.7,images/P0873,872
+L0874,P0874,873,branda_seafood_item_874,BrandA Seafood Item 874,0.7,images/P0874,873
+L0875,P0875,874,naturebites_stationery_item_875,NatureBites Stationery Item 875,0.7,images/P0875,874
+L0876,P0876,875,healthyo_chocolate_100g_var_876,HealthyO Chocolate 100g - Var 876,0.7,images/P0876,875
+L0877,P0877,876,naturebites_pasta_item_877,NatureBites Pasta Item 877,0.7,images/P0877,876
+L0878,P0878,877,naturebites_seafood_item_878,NatureBites Seafood Item 878,0.7,images/P0878,877
+L0879,P0879,878,brandc_white_rice_1kg_var_879,BrandC White Rice 1kg - Var 879,0.7,images/P0879,878
+L0880,P0880,879,dailychoice_pet_food_item_880,DailyChoice Pet Food Item 880,0.7,images/P0880,879
+L0881,P0881,880,brandc_breakfast_item_881,BrandC Breakfast Item 881,0.7,images/P0881,880
+L0882,P0882,881,brandb_baby_products_item_882,BrandB Baby Products Item 882,0.7,images/P0882,881
+L0883,P0883,882,brandb_apple_1kg_var_883,BrandB Apple 1kg - Var 883,0.7,images/P0883,882
+L0884,P0884,883,freshfarms_sauces_item_884,FreshFarms Sauces Item 884,0.7,images/P0884,883
+L0885,P0885,884,brandc_seafood_item_885,BrandC Seafood Item 885,0.7,images/P0885,884
+L0886,P0886,885,purelife_onion_1kg_var_886,PureLife Onion 1kg - Var 886,0.7,images/P0886,885
+L0887,P0887,886,dailychoice_baby_products_item_887,DailyChoice Baby Products Item 887,0.7,images/P0887,886
+L0888,P0888,887,brandc_basmati_rice_1kg_var_888,BrandC Basmati Rice 1kg - Var 888,0.7,images/P0888,887
+L0889,P0889,888,brandb_energy_drink_250ml_var_889,BrandB Energy Drink 250ml - Var 889,0.7,images/P0889,888
+L0890,P0890,889,healthyo_deodorant_150ml_var_890,HealthyO Deodorant 150ml - Var 890,0.7,images/P0890,889
+L0891,P0891,890,naturebites_household_item_891,NatureBites Household Item 891,0.7,images/P0891,890
+L0892,P0892,891,freshfarms_spices_item_892,FreshFarms Spices Item 892,0.7,images/P0892,891
+L0893,P0893,892,brandc_nuts_100g_var_893,BrandC Nuts 100g - Var 893,0.7,images/P0893,892
+L0894,P0894,893,dailychoice_cheese_250g_var_894,DailyChoice Cheese 250g - Var 894,0.7,images/P0894,893
+L0895,P0895,894,cleanplus_floor_cleaner_1l_var_895,CleanPlus Floor Cleaner 1L - Var 895,0.7,images/P0895,894
+L0896,P0896,895,purelife_biscuits_200g_var_896,PureLife Biscuits 200g - Var 896,0.7,images/P0896,895
+L0897,P0897,896,brandc_meat_item_897,BrandC Meat Item 897,0.7,images/P0897,896
+L0898,P0898,897,branda_pet_food_item_898,BrandA Pet Food Item 898,0.7,images/P0898,897
+L0899,P0899,898,brandb_pet_food_item_899,BrandB Pet Food Item 899,0.7,images/P0899,898
+L0900,P0900,899,brandb_onion_1kg_var_900,BrandB Onion 1kg - Var 900,0.7,images/P0900,899
+L0901,P0901,900,glow_cheese_250g_var_901,Glow Cheese 250g - Var 901,0.7,images/P0901,900
+L0902,P0902,901,freshfarms_pasta_item_902,FreshFarms Pasta Item 902,0.7,images/P0902,901
+L0903,P0903,902,brandb_shampoo_200ml_var_903,BrandB Shampoo 200ml - Var 903,0.7,images/P0903,902
+L0904,P0904,903,dailychoice_potato_1kg_var_904,DailyChoice Potato 1kg - Var 904,0.7,images/P0904,903
+L0905,P0905,904,branda_pasta_item_905,BrandA Pasta Item 905,0.7,images/P0905,904
+L0906,P0906,905,brandc_frozen_food_item_906,BrandC Frozen Food Item 906,0.7,images/P0906,905
+L0907,P0907,906,cleanplus_energy_drink_250ml_var_907,CleanPlus Energy Drink 250ml - Var 907,0.7,images/P0907,906
+L0908,P0908,907,branda_sauces_item_908,BrandA Sauces Item 908,0.7,images/P0908,907
+L0909,P0909,908,healthyo_milk_1l_var_909,HealthyO Milk 1L - Var 909,0.7,images/P0909,908
+L0910,P0910,909,branda_pasta_item_910,BrandA Pasta Item 910,0.7,images/P0910,909
+L0911,P0911,910,naturebites_seafood_item_911,NatureBites Seafood Item 911,0.7,images/P0911,910
+L0912,P0912,911,freshfarms_floor_cleaner_1l_var_912,FreshFarms Floor Cleaner 1L - Var 912,0.7,images/P0912,911
+L0913,P0913,912,brandb_spices_item_913,BrandB Spices Item 913,0.7,images/P0913,912
+L0914,P0914,913,cleanplus_chocolate_100g_var_914,CleanPlus Chocolate 100g - Var 914,0.7,images/P0914,913
+L0915,P0915,914,brandb_toothpaste_120g_var_915,BrandB Toothpaste 120g - Var 915,0.7,images/P0915,914
+L0916,P0916,915,purelife_breakfast_item_916,PureLife Breakfast Item 916,0.7,images/P0916,915
+L0917,P0917,916,dailychoice_household_item_917,DailyChoice Household Item 917,0.7,images/P0917,916
+L0918,P0918,917,brandb_potato_1kg_var_918,BrandB Potato 1kg - Var 918,0.7,images/P0918,917
+L0919,P0919,918,cleanplus_milk_1l_var_919,CleanPlus Milk 1L - Var 919,0.7,images/P0919,918
+L0920,P0920,919,cleanplus_nuts_100g_var_920,CleanPlus Nuts 100g - Var 920,0.7,images/P0920,919
+L0921,P0921,920,glow_juice_1l_var_921,Glow Juice 1L - Var 921,0.7,images/P0921,920
+L0922,P0922,921,dailychoice_nuts_100g_var_922,DailyChoice Nuts 100g - Var 922,0.7,images/P0922,921
+L0923,P0923,922,glow_pet_food_item_923,Glow Pet Food Item 923,0.7,images/P0923,922
+L0924,P0924,923,brandb_baby_products_item_924,BrandB Baby Products Item 924,0.7,images/P0924,923
+L0925,P0925,924,brandb_milk_1l_var_925,BrandB Milk 1L - Var 925,0.7,images/P0925,924
+L0926,P0926,925,glow_household_item_926,Glow Household Item 926,0.7,images/P0926,925
+L0927,P0927,926,dailychoice_sauces_item_927,DailyChoice Sauces Item 927,0.7,images/P0927,926
+L0928,P0928,927,naturebites_spices_item_928,NatureBites Spices Item 928,0.7,images/P0928,927
+L0929,P0929,928,glow_household_item_929,Glow Household Item 929,0.7,images/P0929,928
+L0930,P0930,929,brandc_spices_item_930,BrandC Spices Item 930,0.7,images/P0930,929
+L0931,P0931,930,healthyo_breakfast_item_931,HealthyO Breakfast Item 931,0.7,images/P0931,930
+L0932,P0932,931,brandc_breakfast_item_932,BrandC Breakfast Item 932,0.7,images/P0932,931
+L0933,P0933,932,purelife_stationery_item_933,PureLife Stationery Item 933,0.7,images/P0933,932
+L0934,P0934,933,branda_seafood_item_934,BrandA Seafood Item 934,0.7,images/P0934,933
+L0935,P0935,934,glow_seafood_item_935,Glow Seafood Item 935,0.7,images/P0935,934
+L0936,P0936,935,brandb_floor_cleaner_1l_var_936,BrandB Floor Cleaner 1L - Var 936,0.7,images/P0936,935
+L0937,P0937,936,branda_cheese_250g_var_937,BrandA Cheese 250g - Var 937,0.7,images/P0937,936
+L0938,P0938,937,purelife_laundry_detergent_1kg_var_938,PureLife Laundry Detergent 1kg - Var 938,0.7,images/P0938,937
+L0939,P0939,938,healthyo_meat_item_939,HealthyO Meat Item 939,0.7,images/P0939,938
+L0940,P0940,939,dailychoice_chocolate_100g_var_940,DailyChoice Chocolate 100g - Var 940,0.7,images/P0940,939
+L0941,P0941,940,purelife_pasta_item_941,PureLife Pasta Item 941,0.7,images/P0941,940
+L0942,P0942,941,purelife_spices_item_942,PureLife Spices Item 942,0.7,images/P0942,941
+L0943,P0943,942,healthyo_stationery_item_943,HealthyO Stationery Item 943,0.7,images/P0943,942
+L0944,P0944,943,brandb_toothpaste_120g_var_944,BrandB Toothpaste 120g - Var 944,0.7,images/P0944,943
+L0945,P0945,944,freshfarms_toothpaste_120g_var_945,FreshFarms Toothpaste 120g - Var 945,0.7,images/P0945,944
+L0946,P0946,945,branda_spices_item_946,BrandA Spices Item 946,0.7,images/P0946,945
+L0947,P0947,946,healthyo_grapes_500g_var_947,HealthyO Grapes 500g - Var 947,0.7,images/P0947,946
+L0948,P0948,947,brandc_seafood_item_948,BrandC Seafood Item 948,0.7,images/P0948,947
+L0949,P0949,948,freshfarms_shampoo_200ml_var_949,FreshFarms Shampoo 200ml - Var 949,0.7,images/P0949,948
+L0950,P0950,949,purelife_pet_food_item_950,PureLife Pet Food Item 950,0.7,images/P0950,949
+L0951,P0951,950,freshfarms_canned_food_item_951,FreshFarms Canned Food Item 951,0.7,images/P0951,950
+L0952,P0952,951,freshfarms_pet_food_item_952,FreshFarms Pet Food Item 952,0.7,images/P0952,951
+L0953,P0953,952,branda_spices_item_953,BrandA Spices Item 953,0.7,images/P0953,952
+L0954,P0954,953,purelife_meat_item_954,PureLife Meat Item 954,0.7,images/P0954,953
+L0955,P0955,954,healthyo_frozen_food_item_955,HealthyO Frozen Food Item 955,0.7,images/P0955,954
+L0956,P0956,955,freshfarms_breakfast_item_956,FreshFarms Breakfast Item 956,0.7,images/P0956,955
+L0957,P0957,956,freshfarms_frozen_food_item_957,FreshFarms Frozen Food Item 957,0.7,images/P0957,956
+L0958,P0958,957,dailychoice_shampoo_200ml_var_958,DailyChoice Shampoo 200ml - Var 958,0.7,images/P0958,957
+L0959,P0959,958,cleanplus_meat_item_959,CleanPlus Meat Item 959,0.7,images/P0959,958
+L0960,P0960,959,branda_seafood_item_960,BrandA Seafood Item 960,0.7,images/P0960,959
+L0961,P0961,960,purelife_grapes_500g_var_961,PureLife Grapes 500g - Var 961,0.7,images/P0961,960
+L0962,P0962,961,dailychoice_spices_item_962,DailyChoice Spices Item 962,0.7,images/P0962,961
+L0963,P0963,962,freshfarms_frozen_food_item_963,FreshFarms Frozen Food Item 963,0.7,images/P0963,962
+L0964,P0964,963,dailychoice_bread_500g_var_964,DailyChoice Bread 500g - Var 964,0.7,images/P0964,963
+L0965,P0965,964,purelife_soap_100g_var_965,PureLife Soap 100g - Var 965,0.7,images/P0965,964
+L0966,P0966,965,glow_stationery_item_966,Glow Stationery Item 966,0.7,images/P0966,965
+L0967,P0967,966,brandc_pet_food_item_967,BrandC Pet Food Item 967,0.7,images/P0967,966
+L0968,P0968,967,naturebites_potato_chips_50g_var_968,NatureBites Potato Chips 50g - Var 968,0.7,images/P0968,967
+L0969,P0969,968,glow_stationery_item_969,Glow Stationery Item 969,0.7,images/P0969,968
+L0970,P0970,969,freshfarms_laundry_detergent_1kg_var_970,FreshFarms Laundry Detergent 1kg - Var 970,0.7,images/P0970,969
+L0971,P0971,970,healthyo_household_item_971,HealthyO Household Item 971,0.7,images/P0971,970
+L0972,P0972,971,purelife_juice_1l_var_972,PureLife Juice 1L - Var 972,0.7,images/P0972,971
+L0973,P0973,972,healthyo_stationery_item_973,HealthyO Stationery Item 973,0.7,images/P0973,972
+L0974,P0974,973,dailychoice_yogurt_80g_var_974,DailyChoice Yogurt 80g - Var 974,0.7,images/P0974,973
+L0975,P0975,974,purelife_canned_food_item_975,PureLife Canned Food Item 975,0.7,images/P0975,974
+L0976,P0976,975,purelife_stationery_item_976,PureLife Stationery Item 976,0.7,images/P0976,975
+L0977,P0977,976,freshfarms_cheese_250g_var_977,FreshFarms Cheese 250g - Var 977,0.7,images/P0977,976
+L0978,P0978,977,dailychoice_seafood_item_978,DailyChoice Seafood Item 978,0.7,images/P0978,977
+L0979,P0979,978,cleanplus_household_item_979,CleanPlus Household Item 979,0.7,images/P0979,978
+L0980,P0980,979,branda_spices_item_980,BrandA Spices Item 980,0.7,images/P0980,979
+L0981,P0981,980,purelife_yogurt_80g_var_981,PureLife Yogurt 80g - Var 981,0.7,images/P0981,980
+L0982,P0982,981,healthyo_spices_item_982,HealthyO Spices Item 982,0.7,images/P0982,981
+L0983,P0983,982,brandb_baby_products_item_983,BrandB Baby Products Item 983,0.7,images/P0983,982
+L0984,P0984,983,purelife_cake_1kg_var_984,PureLife Cake 1kg - Var 984,0.7,images/P0984,983
+L0985,P0985,984,naturebites_onion_1kg_var_985,NatureBites Onion 1kg - Var 985,0.7,images/P0985,984
+L0986,P0986,985,brandc_meat_item_986,BrandC Meat Item 986,0.7,images/P0986,985
+L0987,P0987,986,branda_frozen_food_item_987,BrandA Frozen Food Item 987,0.7,images/P0987,986
+L0988,P0988,987,dailychoice_breakfast_item_988,DailyChoice Breakfast Item 988,0.7,images/P0988,987
+L0989,P0989,988,freshfarms_biscuits_200g_var_989,FreshFarms Biscuits 200g - Var 989,0.7,images/P0989,988
+L0990,P0990,989,healthyo_sauces_item_990,HealthyO Sauces Item 990,0.7,images/P0990,989
+L0991,P0991,990,dailychoice_soap_100g_var_991,DailyChoice Soap 100g - Var 991,0.7,images/P0991,990
+L0992,P0992,991,cleanplus_milk_1l_var_992,CleanPlus Milk 1L - Var 992,0.7,images/P0992,991
+L0993,P0993,992,branda_meat_item_993,BrandA Meat Item 993,0.7,images/P0993,992
+L0994,P0994,993,glow_stationery_item_994,Glow Stationery Item 994,0.7,images/P0994,993
+L0995,P0995,994,branda_croissant_2pcs_var_995,BrandA Croissant 2pcs - Var 995,0.7,images/P0995,994
+L0996,P0996,995,brandc_water_1l_var_996,BrandC Water 1L - Var 996,0.7,images/P0996,995
+L0997,P0997,996,brandc_juice_1l_var_997,BrandC Juice 1L - Var 997,0.7,images/P0997,996
+L0998,P0998,997,brandb_pet_food_item_998,BrandB Pet Food Item 998,0.7,images/P0998,997
+L0999,P0999,998,glow_seafood_item_999,Glow Seafood Item 999,0.7,images/P0999,998
+L1000,P1000,999,healthyo_breakfast_item_1000,HealthyO Breakfast Item 1000,0.7,images/P1000,999
+L1001,P1001,1000,cleanplus_stationery_item_1001,CleanPlus Stationery Item 1001,0.7,images/P1001,1000
+L1002,P1002,1001,brandc_baby_products_item_1002,BrandC Baby Products Item 1002,0.7,images/P1002,1001
+L1003,P1003,1002,brandc_breakfast_item_1003,BrandC Breakfast Item 1003,0.7,images/P1003,1002
+L1004,P1004,1003,brandb_floor_cleaner_1l_var_1004,BrandB Floor Cleaner 1L - Var 1004,0.7,images/P1004,1003
+L1005,P1005,1004,healthyo_deodorant_150ml_var_1005,HealthyO Deodorant 150ml - Var 1005,0.7,images/P1005,1004
+L1006,P1006,1005,brandb_sauces_item_1006,BrandB Sauces Item 1006,0.7,images/P1006,1005
+L1007,P1007,1006,purelife_cake_1kg_var_1007,PureLife Cake 1kg - Var 1007,0.7,images/P1007,1006
+L1008,P1008,1007,purelife_baby_products_item_1008,PureLife Baby Products Item 1008,0.7,images/P1008,1007
+L1009,P1009,1008,branda_biscuits_200g_var_1009,BrandA Biscuits 200g - Var 1009,0.7,images/P1009,1008
+L1010,P1010,1009,dailychoice_pet_food_item_1010,DailyChoice Pet Food Item 1010,0.7,images/P1010,1009
+L1011,P1011,1010,brandb_household_item_1011,BrandB Household Item 1011,0.7,images/P1011,1010
+L1012,P1012,1011,freshfarms_canned_food_item_1012,FreshFarms Canned Food Item 1012,0.7,images/P1012,1011
+L1013,P1013,1012,brandc_energy_drink_250ml_var_1013,BrandC Energy Drink 250ml - Var 1013,0.7,images/P1013,1012
+L1014,P1014,1013,dailychoice_pasta_item_1014,DailyChoice Pasta Item 1014,0.7,images/P1014,1013
+L1015,P1015,1014,healthyo_canned_food_item_1015,HealthyO Canned Food Item 1015,0.7,images/P1015,1014
+L1016,P1016,1015,branda_toothpaste_120g_var_1016,BrandA Toothpaste 120g - Var 1016,0.7,images/P1016,1015
+L1017,P1017,1016,naturebites_frozen_food_item_1017,NatureBites Frozen Food Item 1017,0.7,images/P1017,1016
+L1018,P1018,1017,brandb_grapes_500g_var_1018,BrandB Grapes 500g - Var 1018,0.7,images/P1018,1017
+L1019,P1019,1018,branda_baby_products_item_1019,BrandA Baby Products Item 1019,0.7,images/P1019,1018
+L1020,P1020,1019,naturebites_baby_products_item_1020,NatureBites Baby Products Item 1020,0.7,images/P1020,1019
+L1021,P1021,1020,glow_household_item_1021,Glow Household Item 1021,0.7,images/P1021,1020
+L1022,P1022,1021,brandc_breakfast_item_1022,BrandC Breakfast Item 1022,0.7,images/P1022,1021
+L1023,P1023,1022,freshfarms_breakfast_item_1023,FreshFarms Breakfast Item 1023,0.7,images/P1023,1022
+L1024,P1024,1023,brandc_seafood_item_1024,BrandC Seafood Item 1024,0.7,images/P1024,1023
+L1025,P1025,1024,brandb_stationery_item_1025,BrandB Stationery Item 1025,0.7,images/P1025,1024
+L1026,P1026,1025,brandc_croissant_2pcs_var_1026,BrandC Croissant 2pcs - Var 1026,0.7,images/P1026,1025
+L1027,P1027,1026,brandb_cake_1kg_var_1027,BrandB Cake 1kg - Var 1027,0.7,images/P1027,1026
+L1028,P1028,1027,naturebites_spices_item_1028,NatureBites Spices Item 1028,0.7,images/P1028,1027
+L1029,P1029,1028,purelife_seafood_item_1029,PureLife Seafood Item 1029,0.7,images/P1029,1028
+L1030,P1030,1029,brandc_white_rice_1kg_var_1030,BrandC White Rice 1kg - Var 1030,0.7,images/P1030,1029
+L1031,P1031,1030,glow_yogurt_80g_var_1031,Glow Yogurt 80g - Var 1031,0.7,images/P1031,1030
+L1032,P1032,1031,glow_grapes_500g_var_1032,Glow Grapes 500g - Var 1032,0.7,images/P1032,1031
+L1033,P1033,1032,freshfarms_sauces_item_1033,FreshFarms Sauces Item 1033,0.7,images/P1033,1032
+L1034,P1034,1033,branda_sauces_item_1034,BrandA Sauces Item 1034,0.7,images/P1034,1033
+L1035,P1035,1034,cleanplus_water_1l_var_1035,CleanPlus Water 1L - Var 1035,0.7,images/P1035,1034
+L1036,P1036,1035,brandc_household_item_1036,BrandC Household Item 1036,0.7,images/P1036,1035
+L1037,P1037,1036,purelife_household_item_1037,PureLife Household Item 1037,0.7,images/P1037,1036
+L1038,P1038,1037,brandc_sauces_item_1038,BrandC Sauces Item 1038,0.7,images/P1038,1037
+L1039,P1039,1038,freshfarms_seafood_item_1039,FreshFarms Seafood Item 1039,0.7,images/P1039,1038
+L1040,P1040,1039,freshfarms_white_rice_1kg_var_1040,FreshFarms White Rice 1kg - Var 1040,0.7,images/P1040,1039
+L1041,P1041,1040,brandc_sauces_item_1041,BrandC Sauces Item 1041,0.7,images/P1041,1040
+L1042,P1042,1041,branda_shampoo_200ml_var_1042,BrandA Shampoo 200ml - Var 1042,0.7,images/P1042,1041
+L1043,P1043,1042,dailychoice_biscuits_200g_var_1043,DailyChoice Biscuits 200g - Var 1043,0.7,images/P1043,1042
+L1044,P1044,1043,freshfarms_baby_products_item_1044,FreshFarms Baby Products Item 1044,0.7,images/P1044,1043
+L1045,P1045,1044,freshfarms_household_item_1045,FreshFarms Household Item 1045,0.7,images/P1045,1044
+L1046,P1046,1045,brandc_baby_products_item_1046,BrandC Baby Products Item 1046,0.7,images/P1046,1045
+L1047,P1047,1046,freshfarms_deodorant_150ml_var_1047,FreshFarms Deodorant 150ml - Var 1047,0.7,images/P1047,1046
+L1048,P1048,1047,cleanplus_floor_cleaner_1l_var_1048,CleanPlus Floor Cleaner 1L - Var 1048,0.7,images/P1048,1047
+L1049,P1049,1048,cleanplus_baby_products_item_1049,CleanPlus Baby Products Item 1049,0.7,images/P1049,1048
+L1050,P1050,1049,freshfarms_basmati_rice_1kg_var_1050,FreshFarms Basmati Rice 1kg - Var 1050,0.7,images/P1050,1049
+L1051,P1051,1050,brandb_spices_item_1051,BrandB Spices Item 1051,0.7,images/P1051,1050
+L1052,P1052,1051,brandb_buns_4pcs_var_1052,BrandB Buns 4pcs - Var 1052,0.7,images/P1052,1051
+L1053,P1053,1052,brandc_carrot_500g_var_1053,BrandC Carrot 500g - Var 1053,0.7,images/P1053,1052
+L1054,P1054,1053,freshfarms_croissant_2pcs_var_1054,FreshFarms Croissant 2pcs - Var 1054,0.7,images/P1054,1053
+L1055,P1055,1054,brandb_chocolate_100g_var_1055,BrandB Chocolate 100g - Var 1055,0.7,images/P1055,1054
+L1056,P1056,1055,cleanplus_laundry_detergent_1kg_var_1056,CleanPlus Laundry Detergent 1kg - Var 1056,0.7,images/P1056,1055
+L1057,P1057,1056,dailychoice_dhal_1kg_var_1057,DailyChoice Dhal 1kg - Var 1057,0.7,images/P1057,1056
+L1058,P1058,1057,cleanplus_energy_drink_250ml_var_1058,CleanPlus Energy Drink 250ml - Var 1058,0.7,images/P1058,1057
+L1059,P1059,1058,brandb_baby_products_item_1059,BrandB Baby Products Item 1059,0.7,images/P1059,1058
+L1060,P1060,1059,brandb_pet_food_item_1060,BrandB Pet Food Item 1060,0.7,images/P1060,1059
+L1061,P1061,1060,brandb_sauces_item_1061,BrandB Sauces Item 1061,0.7,images/P1061,1060
+L1062,P1062,1061,dailychoice_frozen_food_item_1062,DailyChoice Frozen Food Item 1062,0.7,images/P1062,1061
+L1063,P1063,1062,brandc_yogurt_80g_var_1063,BrandC Yogurt 80g - Var 1063,0.7,images/P1063,1062
+L1064,P1064,1063,brandb_household_item_1064,BrandB Household Item 1064,0.7,images/P1064,1063
+L1065,P1065,1064,brandb_pasta_item_1065,BrandB Pasta Item 1065,0.7,images/P1065,1064
+L1066,P1066,1065,branda_pasta_item_1066,BrandA Pasta Item 1066,0.7,images/P1066,1065
+L1067,P1067,1066,cleanplus_meat_item_1067,CleanPlus Meat Item 1067,0.7,images/P1067,1066
+L1068,P1068,1067,naturebites_breakfast_item_1068,NatureBites Breakfast Item 1068,0.7,images/P1068,1067
+L1069,P1069,1068,brandb_spices_item_1069,BrandB Spices Item 1069,0.7,images/P1069,1068
+L1070,P1070,1069,freshfarms_apple_1kg_var_1070,FreshFarms Apple 1kg - Var 1070,0.7,images/P1070,1069
+L1071,P1071,1070,dailychoice_tomato_500g_var_1071,DailyChoice Tomato 500g - Var 1071,0.7,images/P1071,1070
+L1072,P1072,1071,freshfarms_red_rice_1kg_var_1072,FreshFarms Red Rice 1kg - Var 1072,0.7,images/P1072,1071
+L1073,P1073,1072,healthyo_cake_1kg_var_1073,HealthyO Cake 1kg - Var 1073,0.7,images/P1073,1072
+L1074,P1074,1073,healthyo_croissant_2pcs_var_1074,HealthyO Croissant 2pcs - Var 1074,0.7,images/P1074,1073
+L1075,P1075,1074,healthyo_pet_food_item_1075,HealthyO Pet Food Item 1075,0.7,images/P1075,1074
+L1076,P1076,1075,brandb_tomato_500g_var_1076,BrandB Tomato 500g - Var 1076,0.7,images/P1076,1075
+L1077,P1077,1076,glow_toothpaste_120g_var_1077,Glow Toothpaste 120g - Var 1077,0.7,images/P1077,1076
+L1078,P1078,1077,glow_orange_1kg_var_1078,Glow Orange 1kg - Var 1078,0.7,images/P1078,1077
+L1079,P1079,1078,healthyo_milk_1l_var_1079,HealthyO Milk 1L - Var 1079,0.7,images/P1079,1078
+L1080,P1080,1079,naturebites_pasta_item_1080,NatureBites Pasta Item 1080,0.7,images/P1080,1079
+L1081,P1081,1080,naturebites_pet_food_item_1081,NatureBites Pet Food Item 1081,0.7,images/P1081,1080
+L1082,P1082,1081,cleanplus_stationery_item_1082,CleanPlus Stationery Item 1082,0.7,images/P1082,1081
+L1083,P1083,1082,freshfarms_baby_products_item_1083,FreshFarms Baby Products Item 1083,0.7,images/P1083,1082
+L1084,P1084,1083,healthyo_canned_food_item_1084,HealthyO Canned Food Item 1084,0.7,images/P1084,1083
+L1085,P1085,1084,purelife_seafood_item_1085,PureLife Seafood Item 1085,0.7,images/P1085,1084
+L1086,P1086,1085,brandc_nuts_100g_var_1086,BrandC Nuts 100g - Var 1086,0.7,images/P1086,1085
+L1087,P1087,1086,brandb_juice_1l_var_1087,BrandB Juice 1L - Var 1087,0.7,images/P1087,1086
+L1088,P1088,1087,freshfarms_sauces_item_1088,FreshFarms Sauces Item 1088,0.7,images/P1088,1087
+L1089,P1089,1088,branda_spices_item_1089,BrandA Spices Item 1089,0.7,images/P1089,1088
+L1090,P1090,1089,dailychoice_grapes_500g_var_1090,DailyChoice Grapes 500g - Var 1090,0.7,images/P1090,1089
+L1091,P1091,1090,purelife_frozen_food_item_1091,PureLife Frozen Food Item 1091,0.7,images/P1091,1090
+L1092,P1092,1091,healthyo_meat_item_1092,HealthyO Meat Item 1092,0.7,images/P1092,1091
+L1093,P1093,1092,brandc_frozen_food_item_1093,BrandC Frozen Food Item 1093,0.7,images/P1093,1092
+L1094,P1094,1093,purelife_toothpaste_120g_var_1094,PureLife Toothpaste 120g - Var 1094,0.7,images/P1094,1093
+L1095,P1095,1094,glow_meat_item_1095,Glow Meat Item 1095,0.7,images/P1095,1094
+L1096,P1096,1095,healthyo_pet_food_item_1096,HealthyO Pet Food Item 1096,0.7,images/P1096,1095
+L1097,P1097,1096,dailychoice_soft_drink_1.5l_var_1097,DailyChoice Soft Drink 1.5L - Var 1097,0.7,images/P1097,1096
+L1098,P1098,1097,naturebites_soft_drink_1.5l_var_1098,NatureBites Soft Drink 1.5L - Var 1098,0.7,images/P1098,1097
+L1099,P1099,1098,healthyo_household_item_1099,HealthyO Household Item 1099,0.7,images/P1099,1098
+L1100,P1100,1099,healthyo_baby_products_item_1100,HealthyO Baby Products Item 1100,0.7,images/P1100,1099
+L1101,P1101,1100,brandb_dishwashing_liquid_500ml_var_1101,BrandB Dishwashing Liquid 500ml - Var 1101,0.7,images/P1101,1100
+L1102,P1102,1101,brandc_floor_cleaner_1l_var_1102,BrandC Floor Cleaner 1L - Var 1102,0.7,images/P1102,1101
+L1103,P1103,1102,brandc_deodorant_150ml_var_1103,BrandC Deodorant 150ml - Var 1103,0.7,images/P1103,1102
+L1104,P1104,1103,healthyo_croissant_2pcs_var_1104,HealthyO Croissant 2pcs - Var 1104,0.7,images/P1104,1103
+L1105,P1105,1104,brandc_potato_1kg_var_1105,BrandC Potato 1kg - Var 1105,0.7,images/P1105,1104
+L1106,P1106,1105,naturebites_carrot_500g_var_1106,NatureBites Carrot 500g - Var 1106,0.7,images/P1106,1105
+L1107,P1107,1106,cleanplus_bread_500g_var_1107,CleanPlus Bread 500g - Var 1107,0.7,images/P1107,1106
+L1108,P1108,1107,dailychoice_juice_1l_var_1108,DailyChoice Juice 1L - Var 1108,0.7,images/P1108,1107
+L1109,P1109,1108,healthyo_laundry_detergent_1kg_var_1109,HealthyO Laundry Detergent 1kg - Var 1109,0.7,images/P1109,1108
+L1110,P1110,1109,dailychoice_biscuits_200g_var_1110,DailyChoice Biscuits 200g - Var 1110,0.7,images/P1110,1109
+L1111,P1111,1110,healthyo_frozen_food_item_1111,HealthyO Frozen Food Item 1111,0.7,images/P1111,1110
+L1112,P1112,1111,brandc_canned_food_item_1112,BrandC Canned Food Item 1112,0.7,images/P1112,1111
+L1113,P1113,1112,brandc_spices_item_1113,BrandC Spices Item 1113,0.7,images/P1113,1112
+L1114,P1114,1113,freshfarms_buns_4pcs_var_1114,FreshFarms Buns 4pcs - Var 1114,0.7,images/P1114,1113
+L1115,P1115,1114,naturebites_pasta_item_1115,NatureBites Pasta Item 1115,0.7,images/P1115,1114
+L1116,P1116,1115,cleanplus_potato_chips_50g_var_1116,CleanPlus Potato Chips 50g - Var 1116,0.7,images/P1116,1115
+L1117,P1117,1116,purelife_meat_item_1117,PureLife Meat Item 1117,0.7,images/P1117,1116
+L1118,P1118,1117,cleanplus_sauces_item_1118,CleanPlus Sauces Item 1118,0.7,images/P1118,1117
+L1119,P1119,1118,naturebites_canned_food_item_1119,NatureBites Canned Food Item 1119,0.7,images/P1119,1118
+L1120,P1120,1119,naturebites_buns_4pcs_var_1120,NatureBites Buns 4pcs - Var 1120,0.7,images/P1120,1119
+L1121,P1121,1120,naturebites_buns_4pcs_var_1121,NatureBites Buns 4pcs - Var 1121,0.7,images/P1121,1120
+L1122,P1122,1121,brandb_breakfast_item_1122,BrandB Breakfast Item 1122,0.7,images/P1122,1121
+L1123,P1123,1122,brandc_sauces_item_1123,BrandC Sauces Item 1123,0.7,images/P1123,1122
+L1124,P1124,1123,healthyo_breakfast_item_1124,HealthyO Breakfast Item 1124,0.7,images/P1124,1123
+L1125,P1125,1124,cleanplus_baby_products_item_1125,CleanPlus Baby Products Item 1125,0.7,images/P1125,1124
+L1126,P1126,1125,naturebites_seafood_item_1126,NatureBites Seafood Item 1126,0.7,images/P1126,1125
+L1127,P1127,1126,freshfarms_sauces_item_1127,FreshFarms Sauces Item 1127,0.7,images/P1127,1126
+L1128,P1128,1127,cleanplus_deodorant_150ml_var_1128,CleanPlus Deodorant 150ml - Var 1128,0.7,images/P1128,1127
+L1129,P1129,1128,cleanplus_meat_item_1129,CleanPlus Meat Item 1129,0.7,images/P1129,1128
+L1130,P1130,1129,purelife_seafood_item_1130,PureLife Seafood Item 1130,0.7,images/P1130,1129
+L1131,P1131,1130,naturebites_soft_drink_1.5l_var_1131,NatureBites Soft Drink 1.5L - Var 1131,0.7,images/P1131,1130
+L1132,P1132,1131,freshfarms_orange_1kg_var_1132,FreshFarms Orange 1kg - Var 1132,0.7,images/P1132,1131
+L1133,P1133,1132,glow_cheese_250g_var_1133,Glow Cheese 250g - Var 1133,0.7,images/P1133,1132
+L1134,P1134,1133,naturebites_laundry_detergent_1kg_var_1134,NatureBites Laundry Detergent 1kg - Var 1134,0.7,images/P1134,1133
+L1135,P1135,1134,freshfarms_frozen_food_item_1135,FreshFarms Frozen Food Item 1135,0.7,images/P1135,1134
+L1136,P1136,1135,brandb_baby_products_item_1136,BrandB Baby Products Item 1136,0.7,images/P1136,1135
+L1137,P1137,1136,branda_baby_products_item_1137,BrandA Baby Products Item 1137,0.7,images/P1137,1136
+L1138,P1138,1137,glow_breakfast_item_1138,Glow Breakfast Item 1138,0.7,images/P1138,1137
+L1139,P1139,1138,branda_meat_item_1139,BrandA Meat Item 1139,0.7,images/P1139,1138
+L1140,P1140,1139,healthyo_floor_cleaner_1l_var_1140,HealthyO Floor Cleaner 1L - Var 1140,0.7,images/P1140,1139
+L1141,P1141,1140,freshfarms_energy_drink_250ml_var_1141,FreshFarms Energy Drink 250ml - Var 1141,0.7,images/P1141,1140
+L1142,P1142,1141,brandb_pet_food_item_1142,BrandB Pet Food Item 1142,0.7,images/P1142,1141
+L1143,P1143,1142,branda_stationery_item_1143,BrandA Stationery Item 1143,0.7,images/P1143,1142
+L1144,P1144,1143,naturebites_frozen_food_item_1144,NatureBites Frozen Food Item 1144,0.7,images/P1144,1143
+L1145,P1145,1144,cleanplus_pasta_item_1145,CleanPlus Pasta Item 1145,0.7,images/P1145,1144
+L1146,P1146,1145,cleanplus_breakfast_item_1146,CleanPlus Breakfast Item 1146,0.7,images/P1146,1145
+L1147,P1147,1146,healthyo_pasta_item_1147,HealthyO Pasta Item 1147,0.7,images/P1147,1146
+L1148,P1148,1147,brandb_yogurt_80g_var_1148,BrandB Yogurt 80g - Var 1148,0.7,images/P1148,1147
+L1149,P1149,1148,healthyo_sauces_item_1149,HealthyO Sauces Item 1149,0.7,images/P1149,1148
+L1150,P1150,1149,purelife_onion_1kg_var_1150,PureLife Onion 1kg - Var 1150,0.7,images/P1150,1149
+L1151,P1151,1150,healthyo_soap_100g_var_1151,HealthyO Soap 100g - Var 1151,0.7,images/P1151,1150
+L1152,P1152,1151,brandb_pasta_item_1152,BrandB Pasta Item 1152,0.7,images/P1152,1151
+L1153,P1153,1152,cleanplus_energy_drink_250ml_var_1153,CleanPlus Energy Drink 250ml - Var 1153,0.7,images/P1153,1152
+L1154,P1154,1153,cleanplus_water_1l_var_1154,CleanPlus Water 1L - Var 1154,0.7,images/P1154,1153
+L1155,P1155,1154,dailychoice_sauces_item_1155,DailyChoice Sauces Item 1155,0.7,images/P1155,1154
+L1156,P1156,1155,cleanplus_household_item_1156,CleanPlus Household Item 1156,0.7,images/P1156,1155
+L1157,P1157,1156,dailychoice_meat_item_1157,DailyChoice Meat Item 1157,0.7,images/P1157,1156
+L1158,P1158,1157,dailychoice_baby_products_item_1158,DailyChoice Baby Products Item 1158,0.7,images/P1158,1157
+L1159,P1159,1158,brandb_pasta_item_1159,BrandB Pasta Item 1159,0.7,images/P1159,1158
+L1160,P1160,1159,glow_grapes_500g_var_1160,Glow Grapes 500g - Var 1160,0.7,images/P1160,1159
+L1161,P1161,1160,dailychoice_spices_item_1161,DailyChoice Spices Item 1161,0.7,images/P1161,1160
+L1162,P1162,1161,dailychoice_household_item_1162,DailyChoice Household Item 1162,0.7,images/P1162,1161
+L1163,P1163,1162,freshfarms_frozen_food_item_1163,FreshFarms Frozen Food Item 1163,0.7,images/P1163,1162
+L1164,P1164,1163,brandb_meat_item_1164,BrandB Meat Item 1164,0.7,images/P1164,1163
+L1165,P1165,1164,glow_bread_500g_var_1165,Glow Bread 500g - Var 1165,0.7,images/P1165,1164
+L1166,P1166,1165,naturebites_stationery_item_1166,NatureBites Stationery Item 1166,0.7,images/P1166,1165
+L1167,P1167,1166,brandc_seafood_item_1167,BrandC Seafood Item 1167,0.7,images/P1167,1166
+L1168,P1168,1167,freshfarms_canned_food_item_1168,FreshFarms Canned Food Item 1168,0.7,images/P1168,1167
+L1169,P1169,1168,purelife_canned_food_item_1169,PureLife Canned Food Item 1169,0.7,images/P1169,1168
+L1170,P1170,1169,cleanplus_orange_1kg_var_1170,CleanPlus Orange 1kg - Var 1170,0.7,images/P1170,1169
+L1171,P1171,1170,glow_meat_item_1171,Glow Meat Item 1171,0.7,images/P1171,1170
+L1172,P1172,1171,freshfarms_household_item_1172,FreshFarms Household Item 1172,0.7,images/P1172,1171
+L1173,P1173,1172,freshfarms_tomato_500g_var_1173,FreshFarms Tomato 500g - Var 1173,0.7,images/P1173,1172
+L1174,P1174,1173,purelife_seafood_item_1174,PureLife Seafood Item 1174,0.7,images/P1174,1173
+L1175,P1175,1174,dailychoice_frozen_food_item_1175,DailyChoice Frozen Food Item 1175,0.7,images/P1175,1174
+L1176,P1176,1175,purelife_sauces_item_1176,PureLife Sauces Item 1176,0.7,images/P1176,1175
+L1177,P1177,1176,branda_canned_food_item_1177,BrandA Canned Food Item 1177,0.7,images/P1177,1176
+L1178,P1178,1177,brandc_sauces_item_1178,BrandC Sauces Item 1178,0.7,images/P1178,1177
+L1179,P1179,1178,brandc_buns_4pcs_var_1179,BrandC Buns 4pcs - Var 1179,0.7,images/P1179,1178
+L1180,P1180,1179,brandb_frozen_food_item_1180,BrandB Frozen Food Item 1180,0.7,images/P1180,1179
+L1181,P1181,1180,brandc_frozen_food_item_1181,BrandC Frozen Food Item 1181,0.7,images/P1181,1180
+L1182,P1182,1181,purelife_pet_food_item_1182,PureLife Pet Food Item 1182,0.7,images/P1182,1181
+L1183,P1183,1182,cleanplus_breakfast_item_1183,CleanPlus Breakfast Item 1183,0.7,images/P1183,1182
+L1184,P1184,1183,brandb_yogurt_80g_var_1184,BrandB Yogurt 80g - Var 1184,0.7,images/P1184,1183
+L1185,P1185,1184,purelife_spices_item_1185,PureLife Spices Item 1185,0.7,images/P1185,1184
+L1186,P1186,1185,dailychoice_spices_item_1186,DailyChoice Spices Item 1186,0.7,images/P1186,1185
+L1187,P1187,1186,branda_canned_food_item_1187,BrandA Canned Food Item 1187,0.7,images/P1187,1186
+L1188,P1188,1187,cleanplus_household_item_1188,CleanPlus Household Item 1188,0.7,images/P1188,1187
+L1189,P1189,1188,healthyo_cake_1kg_var_1189,HealthyO Cake 1kg - Var 1189,0.7,images/P1189,1188
+L1190,P1190,1189,glow_grapes_500g_var_1190,Glow Grapes 500g - Var 1190,0.7,images/P1190,1189
+L1191,P1191,1190,dailychoice_soap_100g_var_1191,DailyChoice Soap 100g - Var 1191,0.7,images/P1191,1190
+L1192,P1192,1191,purelife_pet_food_item_1192,PureLife Pet Food Item 1192,0.7,images/P1192,1191
+L1193,P1193,1192,brandc_stationery_item_1193,BrandC Stationery Item 1193,0.7,images/P1193,1192
+L1194,P1194,1193,brandb_household_item_1194,BrandB Household Item 1194,0.7,images/P1194,1193
+L1195,P1195,1194,healthyo_grapes_500g_var_1195,HealthyO Grapes 500g - Var 1195,0.7,images/P1195,1194
+L1196,P1196,1195,brandc_chocolate_100g_var_1196,BrandC Chocolate 100g - Var 1196,0.7,images/P1196,1195
+L1197,P1197,1196,dailychoice_potato_1kg_var_1197,DailyChoice Potato 1kg - Var 1197,0.7,images/P1197,1196
+L1198,P1198,1197,purelife_sauces_item_1198,PureLife Sauces Item 1198,0.7,images/P1198,1197
+L1199,P1199,1198,brandc_dhal_1kg_var_1199,BrandC Dhal 1kg - Var 1199,0.7,images/P1199,1198
+L1200,P1200,1199,branda_pasta_item_1200,BrandA Pasta Item 1200,0.7,images/P1200,1199
+L1201,P1201,1200,brandb_baby_products_item_1201,BrandB Baby Products Item 1201,0.7,images/P1201,1200
+L1202,P1202,1201,glow_biscuits_200g_var_1202,Glow Biscuits 200g - Var 1202,0.7,images/P1202,1201
+L1203,P1203,1202,branda_breakfast_item_1203,BrandA Breakfast Item 1203,0.7,images/P1203,1202
+L1204,P1204,1203,cleanplus_biscuits_200g_var_1204,CleanPlus Biscuits 200g - Var 1204,0.7,images/P1204,1203
+L1205,P1205,1204,glow_breakfast_item_1205,Glow Breakfast Item 1205,0.7,images/P1205,1204
+L1206,P1206,1205,glow_meat_item_1206,Glow Meat Item 1206,0.7,images/P1206,1205
+L1207,P1207,1206,cleanplus_nuts_100g_var_1207,CleanPlus Nuts 100g - Var 1207,0.7,images/P1207,1206
+L1208,P1208,1207,freshfarms_sauces_item_1208,FreshFarms Sauces Item 1208,0.7,images/P1208,1207
+L1209,P1209,1208,glow_canned_food_item_1209,Glow Canned Food Item 1209,0.7,images/P1209,1208
+L1210,P1210,1209,dailychoice_frozen_food_item_1210,DailyChoice Frozen Food Item 1210,0.7,images/P1210,1209
+L1211,P1211,1210,healthyo_chocolate_100g_var_1211,HealthyO Chocolate 100g - Var 1211,0.7,images/P1211,1210
+L1212,P1212,1211,purelife_basmati_rice_1kg_var_1212,PureLife Basmati Rice 1kg - Var 1212,0.7,images/P1212,1211
+L1213,P1213,1212,brandb_pasta_item_1213,BrandB Pasta Item 1213,0.7,images/P1213,1212
+L1214,P1214,1213,brandc_biscuits_200g_var_1214,BrandC Biscuits 200g - Var 1214,0.7,images/P1214,1213
+L1215,P1215,1214,dailychoice_frozen_food_item_1215,DailyChoice Frozen Food Item 1215,0.7,images/P1215,1214
+L1216,P1216,1215,healthyo_juice_1l_var_1216,HealthyO Juice 1L - Var 1216,0.7,images/P1216,1215
+L1217,P1217,1216,naturebites_household_item_1217,NatureBites Household Item 1217,0.7,images/P1217,1216
+L1218,P1218,1217,glow_soft_drink_1.5l_var_1218,Glow Soft Drink 1.5L - Var 1218,0.7,images/P1218,1217
+L1219,P1219,1218,brandc_chocolate_100g_var_1219,BrandC Chocolate 100g - Var 1219,0.7,images/P1219,1218
+L1220,P1220,1219,cleanplus_potato_1kg_var_1220,CleanPlus Potato 1kg - Var 1220,0.7,images/P1220,1219
+L1221,P1221,1220,brandb_red_rice_1kg_var_1221,BrandB Red Rice 1kg - Var 1221,0.7,images/P1221,1220
+L1222,P1222,1221,purelife_meat_item_1222,PureLife Meat Item 1222,0.7,images/P1222,1221
+L1223,P1223,1222,purelife_white_rice_1kg_var_1223,PureLife White Rice 1kg - Var 1223,0.7,images/P1223,1222
+L1224,P1224,1223,freshfarms_floor_cleaner_1l_var_1224,FreshFarms Floor Cleaner 1L - Var 1224,0.7,images/P1224,1223
+L1225,P1225,1224,freshfarms_buns_4pcs_var_1225,FreshFarms Buns 4pcs - Var 1225,0.7,images/P1225,1224
+L1226,P1226,1225,cleanplus_pasta_item_1226,CleanPlus Pasta Item 1226,0.7,images/P1226,1225
+L1227,P1227,1226,cleanplus_toothpaste_120g_var_1227,CleanPlus Toothpaste 120g - Var 1227,0.7,images/P1227,1226
+L1228,P1228,1227,brandb_tomato_500g_var_1228,BrandB Tomato 500g - Var 1228,0.7,images/P1228,1227
+L1229,P1229,1228,healthyo_potato_1kg_var_1229,HealthyO Potato 1kg - Var 1229,0.7,images/P1229,1228
+L1230,P1230,1229,freshfarms_potato_1kg_var_1230,FreshFarms Potato 1kg - Var 1230,0.7,images/P1230,1229
+L1231,P1231,1230,brandb_seafood_item_1231,BrandB Seafood Item 1231,0.7,images/P1231,1230
+L1232,P1232,1231,dailychoice_croissant_2pcs_var_1232,DailyChoice Croissant 2pcs - Var 1232,0.7,images/P1232,1231
+L1233,P1233,1232,cleanplus_dishwashing_liquid_500ml_var_1233,CleanPlus Dishwashing Liquid 500ml - Var 1233,0.7,images/P1233,1232
+L1234,P1234,1233,purelife_household_item_1234,PureLife Household Item 1234,0.7,images/P1234,1233
+L1235,P1235,1234,purelife_baby_products_item_1235,PureLife Baby Products Item 1235,0.7,images/P1235,1234
+L1236,P1236,1235,naturebites_energy_drink_250ml_var_1236,NatureBites Energy Drink 250ml - Var 1236,0.7,images/P1236,1235
+L1237,P1237,1236,cleanplus_banana_1kg_var_1237,CleanPlus Banana 1kg - Var 1237,0.7,images/P1237,1236
+L1238,P1238,1237,brandb_potato_1kg_var_1238,BrandB Potato 1kg - Var 1238,0.7,images/P1238,1237
+L1239,P1239,1238,cleanplus_household_item_1239,CleanPlus Household Item 1239,0.7,images/P1239,1238
+L1240,P1240,1239,brandc_canned_food_item_1240,BrandC Canned Food Item 1240,0.7,images/P1240,1239
+L1241,P1241,1240,healthyo_potato_chips_50g_var_1241,HealthyO Potato Chips 50g - Var 1241,0.7,images/P1241,1240
+L1242,P1242,1241,branda_spices_item_1242,BrandA Spices Item 1242,0.7,images/P1242,1241
+L1243,P1243,1242,purelife_soap_100g_var_1243,PureLife Soap 100g - Var 1243,0.7,images/P1243,1242
+L1244,P1244,1243,brandc_spices_item_1244,BrandC Spices Item 1244,0.7,images/P1244,1243
+L1245,P1245,1244,naturebites_stationery_item_1245,NatureBites Stationery Item 1245,0.7,images/P1245,1244
+L1246,P1246,1245,purelife_canned_food_item_1246,PureLife Canned Food Item 1246,0.7,images/P1246,1245
+L1247,P1247,1246,brandb_grapes_500g_var_1247,BrandB Grapes 500g - Var 1247,0.7,images/P1247,1246
+L1248,P1248,1247,cleanplus_pet_food_item_1248,CleanPlus Pet Food Item 1248,0.7,images/P1248,1247
+L1249,P1249,1248,brandb_spices_item_1249,BrandB Spices Item 1249,0.7,images/P1249,1248
+L1250,P1250,1249,brandc_floor_cleaner_1l_var_1250,BrandC Floor Cleaner 1L - Var 1250,0.7,images/P1250,1249
+L1251,P1251,1250,healthyo_household_item_1251,HealthyO Household Item 1251,0.7,images/P1251,1250
+L1252,P1252,1251,brandb_spices_item_1252,BrandB Spices Item 1252,0.7,images/P1252,1251
+L1253,P1253,1252,branda_white_rice_1kg_var_1253,BrandA White Rice 1kg - Var 1253,0.7,images/P1253,1252
+L1254,P1254,1253,naturebites_potato_chips_50g_var_1254,NatureBites Potato Chips 50g - Var 1254,0.7,images/P1254,1253
+L1255,P1255,1254,healthyo_chocolate_100g_var_1255,HealthyO Chocolate 100g - Var 1255,0.7,images/P1255,1254
+L1256,P1256,1255,cleanplus_croissant_2pcs_var_1256,CleanPlus Croissant 2pcs - Var 1256,0.7,images/P1256,1255
+L1257,P1257,1256,brandc_breakfast_item_1257,BrandC Breakfast Item 1257,0.7,images/P1257,1256
+L1258,P1258,1257,healthyo_dhal_1kg_var_1258,HealthyO Dhal 1kg - Var 1258,0.7,images/P1258,1257
+L1259,P1259,1258,cleanplus_frozen_food_item_1259,CleanPlus Frozen Food Item 1259,0.7,images/P1259,1258
+L1260,P1260,1259,purelife_sauces_item_1260,PureLife Sauces Item 1260,0.7,images/P1260,1259
+L1261,P1261,1260,brandb_shampoo_200ml_var_1261,BrandB Shampoo 200ml - Var 1261,0.7,images/P1261,1260
+L1262,P1262,1261,branda_pasta_item_1262,BrandA Pasta Item 1262,0.7,images/P1262,1261
+L1263,P1263,1262,dailychoice_soap_100g_var_1263,DailyChoice Soap 100g - Var 1263,0.7,images/P1263,1262
+L1264,P1264,1263,healthyo_household_item_1264,HealthyO Household Item 1264,0.7,images/P1264,1263
+L1265,P1265,1264,healthyo_frozen_food_item_1265,HealthyO Frozen Food Item 1265,0.7,images/P1265,1264
+L1266,P1266,1265,glow_pasta_item_1266,Glow Pasta Item 1266,0.7,images/P1266,1265
+L1267,P1267,1266,brandb_pasta_item_1267,BrandB Pasta Item 1267,0.7,images/P1267,1266
+L1268,P1268,1267,purelife_breakfast_item_1268,PureLife Breakfast Item 1268,0.7,images/P1268,1267
+L1269,P1269,1268,dailychoice_carrot_500g_var_1269,DailyChoice Carrot 500g - Var 1269,0.7,images/P1269,1268
+L1270,P1270,1269,glow_yogurt_80g_var_1270,Glow Yogurt 80g - Var 1270,0.7,images/P1270,1269
+L1271,P1271,1270,cleanplus_seafood_item_1271,CleanPlus Seafood Item 1271,0.7,images/P1271,1270
+L1272,P1272,1271,cleanplus_juice_1l_var_1272,CleanPlus Juice 1L - Var 1272,0.7,images/P1272,1271
+L1273,P1273,1272,cleanplus_grapes_500g_var_1273,CleanPlus Grapes 500g - Var 1273,0.7,images/P1273,1272
+L1274,P1274,1273,purelife_pasta_item_1274,PureLife Pasta Item 1274,0.7,images/P1274,1273
+L1275,P1275,1274,branda_seafood_item_1275,BrandA Seafood Item 1275,0.7,images/P1275,1274
+L1276,P1276,1275,glow_dhal_1kg_var_1276,Glow Dhal 1kg - Var 1276,0.7,images/P1276,1275
+L1277,P1277,1276,brandb_breakfast_item_1277,BrandB Breakfast Item 1277,0.7,images/P1277,1276
+L1278,P1278,1277,naturebites_meat_item_1278,NatureBites Meat Item 1278,0.7,images/P1278,1277
+L1279,P1279,1278,glow_butter_200g_var_1279,Glow Butter 200g - Var 1279,0.7,images/P1279,1278
+L1280,P1280,1279,healthyo_cake_1kg_var_1280,HealthyO Cake 1kg - Var 1280,0.7,images/P1280,1279
+L1281,P1281,1280,brandb_tomato_500g_var_1281,BrandB Tomato 500g - Var 1281,0.7,images/P1281,1280
+L1282,P1282,1281,freshfarms_sauces_item_1282,FreshFarms Sauces Item 1282,0.7,images/P1282,1281
+L1283,P1283,1282,brandb_canned_food_item_1283,BrandB Canned Food Item 1283,0.7,images/P1283,1282
+L1284,P1284,1283,purelife_basmati_rice_1kg_var_1284,PureLife Basmati Rice 1kg - Var 1284,0.7,images/P1284,1283
+L1285,P1285,1284,brandb_stationery_item_1285,BrandB Stationery Item 1285,0.7,images/P1285,1284
+L1286,P1286,1285,cleanplus_frozen_food_item_1286,CleanPlus Frozen Food Item 1286,0.7,images/P1286,1285
+L1287,P1287,1286,glow_onion_1kg_var_1287,Glow Onion 1kg - Var 1287,0.7,images/P1287,1286
+L1288,P1288,1287,branda_frozen_food_item_1288,BrandA Frozen Food Item 1288,0.7,images/P1288,1287
+L1289,P1289,1288,dailychoice_canned_food_item_1289,DailyChoice Canned Food Item 1289,0.7,images/P1289,1288
+L1290,P1290,1289,purelife_seafood_item_1290,PureLife Seafood Item 1290,0.7,images/P1290,1289
+L1291,P1291,1290,glow_meat_item_1291,Glow Meat Item 1291,0.7,images/P1291,1290
+L1292,P1292,1291,healthyo_juice_1l_var_1292,HealthyO Juice 1L - Var 1292,0.7,images/P1292,1291
+L1293,P1293,1292,brandb_canned_food_item_1293,BrandB Canned Food Item 1293,0.7,images/P1293,1292
+L1294,P1294,1293,branda_spices_item_1294,BrandA Spices Item 1294,0.7,images/P1294,1293
+L1295,P1295,1294,glow_spices_item_1295,Glow Spices Item 1295,0.7,images/P1295,1294
+L1296,P1296,1295,branda_sauces_item_1296,BrandA Sauces Item 1296,0.7,images/P1296,1295
+L1297,P1297,1296,freshfarms_floor_cleaner_1l_var_1297,FreshFarms Floor Cleaner 1L - Var 1297,0.7,images/P1297,1296
+L1298,P1298,1297,naturebites_pasta_item_1298,NatureBites Pasta Item 1298,0.7,images/P1298,1297
+L1299,P1299,1298,healthyo_butter_200g_var_1299,HealthyO Butter 200g - Var 1299,0.7,images/P1299,1298
+L1300,P1300,1299,purelife_sauces_item_1300,PureLife Sauces Item 1300,0.7,images/P1300,1299
+L1301,P1301,1300,branda_pasta_item_1301,BrandA Pasta Item 1301,0.7,images/P1301,1300
+L1302,P1302,1301,branda_orange_1kg_var_1302,BrandA Orange 1kg - Var 1302,0.7,images/P1302,1301
+L1303,P1303,1302,branda_spices_item_1303,BrandA Spices Item 1303,0.7,images/P1303,1302
+L1304,P1304,1303,brandc_spices_item_1304,BrandC Spices Item 1304,0.7,images/P1304,1303
+L1305,P1305,1304,purelife_seafood_item_1305,PureLife Seafood Item 1305,0.7,images/P1305,1304
+L1306,P1306,1305,healthyo_household_item_1306,HealthyO Household Item 1306,0.7,images/P1306,1305
+L1307,P1307,1306,cleanplus_canned_food_item_1307,CleanPlus Canned Food Item 1307,0.7,images/P1307,1306
+L1308,P1308,1307,dailychoice_breakfast_item_1308,DailyChoice Breakfast Item 1308,0.7,images/P1308,1307
+L1309,P1309,1308,branda_pasta_item_1309,BrandA Pasta Item 1309,0.7,images/P1309,1308
+L1310,P1310,1309,cleanplus_soft_drink_1.5l_var_1310,CleanPlus Soft Drink 1.5L - Var 1310,0.7,images/P1310,1309
+L1311,P1311,1310,branda_potato_chips_50g_var_1311,BrandA Potato Chips 50g - Var 1311,0.7,images/P1311,1310
+L1312,P1312,1311,branda_milk_1l_var_1312,BrandA Milk 1L - Var 1312,0.7,images/P1312,1311
+L1313,P1313,1312,branda_apple_1kg_var_1313,BrandA Apple 1kg - Var 1313,0.7,images/P1313,1312
+L1314,P1314,1313,dailychoice_juice_1l_var_1314,DailyChoice Juice 1L - Var 1314,0.7,images/P1314,1313
+L1315,P1315,1314,glow_pasta_item_1315,Glow Pasta Item 1315,0.7,images/P1315,1314
+L1316,P1316,1315,brandb_pet_food_item_1316,BrandB Pet Food Item 1316,0.7,images/P1316,1315
+L1317,P1317,1316,brandc_sauces_item_1317,BrandC Sauces Item 1317,0.7,images/P1317,1316
+L1318,P1318,1317,freshfarms_white_rice_1kg_var_1318,FreshFarms White Rice 1kg - Var 1318,0.7,images/P1318,1317
+L1319,P1319,1318,brandb_breakfast_item_1319,BrandB Breakfast Item 1319,0.7,images/P1319,1318
+L1320,P1320,1319,branda_biscuits_200g_var_1320,BrandA Biscuits 200g - Var 1320,0.7,images/P1320,1319
+L1321,P1321,1320,healthyo_sauces_item_1321,HealthyO Sauces Item 1321,0.7,images/P1321,1320
+L1322,P1322,1321,purelife_seafood_item_1322,PureLife Seafood Item 1322,0.7,images/P1322,1321
+L1323,P1323,1322,brandc_white_rice_1kg_var_1323,BrandC White Rice 1kg - Var 1323,0.7,images/P1323,1322
+L1324,P1324,1323,purelife_energy_drink_250ml_var_1324,PureLife Energy Drink 250ml - Var 1324,0.7,images/P1324,1323
+L1325,P1325,1324,glow_pasta_item_1325,Glow Pasta Item 1325,0.7,images/P1325,1324
+L1326,P1326,1325,brandc_stationery_item_1326,BrandC Stationery Item 1326,0.7,images/P1326,1325
+L1327,P1327,1326,dailychoice_spices_item_1327,DailyChoice Spices Item 1327,0.7,images/P1327,1326
+L1328,P1328,1327,freshfarms_sauces_item_1328,FreshFarms Sauces Item 1328,0.7,images/P1328,1327
+L1329,P1329,1328,brandc_yogurt_80g_var_1329,BrandC Yogurt 80g - Var 1329,0.7,images/P1329,1328
+L1330,P1330,1329,purelife_seafood_item_1330,PureLife Seafood Item 1330,0.7,images/P1330,1329
+L1331,P1331,1330,brandc_frozen_food_item_1331,BrandC Frozen Food Item 1331,0.7,images/P1331,1330
+L1332,P1332,1331,brandb_seafood_item_1332,BrandB Seafood Item 1332,0.7,images/P1332,1331
+L1333,P1333,1332,brandb_seafood_item_1333,BrandB Seafood Item 1333,0.7,images/P1333,1332
+L1334,P1334,1333,brandc_dhal_1kg_var_1334,BrandC Dhal 1kg - Var 1334,0.7,images/P1334,1333
+L1335,P1335,1334,glow_breakfast_item_1335,Glow Breakfast Item 1335,0.7,images/P1335,1334
+L1336,P1336,1335,healthyo_pet_food_item_1336,HealthyO Pet Food Item 1336,0.7,images/P1336,1335
+L1337,P1337,1336,purelife_baby_products_item_1337,PureLife Baby Products Item 1337,0.7,images/P1337,1336
+L1338,P1338,1337,brandc_grapes_500g_var_1338,BrandC Grapes 500g - Var 1338,0.7,images/P1338,1337
+L1339,P1339,1338,brandc_frozen_food_item_1339,BrandC Frozen Food Item 1339,0.7,images/P1339,1338
+L1340,P1340,1339,cleanplus_pet_food_item_1340,CleanPlus Pet Food Item 1340,0.7,images/P1340,1339
+L1341,P1341,1340,glow_biscuits_200g_var_1341,Glow Biscuits 200g - Var 1341,0.7,images/P1341,1340
+L1342,P1342,1341,brandc_cheese_250g_var_1342,BrandC Cheese 250g - Var 1342,0.7,images/P1342,1341
+L1343,P1343,1342,purelife_stationery_item_1343,PureLife Stationery Item 1343,0.7,images/P1343,1342
+L1344,P1344,1343,healthyo_soft_drink_1.5l_var_1344,HealthyO Soft Drink 1.5L - Var 1344,0.7,images/P1344,1343
+L1345,P1345,1344,purelife_meat_item_1345,PureLife Meat Item 1345,0.7,images/P1345,1344
+L1346,P1346,1345,glow_sauces_item_1346,Glow Sauces Item 1346,0.7,images/P1346,1345
+L1347,P1347,1346,naturebites_sauces_item_1347,NatureBites Sauces Item 1347,0.7,images/P1347,1346
+L1348,P1348,1347,dailychoice_potato_1kg_var_1348,DailyChoice Potato 1kg - Var 1348,0.7,images/P1348,1347
+L1349,P1349,1348,brandc_canned_food_item_1349,BrandC Canned Food Item 1349,0.7,images/P1349,1348
+L1350,P1350,1349,cleanplus_seafood_item_1350,CleanPlus Seafood Item 1350,0.7,images/P1350,1349
+L1351,P1351,1350,brandb_dhal_1kg_var_1351,BrandB Dhal 1kg - Var 1351,0.7,images/P1351,1350
+L1352,P1352,1351,dailychoice_spices_item_1352,DailyChoice Spices Item 1352,0.7,images/P1352,1351
+L1353,P1353,1352,purelife_pasta_item_1353,PureLife Pasta Item 1353,0.7,images/P1353,1352
+L1354,P1354,1353,dailychoice_baby_products_item_1354,DailyChoice Baby Products Item 1354,0.7,images/P1354,1353
+L1355,P1355,1354,glow_dishwashing_liquid_500ml_var_1355,Glow Dishwashing Liquid 500ml - Var 1355,0.7,images/P1355,1354
+L1356,P1356,1355,naturebites_baby_products_item_1356,NatureBites Baby Products Item 1356,0.7,images/P1356,1355
+L1357,P1357,1356,purelife_sauces_item_1357,PureLife Sauces Item 1357,0.7,images/P1357,1356
+L1358,P1358,1357,brandc_spices_item_1358,BrandC Spices Item 1358,0.7,images/P1358,1357
+L1359,P1359,1358,dailychoice_energy_drink_250ml_var_1359,DailyChoice Energy Drink 250ml - Var 1359,0.7,images/P1359,1358
+L1360,P1360,1359,dailychoice_baby_products_item_1360,DailyChoice Baby Products Item 1360,0.7,images/P1360,1359
+L1361,P1361,1360,glow_deodorant_150ml_var_1361,Glow Deodorant 150ml - Var 1361,0.7,images/P1361,1360
+L1362,P1362,1361,brandb_canned_food_item_1362,BrandB Canned Food Item 1362,0.7,images/P1362,1361
+L1363,P1363,1362,healthyo_white_rice_1kg_var_1363,HealthyO White Rice 1kg - Var 1363,0.7,images/P1363,1362
+L1364,P1364,1363,dailychoice_cake_1kg_var_1364,DailyChoice Cake 1kg - Var 1364,0.7,images/P1364,1363
+L1365,P1365,1364,brandc_toothpaste_120g_var_1365,BrandC Toothpaste 120g - Var 1365,0.7,images/P1365,1364
+L1366,P1366,1365,purelife_household_item_1366,PureLife Household Item 1366,0.7,images/P1366,1365
+L1367,P1367,1366,brandb_pasta_item_1367,BrandB Pasta Item 1367,0.7,images/P1367,1366
+L1368,P1368,1367,dailychoice_seafood_item_1368,DailyChoice Seafood Item 1368,0.7,images/P1368,1367
+L1369,P1369,1368,brandb_butter_200g_var_1369,BrandB Butter 200g - Var 1369,0.7,images/P1369,1368
+L1370,P1370,1369,branda_meat_item_1370,BrandA Meat Item 1370,0.7,images/P1370,1369
+L1371,P1371,1370,naturebites_chocolate_100g_var_1371,NatureBites Chocolate 100g - Var 1371,0.7,images/P1371,1370
+L1372,P1372,1371,healthyo_pet_food_item_1372,HealthyO Pet Food Item 1372,0.7,images/P1372,1371
+L1373,P1373,1372,freshfarms_stationery_item_1373,FreshFarms Stationery Item 1373,0.7,images/P1373,1372
+L1374,P1374,1373,branda_seafood_item_1374,BrandA Seafood Item 1374,0.7,images/P1374,1373
+L1375,P1375,1374,cleanplus_pet_food_item_1375,CleanPlus Pet Food Item 1375,0.7,images/P1375,1374
+L1376,P1376,1375,cleanplus_nuts_100g_var_1376,CleanPlus Nuts 100g - Var 1376,0.7,images/P1376,1375
+L1377,P1377,1376,cleanplus_spices_item_1377,CleanPlus Spices Item 1377,0.7,images/P1377,1376
+L1378,P1378,1377,branda_soft_drink_1.5l_var_1378,BrandA Soft Drink 1.5L - Var 1378,0.7,images/P1378,1377
+L1379,P1379,1378,brandb_stationery_item_1379,BrandB Stationery Item 1379,0.7,images/P1379,1378
+L1380,P1380,1379,freshfarms_potato_1kg_var_1380,FreshFarms Potato 1kg - Var 1380,0.7,images/P1380,1379
+L1381,P1381,1380,brandb_nuts_100g_var_1381,BrandB Nuts 100g - Var 1381,0.7,images/P1381,1380
+L1382,P1382,1381,naturebites_butter_200g_var_1382,NatureBites Butter 200g - Var 1382,0.7,images/P1382,1381
+L1383,P1383,1382,branda_potato_1kg_var_1383,BrandA Potato 1kg - Var 1383,0.7,images/P1383,1382
+L1384,P1384,1383,glow_white_rice_1kg_var_1384,Glow White Rice 1kg - Var 1384,0.7,images/P1384,1383
+L1385,P1385,1384,freshfarms_spices_item_1385,FreshFarms Spices Item 1385,0.7,images/P1385,1384
+L1386,P1386,1385,brandc_pet_food_item_1386,BrandC Pet Food Item 1386,0.7,images/P1386,1385
+L1387,P1387,1386,healthyo_biscuits_200g_var_1387,HealthyO Biscuits 200g - Var 1387,0.7,images/P1387,1386
+L1388,P1388,1387,glow_spices_item_1388,Glow Spices Item 1388,0.7,images/P1388,1387
+L1389,P1389,1388,brandc_pet_food_item_1389,BrandC Pet Food Item 1389,0.7,images/P1389,1388
+L1390,P1390,1389,brandc_baby_products_item_1390,BrandC Baby Products Item 1390,0.7,images/P1390,1389
+L1391,P1391,1390,branda_household_item_1391,BrandA Household Item 1391,0.7,images/P1391,1390
+L1392,P1392,1391,brandb_biscuits_200g_var_1392,BrandB Biscuits 200g - Var 1392,0.7,images/P1392,1391
+L1393,P1393,1392,glow_energy_drink_250ml_var_1393,Glow Energy Drink 250ml - Var 1393,0.7,images/P1393,1392
+L1394,P1394,1393,dailychoice_milk_1l_var_1394,DailyChoice Milk 1L - Var 1394,0.7,images/P1394,1393
+L1395,P1395,1394,dailychoice_household_item_1395,DailyChoice Household Item 1395,0.7,images/P1395,1394
+L1396,P1396,1395,brandb_dishwashing_liquid_500ml_var_1396,BrandB Dishwashing Liquid 500ml - Var 1396,0.7,images/P1396,1395
+L1397,P1397,1396,purelife_pasta_item_1397,PureLife Pasta Item 1397,0.7,images/P1397,1396
+L1398,P1398,1397,brandc_sauces_item_1398,BrandC Sauces Item 1398,0.7,images/P1398,1397
+L1399,P1399,1398,brandc_basmati_rice_1kg_var_1399,BrandC Basmati Rice 1kg - Var 1399,0.7,images/P1399,1398
+L1400,P1400,1399,dailychoice_water_1l_var_1400,DailyChoice Water 1L - Var 1400,0.7,images/P1400,1399
+L1401,P1401,1400,brandc_canned_food_item_1401,BrandC Canned Food Item 1401,0.7,images/P1401,1400
+L1402,P1402,1401,dailychoice_pasta_item_1402,DailyChoice Pasta Item 1402,0.7,images/P1402,1401
+L1403,P1403,1402,healthyo_stationery_item_1403,HealthyO Stationery Item 1403,0.7,images/P1403,1402
+L1404,P1404,1403,dailychoice_pet_food_item_1404,DailyChoice Pet Food Item 1404,0.7,images/P1404,1403
+L1405,P1405,1404,cleanplus_onion_1kg_var_1405,CleanPlus Onion 1kg - Var 1405,0.7,images/P1405,1404
+L1406,P1406,1405,freshfarms_toothpaste_120g_var_1406,FreshFarms Toothpaste 120g - Var 1406,0.7,images/P1406,1405
+L1407,P1407,1406,glow_seafood_item_1407,Glow Seafood Item 1407,0.7,images/P1407,1406
+L1408,P1408,1407,healthyo_canned_food_item_1408,HealthyO Canned Food Item 1408,0.7,images/P1408,1407
+L1409,P1409,1408,naturebites_stationery_item_1409,NatureBites Stationery Item 1409,0.7,images/P1409,1408
+L1410,P1410,1409,cleanplus_floor_cleaner_1l_var_1410,CleanPlus Floor Cleaner 1L - Var 1410,0.7,images/P1410,1409
+L1411,P1411,1410,branda_cake_1kg_var_1411,BrandA Cake 1kg - Var 1411,0.7,images/P1411,1410
+L1412,P1412,1411,healthyo_baby_products_item_1412,HealthyO Baby Products Item 1412,0.7,images/P1412,1411
+L1413,P1413,1412,dailychoice_milk_1l_var_1413,DailyChoice Milk 1L - Var 1413,0.7,images/P1413,1412
+L1414,P1414,1413,glow_bread_500g_var_1414,Glow Bread 500g - Var 1414,0.7,images/P1414,1413
+L1415,P1415,1414,purelife_chocolate_100g_var_1415,PureLife Chocolate 100g - Var 1415,0.7,images/P1415,1414
+L1416,P1416,1415,dailychoice_water_1l_var_1416,DailyChoice Water 1L - Var 1416,0.7,images/P1416,1415
+L1417,P1417,1416,brandb_baby_products_item_1417,BrandB Baby Products Item 1417,0.7,images/P1417,1416
+L1418,P1418,1417,cleanplus_white_rice_1kg_var_1418,CleanPlus White Rice 1kg - Var 1418,0.7,images/P1418,1417
+L1419,P1419,1418,branda_seafood_item_1419,BrandA Seafood Item 1419,0.7,images/P1419,1418
+L1420,P1420,1419,glow_onion_1kg_var_1420,Glow Onion 1kg - Var 1420,0.7,images/P1420,1419
+L1421,P1421,1420,healthyo_banana_1kg_var_1421,HealthyO Banana 1kg - Var 1421,0.7,images/P1421,1420
+L1422,P1422,1421,dailychoice_dhal_1kg_var_1422,DailyChoice Dhal 1kg - Var 1422,0.7,images/P1422,1421
+L1423,P1423,1422,dailychoice_floor_cleaner_1l_var_1423,DailyChoice Floor Cleaner 1L - Var 1423,0.7,images/P1423,1422
+L1424,P1424,1423,purelife_frozen_food_item_1424,PureLife Frozen Food Item 1424,0.7,images/P1424,1423
+L1425,P1425,1424,brandb_pet_food_item_1425,BrandB Pet Food Item 1425,0.7,images/P1425,1424
+L1426,P1426,1425,freshfarms_baby_products_item_1426,FreshFarms Baby Products Item 1426,0.7,images/P1426,1425
+L1427,P1427,1426,naturebites_potato_1kg_var_1427,NatureBites Potato 1kg - Var 1427,0.7,images/P1427,1426
+L1428,P1428,1427,healthyo_household_item_1428,HealthyO Household Item 1428,0.7,images/P1428,1427
+L1429,P1429,1428,purelife_banana_1kg_var_1429,PureLife Banana 1kg - Var 1429,0.7,images/P1429,1428
+L1430,P1430,1429,brandb_baby_products_item_1430,BrandB Baby Products Item 1430,0.7,images/P1430,1429
+L1431,P1431,1430,dailychoice_breakfast_item_1431,DailyChoice Breakfast Item 1431,0.7,images/P1431,1430
+L1432,P1432,1431,cleanplus_soap_100g_var_1432,CleanPlus Soap 100g - Var 1432,0.7,images/P1432,1431
+L1433,P1433,1432,glow_croissant_2pcs_var_1433,Glow Croissant 2pcs - Var 1433,0.7,images/P1433,1432
+L1434,P1434,1433,freshfarms_toothpaste_120g_var_1434,FreshFarms Toothpaste 120g - Var 1434,0.7,images/P1434,1433
+L1435,P1435,1434,dailychoice_sauces_item_1435,DailyChoice Sauces Item 1435,0.7,images/P1435,1434
+L1436,P1436,1435,branda_biscuits_200g_var_1436,BrandA Biscuits 200g - Var 1436,0.7,images/P1436,1435
+L1437,P1437,1436,purelife_soft_drink_1.5l_var_1437,PureLife Soft Drink 1.5L - Var 1437,0.7,images/P1437,1436
+L1438,P1438,1437,brandb_household_item_1438,BrandB Household Item 1438,0.7,images/P1438,1437
+L1439,P1439,1438,healthyo_seafood_item_1439,HealthyO Seafood Item 1439,0.7,images/P1439,1438
+L1440,P1440,1439,glow_potato_1kg_var_1440,Glow Potato 1kg - Var 1440,0.7,images/P1440,1439
+L1441,P1441,1440,brandc_meat_item_1441,BrandC Meat Item 1441,0.7,images/P1441,1440
+L1442,P1442,1441,branda_banana_1kg_var_1442,BrandA Banana 1kg - Var 1442,0.7,images/P1442,1441
+L1443,P1443,1442,dailychoice_breakfast_item_1443,DailyChoice Breakfast Item 1443,0.7,images/P1443,1442
+L1444,P1444,1443,naturebites_frozen_food_item_1444,NatureBites Frozen Food Item 1444,0.7,images/P1444,1443
+L1445,P1445,1444,dailychoice_meat_item_1445,DailyChoice Meat Item 1445,0.7,images/P1445,1444
+L1446,P1446,1445,branda_grapes_500g_var_1446,BrandA Grapes 500g - Var 1446,0.7,images/P1446,1445
+L1447,P1447,1446,dailychoice_sauces_item_1447,DailyChoice Sauces Item 1447,0.7,images/P1447,1446
+L1448,P1448,1447,brandc_red_rice_1kg_var_1448,BrandC Red Rice 1kg - Var 1448,0.7,images/P1448,1447
+L1449,P1449,1448,freshfarms_laundry_detergent_1kg_var_1449,FreshFarms Laundry Detergent 1kg - Var 1449,0.7,images/P1449,1448
+L1450,P1450,1449,purelife_pet_food_item_1450,PureLife Pet Food Item 1450,0.7,images/P1450,1449
+L1451,P1451,1450,healthyo_meat_item_1451,HealthyO Meat Item 1451,0.7,images/P1451,1450
+L1452,P1452,1451,cleanplus_stationery_item_1452,CleanPlus Stationery Item 1452,0.7,images/P1452,1451
+L1453,P1453,1452,naturebites_red_rice_1kg_var_1453,NatureBites Red Rice 1kg - Var 1453,0.7,images/P1453,1452
+L1454,P1454,1453,brandb_onion_1kg_var_1454,BrandB Onion 1kg - Var 1454,0.7,images/P1454,1453
+L1455,P1455,1454,healthyo_canned_food_item_1455,HealthyO Canned Food Item 1455,0.7,images/P1455,1454
+L1456,P1456,1455,branda_seafood_item_1456,BrandA Seafood Item 1456,0.7,images/P1456,1455
+L1457,P1457,1456,freshfarms_juice_1l_var_1457,FreshFarms Juice 1L - Var 1457,0.7,images/P1457,1456
+L1458,P1458,1457,dailychoice_carrot_500g_var_1458,DailyChoice Carrot 500g - Var 1458,0.7,images/P1458,1457
+L1459,P1459,1458,purelife_shampoo_200ml_var_1459,PureLife Shampoo 200ml - Var 1459,0.7,images/P1459,1458
+L1460,P1460,1459,glow_floor_cleaner_1l_var_1460,Glow Floor Cleaner 1L - Var 1460,0.7,images/P1460,1459
+L1461,P1461,1460,naturebites_grapes_500g_var_1461,NatureBites Grapes 500g - Var 1461,0.7,images/P1461,1460
+L1462,P1462,1461,naturebites_tomato_500g_var_1462,NatureBites Tomato 500g - Var 1462,0.7,images/P1462,1461
+L1463,P1463,1462,glow_nuts_100g_var_1463,Glow Nuts 100g - Var 1463,0.7,images/P1463,1462
+L1464,P1464,1463,cleanplus_baby_products_item_1464,CleanPlus Baby Products Item 1464,0.7,images/P1464,1463
+L1465,P1465,1464,healthyo_soap_100g_var_1465,HealthyO Soap 100g - Var 1465,0.7,images/P1465,1464
+L1466,P1466,1465,branda_white_rice_1kg_var_1466,BrandA White Rice 1kg - Var 1466,0.7,images/P1466,1465
+L1467,P1467,1466,branda_yogurt_80g_var_1467,BrandA Yogurt 80g - Var 1467,0.7,images/P1467,1466
+L1468,P1468,1467,brandb_meat_item_1468,BrandB Meat Item 1468,0.7,images/P1468,1467
+L1469,P1469,1468,freshfarms_biscuits_200g_var_1469,FreshFarms Biscuits 200g - Var 1469,0.7,images/P1469,1468
+L1470,P1470,1469,purelife_red_rice_1kg_var_1470,PureLife Red Rice 1kg - Var 1470,0.7,images/P1470,1469
+L1471,P1471,1470,freshfarms_breakfast_item_1471,FreshFarms Breakfast Item 1471,0.7,images/P1471,1470
+L1472,P1472,1471,freshfarms_sauces_item_1472,FreshFarms Sauces Item 1472,0.7,images/P1472,1471
+L1473,P1473,1472,brandb_household_item_1473,BrandB Household Item 1473,0.7,images/P1473,1472
+L1474,P1474,1473,healthyo_spices_item_1474,HealthyO Spices Item 1474,0.7,images/P1474,1473
+L1475,P1475,1474,brandc_pet_food_item_1475,BrandC Pet Food Item 1475,0.7,images/P1475,1474
+L1476,P1476,1475,purelife_breakfast_item_1476,PureLife Breakfast Item 1476,0.7,images/P1476,1475
+L1477,P1477,1476,brandb_household_item_1477,BrandB Household Item 1477,0.7,images/P1477,1476
+L1478,P1478,1477,healthyo_baby_products_item_1478,HealthyO Baby Products Item 1478,0.7,images/P1478,1477
+L1479,P1479,1478,dailychoice_buns_4pcs_var_1479,DailyChoice Buns 4pcs - Var 1479,0.7,images/P1479,1478
+L1480,P1480,1479,naturebites_pasta_item_1480,NatureBites Pasta Item 1480,0.7,images/P1480,1479
+L1481,P1481,1480,glow_pasta_item_1481,Glow Pasta Item 1481,0.7,images/P1481,1480
+L1482,P1482,1481,dailychoice_household_item_1482,DailyChoice Household Item 1482,0.7,images/P1482,1481
+L1483,P1483,1482,healthyo_white_rice_1kg_var_1483,HealthyO White Rice 1kg - Var 1483,0.7,images/P1483,1482
+L1484,P1484,1483,brandb_butter_200g_var_1484,BrandB Butter 200g - Var 1484,0.7,images/P1484,1483
+L1485,P1485,1484,freshfarms_meat_item_1485,FreshFarms Meat Item 1485,0.7,images/P1485,1484
+L1486,P1486,1485,brandb_water_1l_var_1486,BrandB Water 1L - Var 1486,0.7,images/P1486,1485
+L1487,P1487,1486,branda_seafood_item_1487,BrandA Seafood Item 1487,0.7,images/P1487,1486
+L1488,P1488,1487,naturebites_pet_food_item_1488,NatureBites Pet Food Item 1488,0.7,images/P1488,1487
+L1489,P1489,1488,brandc_frozen_food_item_1489,BrandC Frozen Food Item 1489,0.7,images/P1489,1488
+L1490,P1490,1489,brandc_canned_food_item_1490,BrandC Canned Food Item 1490,0.7,images/P1490,1489
+L1491,P1491,1490,naturebites_meat_item_1491,NatureBites Meat Item 1491,0.7,images/P1491,1490
+L1492,P1492,1491,glow_sauces_item_1492,Glow Sauces Item 1492,0.7,images/P1492,1491
+L1493,P1493,1492,brandc_soft_drink_1.5l_var_1493,BrandC Soft Drink 1.5L - Var 1493,0.7,images/P1493,1492
+L1494,P1494,1493,branda_potato_chips_50g_var_1494,BrandA Potato Chips 50g - Var 1494,0.7,images/P1494,1493
+L1495,P1495,1494,purelife_frozen_food_item_1495,PureLife Frozen Food Item 1495,0.7,images/P1495,1494
+L1496,P1496,1495,freshfarms_spices_item_1496,FreshFarms Spices Item 1496,0.7,images/P1496,1495
+L1497,P1497,1496,branda_laundry_detergent_1kg_var_1497,BrandA Laundry Detergent 1kg - Var 1497,0.7,images/P1497,1496
+L1498,P1498,1497,branda_canned_food_item_1498,BrandA Canned Food Item 1498,0.7,images/P1498,1497
+L1499,P1499,1498,brandb_frozen_food_item_1499,BrandB Frozen Food Item 1499,0.7,images/P1499,1498
+L1500,P1500,1499,brandb_stationery_item_1500,BrandB Stationery Item 1500,0.7,images/P1500,1499
+L1501,P1501,1500,naturebites_nuts_100g_var_1501,NatureBites Nuts 100g - Var 1501,0.7,images/P1501,1500
+L1502,P1502,1501,freshfarms_breakfast_item_1502,FreshFarms Breakfast Item 1502,0.7,images/P1502,1501
+L1503,P1503,1502,branda_yogurt_80g_var_1503,BrandA Yogurt 80g - Var 1503,0.7,images/P1503,1502
+L1504,P1504,1503,brandb_soap_100g_var_1504,BrandB Soap 100g - Var 1504,0.7,images/P1504,1503
+L1505,P1505,1504,glow_seafood_item_1505,Glow Seafood Item 1505,0.7,images/P1505,1504
+L1506,P1506,1505,naturebites_frozen_food_item_1506,NatureBites Frozen Food Item 1506,0.7,images/P1506,1505
+L1507,P1507,1506,dailychoice_juice_1l_var_1507,DailyChoice Juice 1L - Var 1507,0.7,images/P1507,1506
+L1508,P1508,1507,freshfarms_seafood_item_1508,FreshFarms Seafood Item 1508,0.7,images/P1508,1507
+L1509,P1509,1508,naturebites_water_1l_var_1509,NatureBites Water 1L - Var 1509,0.7,images/P1509,1508
+L1510,P1510,1509,purelife_frozen_food_item_1510,PureLife Frozen Food Item 1510,0.7,images/P1510,1509
+L1511,P1511,1510,naturebites_meat_item_1511,NatureBites Meat Item 1511,0.7,images/P1511,1510
+L1512,P1512,1511,brandc_banana_1kg_var_1512,BrandC Banana 1kg - Var 1512,0.7,images/P1512,1511
+L1513,P1513,1512,branda_potato_chips_50g_var_1513,BrandA Potato Chips 50g - Var 1513,0.7,images/P1513,1512
+L1514,P1514,1513,branda_nuts_100g_var_1514,BrandA Nuts 100g - Var 1514,0.7,images/P1514,1513
+L1515,P1515,1514,purelife_carrot_500g_var_1515,PureLife Carrot 500g - Var 1515,0.7,images/P1515,1514
+L1516,P1516,1515,dailychoice_household_item_1516,DailyChoice Household Item 1516,0.7,images/P1516,1515
+L1517,P1517,1516,purelife_spices_item_1517,PureLife Spices Item 1517,0.7,images/P1517,1516
+L1518,P1518,1517,glow_dishwashing_liquid_500ml_var_1518,Glow Dishwashing Liquid 500ml - Var 1518,0.7,images/P1518,1517
+L1519,P1519,1518,purelife_cake_1kg_var_1519,PureLife Cake 1kg - Var 1519,0.7,images/P1519,1518
+L1520,P1520,1519,dailychoice_pasta_item_1520,DailyChoice Pasta Item 1520,0.7,images/P1520,1519
+L1521,P1521,1520,glow_water_1l_var_1521,Glow Water 1L - Var 1521,0.7,images/P1521,1520
+L1522,P1522,1521,purelife_seafood_item_1522,PureLife Seafood Item 1522,0.7,images/P1522,1521
+L1523,P1523,1522,dailychoice_grapes_500g_var_1523,DailyChoice Grapes 500g - Var 1523,0.7,images/P1523,1522
+L1524,P1524,1523,naturebites_cake_1kg_var_1524,NatureBites Cake 1kg - Var 1524,0.7,images/P1524,1523
+L1525,P1525,1524,brandb_orange_1kg_var_1525,BrandB Orange 1kg - Var 1525,0.7,images/P1525,1524
+L1526,P1526,1525,freshfarms_banana_1kg_var_1526,FreshFarms Banana 1kg - Var 1526,0.7,images/P1526,1525
+L1527,P1527,1526,branda_frozen_food_item_1527,BrandA Frozen Food Item 1527,0.7,images/P1527,1526
+L1528,P1528,1527,branda_croissant_2pcs_var_1528,BrandA Croissant 2pcs - Var 1528,0.7,images/P1528,1527
+L1529,P1529,1528,glow_stationery_item_1529,Glow Stationery Item 1529,0.7,images/P1529,1528
+L1530,P1530,1529,glow_frozen_food_item_1530,Glow Frozen Food Item 1530,0.7,images/P1530,1529
+L1531,P1531,1530,glow_carrot_500g_var_1531,Glow Carrot 500g - Var 1531,0.7,images/P1531,1530
+L1532,P1532,1531,purelife_deodorant_150ml_var_1532,PureLife Deodorant 150ml - Var 1532,0.7,images/P1532,1531
+L1533,P1533,1532,healthyo_buns_4pcs_var_1533,HealthyO Buns 4pcs - Var 1533,0.7,images/P1533,1532
+L1534,P1534,1533,naturebites_meat_item_1534,NatureBites Meat Item 1534,0.7,images/P1534,1533
+L1535,P1535,1534,brandb_basmati_rice_1kg_var_1535,BrandB Basmati Rice 1kg - Var 1535,0.7,images/P1535,1534
+L1536,P1536,1535,naturebites_spices_item_1536,NatureBites Spices Item 1536,0.7,images/P1536,1535
+L1537,P1537,1536,freshfarms_meat_item_1537,FreshFarms Meat Item 1537,0.7,images/P1537,1536
+L1538,P1538,1537,glow_frozen_food_item_1538,Glow Frozen Food Item 1538,0.7,images/P1538,1537
+L1539,P1539,1538,glow_seafood_item_1539,Glow Seafood Item 1539,0.7,images/P1539,1538
+L1540,P1540,1539,freshfarms_baby_products_item_1540,FreshFarms Baby Products Item 1540,0.7,images/P1540,1539
+L1541,P1541,1540,purelife_floor_cleaner_1l_var_1541,PureLife Floor Cleaner 1L - Var 1541,0.7,images/P1541,1540
+L1542,P1542,1541,cleanplus_nuts_100g_var_1542,CleanPlus Nuts 100g - Var 1542,0.7,images/P1542,1541
+L1543,P1543,1542,brandc_pet_food_item_1543,BrandC Pet Food Item 1543,0.7,images/P1543,1542
+L1544,P1544,1543,brandb_spices_item_1544,BrandB Spices Item 1544,0.7,images/P1544,1543
+L1545,P1545,1544,cleanplus_energy_drink_250ml_var_1545,CleanPlus Energy Drink 250ml - Var 1545,0.7,images/P1545,1544
+L1546,P1546,1545,glow_onion_1kg_var_1546,Glow Onion 1kg - Var 1546,0.7,images/P1546,1545
+L1547,P1547,1546,dailychoice_croissant_2pcs_var_1547,DailyChoice Croissant 2pcs - Var 1547,0.7,images/P1547,1546
+L1548,P1548,1547,brandc_potato_1kg_var_1548,BrandC Potato 1kg - Var 1548,0.7,images/P1548,1547
+L1549,P1549,1548,dailychoice_white_rice_1kg_var_1549,DailyChoice White Rice 1kg - Var 1549,0.7,images/P1549,1548
+L1550,P1550,1549,purelife_sauces_item_1550,PureLife Sauces Item 1550,0.7,images/P1550,1549
+L1551,P1551,1550,healthyo_floor_cleaner_1l_var_1551,HealthyO Floor Cleaner 1L - Var 1551,0.7,images/P1551,1550
+L1552,P1552,1551,brandc_household_item_1552,BrandC Household Item 1552,0.7,images/P1552,1551
+L1553,P1553,1552,brandb_laundry_detergent_1kg_var_1553,BrandB Laundry Detergent 1kg - Var 1553,0.7,images/P1553,1552
+L1554,P1554,1553,dailychoice_tomato_500g_var_1554,DailyChoice Tomato 500g - Var 1554,0.7,images/P1554,1553
+L1555,P1555,1554,freshfarms_stationery_item_1555,FreshFarms Stationery Item 1555,0.7,images/P1555,1554
+L1556,P1556,1555,naturebites_milk_1l_var_1556,NatureBites Milk 1L - Var 1556,0.7,images/P1556,1555
+L1557,P1557,1556,purelife_butter_200g_var_1557,PureLife Butter 200g - Var 1557,0.7,images/P1557,1556
+L1558,P1558,1557,dailychoice_sauces_item_1558,DailyChoice Sauces Item 1558,0.7,images/P1558,1557
+L1559,P1559,1558,brandb_breakfast_item_1559,BrandB Breakfast Item 1559,0.7,images/P1559,1558
+L1560,P1560,1559,glow_frozen_food_item_1560,Glow Frozen Food Item 1560,0.7,images/P1560,1559
+L1561,P1561,1560,cleanplus_meat_item_1561,CleanPlus Meat Item 1561,0.7,images/P1561,1560
+L1562,P1562,1561,freshfarms_pet_food_item_1562,FreshFarms Pet Food Item 1562,0.7,images/P1562,1561
+L1563,P1563,1562,dailychoice_red_rice_1kg_var_1563,DailyChoice Red Rice 1kg - Var 1563,0.7,images/P1563,1562
+L1564,P1564,1563,branda_sauces_item_1564,BrandA Sauces Item 1564,0.7,images/P1564,1563
+L1565,P1565,1564,cleanplus_pasta_item_1565,CleanPlus Pasta Item 1565,0.7,images/P1565,1564
+L1566,P1566,1565,dailychoice_pet_food_item_1566,DailyChoice Pet Food Item 1566,0.7,images/P1566,1565
+L1567,P1567,1566,cleanplus_breakfast_item_1567,CleanPlus Breakfast Item 1567,0.7,images/P1567,1566
+L1568,P1568,1567,purelife_frozen_food_item_1568,PureLife Frozen Food Item 1568,0.7,images/P1568,1567
+L1569,P1569,1568,glow_nuts_100g_var_1569,Glow Nuts 100g - Var 1569,0.7,images/P1569,1568
+L1570,P1570,1569,healthyo_dhal_1kg_var_1570,HealthyO Dhal 1kg - Var 1570,0.7,images/P1570,1569
+L1571,P1571,1570,cleanplus_potato_1kg_var_1571,CleanPlus Potato 1kg - Var 1571,0.7,images/P1571,1570
+L1572,P1572,1571,cleanplus_grapes_500g_var_1572,CleanPlus Grapes 500g - Var 1572,0.7,images/P1572,1571
+L1573,P1573,1572,freshfarms_cake_1kg_var_1573,FreshFarms Cake 1kg - Var 1573,0.7,images/P1573,1572
+L1574,P1574,1573,freshfarms_tomato_500g_var_1574,FreshFarms Tomato 500g - Var 1574,0.7,images/P1574,1573
+L1575,P1575,1574,healthyo_pet_food_item_1575,HealthyO Pet Food Item 1575,0.7,images/P1575,1574
+L1576,P1576,1575,glow_household_item_1576,Glow Household Item 1576,0.7,images/P1576,1575
+L1577,P1577,1576,freshfarms_seafood_item_1577,FreshFarms Seafood Item 1577,0.7,images/P1577,1576
+L1578,P1578,1577,cleanplus_seafood_item_1578,CleanPlus Seafood Item 1578,0.7,images/P1578,1577
+L1579,P1579,1578,naturebites_sauces_item_1579,NatureBites Sauces Item 1579,0.7,images/P1579,1578
+L1580,P1580,1579,branda_butter_200g_var_1580,BrandA Butter 200g - Var 1580,0.7,images/P1580,1579
+L1581,P1581,1580,brandc_pet_food_item_1581,BrandC Pet Food Item 1581,0.7,images/P1581,1580
+L1582,P1582,1581,brandb_butter_200g_var_1582,BrandB Butter 200g - Var 1582,0.7,images/P1582,1581
+L1583,P1583,1582,purelife_canned_food_item_1583,PureLife Canned Food Item 1583,0.7,images/P1583,1582
+L1584,P1584,1583,brandb_baby_products_item_1584,BrandB Baby Products Item 1584,0.7,images/P1584,1583
+L1585,P1585,1584,naturebites_frozen_food_item_1585,NatureBites Frozen Food Item 1585,0.7,images/P1585,1584
+L1586,P1586,1585,dailychoice_household_item_1586,DailyChoice Household Item 1586,0.7,images/P1586,1585
+L1587,P1587,1586,healthyo_baby_products_item_1587,HealthyO Baby Products Item 1587,0.7,images/P1587,1586
+L1588,P1588,1587,brandb_breakfast_item_1588,BrandB Breakfast Item 1588,0.7,images/P1588,1587
+L1589,P1589,1588,freshfarms_potato_chips_50g_var_1589,FreshFarms Potato Chips 50g - Var 1589,0.7,images/P1589,1588
+L1590,P1590,1589,naturebites_dhal_1kg_var_1590,NatureBites Dhal 1kg - Var 1590,0.7,images/P1590,1589
+L1591,P1591,1590,cleanplus_croissant_2pcs_var_1591,CleanPlus Croissant 2pcs - Var 1591,0.7,images/P1591,1590
+L1592,P1592,1591,branda_cake_1kg_var_1592,BrandA Cake 1kg - Var 1592,0.7,images/P1592,1591
+L1593,P1593,1592,glow_spices_item_1593,Glow Spices Item 1593,0.7,images/P1593,1592
+L1594,P1594,1593,brandb_sauces_item_1594,BrandB Sauces Item 1594,0.7,images/P1594,1593
+L1595,P1595,1594,brandc_milk_1l_var_1595,BrandC Milk 1L - Var 1595,0.7,images/P1595,1594
+L1596,P1596,1595,brandc_cake_1kg_var_1596,BrandC Cake 1kg - Var 1596,0.7,images/P1596,1595
+L1597,P1597,1596,cleanplus_spices_item_1597,CleanPlus Spices Item 1597,0.7,images/P1597,1596
+L1598,P1598,1597,healthyo_sauces_item_1598,HealthyO Sauces Item 1598,0.7,images/P1598,1597
+L1599,P1599,1598,naturebites_stationery_item_1599,NatureBites Stationery Item 1599,0.7,images/P1599,1598
+L1600,P1600,1599,branda_dhal_1kg_var_1600,BrandA Dhal 1kg - Var 1600,0.7,images/P1600,1599
+L1601,P1601,1600,branda_breakfast_item_1601,BrandA Breakfast Item 1601,0.7,images/P1601,1600
+L1602,P1602,1601,branda_meat_item_1602,BrandA Meat Item 1602,0.7,images/P1602,1601
+L1603,P1603,1602,freshfarms_pet_food_item_1603,FreshFarms Pet Food Item 1603,0.7,images/P1603,1602
+L1604,P1604,1603,healthyo_laundry_detergent_1kg_var_1604,HealthyO Laundry Detergent 1kg - Var 1604,0.7,images/P1604,1603
+L1605,P1605,1604,freshfarms_spices_item_1605,FreshFarms Spices Item 1605,0.7,images/P1605,1604
+L1606,P1606,1605,brandc_apple_1kg_var_1606,BrandC Apple 1kg - Var 1606,0.7,images/P1606,1605
+L1607,P1607,1606,healthyo_meat_item_1607,HealthyO Meat Item 1607,0.7,images/P1607,1606
+L1608,P1608,1607,brandb_butter_200g_var_1608,BrandB Butter 200g - Var 1608,0.7,images/P1608,1607
+L1609,P1609,1608,glow_breakfast_item_1609,Glow Breakfast Item 1609,0.7,images/P1609,1608
+L1610,P1610,1609,purelife_toothpaste_120g_var_1610,PureLife Toothpaste 120g - Var 1610,0.7,images/P1610,1609
+L1611,P1611,1610,cleanplus_spices_item_1611,CleanPlus Spices Item 1611,0.7,images/P1611,1610
+L1612,P1612,1611,healthyo_sauces_item_1612,HealthyO Sauces Item 1612,0.7,images/P1612,1611
+L1613,P1613,1612,dailychoice_deodorant_150ml_var_1613,DailyChoice Deodorant 150ml - Var 1613,0.7,images/P1613,1612
+L1614,P1614,1613,glow_spices_item_1614,Glow Spices Item 1614,0.7,images/P1614,1613
+L1615,P1615,1614,cleanplus_soap_100g_var_1615,CleanPlus Soap 100g - Var 1615,0.7,images/P1615,1614
+L1616,P1616,1615,glow_canned_food_item_1616,Glow Canned Food Item 1616,0.7,images/P1616,1615
+L1617,P1617,1616,naturebites_chocolate_100g_var_1617,NatureBites Chocolate 100g - Var 1617,0.7,images/P1617,1616
+L1618,P1618,1617,dailychoice_pet_food_item_1618,DailyChoice Pet Food Item 1618,0.7,images/P1618,1617
+L1619,P1619,1618,dailychoice_floor_cleaner_1l_var_1619,DailyChoice Floor Cleaner 1L - Var 1619,0.7,images/P1619,1618
+L1620,P1620,1619,naturebites_pasta_item_1620,NatureBites Pasta Item 1620,0.7,images/P1620,1619
+L1621,P1621,1620,brandb_pasta_item_1621,BrandB Pasta Item 1621,0.7,images/P1621,1620
+L1622,P1622,1621,naturebites_meat_item_1622,NatureBites Meat Item 1622,0.7,images/P1622,1621
+L1623,P1623,1622,glow_pasta_item_1623,Glow Pasta Item 1623,0.7,images/P1623,1622
+L1624,P1624,1623,purelife_juice_1l_var_1624,PureLife Juice 1L - Var 1624,0.7,images/P1624,1623
+L1625,P1625,1624,naturebites_banana_1kg_var_1625,NatureBites Banana 1kg - Var 1625,0.7,images/P1625,1624
+L1626,P1626,1625,brandb_onion_1kg_var_1626,BrandB Onion 1kg - Var 1626,0.7,images/P1626,1625
+L1627,P1627,1626,brandb_dishwashing_liquid_500ml_var_1627,BrandB Dishwashing Liquid 500ml - Var 1627,0.7,images/P1627,1626
+L1628,P1628,1627,healthyo_pasta_item_1628,HealthyO Pasta Item 1628,0.7,images/P1628,1627
+L1629,P1629,1628,dailychoice_canned_food_item_1629,DailyChoice Canned Food Item 1629,0.7,images/P1629,1628
+L1630,P1630,1629,purelife_tomato_500g_var_1630,PureLife Tomato 500g - Var 1630,0.7,images/P1630,1629
+L1631,P1631,1630,purelife_soap_100g_var_1631,PureLife Soap 100g - Var 1631,0.7,images/P1631,1630
+L1632,P1632,1631,brandb_baby_products_item_1632,BrandB Baby Products Item 1632,0.7,images/P1632,1631
+L1633,P1633,1632,branda_pet_food_item_1633,BrandA Pet Food Item 1633,0.7,images/P1633,1632
+L1634,P1634,1633,freshfarms_toothpaste_120g_var_1634,FreshFarms Toothpaste 120g - Var 1634,0.7,images/P1634,1633
+L1635,P1635,1634,purelife_juice_1l_var_1635,PureLife Juice 1L - Var 1635,0.7,images/P1635,1634
+L1636,P1636,1635,dailychoice_potato_chips_50g_var_1636,DailyChoice Potato Chips 50g - Var 1636,0.7,images/P1636,1635
+L1637,P1637,1636,cleanplus_seafood_item_1637,CleanPlus Seafood Item 1637,0.7,images/P1637,1636
+L1638,P1638,1637,dailychoice_yogurt_80g_var_1638,DailyChoice Yogurt 80g - Var 1638,0.7,images/P1638,1637
+L1639,P1639,1638,purelife_pasta_item_1639,PureLife Pasta Item 1639,0.7,images/P1639,1638
+L1640,P1640,1639,dailychoice_baby_products_item_1640,DailyChoice Baby Products Item 1640,0.7,images/P1640,1639
+L1641,P1641,1640,dailychoice_orange_1kg_var_1641,DailyChoice Orange 1kg - Var 1641,0.7,images/P1641,1640
+L1642,P1642,1641,brandb_frozen_food_item_1642,BrandB Frozen Food Item 1642,0.7,images/P1642,1641
+L1643,P1643,1642,naturebites_dishwashing_liquid_500ml_var_1643,NatureBites Dishwashing Liquid 500ml - Var 1643,0.7,images/P1643,1642
+L1644,P1644,1643,glow_dishwashing_liquid_500ml_var_1644,Glow Dishwashing Liquid 500ml - Var 1644,0.7,images/P1644,1643
+L1645,P1645,1644,cleanplus_dhal_1kg_var_1645,CleanPlus Dhal 1kg - Var 1645,0.7,images/P1645,1644
+L1646,P1646,1645,purelife_canned_food_item_1646,PureLife Canned Food Item 1646,0.7,images/P1646,1645
+L1647,P1647,1646,brandc_soap_100g_var_1647,BrandC Soap 100g - Var 1647,0.7,images/P1647,1646
+L1648,P1648,1647,glow_butter_200g_var_1648,Glow Butter 200g - Var 1648,0.7,images/P1648,1647
+L1649,P1649,1648,cleanplus_canned_food_item_1649,CleanPlus Canned Food Item 1649,0.7,images/P1649,1648
+L1650,P1650,1649,cleanplus_meat_item_1650,CleanPlus Meat Item 1650,0.7,images/P1650,1649
+L1651,P1651,1650,glow_spices_item_1651,Glow Spices Item 1651,0.7,images/P1651,1650
+L1652,P1652,1651,glow_seafood_item_1652,Glow Seafood Item 1652,0.7,images/P1652,1651
+L1653,P1653,1652,brandc_pet_food_item_1653,BrandC Pet Food Item 1653,0.7,images/P1653,1652
+L1654,P1654,1653,brandc_energy_drink_250ml_var_1654,BrandC Energy Drink 250ml - Var 1654,0.7,images/P1654,1653
+L1655,P1655,1654,branda_household_item_1655,BrandA Household Item 1655,0.7,images/P1655,1654
+L1656,P1656,1655,glow_baby_products_item_1656,Glow Baby Products Item 1656,0.7,images/P1656,1655
+L1657,P1657,1656,brandc_pasta_item_1657,BrandC Pasta Item 1657,0.7,images/P1657,1656
+L1658,P1658,1657,cleanplus_pet_food_item_1658,CleanPlus Pet Food Item 1658,0.7,images/P1658,1657
+L1659,P1659,1658,naturebites_stationery_item_1659,NatureBites Stationery Item 1659,0.7,images/P1659,1658
+L1660,P1660,1659,naturebites_nuts_100g_var_1660,NatureBites Nuts 100g - Var 1660,0.7,images/P1660,1659
+L1661,P1661,1660,healthyo_white_rice_1kg_var_1661,HealthyO White Rice 1kg - Var 1661,0.7,images/P1661,1660
+L1662,P1662,1661,purelife_deodorant_150ml_var_1662,PureLife Deodorant 150ml - Var 1662,0.7,images/P1662,1661
+L1663,P1663,1662,branda_baby_products_item_1663,BrandA Baby Products Item 1663,0.7,images/P1663,1662
+L1664,P1664,1663,brandc_cheese_250g_var_1664,BrandC Cheese 250g - Var 1664,0.7,images/P1664,1663
+L1665,P1665,1664,purelife_baby_products_item_1665,PureLife Baby Products Item 1665,0.7,images/P1665,1664
+L1666,P1666,1665,freshfarms_spices_item_1666,FreshFarms Spices Item 1666,0.7,images/P1666,1665
+L1667,P1667,1666,cleanplus_pet_food_item_1667,CleanPlus Pet Food Item 1667,0.7,images/P1667,1666
+L1668,P1668,1667,glow_croissant_2pcs_var_1668,Glow Croissant 2pcs - Var 1668,0.7,images/P1668,1667
+L1669,P1669,1668,brandb_household_item_1669,BrandB Household Item 1669,0.7,images/P1669,1668
+L1670,P1670,1669,brandb_grapes_500g_var_1670,BrandB Grapes 500g - Var 1670,0.7,images/P1670,1669
+L1671,P1671,1670,branda_potato_1kg_var_1671,BrandA Potato 1kg - Var 1671,0.7,images/P1671,1670
+L1672,P1672,1671,purelife_soap_100g_var_1672,PureLife Soap 100g - Var 1672,0.7,images/P1672,1671
+L1673,P1673,1672,purelife_pasta_item_1673,PureLife Pasta Item 1673,0.7,images/P1673,1672
+L1674,P1674,1673,dailychoice_white_rice_1kg_var_1674,DailyChoice White Rice 1kg - Var 1674,0.7,images/P1674,1673
+L1675,P1675,1674,branda_frozen_food_item_1675,BrandA Frozen Food Item 1675,0.7,images/P1675,1674
+L1676,P1676,1675,healthyo_stationery_item_1676,HealthyO Stationery Item 1676,0.7,images/P1676,1675
+L1677,P1677,1676,glow_meat_item_1677,Glow Meat Item 1677,0.7,images/P1677,1676
+L1678,P1678,1677,brandc_canned_food_item_1678,BrandC Canned Food Item 1678,0.7,images/P1678,1677
+L1679,P1679,1678,naturebites_pet_food_item_1679,NatureBites Pet Food Item 1679,0.7,images/P1679,1678
+L1680,P1680,1679,dailychoice_tomato_500g_var_1680,DailyChoice Tomato 500g - Var 1680,0.7,images/P1680,1679
+L1681,P1681,1680,healthyo_stationery_item_1681,HealthyO Stationery Item 1681,0.7,images/P1681,1680
+L1682,P1682,1681,freshfarms_spices_item_1682,FreshFarms Spices Item 1682,0.7,images/P1682,1681
+L1683,P1683,1682,brandb_canned_food_item_1683,BrandB Canned Food Item 1683,0.7,images/P1683,1682
+L1684,P1684,1683,glow_spices_item_1684,Glow Spices Item 1684,0.7,images/P1684,1683
+L1685,P1685,1684,glow_pet_food_item_1685,Glow Pet Food Item 1685,0.7,images/P1685,1684
+L1686,P1686,1685,brandc_potato_1kg_var_1686,BrandC Potato 1kg - Var 1686,0.7,images/P1686,1685
+L1687,P1687,1686,brandb_baby_products_item_1687,BrandB Baby Products Item 1687,0.7,images/P1687,1686
+L1688,P1688,1687,brandc_stationery_item_1688,BrandC Stationery Item 1688,0.7,images/P1688,1687
+L1689,P1689,1688,brandc_butter_200g_var_1689,BrandC Butter 200g - Var 1689,0.7,images/P1689,1688
+L1690,P1690,1689,healthyo_seafood_item_1690,HealthyO Seafood Item 1690,0.7,images/P1690,1689
+L1691,P1691,1690,glow_pasta_item_1691,Glow Pasta Item 1691,0.7,images/P1691,1690
+L1692,P1692,1691,purelife_meat_item_1692,PureLife Meat Item 1692,0.7,images/P1692,1691
+L1693,P1693,1692,dailychoice_frozen_food_item_1693,DailyChoice Frozen Food Item 1693,0.7,images/P1693,1692
+L1694,P1694,1693,brandc_stationery_item_1694,BrandC Stationery Item 1694,0.7,images/P1694,1693
+L1695,P1695,1694,cleanplus_deodorant_150ml_var_1695,CleanPlus Deodorant 150ml - Var 1695,0.7,images/P1695,1694
+L1696,P1696,1695,healthyo_spices_item_1696,HealthyO Spices Item 1696,0.7,images/P1696,1695
+L1697,P1697,1696,glow_carrot_500g_var_1697,Glow Carrot 500g - Var 1697,0.7,images/P1697,1696
+L1698,P1698,1697,brandc_shampoo_200ml_var_1698,BrandC Shampoo 200ml - Var 1698,0.7,images/P1698,1697
+L1699,P1699,1698,cleanplus_pasta_item_1699,CleanPlus Pasta Item 1699,0.7,images/P1699,1698
+L1700,P1700,1699,brandb_canned_food_item_1700,BrandB Canned Food Item 1700,0.7,images/P1700,1699
+L1701,P1701,1700,dailychoice_orange_1kg_var_1701,DailyChoice Orange 1kg - Var 1701,0.7,images/P1701,1700
+L1702,P1702,1701,branda_floor_cleaner_1l_var_1702,BrandA Floor Cleaner 1L - Var 1702,0.7,images/P1702,1701
+L1703,P1703,1702,healthyo_cheese_250g_var_1703,HealthyO Cheese 250g - Var 1703,0.7,images/P1703,1702
+L1704,P1704,1703,purelife_pasta_item_1704,PureLife Pasta Item 1704,0.7,images/P1704,1703
+L1705,P1705,1704,cleanplus_white_rice_1kg_var_1705,CleanPlus White Rice 1kg - Var 1705,0.7,images/P1705,1704
+L1706,P1706,1705,purelife_canned_food_item_1706,PureLife Canned Food Item 1706,0.7,images/P1706,1705
+L1707,P1707,1706,brandc_breakfast_item_1707,BrandC Breakfast Item 1707,0.7,images/P1707,1706
+L1708,P1708,1707,brandc_household_item_1708,BrandC Household Item 1708,0.7,images/P1708,1707
+L1709,P1709,1708,freshfarms_cheese_250g_var_1709,FreshFarms Cheese 250g - Var 1709,0.7,images/P1709,1708
+L1710,P1710,1709,freshfarms_apple_1kg_var_1710,FreshFarms Apple 1kg - Var 1710,0.7,images/P1710,1709
+L1711,P1711,1710,freshfarms_sauces_item_1711,FreshFarms Sauces Item 1711,0.7,images/P1711,1710
+L1712,P1712,1711,purelife_sauces_item_1712,PureLife Sauces Item 1712,0.7,images/P1712,1711
+L1713,P1713,1712,brandc_frozen_food_item_1713,BrandC Frozen Food Item 1713,0.7,images/P1713,1712
+L1714,P1714,1713,naturebites_stationery_item_1714,NatureBites Stationery Item 1714,0.7,images/P1714,1713
+L1715,P1715,1714,branda_white_rice_1kg_var_1715,BrandA White Rice 1kg - Var 1715,0.7,images/P1715,1714
+L1716,P1716,1715,naturebites_baby_products_item_1716,NatureBites Baby Products Item 1716,0.7,images/P1716,1715
+L1717,P1717,1716,dailychoice_biscuits_200g_var_1717,DailyChoice Biscuits 200g - Var 1717,0.7,images/P1717,1716
+L1718,P1718,1717,purelife_stationery_item_1718,PureLife Stationery Item 1718,0.7,images/P1718,1717
+L1719,P1719,1718,healthyo_baby_products_item_1719,HealthyO Baby Products Item 1719,0.7,images/P1719,1718
+L1720,P1720,1719,dailychoice_stationery_item_1720,DailyChoice Stationery Item 1720,0.7,images/P1720,1719
+L1721,P1721,1720,purelife_pet_food_item_1721,PureLife Pet Food Item 1721,0.7,images/P1721,1720
+L1722,P1722,1721,brandb_pet_food_item_1722,BrandB Pet Food Item 1722,0.7,images/P1722,1721
+L1723,P1723,1722,brandc_breakfast_item_1723,BrandC Breakfast Item 1723,0.7,images/P1723,1722
+L1724,P1724,1723,brandc_meat_item_1724,BrandC Meat Item 1724,0.7,images/P1724,1723
+L1725,P1725,1724,glow_sauces_item_1725,Glow Sauces Item 1725,0.7,images/P1725,1724
+L1726,P1726,1725,brandc_laundry_detergent_1kg_var_1726,BrandC Laundry Detergent 1kg - Var 1726,0.7,images/P1726,1725
+L1727,P1727,1726,brandc_pasta_item_1727,BrandC Pasta Item 1727,0.7,images/P1727,1726
+L1728,P1728,1727,dailychoice_frozen_food_item_1728,DailyChoice Frozen Food Item 1728,0.7,images/P1728,1727
+L1729,P1729,1728,purelife_meat_item_1729,PureLife Meat Item 1729,0.7,images/P1729,1728
+L1730,P1730,1729,brandc_croissant_2pcs_var_1730,BrandC Croissant 2pcs - Var 1730,0.7,images/P1730,1729
+L1731,P1731,1730,purelife_canned_food_item_1731,PureLife Canned Food Item 1731,0.7,images/P1731,1730
+L1732,P1732,1731,naturebites_meat_item_1732,NatureBites Meat Item 1732,0.7,images/P1732,1731
+L1733,P1733,1732,brandc_potato_chips_50g_var_1733,BrandC Potato Chips 50g - Var 1733,0.7,images/P1733,1732
+L1734,P1734,1733,freshfarms_cake_1kg_var_1734,FreshFarms Cake 1kg - Var 1734,0.7,images/P1734,1733
+L1735,P1735,1734,glow_bread_500g_var_1735,Glow Bread 500g - Var 1735,0.7,images/P1735,1734
+L1736,P1736,1735,brandc_tomato_500g_var_1736,BrandC Tomato 500g - Var 1736,0.7,images/P1736,1735
+L1737,P1737,1736,healthyo_white_rice_1kg_var_1737,HealthyO White Rice 1kg - Var 1737,0.7,images/P1737,1736
+L1738,P1738,1737,healthyo_frozen_food_item_1738,HealthyO Frozen Food Item 1738,0.7,images/P1738,1737
+L1739,P1739,1738,glow_milk_1l_var_1739,Glow Milk 1L - Var 1739,0.7,images/P1739,1738
+L1740,P1740,1739,dailychoice_pasta_item_1740,DailyChoice Pasta Item 1740,0.7,images/P1740,1739
+L1741,P1741,1740,brandc_apple_1kg_var_1741,BrandC Apple 1kg - Var 1741,0.7,images/P1741,1740
+L1742,P1742,1741,branda_household_item_1742,BrandA Household Item 1742,0.7,images/P1742,1741
+L1743,P1743,1742,naturebites_croissant_2pcs_var_1743,NatureBites Croissant 2pcs - Var 1743,0.7,images/P1743,1742
+L1744,P1744,1743,brandb_pet_food_item_1744,BrandB Pet Food Item 1744,0.7,images/P1744,1743
+L1745,P1745,1744,healthyo_sauces_item_1745,HealthyO Sauces Item 1745,0.7,images/P1745,1744
+L1746,P1746,1745,brandc_grapes_500g_var_1746,BrandC Grapes 500g - Var 1746,0.7,images/P1746,1745
+L1747,P1747,1746,glow_pet_food_item_1747,Glow Pet Food Item 1747,0.7,images/P1747,1746
+L1748,P1748,1747,branda_yogurt_80g_var_1748,BrandA Yogurt 80g - Var 1748,0.7,images/P1748,1747
+L1749,P1749,1748,healthyo_red_rice_1kg_var_1749,HealthyO Red Rice 1kg - Var 1749,0.7,images/P1749,1748
+L1750,P1750,1749,healthyo_pet_food_item_1750,HealthyO Pet Food Item 1750,0.7,images/P1750,1749
+L1751,P1751,1750,branda_pasta_item_1751,BrandA Pasta Item 1751,0.7,images/P1751,1750
+L1752,P1752,1751,freshfarms_water_1l_var_1752,FreshFarms Water 1L - Var 1752,0.7,images/P1752,1751
+L1753,P1753,1752,purelife_pasta_item_1753,PureLife Pasta Item 1753,0.7,images/P1753,1752
+L1754,P1754,1753,cleanplus_baby_products_item_1754,CleanPlus Baby Products Item 1754,0.7,images/P1754,1753
+L1755,P1755,1754,cleanplus_baby_products_item_1755,CleanPlus Baby Products Item 1755,0.7,images/P1755,1754
+L1756,P1756,1755,brandc_soft_drink_1.5l_var_1756,BrandC Soft Drink 1.5L - Var 1756,0.7,images/P1756,1755
+L1757,P1757,1756,glow_stationery_item_1757,Glow Stationery Item 1757,0.7,images/P1757,1756
+L1758,P1758,1757,naturebites_breakfast_item_1758,NatureBites Breakfast Item 1758,0.7,images/P1758,1757
+L1759,P1759,1758,glow_household_item_1759,Glow Household Item 1759,0.7,images/P1759,1758
+L1760,P1760,1759,cleanplus_frozen_food_item_1760,CleanPlus Frozen Food Item 1760,0.7,images/P1760,1759
+L1761,P1761,1760,healthyo_frozen_food_item_1761,HealthyO Frozen Food Item 1761,0.7,images/P1761,1760
+L1762,P1762,1761,purelife_buns_4pcs_var_1762,PureLife Buns 4pcs - Var 1762,0.7,images/P1762,1761
+L1763,P1763,1762,naturebites_soap_100g_var_1763,NatureBites Soap 100g - Var 1763,0.7,images/P1763,1762
+L1764,P1764,1763,brandc_seafood_item_1764,BrandC Seafood Item 1764,0.7,images/P1764,1763
+L1765,P1765,1764,branda_orange_1kg_var_1765,BrandA Orange 1kg - Var 1765,0.7,images/P1765,1764
+L1766,P1766,1765,brandc_breakfast_item_1766,BrandC Breakfast Item 1766,0.7,images/P1766,1765
+L1767,P1767,1766,branda_pasta_item_1767,BrandA Pasta Item 1767,0.7,images/P1767,1766
+L1768,P1768,1767,cleanplus_breakfast_item_1768,CleanPlus Breakfast Item 1768,0.7,images/P1768,1767
+L1769,P1769,1768,brandc_breakfast_item_1769,BrandC Breakfast Item 1769,0.7,images/P1769,1768
+L1770,P1770,1769,freshfarms_dishwashing_liquid_500ml_var_1770,FreshFarms Dishwashing Liquid 500ml - Var 1770,0.7,images/P1770,1769
+L1771,P1771,1770,brandb_frozen_food_item_1771,BrandB Frozen Food Item 1771,0.7,images/P1771,1770
+L1772,P1772,1771,glow_orange_1kg_var_1772,Glow Orange 1kg - Var 1772,0.7,images/P1772,1771
+L1773,P1773,1772,glow_dhal_1kg_var_1773,Glow Dhal 1kg - Var 1773,0.7,images/P1773,1772
+L1774,P1774,1773,freshfarms_household_item_1774,FreshFarms Household Item 1774,0.7,images/P1774,1773
+L1775,P1775,1774,glow_pasta_item_1775,Glow Pasta Item 1775,0.7,images/P1775,1774
+L1776,P1776,1775,dailychoice_baby_products_item_1776,DailyChoice Baby Products Item 1776,0.7,images/P1776,1775
+L1777,P1777,1776,glow_pet_food_item_1777,Glow Pet Food Item 1777,0.7,images/P1777,1776
+L1778,P1778,1777,brandb_spices_item_1778,BrandB Spices Item 1778,0.7,images/P1778,1777
+L1779,P1779,1778,branda_seafood_item_1779,BrandA Seafood Item 1779,0.7,images/P1779,1778
+L1780,P1780,1779,brandc_chocolate_100g_var_1780,BrandC Chocolate 100g - Var 1780,0.7,images/P1780,1779
+L1781,P1781,1780,naturebites_spices_item_1781,NatureBites Spices Item 1781,0.7,images/P1781,1780
+L1782,P1782,1781,naturebites_cheese_250g_var_1782,NatureBites Cheese 250g - Var 1782,0.7,images/P1782,1781
+L1783,P1783,1782,naturebites_spices_item_1783,NatureBites Spices Item 1783,0.7,images/P1783,1782
+L1784,P1784,1783,freshfarms_pet_food_item_1784,FreshFarms Pet Food Item 1784,0.7,images/P1784,1783
+L1785,P1785,1784,purelife_grapes_500g_var_1785,PureLife Grapes 500g - Var 1785,0.7,images/P1785,1784
+L1786,P1786,1785,brandc_baby_products_item_1786,BrandC Baby Products Item 1786,0.7,images/P1786,1785
+L1787,P1787,1786,healthyo_canned_food_item_1787,HealthyO Canned Food Item 1787,0.7,images/P1787,1786
+L1788,P1788,1787,freshfarms_breakfast_item_1788,FreshFarms Breakfast Item 1788,0.7,images/P1788,1787
+L1789,P1789,1788,brandb_frozen_food_item_1789,BrandB Frozen Food Item 1789,0.7,images/P1789,1788
+L1790,P1790,1789,brandc_canned_food_item_1790,BrandC Canned Food Item 1790,0.7,images/P1790,1789
+L1791,P1791,1790,naturebites_sauces_item_1791,NatureBites Sauces Item 1791,0.7,images/P1791,1790
+L1792,P1792,1791,dailychoice_spices_item_1792,DailyChoice Spices Item 1792,0.7,images/P1792,1791
+L1793,P1793,1792,brandb_croissant_2pcs_var_1793,BrandB Croissant 2pcs - Var 1793,0.7,images/P1793,1792
+L1794,P1794,1793,freshfarms_breakfast_item_1794,FreshFarms Breakfast Item 1794,0.7,images/P1794,1793
+L1795,P1795,1794,brandb_shampoo_200ml_var_1795,BrandB Shampoo 200ml - Var 1795,0.7,images/P1795,1794
+L1796,P1796,1795,cleanplus_orange_1kg_var_1796,CleanPlus Orange 1kg - Var 1796,0.7,images/P1796,1795
+L1797,P1797,1796,freshfarms_yogurt_80g_var_1797,FreshFarms Yogurt 80g - Var 1797,0.7,images/P1797,1796
+L1798,P1798,1797,naturebites_grapes_500g_var_1798,NatureBites Grapes 500g - Var 1798,0.7,images/P1798,1797
+L1799,P1799,1798,healthyo_bread_500g_var_1799,HealthyO Bread 500g - Var 1799,0.7,images/P1799,1798
+L1800,P1800,1799,freshfarms_dishwashing_liquid_500ml_var_1800,FreshFarms Dishwashing Liquid 500ml - Var 1800,0.7,images/P1800,1799
+L1801,P1801,1800,glow_household_item_1801,Glow Household Item 1801,0.7,images/P1801,1800
+L1802,P1802,1801,branda_household_item_1802,BrandA Household Item 1802,0.7,images/P1802,1801
+L1803,P1803,1802,purelife_deodorant_150ml_var_1803,PureLife Deodorant 150ml - Var 1803,0.7,images/P1803,1802
+L1804,P1804,1803,dailychoice_frozen_food_item_1804,DailyChoice Frozen Food Item 1804,0.7,images/P1804,1803
+L1805,P1805,1804,naturebites_canned_food_item_1805,NatureBites Canned Food Item 1805,0.7,images/P1805,1804
+L1806,P1806,1805,brandb_pasta_item_1806,BrandB Pasta Item 1806,0.7,images/P1806,1805
+L1807,P1807,1806,brandb_meat_item_1807,BrandB Meat Item 1807,0.7,images/P1807,1806
+L1808,P1808,1807,cleanplus_pet_food_item_1808,CleanPlus Pet Food Item 1808,0.7,images/P1808,1807
+L1809,P1809,1808,brandc_baby_products_item_1809,BrandC Baby Products Item 1809,0.7,images/P1809,1808
+L1810,P1810,1809,purelife_sauces_item_1810,PureLife Sauces Item 1810,0.7,images/P1810,1809
+L1811,P1811,1810,purelife_energy_drink_250ml_var_1811,PureLife Energy Drink 250ml - Var 1811,0.7,images/P1811,1810
+L1812,P1812,1811,cleanplus_household_item_1812,CleanPlus Household Item 1812,0.7,images/P1812,1811
+L1813,P1813,1812,branda_frozen_food_item_1813,BrandA Frozen Food Item 1813,0.7,images/P1813,1812
+L1814,P1814,1813,freshfarms_frozen_food_item_1814,FreshFarms Frozen Food Item 1814,0.7,images/P1814,1813
+L1815,P1815,1814,healthyo_carrot_500g_var_1815,HealthyO Carrot 500g - Var 1815,0.7,images/P1815,1814
+L1816,P1816,1815,healthyo_deodorant_150ml_var_1816,HealthyO Deodorant 150ml - Var 1816,0.7,images/P1816,1815
+L1817,P1817,1816,glow_orange_1kg_var_1817,Glow Orange 1kg - Var 1817,0.7,images/P1817,1816
+L1818,P1818,1817,freshfarms_water_1l_var_1818,FreshFarms Water 1L - Var 1818,0.7,images/P1818,1817
+L1819,P1819,1818,naturebites_nuts_100g_var_1819,NatureBites Nuts 100g - Var 1819,0.7,images/P1819,1818
+L1820,P1820,1819,freshfarms_seafood_item_1820,FreshFarms Seafood Item 1820,0.7,images/P1820,1819
+L1821,P1821,1820,cleanplus_breakfast_item_1821,CleanPlus Breakfast Item 1821,0.7,images/P1821,1820
+L1822,P1822,1821,brandc_seafood_item_1822,BrandC Seafood Item 1822,0.7,images/P1822,1821
+L1823,P1823,1822,cleanplus_yogurt_80g_var_1823,CleanPlus Yogurt 80g - Var 1823,0.7,images/P1823,1822
+L1824,P1824,1823,dailychoice_household_item_1824,DailyChoice Household Item 1824,0.7,images/P1824,1823
+L1825,P1825,1824,branda_white_rice_1kg_var_1825,BrandA White Rice 1kg - Var 1825,0.7,images/P1825,1824
+L1826,P1826,1825,healthyo_dishwashing_liquid_500ml_var_1826,HealthyO Dishwashing Liquid 500ml - Var 1826,0.7,images/P1826,1825
+L1827,P1827,1826,healthyo_canned_food_item_1827,HealthyO Canned Food Item 1827,0.7,images/P1827,1826
+L1828,P1828,1827,brandb_meat_item_1828,BrandB Meat Item 1828,0.7,images/P1828,1827
+L1829,P1829,1828,brandb_red_rice_1kg_var_1829,BrandB Red Rice 1kg - Var 1829,0.7,images/P1829,1828
+L1830,P1830,1829,brandc_apple_1kg_var_1830,BrandC Apple 1kg - Var 1830,0.7,images/P1830,1829
+L1831,P1831,1830,glow_seafood_item_1831,Glow Seafood Item 1831,0.7,images/P1831,1830
+L1832,P1832,1831,glow_spices_item_1832,Glow Spices Item 1832,0.7,images/P1832,1831
+L1833,P1833,1832,purelife_meat_item_1833,PureLife Meat Item 1833,0.7,images/P1833,1832
+L1834,P1834,1833,freshfarms_pasta_item_1834,FreshFarms Pasta Item 1834,0.7,images/P1834,1833
+L1835,P1835,1834,brandc_laundry_detergent_1kg_var_1835,BrandC Laundry Detergent 1kg - Var 1835,0.7,images/P1835,1834
+L1836,P1836,1835,naturebites_milk_1l_var_1836,NatureBites Milk 1L - Var 1836,0.7,images/P1836,1835
+L1837,P1837,1836,brandc_onion_1kg_var_1837,BrandC Onion 1kg - Var 1837,0.7,images/P1837,1836
+L1838,P1838,1837,healthyo_breakfast_item_1838,HealthyO Breakfast Item 1838,0.7,images/P1838,1837
+L1839,P1839,1838,naturebites_baby_products_item_1839,NatureBites Baby Products Item 1839,0.7,images/P1839,1838
+L1840,P1840,1839,cleanplus_breakfast_item_1840,CleanPlus Breakfast Item 1840,0.7,images/P1840,1839
+L1841,P1841,1840,glow_sauces_item_1841,Glow Sauces Item 1841,0.7,images/P1841,1840
+L1842,P1842,1841,dailychoice_potato_1kg_var_1842,DailyChoice Potato 1kg - Var 1842,0.7,images/P1842,1841
+L1843,P1843,1842,cleanplus_household_item_1843,CleanPlus Household Item 1843,0.7,images/P1843,1842
+L1844,P1844,1843,healthyo_spices_item_1844,HealthyO Spices Item 1844,0.7,images/P1844,1843
+L1845,P1845,1844,freshfarms_sauces_item_1845,FreshFarms Sauces Item 1845,0.7,images/P1845,1844
+L1846,P1846,1845,branda_pet_food_item_1846,BrandA Pet Food Item 1846,0.7,images/P1846,1845
+L1847,P1847,1846,branda_seafood_item_1847,BrandA Seafood Item 1847,0.7,images/P1847,1846
+L1848,P1848,1847,branda_sauces_item_1848,BrandA Sauces Item 1848,0.7,images/P1848,1847
+L1849,P1849,1848,freshfarms_meat_item_1849,FreshFarms Meat Item 1849,0.7,images/P1849,1848
+L1850,P1850,1849,purelife_canned_food_item_1850,PureLife Canned Food Item 1850,0.7,images/P1850,1849
+L1851,P1851,1850,cleanplus_frozen_food_item_1851,CleanPlus Frozen Food Item 1851,0.7,images/P1851,1850
+L1852,P1852,1851,freshfarms_toothpaste_120g_var_1852,FreshFarms Toothpaste 120g - Var 1852,0.7,images/P1852,1851
+L1853,P1853,1852,cleanplus_deodorant_150ml_var_1853,CleanPlus Deodorant 150ml - Var 1853,0.7,images/P1853,1852
+L1854,P1854,1853,healthyo_breakfast_item_1854,HealthyO Breakfast Item 1854,0.7,images/P1854,1853
+L1855,P1855,1854,brandc_soft_drink_1.5l_var_1855,BrandC Soft Drink 1.5L - Var 1855,0.7,images/P1855,1854
+L1856,P1856,1855,brandc_spices_item_1856,BrandC Spices Item 1856,0.7,images/P1856,1855
+L1857,P1857,1856,brandb_onion_1kg_var_1857,BrandB Onion 1kg - Var 1857,0.7,images/P1857,1856
+L1858,P1858,1857,freshfarms_energy_drink_250ml_var_1858,FreshFarms Energy Drink 250ml - Var 1858,0.7,images/P1858,1857
+L1859,P1859,1858,brandb_breakfast_item_1859,BrandB Breakfast Item 1859,0.7,images/P1859,1858
+L1860,P1860,1859,healthyo_frozen_food_item_1860,HealthyO Frozen Food Item 1860,0.7,images/P1860,1859
+L1861,P1861,1860,freshfarms_sauces_item_1861,FreshFarms Sauces Item 1861,0.7,images/P1861,1860
+L1862,P1862,1861,brandc_meat_item_1862,BrandC Meat Item 1862,0.7,images/P1862,1861
+L1863,P1863,1862,freshfarms_basmati_rice_1kg_var_1863,FreshFarms Basmati Rice 1kg - Var 1863,0.7,images/P1863,1862
+L1864,P1864,1863,dailychoice_baby_products_item_1864,DailyChoice Baby Products Item 1864,0.7,images/P1864,1863
+L1865,P1865,1864,branda_white_rice_1kg_var_1865,BrandA White Rice 1kg - Var 1865,0.7,images/P1865,1864
+L1866,P1866,1865,branda_sauces_item_1866,BrandA Sauces Item 1866,0.7,images/P1866,1865
+L1867,P1867,1866,branda_red_rice_1kg_var_1867,BrandA Red Rice 1kg - Var 1867,0.7,images/P1867,1866
+L1868,P1868,1867,brandb_household_item_1868,BrandB Household Item 1868,0.7,images/P1868,1867
+L1869,P1869,1868,healthyo_pet_food_item_1869,HealthyO Pet Food Item 1869,0.7,images/P1869,1868
+L1870,P1870,1869,purelife_breakfast_item_1870,PureLife Breakfast Item 1870,0.7,images/P1870,1869
+L1871,P1871,1870,purelife_frozen_food_item_1871,PureLife Frozen Food Item 1871,0.7,images/P1871,1870
+L1872,P1872,1871,cleanplus_seafood_item_1872,CleanPlus Seafood Item 1872,0.7,images/P1872,1871
+L1873,P1873,1872,glow_household_item_1873,Glow Household Item 1873,0.7,images/P1873,1872
+L1874,P1874,1873,dailychoice_baby_products_item_1874,DailyChoice Baby Products Item 1874,0.7,images/P1874,1873
+L1875,P1875,1874,freshfarms_frozen_food_item_1875,FreshFarms Frozen Food Item 1875,0.7,images/P1875,1874
+L1876,P1876,1875,glow_spices_item_1876,Glow Spices Item 1876,0.7,images/P1876,1875
+L1877,P1877,1876,purelife_nuts_100g_var_1877,PureLife Nuts 100g - Var 1877,0.7,images/P1877,1876
+L1878,P1878,1877,glow_canned_food_item_1878,Glow Canned Food Item 1878,0.7,images/P1878,1877
+L1879,P1879,1878,branda_pasta_item_1879,BrandA Pasta Item 1879,0.7,images/P1879,1878
+L1880,P1880,1879,cleanplus_banana_1kg_var_1880,CleanPlus Banana 1kg - Var 1880,0.7,images/P1880,1879
+L1881,P1881,1880,dailychoice_white_rice_1kg_var_1881,DailyChoice White Rice 1kg - Var 1881,0.7,images/P1881,1880
+L1882,P1882,1881,healthyo_meat_item_1882,HealthyO Meat Item 1882,0.7,images/P1882,1881
+L1883,P1883,1882,branda_soft_drink_1.5l_var_1883,BrandA Soft Drink 1.5L - Var 1883,0.7,images/P1883,1882
+L1884,P1884,1883,freshfarms_canned_food_item_1884,FreshFarms Canned Food Item 1884,0.7,images/P1884,1883
+L1885,P1885,1884,brandc_breakfast_item_1885,BrandC Breakfast Item 1885,0.7,images/P1885,1884
+L1886,P1886,1885,brandb_pasta_item_1886,BrandB Pasta Item 1886,0.7,images/P1886,1885
+L1887,P1887,1886,brandc_apple_1kg_var_1887,BrandC Apple 1kg - Var 1887,0.7,images/P1887,1886
+L1888,P1888,1887,cleanplus_dhal_1kg_var_1888,CleanPlus Dhal 1kg - Var 1888,0.7,images/P1888,1887
+L1889,P1889,1888,healthyo_laundry_detergent_1kg_var_1889,HealthyO Laundry Detergent 1kg - Var 1889,0.7,images/P1889,1888
+L1890,P1890,1889,glow_breakfast_item_1890,Glow Breakfast Item 1890,0.7,images/P1890,1889
+L1891,P1891,1890,cleanplus_stationery_item_1891,CleanPlus Stationery Item 1891,0.7,images/P1891,1890
+L1892,P1892,1891,healthyo_onion_1kg_var_1892,HealthyO Onion 1kg - Var 1892,0.7,images/P1892,1891
+L1893,P1893,1892,purelife_pasta_item_1893,PureLife Pasta Item 1893,0.7,images/P1893,1892
+L1894,P1894,1893,freshfarms_pasta_item_1894,FreshFarms Pasta Item 1894,0.7,images/P1894,1893
+L1895,P1895,1894,brandb_cake_1kg_var_1895,BrandB Cake 1kg - Var 1895,0.7,images/P1895,1894
+L1896,P1896,1895,healthyo_stationery_item_1896,HealthyO Stationery Item 1896,0.7,images/P1896,1895
+L1897,P1897,1896,branda_household_item_1897,BrandA Household Item 1897,0.7,images/P1897,1896
+L1898,P1898,1897,cleanplus_sauces_item_1898,CleanPlus Sauces Item 1898,0.7,images/P1898,1897
+L1899,P1899,1898,dailychoice_spices_item_1899,DailyChoice Spices Item 1899,0.7,images/P1899,1898
+L1900,P1900,1899,brandb_meat_item_1900,BrandB Meat Item 1900,0.7,images/P1900,1899
+L1901,P1901,1900,brandb_pasta_item_1901,BrandB Pasta Item 1901,0.7,images/P1901,1900
+L1902,P1902,1901,healthyo_cheese_250g_var_1902,HealthyO Cheese 250g - Var 1902,0.7,images/P1902,1901
+L1903,P1903,1902,brandb_pet_food_item_1903,BrandB Pet Food Item 1903,0.7,images/P1903,1902
+L1904,P1904,1903,brandb_pasta_item_1904,BrandB Pasta Item 1904,0.7,images/P1904,1903
+L1905,P1905,1904,naturebites_water_1l_var_1905,NatureBites Water 1L - Var 1905,0.7,images/P1905,1904
+L1906,P1906,1905,brandc_breakfast_item_1906,BrandC Breakfast Item 1906,0.7,images/P1906,1905
+L1907,P1907,1906,brandb_sauces_item_1907,BrandB Sauces Item 1907,0.7,images/P1907,1906
+L1908,P1908,1907,brandc_potato_chips_50g_var_1908,BrandC Potato Chips 50g - Var 1908,0.7,images/P1908,1907
+L1909,P1909,1908,purelife_household_item_1909,PureLife Household Item 1909,0.7,images/P1909,1908
+L1910,P1910,1909,naturebites_banana_1kg_var_1910,NatureBites Banana 1kg - Var 1910,0.7,images/P1910,1909
+L1911,P1911,1910,branda_carrot_500g_var_1911,BrandA Carrot 500g - Var 1911,0.7,images/P1911,1910
+L1912,P1912,1911,brandb_stationery_item_1912,BrandB Stationery Item 1912,0.7,images/P1912,1911
+L1913,P1913,1912,healthyo_stationery_item_1913,HealthyO Stationery Item 1913,0.7,images/P1913,1912
+L1914,P1914,1913,purelife_seafood_item_1914,PureLife Seafood Item 1914,0.7,images/P1914,1913
+L1915,P1915,1914,dailychoice_cake_1kg_var_1915,DailyChoice Cake 1kg - Var 1915,0.7,images/P1915,1914
+L1916,P1916,1915,dailychoice_baby_products_item_1916,DailyChoice Baby Products Item 1916,0.7,images/P1916,1915
+L1917,P1917,1916,brandc_dhal_1kg_var_1917,BrandC Dhal 1kg - Var 1917,0.7,images/P1917,1916
+L1918,P1918,1917,healthyo_pasta_item_1918,HealthyO Pasta Item 1918,0.7,images/P1918,1917
+L1919,P1919,1918,freshfarms_white_rice_1kg_var_1919,FreshFarms White Rice 1kg - Var 1919,0.7,images/P1919,1918
+L1920,P1920,1919,freshfarms_onion_1kg_var_1920,FreshFarms Onion 1kg - Var 1920,0.7,images/P1920,1919
+L1921,P1921,1920,dailychoice_soap_100g_var_1921,DailyChoice Soap 100g - Var 1921,0.7,images/P1921,1920
+L1922,P1922,1921,healthyo_energy_drink_250ml_var_1922,HealthyO Energy Drink 250ml - Var 1922,0.7,images/P1922,1921
+L1923,P1923,1922,dailychoice_canned_food_item_1923,DailyChoice Canned Food Item 1923,0.7,images/P1923,1922
+L1924,P1924,1923,healthyo_stationery_item_1924,HealthyO Stationery Item 1924,0.7,images/P1924,1923
+L1925,P1925,1924,brandb_dhal_1kg_var_1925,BrandB Dhal 1kg - Var 1925,0.7,images/P1925,1924
+L1926,P1926,1925,glow_frozen_food_item_1926,Glow Frozen Food Item 1926,0.7,images/P1926,1925
+L1927,P1927,1926,healthyo_spices_item_1927,HealthyO Spices Item 1927,0.7,images/P1927,1926
+L1928,P1928,1927,freshfarms_dishwashing_liquid_500ml_var_1928,FreshFarms Dishwashing Liquid 500ml - Var 1928,0.7,images/P1928,1927
+L1929,P1929,1928,brandb_meat_item_1929,BrandB Meat Item 1929,0.7,images/P1929,1928
+L1930,P1930,1929,purelife_baby_products_item_1930,PureLife Baby Products Item 1930,0.7,images/P1930,1929
+L1931,P1931,1930,dailychoice_basmati_rice_1kg_var_1931,DailyChoice Basmati Rice 1kg - Var 1931,0.7,images/P1931,1930
+L1932,P1932,1931,healthyo_meat_item_1932,HealthyO Meat Item 1932,0.7,images/P1932,1931
+L1933,P1933,1932,freshfarms_stationery_item_1933,FreshFarms Stationery Item 1933,0.7,images/P1933,1932
+L1934,P1934,1933,naturebites_canned_food_item_1934,NatureBites Canned Food Item 1934,0.7,images/P1934,1933
+L1935,P1935,1934,brandc_potato_1kg_var_1935,BrandC Potato 1kg - Var 1935,0.7,images/P1935,1934
+L1936,P1936,1935,brandc_energy_drink_250ml_var_1936,BrandC Energy Drink 250ml - Var 1936,0.7,images/P1936,1935
+L1937,P1937,1936,glow_stationery_item_1937,Glow Stationery Item 1937,0.7,images/P1937,1936
+L1938,P1938,1937,glow_potato_1kg_var_1938,Glow Potato 1kg - Var 1938,0.7,images/P1938,1937
+L1939,P1939,1938,glow_spices_item_1939,Glow Spices Item 1939,0.7,images/P1939,1938
+L1940,P1940,1939,glow_pet_food_item_1940,Glow Pet Food Item 1940,0.7,images/P1940,1939
+L1941,P1941,1940,healthyo_meat_item_1941,HealthyO Meat Item 1941,0.7,images/P1941,1940
+L1942,P1942,1941,brandb_juice_1l_var_1942,BrandB Juice 1L - Var 1942,0.7,images/P1942,1941
+L1943,P1943,1942,glow_water_1l_var_1943,Glow Water 1L - Var 1943,0.7,images/P1943,1942
+L1944,P1944,1943,naturebites_breakfast_item_1944,NatureBites Breakfast Item 1944,0.7,images/P1944,1943
+L1945,P1945,1944,freshfarms_spices_item_1945,FreshFarms Spices Item 1945,0.7,images/P1945,1944
+L1946,P1946,1945,branda_bread_500g_var_1946,BrandA Bread 500g - Var 1946,0.7,images/P1946,1945
+L1947,P1947,1946,freshfarms_buns_4pcs_var_1947,FreshFarms Buns 4pcs - Var 1947,0.7,images/P1947,1946
+L1948,P1948,1947,cleanplus_meat_item_1948,CleanPlus Meat Item 1948,0.7,images/P1948,1947
+L1949,P1949,1948,branda_spices_item_1949,BrandA Spices Item 1949,0.7,images/P1949,1948
+L1950,P1950,1949,healthyo_milk_1l_var_1950,HealthyO Milk 1L - Var 1950,0.7,images/P1950,1949
+L1951,P1951,1950,brandc_household_item_1951,BrandC Household Item 1951,0.7,images/P1951,1950
+L1952,P1952,1951,brandc_sauces_item_1952,BrandC Sauces Item 1952,0.7,images/P1952,1951
+L1953,P1953,1952,purelife_household_item_1953,PureLife Household Item 1953,0.7,images/P1953,1952
+L1954,P1954,1953,brandb_canned_food_item_1954,BrandB Canned Food Item 1954,0.7,images/P1954,1953
+L1955,P1955,1954,purelife_canned_food_item_1955,PureLife Canned Food Item 1955,0.7,images/P1955,1954
+L1956,P1956,1955,branda_canned_food_item_1956,BrandA Canned Food Item 1956,0.7,images/P1956,1955
+L1957,P1957,1956,cleanplus_canned_food_item_1957,CleanPlus Canned Food Item 1957,0.7,images/P1957,1956
+L1958,P1958,1957,naturebites_breakfast_item_1958,NatureBites Breakfast Item 1958,0.7,images/P1958,1957
+L1959,P1959,1958,branda_milk_1l_var_1959,BrandA Milk 1L - Var 1959,0.7,images/P1959,1958
+L1960,P1960,1959,brandc_household_item_1960,BrandC Household Item 1960,0.7,images/P1960,1959
+L1961,P1961,1960,purelife_shampoo_200ml_var_1961,PureLife Shampoo 200ml - Var 1961,0.7,images/P1961,1960
+L1962,P1962,1961,brandc_croissant_2pcs_var_1962,BrandC Croissant 2pcs - Var 1962,0.7,images/P1962,1961
+L1963,P1963,1962,brandc_nuts_100g_var_1963,BrandC Nuts 100g - Var 1963,0.7,images/P1963,1962
+L1964,P1964,1963,naturebites_baby_products_item_1964,NatureBites Baby Products Item 1964,0.7,images/P1964,1963
+L1965,P1965,1964,cleanplus_basmati_rice_1kg_var_1965,CleanPlus Basmati Rice 1kg - Var 1965,0.7,images/P1965,1964
+L1966,P1966,1965,dailychoice_breakfast_item_1966,DailyChoice Breakfast Item 1966,0.7,images/P1966,1965
+L1967,P1967,1966,dailychoice_water_1l_var_1967,DailyChoice Water 1L - Var 1967,0.7,images/P1967,1966
+L1968,P1968,1967,dailychoice_canned_food_item_1968,DailyChoice Canned Food Item 1968,0.7,images/P1968,1967
+L1969,P1969,1968,purelife_frozen_food_item_1969,PureLife Frozen Food Item 1969,0.7,images/P1969,1968
+L1970,P1970,1969,glow_spices_item_1970,Glow Spices Item 1970,0.7,images/P1970,1969
+L1971,P1971,1970,cleanplus_meat_item_1971,CleanPlus Meat Item 1971,0.7,images/P1971,1970
+L1972,P1972,1971,glow_dhal_1kg_var_1972,Glow Dhal 1kg - Var 1972,0.7,images/P1972,1971
+L1973,P1973,1972,dailychoice_white_rice_1kg_var_1973,DailyChoice White Rice 1kg - Var 1973,0.7,images/P1973,1972
+L1974,P1974,1973,healthyo_buns_4pcs_var_1974,HealthyO Buns 4pcs - Var 1974,0.7,images/P1974,1973
+L1975,P1975,1974,cleanplus_dishwashing_liquid_500ml_var_1975,CleanPlus Dishwashing Liquid 500ml - Var 1975,0.7,images/P1975,1974
+L1976,P1976,1975,branda_sauces_item_1976,BrandA Sauces Item 1976,0.7,images/P1976,1975
+L1977,P1977,1976,dailychoice_frozen_food_item_1977,DailyChoice Frozen Food Item 1977,0.7,images/P1977,1976
+L1978,P1978,1977,freshfarms_sauces_item_1978,FreshFarms Sauces Item 1978,0.7,images/P1978,1977
+L1979,P1979,1978,brandc_frozen_food_item_1979,BrandC Frozen Food Item 1979,0.7,images/P1979,1978
+L1980,P1980,1979,brandb_breakfast_item_1980,BrandB Breakfast Item 1980,0.7,images/P1980,1979
+L1981,P1981,1980,freshfarms_spices_item_1981,FreshFarms Spices Item 1981,0.7,images/P1981,1980
+L1982,P1982,1981,brandb_pasta_item_1982,BrandB Pasta Item 1982,0.7,images/P1982,1981
+L1983,P1983,1982,healthyo_household_item_1983,HealthyO Household Item 1983,0.7,images/P1983,1982
+L1984,P1984,1983,healthyo_deodorant_150ml_var_1984,HealthyO Deodorant 150ml - Var 1984,0.7,images/P1984,1983
+L1985,P1985,1984,glow_croissant_2pcs_var_1985,Glow Croissant 2pcs - Var 1985,0.7,images/P1985,1984
+L1986,P1986,1985,brandb_household_item_1986,BrandB Household Item 1986,0.7,images/P1986,1985
+L1987,P1987,1986,dailychoice_bread_500g_var_1987,DailyChoice Bread 500g - Var 1987,0.7,images/P1987,1986
+L1988,P1988,1987,dailychoice_frozen_food_item_1988,DailyChoice Frozen Food Item 1988,0.7,images/P1988,1987
+L1989,P1989,1988,freshfarms_tomato_500g_var_1989,FreshFarms Tomato 500g - Var 1989,0.7,images/P1989,1988
+L1990,P1990,1989,naturebites_basmati_rice_1kg_var_1990,NatureBites Basmati Rice 1kg - Var 1990,0.7,images/P1990,1989
+L1991,P1991,1990,healthyo_baby_products_item_1991,HealthyO Baby Products Item 1991,0.7,images/P1991,1990
+L1992,P1992,1991,purelife_pasta_item_1992,PureLife Pasta Item 1992,0.7,images/P1992,1991
+L1993,P1993,1992,dailychoice_red_rice_1kg_var_1993,DailyChoice Red Rice 1kg - Var 1993,0.7,images/P1993,1992
+L1994,P1994,1993,cleanplus_pet_food_item_1994,CleanPlus Pet Food Item 1994,0.7,images/P1994,1993
+L1995,P1995,1994,brandb_frozen_food_item_1995,BrandB Frozen Food Item 1995,0.7,images/P1995,1994
+L1996,P1996,1995,glow_baby_products_item_1996,Glow Baby Products Item 1996,0.7,images/P1996,1995
+L1997,P1997,1996,brandb_pet_food_item_1997,BrandB Pet Food Item 1997,0.7,images/P1997,1996
+L1998,P1998,1997,purelife_soft_drink_1.5l_var_1998,PureLife Soft Drink 1.5L - Var 1998,0.7,images/P1998,1997
+L1999,P1999,1998,brandc_sauces_item_1999,BrandC Sauces Item 1999,0.7,images/P1999,1998
+L2000,P2000,1999,naturebites_canned_food_item_2000,NatureBites Canned Food Item 2000,0.7,images/P2000,1999

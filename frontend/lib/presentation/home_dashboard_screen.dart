@@ -6,7 +6,6 @@ import '../core/theme/app_colors.dart';
 import 'widgets/shopmate_bottom_nav.dart';
 import 'widgets/shopmate_budget_card.dart';
 import 'widgets/shopmate_product_card.dart';
-import 'widgets/shopmate_flash_sale_section.dart';
 import '../providers/budget_provider.dart';
 import '../providers/basket_provider.dart';
 
@@ -248,12 +247,7 @@ class _HomeDashboardScreenState extends ConsumerState<HomeDashboardScreen> {
 
 
 
-              // Flash Sale Widget
-              ShopMateFlashSaleSection(
-                onAddToCart: _addProductToCart,
-              ),
 
-              const SizedBox(height: 22),
 
               // Popular Supermarket Products
               _buildSectionHeader(

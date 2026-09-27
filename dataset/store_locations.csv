@@ -1,0 +1,106 @@
+location_id,aisle_id,aisle_name,shelf_id,shelf_name,x_coordinate,y_coordinate,department,location_description
+L001,A01,Aisle 01,S01,Shelf 1,1,2,Dairy,Dairy section
+L002,A01,Aisle 01,S02,Shelf 2,1,3,Dairy,Dairy section
+L003,A01,Aisle 01,S03,Shelf 3,1,4,Dairy,Dairy section
+L004,A01,Aisle 01,S04,Shelf 4,1,5,Dairy,Dairy section
+L005,A01,Aisle 01,S05,Shelf 5,1,6,Dairy,Dairy section
+L006,A02,Aisle 02,S01,Shelf 1,2,2,Bakery,Bakery section
+L007,A02,Aisle 02,S02,Shelf 2,2,3,Bakery,Bakery section
+L008,A02,Aisle 02,S03,Shelf 3,2,4,Bakery,Bakery section
+L009,A02,Aisle 02,S04,Shelf 4,2,5,Bakery,Bakery section
+L010,A02,Aisle 02,S05,Shelf 5,2,6,Bakery,Bakery section
+L011,A03,Aisle 03,S01,Shelf 1,3,2,Beverages,Beverages section
+L012,A03,Aisle 03,S02,Shelf 2,3,3,Beverages,Beverages section
+L013,A03,Aisle 03,S03,Shelf 3,3,4,Beverages,Beverages section
+L014,A03,Aisle 03,S04,Shelf 4,3,5,Beverages,Beverages section
+L015,A03,Aisle 03,S05,Shelf 5,3,6,Beverages,Beverages section
+L016,A04,Aisle 04,S01,Shelf 1,4,2,Snacks,Snacks section
+L017,A04,Aisle 04,S02,Shelf 2,4,3,Snacks,Snacks section
+L018,A04,Aisle 04,S03,Shelf 3,4,4,Snacks,Snacks section
+L019,A04,Aisle 04,S04,Shelf 4,4,5,Snacks,Snacks section
+L020,A04,Aisle 04,S05,Shelf 5,4,6,Snacks,Snacks section
+L021,A05,Aisle 05,S01,Shelf 1,5,2,Rice & Grains,Rice & Grains section
+L022,A05,Aisle 05,S02,Shelf 2,5,3,Rice & Grains,Rice & Grains section
+L023,A05,Aisle 05,S03,Shelf 3,5,4,Rice & Grains,Rice & Grains section
+L024,A05,Aisle 05,S04,Shelf 4,5,5,Rice & Grains,Rice & Grains section
+L025,A05,Aisle 05,S05,Shelf 5,5,6,Rice & Grains,Rice & Grains section
+L026,A06,Aisle 06,S01,Shelf 1,6,2,Pasta,Pasta section
+L027,A06,Aisle 06,S02,Shelf 2,6,3,Pasta,Pasta section
+L028,A06,Aisle 06,S03,Shelf 3,6,4,Pasta,Pasta section
+L029,A06,Aisle 06,S04,Shelf 4,6,5,Pasta,Pasta section
+L030,A06,Aisle 06,S05,Shelf 5,6,6,Pasta,Pasta section
+L031,A07,Aisle 07,S01,Shelf 1,7,2,Canned Food,Canned Food section
+L032,A07,Aisle 07,S02,Shelf 2,7,3,Canned Food,Canned Food section
+L033,A07,Aisle 07,S03,Shelf 3,7,4,Canned Food,Canned Food section
+L034,A07,Aisle 07,S04,Shelf 4,7,5,Canned Food,Canned Food section
+L035,A07,Aisle 07,S05,Shelf 5,7,6,Canned Food,Canned Food section
+L036,A08,Aisle 08,S01,Shelf 1,8,2,Frozen Food,Frozen Food section
+L037,A08,Aisle 08,S02,Shelf 2,8,3,Frozen Food,Frozen Food section
+L038,A08,Aisle 08,S03,Shelf 3,8,4,Frozen Food,Frozen Food section
+L039,A08,Aisle 08,S04,Shelf 4,8,5,Frozen Food,Frozen Food section
+L040,A08,Aisle 08,S05,Shelf 5,8,6,Frozen Food,Frozen Food section
+L041,A09,Aisle 09,S01,Shelf 1,9,2,Fruits,Fruits section
+L042,A09,Aisle 09,S02,Shelf 2,9,3,Fruits,Fruits section
+L043,A09,Aisle 09,S03,Shelf 3,9,4,Fruits,Fruits section
+L044,A09,Aisle 09,S04,Shelf 4,9,5,Fruits,Fruits section
+L045,A09,Aisle 09,S05,Shelf 5,9,6,Fruits,Fruits section
+L046,A10,Aisle 10,S01,Shelf 1,10,2,Vegetables,Vegetables section
+L047,A10,Aisle 10,S02,Shelf 2,10,3,Vegetables,Vegetables section
+L048,A10,Aisle 10,S03,Shelf 3,10,4,Vegetables,Vegetables section
+L049,A10,Aisle 10,S04,Shelf 4,10,5,Vegetables,Vegetables section
+L050,A10,Aisle 10,S05,Shelf 5,10,6,Vegetables,Vegetables section
+L051,A11,Aisle 11,S01,Shelf 1,11,2,Meat,Meat section
+L052,A11,Aisle 11,S02,Shelf 2,11,3,Meat,Meat section
+L053,A11,Aisle 11,S03,Shelf 3,11,4,Meat,Meat section
+L054,A11,Aisle 11,S04,Shelf 4,11,5,Meat,Meat section
+L055,A11,Aisle 11,S05,Shelf 5,11,6,Meat,Meat section
+L056,A12,Aisle 12,S01,Shelf 1,12,2,Seafood,Seafood section
+L057,A12,Aisle 12,S02,Shelf 2,12,3,Seafood,Seafood section
+L058,A12,Aisle 12,S03,Shelf 3,12,4,Seafood,Seafood section
+L059,A12,Aisle 12,S04,Shelf 4,12,5,Seafood,Seafood section
+L060,A12,Aisle 12,S05,Shelf 5,12,6,Seafood,Seafood section
+L061,A13,Aisle 13,S01,Shelf 1,13,2,Household,Household section
+L062,A13,Aisle 13,S02,Shelf 2,13,3,Household,Household section
+L063,A13,Aisle 13,S03,Shelf 3,13,4,Household,Household section
+L064,A13,Aisle 13,S04,Shelf 4,13,5,Household,Household section
+L065,A13,Aisle 13,S05,Shelf 5,13,6,Household,Household section
+L066,A14,Aisle 14,S01,Shelf 1,14,2,Personal Care,Personal Care section
+L067,A14,Aisle 14,S02,Shelf 2,14,3,Personal Care,Personal Care section
+L068,A14,Aisle 14,S03,Shelf 3,14,4,Personal Care,Personal Care section
+L069,A14,Aisle 14,S04,Shelf 4,14,5,Personal Care,Personal Care section
+L070,A14,Aisle 14,S05,Shelf 5,14,6,Personal Care,Personal Care section
+L071,A15,Aisle 15,S01,Shelf 1,15,2,Baby Products,Baby Products section
+L072,A15,Aisle 15,S02,Shelf 2,15,3,Baby Products,Baby Products section
+L073,A15,Aisle 15,S03,Shelf 3,15,4,Baby Products,Baby Products section
+L074,A15,Aisle 15,S04,Shelf 4,15,5,Baby Products,Baby Products section
+L075,A15,Aisle 15,S05,Shelf 5,15,6,Baby Products,Baby Products section
+L076,A16,Aisle 16,S01,Shelf 1,16,2,Breakfast,Breakfast section
+L077,A16,Aisle 16,S02,Shelf 2,16,3,Breakfast,Breakfast section
+L078,A16,Aisle 16,S03,Shelf 3,16,4,Breakfast,Breakfast section
+L079,A16,Aisle 16,S04,Shelf 4,16,5,Breakfast,Breakfast section
+L080,A16,Aisle 16,S05,Shelf 5,16,6,Breakfast,Breakfast section
+L081,A17,Aisle 17,S01,Shelf 1,17,2,Sauces,Sauces section
+L082,A17,Aisle 17,S02,Shelf 2,17,3,Sauces,Sauces section
+L083,A17,Aisle 17,S03,Shelf 3,17,4,Sauces,Sauces section
+L084,A17,Aisle 17,S04,Shelf 4,17,5,Sauces,Sauces section
+L085,A17,Aisle 17,S05,Shelf 5,17,6,Sauces,Sauces section
+L086,A18,Aisle 18,S01,Shelf 1,18,2,Spices,Spices section
+L087,A18,Aisle 18,S02,Shelf 2,18,3,Spices,Spices section
+L088,A18,Aisle 18,S03,Shelf 3,18,4,Spices,Spices section
+L089,A18,Aisle 18,S04,Shelf 4,18,5,Spices,Spices section
+L090,A18,Aisle 18,S05,Shelf 5,18,6,Spices,Spices section
+L091,A19,Aisle 19,S01,Shelf 1,19,2,Cleaning,Cleaning section
+L092,A19,Aisle 19,S02,Shelf 2,19,3,Cleaning,Cleaning section
+L093,A19,Aisle 19,S03,Shelf 3,19,4,Cleaning,Cleaning section
+L094,A19,Aisle 19,S04,Shelf 4,19,5,Cleaning,Cleaning section
+L095,A19,Aisle 19,S05,Shelf 5,19,6,Cleaning,Cleaning section
+L096,A20,Aisle 20,S01,Shelf 1,20,2,Stationery,Stationery section
+L097,A20,Aisle 20,S02,Shelf 2,20,3,Stationery,Stationery section
+L098,A20,Aisle 20,S03,Shelf 3,20,4,Stationery,Stationery section
+L099,A20,Aisle 20,S04,Shelf 4,20,5,Stationery,Stationery section
+L100,A20,Aisle 20,S05,Shelf 5,20,6,Stationery,Stationery section
+L101,A21,Aisle 21,S01,Shelf 1,21,2,Pet Food,Pet Food section
+L102,A21,Aisle 21,S02,Shelf 2,21,3,Pet Food,Pet Food section
+L103,A21,Aisle 21,S03,Shelf 3,21,4,Pet Food,Pet Food section
+L104,A21,Aisle 21,S04,Shelf 4,21,5,Pet Food,Pet Food section
+L105,A21,Aisle 21,S05,Shelf 5,21,6,Pet Food,Pet Food section

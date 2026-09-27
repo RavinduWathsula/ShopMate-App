@@ -1,0 +1,501 @@
+customer_id,customer_code,age_group,city,preferred_category,average_monthly_budget,shopping_frequency,customer_segment
+C0001,5FCD7696,55+,Kandy,Cleaning,38367,Bi-Weekly,Budget
+C0002,2D73E30B,45-54,Kandy,Vegetables,29112,Bi-Weekly,Occasional
+C0003,932D0A7D,35-44,Negombo,Pasta,18017,Bi-Weekly,Regular
+C0004,3FECD92E,55+,Galle,Pet Food,15395,Monthly,Occasional
+C0005,C0D65EF0,35-44,Moratuwa,Snacks,37832,Weekly,Occasional
+C0006,A29B3B86,18-24,Galle,Dairy,20588,Weekly,Budget
+C0007,1664D3D6,55+,Colombo,Household,46997,Monthly,Budget
+C0008,9137D86F,35-44,Colombo,Frozen Food,29651,Bi-Weekly,Occasional
+C0009,32F7E491,45-54,Colombo,Cleaning,26721,Monthly,Premium
+C0010,4261382A,45-54,Negombo,Vegetables,11692,Monthly,Premium
+C0011,675847E0,55+,Kandy,Spices,36546,Bi-Weekly,Premium
+C0012,32CD3D6C,25-34,Colombo,Rice & Grains,37836,Monthly,Regular
+C0013,168404F2,18-24,Moratuwa,Pet Food,48347,Bi-Weekly,Premium
+C0014,3EBD0475,18-24,Moratuwa,Canned Food,37237,Bi-Weekly,Occasional
+C0015,BD0E63B0,45-54,Colombo,Stationery,34743,Bi-Weekly,Occasional
+C0016,4D88AC3A,45-54,Colombo,Dairy,19145,Bi-Weekly,Occasional
+C0017,6C92A6AB,25-34,Galle,Pasta,12101,Weekly,Premium
+C0018,CB550BBF,25-34,Kandy,Fruits,48560,Monthly,Budget
+C0019,5D8D6195,18-24,Kandy,Baby Products,37746,Monthly,Premium
+C0020,8642E37B,45-54,Negombo,Seafood,11058,Weekly,Occasional
+C0021,4982D4E6,45-54,Moratuwa,Beverages,31456,Weekly,Regular
+C0022,0E13BDE8,35-44,Negombo,Snacks,27979,Bi-Weekly,Budget
+C0023,2A688819,55+,Kandy,Canned Food,26076,Bi-Weekly,Budget
+C0024,A3F67F12,45-54,Galle,Household,33625,Bi-Weekly,Regular
+C0025,36F1A60F,25-34,Negombo,Bakery,17211,Monthly,Occasional
+C0026,F420EA4C,25-34,Negombo,Rice & Grains,34878,Weekly,Budget
+C0027,3B8BE060,55+,Moratuwa,Seafood,34994,Monthly,Regular
+C0028,0AEDB899,35-44,Moratuwa,Pasta,21973,Bi-Weekly,Occasional
+C0029,A5E0E7CA,45-54,Galle,Beverages,29571,Monthly,Budget
+C0030,3BFB9032,18-24,Kandy,Spices,31192,Weekly,Premium
+C0031,1723A8F9,35-44,Galle,Beverages,23650,Bi-Weekly,Regular
+C0032,E6126187,35-44,Moratuwa,Household,41530,Weekly,Premium
+C0033,C430D141,55+,Moratuwa,Frozen Food,47530,Weekly,Regular
+C0034,BCFD69C1,45-54,Kandy,Frozen Food,14332,Bi-Weekly,Regular
+C0035,C935AB65,35-44,Negombo,Beverages,34496,Monthly,Occasional
+C0036,9B5A1F1D,35-44,Moratuwa,Canned Food,19752,Bi-Weekly,Budget
+C0037,FE83DE1A,18-24,Galle,Cleaning,40014,Monthly,Occasional
+C0038,16366878,55+,Galle,Canned Food,14163,Weekly,Budget
+C0039,ADA62F72,35-44,Colombo,Cleaning,31117,Bi-Weekly,Premium
+C0040,33DE2E4E,45-54,Negombo,Pet Food,38537,Bi-Weekly,Budget
+C0041,C01112F1,55+,Kandy,Bakery,44625,Bi-Weekly,Budget
+C0042,775F3E9B,18-24,Colombo,Spices,41485,Weekly,Budget
+C0043,95832C87,35-44,Kandy,Cleaning,15525,Bi-Weekly,Budget
+C0044,1096206F,18-24,Galle,Frozen Food,38385,Bi-Weekly,Occasional
+C0045,FF27766C,25-34,Colombo,Dairy,41842,Monthly,Budget
+C0046,88D84C25,55+,Negombo,Snacks,12971,Monthly,Occasional
+C0047,3B6325BE,55+,Galle,Personal Care,29738,Weekly,Regular
+C0048,32933697,45-54,Colombo,Personal Care,45908,Monthly,Budget
+C0049,C75209AB,25-34,Negombo,Cleaning,22971,Weekly,Budget
+C0050,67082D1F,35-44,Galle,Pasta,22856,Weekly,Occasional
+C0051,AD630933,18-24,Colombo,Pasta,22795,Weekly,Premium
+C0052,A91CA318,55+,Negombo,Meat,31963,Monthly,Budget
+C0053,9EC60E6E,35-44,Kandy,Pasta,28894,Monthly,Budget
+C0054,94495228,18-24,Galle,Rice & Grains,11789,Bi-Weekly,Occasional
+C0055,23F3543B,45-54,Colombo,Snacks,30646,Weekly,Regular
+C0056,BB925146,35-44,Moratuwa,Cleaning,19284,Weekly,Budget
+C0057,A906D41E,45-54,Negombo,Frozen Food,23487,Monthly,Premium
+C0058,FBACD996,25-34,Kandy,Rice & Grains,28210,Weekly,Budget
+C0059,BD663C9E,35-44,Kandy,Cleaning,18551,Weekly,Premium
+C0060,96DB7748,18-24,Galle,Household,19164,Monthly,Budget
+C0061,C4E54140,18-24,Moratuwa,Bakery,14949,Weekly,Premium
+C0062,98D10386,35-44,Moratuwa,Vegetables,23701,Weekly,Budget
+C0063,448E44CB,25-34,Kandy,Pet Food,21423,Bi-Weekly,Premium
+C0064,9D66FB51,55+,Negombo,Snacks,24069,Weekly,Premium
+C0065,DFEFB42D,55+,Galle,Meat,36982,Monthly,Regular
+C0066,CDDA666C,35-44,Kandy,Canned Food,29941,Weekly,Occasional
+C0067,2668AE4B,35-44,Galle,Stationery,39013,Bi-Weekly,Budget
+C0068,A1AFAB91,25-34,Galle,Cleaning,43554,Bi-Weekly,Occasional
+C0069,C9CDCCA5,25-34,Galle,Pasta,13572,Monthly,Regular
+C0070,B6101E95,25-34,Negombo,Baby Products,41034,Monthly,Premium
+C0071,C79FCC21,35-44,Moratuwa,Spices,33627,Weekly,Occasional
+C0072,EDC57D86,25-34,Galle,Household,16036,Bi-Weekly,Premium
+C0073,936BF17B,45-54,Negombo,Seafood,31791,Monthly,Budget
+C0074,CC95163A,35-44,Negombo,Household,20335,Bi-Weekly,Premium
+C0075,6566A5B8,55+,Colombo,Stationery,37299,Bi-Weekly,Regular
+C0076,A71BC220,18-24,Galle,Breakfast,34213,Weekly,Premium
+C0077,0B85C1CD,45-54,Moratuwa,Seafood,20436,Bi-Weekly,Occasional
+C0078,2DB6FA7B,35-44,Negombo,Personal Care,30826,Monthly,Premium
+C0079,BEFDD4FC,35-44,Kandy,Spices,48047,Monthly,Occasional
+C0080,27A59B6D,25-34,Moratuwa,Spices,32222,Monthly,Premium
+C0081,33E4F53C,25-34,Galle,Canned Food,35444,Bi-Weekly,Premium
+C0082,9DBE045E,35-44,Colombo,Meat,41117,Weekly,Premium
+C0083,FC803AAC,45-54,Negombo,Canned Food,45851,Weekly,Regular
+C0084,5B9046ED,35-44,Kandy,Vegetables,36923,Monthly,Regular
+C0085,F76DC6F4,55+,Negombo,Frozen Food,47863,Weekly,Occasional
+C0086,B9D3E101,18-24,Negombo,Spices,19641,Bi-Weekly,Occasional
+C0087,4561AAB0,55+,Kandy,Stationery,49873,Monthly,Budget
+C0088,12910F60,45-54,Colombo,Seafood,24719,Monthly,Budget
+C0089,B1583248,18-24,Negombo,Sauces,22893,Monthly,Occasional
+C0090,A20E1EA5,18-24,Colombo,Frozen Food,11515,Bi-Weekly,Premium
+C0091,6C2571EC,45-54,Kandy,Household,13862,Bi-Weekly,Premium
+C0092,7CD970A1,18-24,Colombo,Fruits,45147,Monthly,Occasional
+C0093,ECB551A4,45-54,Moratuwa,Dairy,46433,Weekly,Occasional
+C0094,EF3BDA64,35-44,Moratuwa,Canned Food,17721,Weekly,Budget
+C0095,06A0F579,35-44,Negombo,Canned Food,48807,Bi-Weekly,Occasional
+C0096,3DEB36F4,45-54,Kandy,Meat,28217,Weekly,Premium
+C0097,60BC09F1,45-54,Galle,Seafood,36572,Weekly,Premium
+C0098,5B46A66A,55+,Colombo,Baby Products,19089,Monthly,Regular
+C0099,9E242899,18-24,Kandy,Household,47529,Bi-Weekly,Budget
+C0100,0FD1FF2C,18-24,Kandy,Pet Food,37106,Monthly,Occasional
+C0101,E57B5D89,35-44,Moratuwa,Baby Products,15795,Monthly,Occasional
+C0102,4D81EF23,45-54,Colombo,Personal Care,46090,Weekly,Premium
+C0103,4EA55B11,35-44,Kandy,Stationery,17270,Weekly,Budget
+C0104,989D1852,45-54,Colombo,Pasta,32931,Monthly,Budget
+C0105,00DE3C6F,18-24,Negombo,Frozen Food,47203,Monthly,Regular
+C0106,111C8960,55+,Colombo,Beverages,22759,Weekly,Premium
+C0107,7FD6429F,35-44,Galle,Canned Food,41210,Monthly,Occasional
+C0108,73597AD7,45-54,Kandy,Fruits,44962,Weekly,Regular
+C0109,28CB527B,18-24,Moratuwa,Spices,27386,Weekly,Budget
+C0110,625B2EA9,18-24,Negombo,Breakfast,49354,Weekly,Budget
+C0111,EFAEAB11,18-24,Galle,Spices,15973,Weekly,Occasional
+C0112,A8EB442A,18-24,Galle,Cleaning,48686,Monthly,Budget
+C0113,122783CA,18-24,Colombo,Vegetables,20587,Weekly,Premium
+C0114,44B9F364,55+,Moratuwa,Personal Care,37328,Weekly,Occasional
+C0115,FEFA6667,55+,Colombo,Beverages,49467,Weekly,Premium
+C0116,15706237,35-44,Kandy,Snacks,23144,Bi-Weekly,Regular
+C0117,0CC93D78,35-44,Moratuwa,Fruits,20219,Weekly,Premium
+C0118,BB5950DA,35-44,Kandy,Beverages,37883,Weekly,Occasional
+C0119,B3F41344,55+,Colombo,Breakfast,48776,Weekly,Premium
+C0120,15CB5359,55+,Negombo,Bakery,15232,Bi-Weekly,Occasional
+C0121,04ECDDD7,18-24,Colombo,Breakfast,17602,Weekly,Premium
+C0122,72393A1F,18-24,Moratuwa,Vegetables,11063,Weekly,Regular
+C0123,2D0C76EF,45-54,Colombo,Pasta,44128,Monthly,Budget
+C0124,64A37D20,35-44,Colombo,Snacks,18684,Monthly,Occasional
+C0125,E54677B3,35-44,Galle,Rice & Grains,41757,Monthly,Budget
+C0126,5B56C1DF,55+,Kandy,Personal Care,41223,Monthly,Regular
+C0127,95982E0A,45-54,Negombo,Vegetables,38095,Weekly,Budget
+C0128,FA45C16E,25-34,Moratuwa,Beverages,12458,Monthly,Occasional
+C0129,842575D8,35-44,Moratuwa,Snacks,34834,Weekly,Regular
+C0130,D55F3A53,25-34,Kandy,Pet Food,19945,Weekly,Regular
+C0131,83FB6BCF,35-44,Colombo,Beverages,25562,Weekly,Regular
+C0132,4BB964DA,25-34,Galle,Bakery,36932,Monthly,Occasional
+C0133,6E469043,25-34,Negombo,Beverages,36641,Monthly,Regular
+C0134,1B2C1CBC,35-44,Galle,Pasta,31179,Weekly,Occasional
+C0135,AA8A679E,35-44,Colombo,Dairy,19104,Monthly,Regular
+C0136,B6B3BBB9,35-44,Negombo,Beverages,40575,Monthly,Regular
+C0137,A6DBD0BC,55+,Moratuwa,Seafood,37913,Bi-Weekly,Regular
+C0138,6A085D89,55+,Moratuwa,Stationery,24477,Weekly,Budget
+C0139,AC104F9C,35-44,Colombo,Cleaning,32330,Bi-Weekly,Occasional
+C0140,46243590,35-44,Negombo,Canned Food,33961,Bi-Weekly,Regular
+C0141,2E462A19,25-34,Kandy,Baby Products,15663,Bi-Weekly,Premium
+C0142,54261044,45-54,Negombo,Rice & Grains,33699,Bi-Weekly,Regular
+C0143,B3D23555,18-24,Galle,Household,10523,Bi-Weekly,Budget
+C0144,EDA993F2,18-24,Colombo,Vegetables,27986,Weekly,Premium
+C0145,0C37D913,18-24,Negombo,Sauces,37589,Weekly,Regular
+C0146,059B8954,18-24,Moratuwa,Baby Products,16724,Weekly,Budget
+C0147,DBE607B1,45-54,Negombo,Spices,49289,Weekly,Regular
+C0148,F1014A32,18-24,Negombo,Rice & Grains,45146,Weekly,Budget
+C0149,37BE0AA2,45-54,Negombo,Pasta,22594,Monthly,Budget
+C0150,EC8725F4,18-24,Galle,Pasta,19175,Weekly,Premium
+C0151,AB8CC85C,55+,Kandy,Pasta,21468,Monthly,Premium
+C0152,F3196910,35-44,Colombo,Spices,28200,Bi-Weekly,Regular
+C0153,72CCD0AA,25-34,Moratuwa,Canned Food,33456,Monthly,Regular
+C0154,1770887D,18-24,Colombo,Fruits,16046,Weekly,Regular
+C0155,2ADDD348,45-54,Moratuwa,Snacks,24953,Bi-Weekly,Budget
+C0156,8FF7545F,18-24,Kandy,Seafood,11946,Bi-Weekly,Premium
+C0157,E0D30297,35-44,Negombo,Rice & Grains,20795,Monthly,Premium
+C0158,BB3C9489,18-24,Negombo,Vegetables,17710,Monthly,Regular
+C0159,FE806376,45-54,Moratuwa,Bakery,49242,Bi-Weekly,Premium
+C0160,EAA390BE,18-24,Kandy,Spices,11126,Weekly,Budget
+C0161,7E1291E2,35-44,Colombo,Stationery,28854,Monthly,Regular
+C0162,DB5DAAF7,25-34,Galle,Beverages,31818,Weekly,Budget
+C0163,CD4E3B6A,35-44,Galle,Breakfast,46416,Bi-Weekly,Occasional
+C0164,58FC151B,35-44,Kandy,Spices,12386,Weekly,Budget
+C0165,3FF63AE8,55+,Moratuwa,Stationery,24632,Weekly,Occasional
+C0166,784D5CE7,25-34,Galle,Breakfast,46650,Monthly,Budget
+C0167,C71EF408,25-34,Negombo,Spices,48350,Weekly,Premium
+C0168,CED18572,18-24,Kandy,Stationery,39139,Bi-Weekly,Premium
+C0169,2F1FC8A5,45-54,Moratuwa,Cleaning,10900,Bi-Weekly,Regular
+C0170,74354657,55+,Galle,Seafood,42308,Bi-Weekly,Regular
+C0171,A4842D67,18-24,Moratuwa,Fruits,22227,Monthly,Budget
+C0172,06EF0F75,45-54,Moratuwa,Personal Care,47122,Monthly,Budget
+C0173,2A84D11F,35-44,Galle,Rice & Grains,44067,Monthly,Occasional
+C0174,268682DD,18-24,Negombo,Beverages,13176,Bi-Weekly,Regular
+C0175,6370FF63,45-54,Negombo,Frozen Food,25304,Bi-Weekly,Regular
+C0176,E959231D,35-44,Negombo,Bakery,15439,Bi-Weekly,Regular
+C0177,BDCB85B7,25-34,Negombo,Personal Care,16110,Weekly,Occasional
+C0178,A482B8DB,55+,Colombo,Vegetables,48518,Monthly,Budget
+C0179,472B3093,25-34,Galle,Frozen Food,11343,Monthly,Regular
+C0180,D4B3BFF3,25-34,Negombo,Household,20533,Monthly,Occasional
+C0181,45999C76,35-44,Galle,Vegetables,40135,Bi-Weekly,Premium
+C0182,5506A020,35-44,Colombo,Spices,28480,Monthly,Premium
+C0183,4C5C4A45,25-34,Kandy,Fruits,21410,Weekly,Regular
+C0184,8713660F,55+,Colombo,Bakery,27950,Weekly,Occasional
+C0185,BB359FE0,25-34,Galle,Snacks,31692,Bi-Weekly,Premium
+C0186,87A2B8BA,45-54,Moratuwa,Snacks,31471,Monthly,Regular
+C0187,B0BAD59E,35-44,Negombo,Vegetables,48335,Weekly,Occasional
+C0188,BBA20C54,25-34,Negombo,Cleaning,34826,Weekly,Premium
+C0189,BF05D2A6,35-44,Kandy,Seafood,39633,Weekly,Premium
+C0190,0EA21248,25-34,Kandy,Rice & Grains,32147,Monthly,Regular
+C0191,F5988562,35-44,Kandy,Frozen Food,15411,Bi-Weekly,Premium
+C0192,1E85B7A1,55+,Negombo,Frozen Food,13020,Bi-Weekly,Budget
+C0193,C29070E6,25-34,Moratuwa,Personal Care,35710,Weekly,Budget
+C0194,B6F12F6B,45-54,Kandy,Snacks,41809,Bi-Weekly,Premium
+C0195,6CE7F4BC,55+,Kandy,Rice & Grains,11732,Bi-Weekly,Budget
+C0196,ADA815AA,45-54,Negombo,Spices,21588,Weekly,Regular
+C0197,985C1C90,25-34,Moratuwa,Pasta,36615,Bi-Weekly,Premium
+C0198,2A5A1F21,45-54,Colombo,Household,24502,Weekly,Regular
+C0199,AA025B51,18-24,Kandy,Snacks,25114,Monthly,Premium
+C0200,D454BEAF,55+,Colombo,Vegetables,44841,Bi-Weekly,Budget
+C0201,AA782DD5,25-34,Kandy,Bakery,37393,Weekly,Budget
+C0202,B0E0722D,18-24,Moratuwa,Frozen Food,25959,Weekly,Regular
+C0203,2E1878E3,55+,Kandy,Breakfast,49596,Bi-Weekly,Budget
+C0204,1A083B98,55+,Colombo,Dairy,13809,Monthly,Budget
+C0205,646D58CD,25-34,Moratuwa,Pet Food,32386,Bi-Weekly,Budget
+C0206,7D2570D4,45-54,Kandy,Pasta,32315,Bi-Weekly,Regular
+C0207,DC415050,45-54,Colombo,Sauces,34147,Bi-Weekly,Regular
+C0208,93B89CEF,18-24,Negombo,Cleaning,19347,Weekly,Budget
+C0209,F0596983,35-44,Galle,Canned Food,18959,Monthly,Premium
+C0210,158AD4D4,18-24,Negombo,Pet Food,40718,Bi-Weekly,Budget
+C0211,2A795204,35-44,Galle,Household,28980,Bi-Weekly,Regular
+C0212,5401AECE,25-34,Negombo,Dairy,17750,Monthly,Regular
+C0213,D79182A6,35-44,Kandy,Stationery,16842,Weekly,Occasional
+C0214,2A7555EA,45-54,Negombo,Personal Care,38050,Bi-Weekly,Budget
+C0215,83EA5012,35-44,Kandy,Breakfast,37399,Weekly,Premium
+C0216,4F49DD7C,18-24,Moratuwa,Pasta,46292,Weekly,Regular
+C0217,DCD88121,45-54,Moratuwa,Bakery,36658,Monthly,Budget
+C0218,AF521EA7,55+,Colombo,Rice & Grains,18653,Weekly,Budget
+C0219,22D56CF9,18-24,Negombo,Breakfast,45854,Monthly,Occasional
+C0220,D0F07180,18-24,Negombo,Pet Food,41314,Monthly,Occasional
+C0221,67F45D4A,25-34,Galle,Frozen Food,18879,Weekly,Premium
+C0222,B86868E7,45-54,Colombo,Spices,33313,Monthly,Premium
+C0223,A6BF9387,18-24,Kandy,Household,43870,Monthly,Regular
+C0224,BA01DBBD,55+,Galle,Personal Care,24461,Bi-Weekly,Budget
+C0225,B171AAFB,18-24,Galle,Rice & Grains,49732,Bi-Weekly,Premium
+C0226,430616C1,18-24,Colombo,Dairy,26045,Bi-Weekly,Regular
+C0227,F5FEA108,25-34,Moratuwa,Spices,47001,Monthly,Premium
+C0228,E3DCCE57,25-34,Colombo,Canned Food,19384,Bi-Weekly,Occasional
+C0229,A65F4AEF,35-44,Moratuwa,Pet Food,42912,Bi-Weekly,Occasional
+C0230,2C45A371,55+,Kandy,Rice & Grains,41375,Monthly,Regular
+C0231,B05F1AF9,18-24,Negombo,Spices,23218,Monthly,Occasional
+C0232,12F2381C,45-54,Galle,Cleaning,14690,Bi-Weekly,Premium
+C0233,676E90AB,55+,Kandy,Bakery,16176,Weekly,Regular
+C0234,DC2784C9,18-24,Negombo,Seafood,20726,Monthly,Occasional
+C0235,F2051F46,45-54,Galle,Pasta,38251,Bi-Weekly,Premium
+C0236,4759704E,35-44,Colombo,Rice & Grains,41971,Weekly,Regular
+C0237,6CC8C6E5,35-44,Galle,Frozen Food,26312,Bi-Weekly,Regular
+C0238,040F102C,45-54,Galle,Household,40753,Bi-Weekly,Regular
+C0239,27EA9648,55+,Negombo,Sauces,29235,Monthly,Occasional
+C0240,70A77E7B,25-34,Kandy,Fruits,47863,Bi-Weekly,Regular
+C0241,A9A7BF5C,18-24,Colombo,Vegetables,36659,Monthly,Premium
+C0242,1AD92710,35-44,Colombo,Personal Care,47918,Weekly,Occasional
+C0243,2D13EC22,35-44,Negombo,Spices,31876,Weekly,Premium
+C0244,A45E6796,18-24,Negombo,Rice & Grains,39314,Bi-Weekly,Occasional
+C0245,9CA91F81,25-34,Moratuwa,Frozen Food,30943,Monthly,Budget
+C0246,4800564D,55+,Negombo,Cleaning,24123,Bi-Weekly,Regular
+C0247,EFE4261C,25-34,Colombo,Rice & Grains,47717,Weekly,Regular
+C0248,CD0618F1,45-54,Galle,Dairy,22192,Weekly,Premium
+C0249,298FA66A,35-44,Negombo,Baby Products,46051,Monthly,Budget
+C0250,9D0840D1,35-44,Galle,Breakfast,47174,Bi-Weekly,Premium
+C0251,60AB311A,35-44,Colombo,Sauces,29091,Monthly,Budget
+C0252,AAD74FEB,45-54,Colombo,Canned Food,25084,Monthly,Premium
+C0253,538C066E,18-24,Galle,Baby Products,46405,Monthly,Premium
+C0254,2C64430B,25-34,Kandy,Baby Products,20227,Monthly,Budget
+C0255,4AE5BDC6,55+,Galle,Meat,14196,Monthly,Occasional
+C0256,3DB36EB0,45-54,Negombo,Baby Products,10770,Bi-Weekly,Premium
+C0257,FB9A8185,45-54,Kandy,Rice & Grains,44093,Bi-Weekly,Premium
+C0258,13A96869,18-24,Colombo,Beverages,19064,Weekly,Budget
+C0259,FA4F4452,18-24,Moratuwa,Vegetables,42989,Bi-Weekly,Premium
+C0260,77E2702A,45-54,Galle,Spices,23339,Weekly,Premium
+C0261,C73FAB22,45-54,Negombo,Cleaning,34970,Weekly,Premium
+C0262,24CBD00D,55+,Moratuwa,Household,42687,Monthly,Budget
+C0263,D241FBFD,25-34,Negombo,Dairy,31991,Monthly,Regular
+C0264,A3462822,55+,Galle,Personal Care,49281,Weekly,Budget
+C0265,455B80CB,55+,Galle,Personal Care,28345,Monthly,Budget
+C0266,C3E21C9C,18-24,Kandy,Rice & Grains,27141,Monthly,Regular
+C0267,8294CBA9,18-24,Moratuwa,Canned Food,34523,Weekly,Budget
+C0268,8F749F5F,18-24,Colombo,Meat,29121,Bi-Weekly,Budget
+C0269,AB970D3A,45-54,Galle,Sauces,13933,Monthly,Budget
+C0270,6E653E9B,25-34,Moratuwa,Sauces,47819,Monthly,Budget
+C0271,540EA1AC,35-44,Galle,Pet Food,14465,Weekly,Regular
+C0272,25148367,18-24,Galle,Frozen Food,14186,Bi-Weekly,Occasional
+C0273,07D38A85,45-54,Moratuwa,Meat,14970,Monthly,Premium
+C0274,788E7309,35-44,Kandy,Sauces,16752,Bi-Weekly,Premium
+C0275,59E71365,45-54,Galle,Baby Products,30953,Bi-Weekly,Budget
+C0276,57B9E20A,25-34,Colombo,Stationery,10787,Weekly,Occasional
+C0277,CC2B8F96,55+,Galle,Household,28470,Bi-Weekly,Budget
+C0278,F96A2636,45-54,Negombo,Spices,27187,Weekly,Budget
+C0279,94D32688,55+,Colombo,Rice & Grains,40316,Monthly,Budget
+C0280,DDE3A9D7,45-54,Moratuwa,Sauces,46618,Monthly,Premium
+C0281,F152D64D,45-54,Colombo,Personal Care,16121,Weekly,Regular
+C0282,3CDD6468,55+,Negombo,Personal Care,43905,Bi-Weekly,Budget
+C0283,A0B85B05,18-24,Moratuwa,Cleaning,40803,Bi-Weekly,Occasional
+C0284,16B2EFEF,35-44,Moratuwa,Sauces,23235,Monthly,Premium
+C0285,50FCF701,25-34,Negombo,Beverages,41227,Weekly,Regular
+C0286,31AB80E2,18-24,Galle,Spices,23590,Bi-Weekly,Premium
+C0287,D1A20D29,35-44,Galle,Pet Food,45331,Weekly,Regular
+C0288,630F5063,45-54,Galle,Baby Products,19827,Monthly,Regular
+C0289,E3E6E5E0,25-34,Galle,Frozen Food,26217,Monthly,Premium
+C0290,52FA286F,35-44,Kandy,Household,36226,Monthly,Premium
+C0291,ACD40DB6,18-24,Negombo,Breakfast,31964,Monthly,Budget
+C0292,1D3403C3,18-24,Galle,Spices,27542,Bi-Weekly,Occasional
+C0293,A897C548,55+,Negombo,Stationery,23632,Weekly,Premium
+C0294,4BDFEEDF,18-24,Kandy,Sauces,32345,Weekly,Premium
+C0295,687CFE0F,45-54,Kandy,Breakfast,35182,Bi-Weekly,Premium
+C0296,1D53CD1B,35-44,Galle,Beverages,34312,Monthly,Budget
+C0297,F4585BDE,25-34,Galle,Rice & Grains,43938,Bi-Weekly,Regular
+C0298,0D3D39B1,45-54,Colombo,Frozen Food,10289,Monthly,Occasional
+C0299,B56D1E2D,25-34,Colombo,Spices,46982,Bi-Weekly,Premium
+C0300,C07279F9,18-24,Negombo,Frozen Food,46409,Monthly,Premium
+C0301,3862DAC4,45-54,Negombo,Breakfast,39876,Monthly,Budget
+C0302,2520CEE4,18-24,Moratuwa,Vegetables,19188,Bi-Weekly,Premium
+C0303,3C5E2A21,45-54,Moratuwa,Household,23003,Weekly,Budget
+C0304,93D4C5E1,18-24,Negombo,Beverages,19596,Weekly,Budget
+C0305,FFAC76B3,25-34,Galle,Rice & Grains,22678,Bi-Weekly,Regular
+C0306,BFFDC8AF,45-54,Kandy,Bakery,32858,Monthly,Occasional
+C0307,422F2116,45-54,Negombo,Snacks,37996,Weekly,Occasional
+C0308,CDA829C5,18-24,Negombo,Seafood,49971,Bi-Weekly,Regular
+C0309,809706B5,45-54,Negombo,Baby Products,36654,Bi-Weekly,Budget
+C0310,E0CBF214,55+,Moratuwa,Household,44341,Weekly,Premium
+C0311,E673DCEF,35-44,Galle,Dairy,11144,Monthly,Regular
+C0312,F109EB8D,25-34,Kandy,Vegetables,19070,Monthly,Occasional
+C0313,2C32A61B,35-44,Kandy,Baby Products,23126,Monthly,Premium
+C0314,466DDBD2,25-34,Colombo,Cleaning,14976,Bi-Weekly,Premium
+C0315,12D43029,55+,Colombo,Baby Products,11392,Bi-Weekly,Regular
+C0316,9568B7BC,45-54,Kandy,Personal Care,13281,Weekly,Regular
+C0317,01065B47,45-54,Moratuwa,Snacks,15414,Bi-Weekly,Budget
+C0318,C1930DE4,18-24,Colombo,Beverages,36015,Monthly,Premium
+C0319,C212DFF9,45-54,Colombo,Dairy,43024,Weekly,Premium
+C0320,3A2DB997,45-54,Galle,Spices,47474,Monthly,Premium
+C0321,1E96F724,35-44,Negombo,Meat,49182,Bi-Weekly,Premium
+C0322,AB4CA5A1,25-34,Galle,Vegetables,43266,Monthly,Premium
+C0323,6BEBFA53,35-44,Negombo,Beverages,49329,Weekly,Budget
+C0324,C077413D,35-44,Moratuwa,Household,40932,Monthly,Budget
+C0325,1CA8557A,35-44,Negombo,Frozen Food,43119,Bi-Weekly,Occasional
+C0326,873FBD10,35-44,Kandy,Rice & Grains,11503,Weekly,Budget
+C0327,F1EA11ED,45-54,Kandy,Personal Care,37740,Bi-Weekly,Premium
+C0328,68CD9C3E,55+,Kandy,Vegetables,35745,Monthly,Regular
+C0329,C99E30AD,35-44,Moratuwa,Pasta,42640,Monthly,Premium
+C0330,39FDB4DE,35-44,Colombo,Bakery,12253,Monthly,Premium
+C0331,ABA89B4F,18-24,Moratuwa,Household,13252,Weekly,Regular
+C0332,7E4F7087,45-54,Colombo,Meat,15637,Monthly,Budget
+C0333,785B70B6,55+,Galle,Fruits,23662,Weekly,Occasional
+C0334,691F97DB,18-24,Negombo,Pet Food,23298,Monthly,Budget
+C0335,06EEA3B3,25-34,Kandy,Meat,37578,Monthly,Premium
+C0336,4677186B,45-54,Moratuwa,Canned Food,10843,Weekly,Budget
+C0337,EC10A853,18-24,Colombo,Cleaning,13435,Monthly,Premium
+C0338,EFEEBE47,18-24,Moratuwa,Baby Products,44146,Weekly,Budget
+C0339,1AE5603F,35-44,Moratuwa,Bakery,21369,Monthly,Premium
+C0340,01CEF14F,35-44,Galle,Beverages,31961,Monthly,Premium
+C0341,58DF7794,55+,Colombo,Stationery,25080,Weekly,Regular
+C0342,69D81C40,25-34,Negombo,Personal Care,37832,Weekly,Premium
+C0343,9180E4B5,45-54,Negombo,Pasta,44982,Monthly,Budget
+C0344,B8F089E3,55+,Colombo,Rice & Grains,18985,Monthly,Occasional
+C0345,B3EF470A,55+,Colombo,Seafood,47491,Bi-Weekly,Occasional
+C0346,77C51BBE,35-44,Negombo,Dairy,32772,Monthly,Premium
+C0347,25DDD6F6,18-24,Colombo,Bakery,32862,Monthly,Premium
+C0348,4D0AEC0C,25-34,Colombo,Stationery,38354,Bi-Weekly,Premium
+C0349,8D8A1509,55+,Negombo,Stationery,43019,Bi-Weekly,Premium
+C0350,47D7700D,18-24,Moratuwa,Cleaning,18178,Monthly,Regular
+C0351,9AB75826,25-34,Negombo,Stationery,25255,Bi-Weekly,Occasional
+C0352,08AAEFF2,35-44,Colombo,Snacks,36577,Bi-Weekly,Occasional
+C0353,C03A7E55,45-54,Colombo,Sauces,42456,Bi-Weekly,Occasional
+C0354,6ED0D665,25-34,Moratuwa,Spices,24204,Bi-Weekly,Premium
+C0355,FAA0A7E0,45-54,Moratuwa,Sauces,33431,Weekly,Budget
+C0356,D1120EAB,45-54,Kandy,Baby Products,36313,Weekly,Premium
+C0357,2849EC05,25-34,Negombo,Personal Care,38506,Bi-Weekly,Budget
+C0358,BDEFEF9B,55+,Kandy,Baby Products,36023,Weekly,Occasional
+C0359,B90B8538,35-44,Kandy,Pasta,46064,Monthly,Budget
+C0360,60EEAEBD,45-54,Galle,Cleaning,48255,Weekly,Regular
+C0361,E4905CEF,55+,Moratuwa,Snacks,18885,Bi-Weekly,Regular
+C0362,A695A5BF,55+,Negombo,Breakfast,40464,Weekly,Occasional
+C0363,659CCEB3,35-44,Moratuwa,Breakfast,34915,Bi-Weekly,Budget
+C0364,448EF964,55+,Kandy,Spices,34206,Monthly,Budget
+C0365,C9992FCD,35-44,Colombo,Beverages,29064,Weekly,Occasional
+C0366,DCC19F15,18-24,Negombo,Meat,41643,Monthly,Premium
+C0367,1F73E4FC,55+,Colombo,Rice & Grains,48681,Bi-Weekly,Occasional
+C0368,62CB175E,35-44,Colombo,Spices,44922,Bi-Weekly,Budget
+C0369,DAF3ACCC,18-24,Galle,Sauces,38084,Weekly,Budget
+C0370,50171DD9,35-44,Colombo,Dairy,49548,Weekly,Regular
+C0371,242AA77C,35-44,Moratuwa,Pet Food,21858,Monthly,Occasional
+C0372,9C54E788,55+,Negombo,Seafood,40346,Weekly,Premium
+C0373,8F8D0254,18-24,Kandy,Cleaning,22856,Weekly,Budget
+C0374,99B231B6,18-24,Kandy,Meat,10864,Weekly,Occasional
+C0375,AAF52F95,18-24,Negombo,Fruits,21201,Monthly,Budget
+C0376,27515AA9,45-54,Moratuwa,Seafood,19780,Weekly,Premium
+C0377,F2D7CC9D,25-34,Kandy,Personal Care,49631,Weekly,Budget
+C0378,519F48AA,55+,Colombo,Household,21019,Weekly,Budget
+C0379,06F43C6B,45-54,Kandy,Dairy,18919,Bi-Weekly,Premium
+C0380,7E845DDF,45-54,Negombo,Rice & Grains,27010,Monthly,Occasional
+C0381,DC211875,35-44,Kandy,Breakfast,28892,Weekly,Regular
+C0382,DF985535,45-54,Colombo,Pet Food,28159,Bi-Weekly,Occasional
+C0383,6C0748F3,55+,Galle,Personal Care,42508,Bi-Weekly,Budget
+C0384,C1AAE5CC,45-54,Moratuwa,Breakfast,23649,Bi-Weekly,Regular
+C0385,01A6B63B,35-44,Galle,Frozen Food,26671,Bi-Weekly,Budget
+C0386,0374BA63,35-44,Negombo,Pet Food,38123,Monthly,Occasional
+C0387,0F15769B,35-44,Moratuwa,Canned Food,27541,Monthly,Premium
+C0388,BA99C673,35-44,Moratuwa,Frozen Food,33145,Monthly,Occasional
+C0389,090CBDC6,25-34,Negombo,Breakfast,24144,Bi-Weekly,Occasional
+C0390,E2C018CB,35-44,Moratuwa,Meat,25750,Weekly,Budget
+C0391,D0AAD300,45-54,Negombo,Seafood,44375,Bi-Weekly,Budget
+C0392,536E7D4B,55+,Moratuwa,Vegetables,25971,Weekly,Occasional
+C0393,2097742F,55+,Moratuwa,Canned Food,26503,Bi-Weekly,Premium
+C0394,28608ADE,45-54,Moratuwa,Meat,45099,Weekly,Regular
+C0395,75FA37BA,18-24,Galle,Meat,13904,Bi-Weekly,Budget
+C0396,88A45D55,55+,Kandy,Spices,27638,Bi-Weekly,Occasional
+C0397,AD11482A,25-34,Colombo,Bakery,40007,Weekly,Regular
+C0398,2DF2CA80,25-34,Moratuwa,Canned Food,47168,Weekly,Occasional
+C0399,5785C9EB,45-54,Kandy,Breakfast,19298,Monthly,Regular
+C0400,8CAEE2D3,35-44,Galle,Pet Food,10313,Weekly,Budget
+C0401,69B4F7CA,18-24,Negombo,Rice & Grains,31959,Monthly,Regular
+C0402,CA95A47F,18-24,Galle,Bakery,18693,Monthly,Budget
+C0403,D22D9898,35-44,Galle,Dairy,22123,Monthly,Budget
+C0404,8C6980E2,35-44,Kandy,Meat,24875,Weekly,Premium
+C0405,01491366,45-54,Moratuwa,Fruits,25239,Weekly,Occasional
+C0406,C66463A4,55+,Galle,Canned Food,15155,Monthly,Budget
+C0407,968D9327,18-24,Kandy,Frozen Food,33107,Monthly,Budget
+C0408,A58E359E,35-44,Kandy,Household,33459,Weekly,Occasional
+C0409,96589690,35-44,Kandy,Spices,38451,Monthly,Occasional
+C0410,8970F773,25-34,Galle,Snacks,13349,Monthly,Regular
+C0411,15401B7C,45-54,Kandy,Sauces,22611,Monthly,Regular
+C0412,6F400A41,35-44,Galle,Meat,15259,Bi-Weekly,Occasional
+C0413,4580B5DE,18-24,Moratuwa,Pet Food,15296,Monthly,Premium
+C0414,6224B059,35-44,Colombo,Beverages,41236,Monthly,Regular
+C0415,DFDC3799,35-44,Galle,Meat,24412,Monthly,Occasional
+C0416,605E0805,18-24,Negombo,Rice & Grains,41057,Weekly,Budget
+C0417,A9427D5D,45-54,Negombo,Canned Food,26216,Bi-Weekly,Regular
+C0418,B2C5BA5D,45-54,Colombo,Rice & Grains,15693,Monthly,Regular
+C0419,028F8BB5,45-54,Galle,Personal Care,20930,Bi-Weekly,Regular
+C0420,D36C4618,18-24,Kandy,Personal Care,11883,Monthly,Regular
+C0421,73A63140,55+,Colombo,Sauces,38971,Bi-Weekly,Premium
+C0422,27BF1BDD,18-24,Moratuwa,Stationery,13880,Bi-Weekly,Premium
+C0423,044A322D,18-24,Moratuwa,Personal Care,25761,Weekly,Premium
+C0424,5EB78709,55+,Moratuwa,Meat,14833,Bi-Weekly,Occasional
+C0425,7E2A07FC,18-24,Galle,Meat,12129,Monthly,Regular
+C0426,27631DDC,55+,Moratuwa,Spices,19361,Weekly,Occasional
+C0427,787C6329,45-54,Kandy,Snacks,21353,Weekly,Regular
+C0428,53A12037,25-34,Moratuwa,Spices,44772,Weekly,Regular
+C0429,7102268B,55+,Galle,Beverages,29120,Monthly,Premium
+C0430,06105076,18-24,Kandy,Seafood,49833,Weekly,Occasional
+C0431,09CABB58,35-44,Galle,Bakery,19486,Monthly,Premium
+C0432,DBE2D3BE,25-34,Colombo,Frozen Food,26734,Weekly,Occasional
+C0433,CCB04D9A,35-44,Galle,Baby Products,34811,Bi-Weekly,Premium
+C0434,221387E9,55+,Moratuwa,Beverages,17222,Monthly,Regular
+C0435,64C7AAE5,35-44,Moratuwa,Dairy,28693,Monthly,Regular
+C0436,BCA9A772,25-34,Colombo,Sauces,23311,Monthly,Regular
+C0437,F4036674,25-34,Negombo,Stationery,34412,Weekly,Budget
+C0438,54420186,18-24,Kandy,Cleaning,41706,Bi-Weekly,Budget
+C0439,F971112C,18-24,Galle,Dairy,36738,Weekly,Budget
+C0440,CF74834A,45-54,Moratuwa,Rice & Grains,35547,Bi-Weekly,Budget
+C0441,B97FF43F,45-54,Kandy,Pasta,43373,Weekly,Occasional
+C0442,60406422,25-34,Moratuwa,Beverages,13511,Monthly,Occasional
+C0443,4FFD2E6B,25-34,Moratuwa,Rice & Grains,20271,Weekly,Premium
+C0444,A490B481,45-54,Moratuwa,Beverages,31119,Bi-Weekly,Premium
+C0445,B30D1F39,45-54,Negombo,Breakfast,17465,Weekly,Regular
+C0446,0F6BC5FC,25-34,Moratuwa,Sauces,39571,Bi-Weekly,Budget
+C0447,D0D768E1,45-54,Galle,Seafood,48984,Monthly,Budget
+C0448,B9EEC76A,35-44,Kandy,Bakery,26665,Bi-Weekly,Regular
+C0449,958F38A7,18-24,Colombo,Pasta,10385,Weekly,Occasional
+C0450,F7EA17E3,55+,Kandy,Spices,42398,Monthly,Budget
+C0451,31E671C4,25-34,Galle,Pet Food,32689,Weekly,Premium
+C0452,6CB7D00D,55+,Galle,Sauces,36199,Bi-Weekly,Occasional
+C0453,BAE01271,18-24,Kandy,Pet Food,13114,Bi-Weekly,Budget
+C0454,49F96352,55+,Kandy,Fruits,36744,Monthly,Occasional
+C0455,54184AA3,35-44,Galle,Pet Food,14509,Monthly,Premium
+C0456,502FCE40,25-34,Negombo,Spices,43094,Weekly,Budget
+C0457,C956D2B2,18-24,Kandy,Spices,18661,Bi-Weekly,Premium
+C0458,2F91F991,18-24,Colombo,Meat,16562,Weekly,Premium
+C0459,6A4E26BD,35-44,Negombo,Bakery,16589,Monthly,Regular
+C0460,C5D9DF39,25-34,Kandy,Dairy,16457,Weekly,Premium
+C0461,69DB2765,35-44,Kandy,Pasta,12066,Monthly,Premium
+C0462,6140AD62,18-24,Negombo,Sauces,17966,Monthly,Occasional
+C0463,DD612FB2,25-34,Negombo,Dairy,25568,Monthly,Budget
+C0464,46CE4F5D,45-54,Kandy,Household,49336,Weekly,Occasional
+C0465,B6245A86,55+,Moratuwa,Vegetables,41856,Bi-Weekly,Occasional
+C0466,9BB2A045,25-34,Colombo,Bakery,11516,Bi-Weekly,Premium
+C0467,326D36A9,18-24,Galle,Snacks,13300,Bi-Weekly,Budget
+C0468,06E60C31,45-54,Colombo,Personal Care,25823,Bi-Weekly,Regular
+C0469,062A243D,18-24,Moratuwa,Stationery,31013,Weekly,Premium
+C0470,8B354DF7,25-34,Negombo,Dairy,44674,Bi-Weekly,Budget
+C0471,0C926FE3,18-24,Moratuwa,Beverages,27355,Monthly,Regular
+C0472,6E02BA78,35-44,Galle,Seafood,37545,Monthly,Occasional
+C0473,752F1ADC,25-34,Moratuwa,Household,32552,Bi-Weekly,Occasional
+C0474,0A1C366A,18-24,Moratuwa,Pasta,39721,Bi-Weekly,Occasional
+C0475,9E824D93,18-24,Kandy,Baby Products,39238,Monthly,Budget
+C0476,3F60B216,55+,Moratuwa,Personal Care,19264,Bi-Weekly,Premium
+C0477,802C1397,55+,Galle,Household,16982,Weekly,Occasional
+C0478,12AD73A1,45-54,Negombo,Spices,24336,Weekly,Regular
+C0479,55BAF6D7,35-44,Negombo,Canned Food,40065,Weekly,Premium
+C0480,043F92A2,55+,Moratuwa,Breakfast,28775,Weekly,Premium
+C0481,B2DEEAE9,25-34,Kandy,Pet Food,28919,Monthly,Occasional
+C0482,B1D9F5E6,18-24,Galle,Vegetables,35623,Bi-Weekly,Premium
+C0483,1FE0D6E8,45-54,Negombo,Canned Food,24313,Weekly,Regular
+C0484,4DCB1930,18-24,Colombo,Baby Products,37269,Weekly,Regular
+C0485,BA2F1EA9,25-34,Colombo,Seafood,22161,Bi-Weekly,Premium
+C0486,B6EFB0C7,18-24,Moratuwa,Household,44856,Monthly,Occasional
+C0487,98187348,25-34,Negombo,Fruits,41404,Weekly,Regular
+C0488,6D939335,45-54,Galle,Household,45300,Monthly,Occasional
+C0489,E2FE24A8,55+,Moratuwa,Breakfast,11431,Weekly,Occasional
+C0490,AC501960,55+,Moratuwa,Frozen Food,10195,Weekly,Regular
+C0491,AFE5B275,55+,Kandy,Breakfast,49541,Monthly,Premium
+C0492,83564337,45-54,Kandy,Beverages,32578,Monthly,Premium
+C0493,78FAA401,25-34,Moratuwa,Snacks,20988,Bi-Weekly,Budget
+C0494,1BF58EB1,45-54,Galle,Stationery,24618,Bi-Weekly,Budget
+C0495,4A19B079,18-24,Galle,Bakery,34714,Monthly,Premium
+C0496,6EE07207,55+,Colombo,Beverages,45600,Bi-Weekly,Premium
+C0497,D3AFCA2C,25-34,Moratuwa,Pasta,28400,Bi-Weekly,Budget
+C0498,4FF23A37,55+,Kandy,Dairy,15734,Monthly,Budget
+C0499,6E3B6708,45-54,Moratuwa,Household,13501,Bi-Weekly,Regular
+C0500,0F0A2233,45-54,Moratuwa,Stationery,44120,Monthly,Regular

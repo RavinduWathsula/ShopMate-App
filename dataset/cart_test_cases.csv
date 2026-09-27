@@ -1,0 +1,5 @@
+test_case_id,customer_id,budget,product_id,quantity,expected_total,expected_remaining_budget,expected_status
+TC_01,C0001,5000,P0001,2,664,4336,NORMAL
+TC_02,C0002,100,P0005,10,2480,-2380,EXCEEDED
+TC_03,C0003,2000,P0010,1,351,1649,DISCOUNTED
+TC_04,C0004,1000,P0020,1,413,587,OUT_OF_STOCK

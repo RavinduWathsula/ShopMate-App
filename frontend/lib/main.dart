@@ -6,7 +6,6 @@ import 'core/theme/app_theme.dart';
 import 'core/constants/app_constants.dart';
 
 import 'core/theme/theme_provider.dart';
-import 'core/theme/app_colors.dart';
 
 import 'package:device_preview/device_preview.dart';
 
