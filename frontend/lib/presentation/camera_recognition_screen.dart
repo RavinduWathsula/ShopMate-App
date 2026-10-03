@@ -5,6 +5,7 @@ import 'package:go_router/go_router.dart';
 import 'package:google_fonts/google_fonts.dart';
 import '../core/theme/app_colors.dart';
 import '../providers/basket_provider.dart';
+import '../services/ai_service.dart';
 
 class CameraRecognitionScreen extends ConsumerStatefulWidget {
   const CameraRecognitionScreen({super.key});
@@ -78,18 +79,65 @@ class _CameraRecognitionScreenState
     },
   ];
 
-  void _captureProduct([Map<String, dynamic>? product]) {
-    final selected = product ?? _quickSampleProducts[0];
+  void _captureProduct([Map<String, dynamic>? product]) async {
+    if (product != null) {
+      // Quick mock product scenario
+      final newItem = BasketItem(
+        id: 'scan_${DateTime.now().millisecondsSinceEpoch}',
+        name: product['name'],
+        category: product['category'],
+        price: product['price'],
+      );
+      ref.read(basketProvider.notifier).addItem(newItem);
+      _showSuccess(product['name']);
+      return;
+    }
 
-    // Automatically add to Cart in real time!
-    final newItem = BasketItem(
-      id: 'scan_${DateTime.now().millisecondsSinceEpoch}',
-      name: selected['name'],
-      category: selected['category'],
-      price: selected['price'],
-    );
-    ref.read(basketProvider.notifier).addItem(newItem);
+    if (_cameraController == null || !_cameraController!.value.isInitialized) return;
 
+    try {
+      // Show loading indicator
+      showDialog(
+        context: context,
+        barrierDismissible: false,
+        builder: (context) => const Center(
+          child: CircularProgressIndicator(color: AppColors.primaryGreen),
+        ),
+      );
+
+      final XFile file = await _cameraController!.takePicture();
+      final aiService = AiService();
+      final result = await aiService.recognizeProduct(file);
+
+      if (mounted) Navigator.pop(context); // Hide loading
+
+      if (result != null) {
+        final newItem = BasketItem(
+          id: result['product_id']?.toString() ?? 'scan_${DateTime.now().millisecondsSinceEpoch}',
+          name: result['product_name'] ?? 'Unknown Product',
+          category: result['category']?.toString() ?? 'Uncategorized',
+          price: (result['price'] as num?)?.toDouble() ?? 0.0,
+        );
+        ref.read(basketProvider.notifier).addItem(newItem);
+        _showSuccess(newItem.name);
+      } else {
+        if (mounted) {
+          ScaffoldMessenger.of(context).showSnackBar(
+            const SnackBar(
+              content: Text('Could not recognize product. Please try again.'),
+              backgroundColor: Colors.redAccent,
+            ),
+          );
+        }
+      }
+    } catch (e) {
+      if (mounted) Navigator.pop(context); // Hide loading
+      debugPrint('Capture error: $e');
+    }
+  }
+
+  void _showSuccess(String productName) {
+    if (!mounted) return;
     ScaffoldMessenger.of(context).hideCurrentSnackBar();
     ScaffoldMessenger.of(context).showSnackBar(
       SnackBar(
@@ -103,7 +151,7 @@ class _CameraRecognitionScreenState
             const SizedBox(width: 8),
             Expanded(
               child: Text(
-                'Auto-added "${selected['name']}" to Cart!',
+                'Auto-added "$productName" to Cart!',
                 style: GoogleFonts.inter(fontWeight: FontWeight.w600),
               ),
             ),
@@ -115,7 +163,7 @@ class _CameraRecognitionScreenState
       ),
     );
 
-    Future.delayed(const Duration(milliseconds: 400), () {
+    Future.delayed(const Duration(milliseconds: 1000), () {
       if (mounted) context.go('/cart');
     });
   }

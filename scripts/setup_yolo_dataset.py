@@ -20,7 +20,7 @@ def setup_yolo_dataset(csv_path="dataset/ai_product_labels.csv", output_dir="dat
     print(f"Generating YOLO dataset for {len(df)} products...")
     
     # For each product, create a dummy image and label
-    for index, row in df.iterrows():
+    for i, (index, row) in enumerate(df.iterrows()):
         yolo_class_id = row['yolo_class_id']
         product_id = row['product_id']
         
@@ -44,8 +44,8 @@ def setup_yolo_dataset(csv_path="dataset/ai_product_labels.csv", output_dir="dat
         with open(label_path, 'w') as f:
             f.write(f"{yolo_class_id} {cx:.4f} {cy:.4f} {w:.4f} {h:.4f}\n")
             
-        if (index + 1) % 200 == 0:
-            print(f"Processed {index + 1} / {len(df)} products")
+        if (i + 1) % 200 == 0:
+            print(f"Processed {i + 1} / {len(df)} products")
 
     # Generate data.yaml for YOLO
     yaml_content = f"""path: {os.path.abspath(output_dir).replace('\\', '/')}
