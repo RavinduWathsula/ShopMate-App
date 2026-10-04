@@ -6,28 +6,25 @@ import random
 import shutil
 
 def setup_yolo_dataset(csv_path="dataset/ai_product_labels.csv", output_dir="dataset/yolo"):
-    if not os.path.exists(csv_path):
-        print(f"Error: {csv_path} not found.")
-        return
-        
-    df = pd.read_csv(csv_path)
-    
+    # We no longer need the CSV, using custom items for the assignment
     # Create directories
     for split in ['train', 'val']:
         os.makedirs(os.path.join(output_dir, 'images', split), exist_ok=True)
         os.makedirs(os.path.join(output_dir, 'labels', split), exist_ok=True)
         
-    # Filter dataset for only 3 specific small items for the assignment
+    # User requested specific items for their assignment
     target_items = [
-        "BrandC Apple 1kg - Var 111",
-        "FreshFarms Milk 1L - Var 25",
-        "CleanPlus Bread 500g - Var 29"
+        "Toothpaste",
+        "Astra Cup",
+        "Sprite Bottle Mini"
     ]
-    df = df[df['display_name'].isin(target_items)].copy()
     
-    # Remap yolo_class_id to 0, 1, 2
-    class_name_to_id = {name: i for i, name in enumerate(target_items)}
-    df['yolo_class_id'] = df['display_name'].map(class_name_to_id)
+    # Create a custom dataframe for these 3 items
+    df = pd.DataFrame({
+        'display_name': target_items,
+        'yolo_class_id': [0, 1, 2],
+        'product_id': ['P_TOOTHPASTE', 'P_ASTRA', 'P_SPRITE']
+    })
         
     print(f"Generating YOLO dataset for {len(df)} products (3 classes)...")
     

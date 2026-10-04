@@ -2,4 +2,4 @@ path: E:/Projects/ShopMate/dataset/yolo
 train: images/train
 val: images/val
 nc: 3
-names: ['BrandC Apple 1kg - Var 111', 'FreshFarms Milk 1L - Var 25', 'CleanPlus Bread 500g - Var 29']
+names: ['Toothpaste', 'Astra Cup', 'Sprite Bottle Mini']
