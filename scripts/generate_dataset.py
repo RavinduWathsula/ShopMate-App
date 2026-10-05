@@ -172,7 +172,7 @@ for i, p in enumerate(products):
         'stock_quantity': p['stock_quantity'],
         'reserved_quantity': random.randint(0, 5),
         'reorder_level': p['minimum_stock'],
-        'stock_status': 'IN_STOCK' if p['stock_quantity'] > 10 else ('LOW_STOCK' if p['stock_quantity'] > 0 else 'OUT_OF_STOCK'),
+        'stock_status': 'IN_STOCK' if int(p['stock_quantity']) > 10 else ('LOW_STOCK' if int(p['stock_quantity']) > 0 else 'OUT_OF_STOCK'),
         'last_restock_date': fake.date_between(start_date='-30d', end_date='today').isoformat()
     })
 df_inventory = pd.DataFrame(inventory)
@@ -183,7 +183,7 @@ print("Generating Discounts...")
 discounts = []
 for i in range(1, NUM_DISCOUNTS + 1):
     pid = random.choice(products)['product_id']
-    orig_price = product_id_to_price[pid]
+    orig_price = product_id_to_price[str(pid)]
     disc_pct = random.choice([5, 10, 15, 20, 25, 30])
     disc_price = round(orig_price * (1 - disc_pct / 100), 2)
     start_date = fake.date_between(start_date='-1y', end_date='today')
@@ -265,8 +265,8 @@ for i in range(1, NUM_TRANSACTIONS + 1):
         else:
             disc_pct = 0
             
-        line_tot = qty * u_price
-        disc_amt = (line_tot * disc_pct) / 100
+        line_tot = float(qty) * float(u_price)
+        disc_amt = (line_tot * float(disc_pct)) / 100.0
         final_line_tot = line_tot - disc_amt
         
         subtotal += line_tot
@@ -312,7 +312,7 @@ for p in products:
     cls = p['image_class']
     
     # Create dir for this product
-    prod_img_dir = os.path.join(IMAGES_DIR, pid)
+    prod_img_dir = os.path.join(IMAGES_DIR, str(pid))
     os.makedirs(prod_img_dir, exist_ok=True)
     
     num_imgs = random.randint(5, 10)
@@ -359,7 +359,7 @@ df_labels.to_csv(os.path.join(DATASET_DIR, 'ai_product_labels.csv'), index=False
 high_priority_products = products[:100]
 print("Generating small AI dataset metadata...")
 for p in high_priority_products:
-    os.makedirs(os.path.join(AI_DATASET_SMALL_DIR, p['product_id']), exist_ok=True)
+    os.makedirs(os.path.join(AI_DATASET_SMALL_DIR, str(p['product_id'])), exist_ok=True)
     
 # Generate YOLO yaml
 yolo_yaml_content = f"""path: ../dataset/images
@@ -443,7 +443,7 @@ for tc in cart_tests:
     if pid in product_id_to_price:
         p = product_id_to_price[pid]
         tc['expected_total'] = p * tc['quantity']
-        tc['expected_remaining_budget'] = tc['budget'] - tc['expected_total']
+        tc['expected_remaining_budget'] = float(tc['budget']) - float(tc['expected_total']) # type: ignore
 df_tests = pd.DataFrame(cart_tests)
 df_tests.to_csv(os.path.join(DATASET_DIR, 'cart_test_cases.csv'), index=False)
 
