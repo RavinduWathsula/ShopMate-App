@@ -16,15 +16,20 @@ class CameraRecognitionScreen extends ConsumerStatefulWidget {
 }
 
 class _CameraRecognitionScreenState
-    extends ConsumerState<CameraRecognitionScreen> {
+    extends ConsumerState<CameraRecognitionScreen> with SingleTickerProviderStateMixin {
   bool _isFlashOn = false;
   CameraController? _cameraController;
   List<CameraDescription>? _cameras;
+  late AnimationController _scannerAnimation;
 
   @override
   void initState() {
     super.initState();
     _initCamera();
+    _scannerAnimation = AnimationController(
+      vsync: this,
+      duration: const Duration(milliseconds: 1500),
+    )..repeat(reverse: true);
   }
 
   Future<void> _initCamera() async {
@@ -48,36 +53,12 @@ class _CameraRecognitionScreenState
 
   @override
   void dispose() {
+    _scannerAnimation.dispose();
     _cameraController?.dispose();
     super.dispose();
   }
 
-  final List<Map<String, dynamic>> _quickSampleProducts = [
-    {
-      'name': 'Kotmale Fresh Milk 1L',
-      'category': 'Dairy',
-      'price': 450.0,
-      'icon': Icons.local_drink_rounded,
-    },
-    {
-      'name': 'Prima Crust Bread',
-      'category': 'Bakery',
-      'price': 190.0,
-      'icon': Icons.bakery_dining_rounded,
-    },
-    {
-      'name': 'Munchee Cream Cracker',
-      'category': 'Snacks',
-      'price': 240.0,
-      'icon': Icons.cookie_outlined,
-    },
-    {
-      'name': 'Dilmah Premium Tea',
-      'category': 'Drinks',
-      'price': 620.0,
-      'icon': Icons.emoji_food_beverage_rounded,
-    },
-  ];
+
 
   void _captureProduct([Map<String, dynamic>? product]) async {
     if (product != null) {
@@ -196,7 +177,23 @@ class _CameraRecognitionScreenState
               child:
                   (_cameraController != null &&
                       _cameraController!.value.isInitialized)
-                  ? CameraPreview(_cameraController!)
+                  ? LayoutBuilder(
+                      builder: (context, constraints) {
+                        return SizedBox(
+                          width: constraints.maxWidth,
+                          height: constraints.maxHeight,
+                          child: FittedBox(
+                            fit: BoxFit.cover,
+                            clipBehavior: Clip.hardEdge,
+                            child: SizedBox(
+                              width: constraints.maxWidth,
+                              height: constraints.maxWidth * _cameraController!.value.aspectRatio,
+                              child: CameraPreview(_cameraController!),
+                            ),
+                          ),
+                        );
+                      },
+                    )
                   : const Center(
                       child: CircularProgressIndicator(
                         color: AppColors.primaryGreen,
@@ -266,67 +263,86 @@ class _CameraRecognitionScreenState
               ),
             ),
 
-            // Center Recognition Frame
-            Center(
-              child: Column(
-                mainAxisSize: MainAxisSize.min,
-                children: [
-                  CustomPaint(
-                    size: const Size(260, 260),
-                    painter: ScannerBracketsPainter(),
-                    child: Container(
-                      width: 260,
-                      height: 260,
-                      alignment: Alignment.center,
-                      child: Container(
-                        height: 2,
-                        width: 220,
-                        decoration: BoxDecoration(
-                          color: AppColors.primaryGreen,
-                          boxShadow: [
-                            BoxShadow(
-                              color: AppColors.primaryGreen.withValues(
-                                alpha: 0.8,
+            // Full Screen Recognition Frame
+            Positioned.fill(
+              child: SafeArea(
+                child: Padding(
+                  padding: const EdgeInsets.fromLTRB(24, 100, 24, 180),
+                  child: LayoutBuilder(
+                    builder: (context, constraints) {
+                      return Stack(
+                        alignment: Alignment.center,
+                        children: [
+                          CustomPaint(
+                            size: Size(constraints.maxWidth, constraints.maxHeight),
+                            painter: ScannerBracketsPainter(),
+                            child: AnimatedBuilder(
+                              animation: _scannerAnimation,
+                              builder: (context, child) {
+                                return Transform.translate(
+                                  offset: Offset(0, _scannerAnimation.value * (constraints.maxHeight - 2)),
+                                  child: child,
+                                );
+                              },
+                              child: Align(
+                                alignment: Alignment.topCenter,
+                                child: Container(
+                                  height: 2,
+                                  width: constraints.maxWidth - 40,
+                                  decoration: BoxDecoration(
+                                    color: AppColors.primaryGreen,
+                                    boxShadow: [
+                                      BoxShadow(
+                                        color: AppColors.primaryGreen.withValues(
+                                          alpha: 0.8,
+                                        ),
+                                        blurRadius: 10,
+                                        spreadRadius: 2,
+                                      ),
+                                    ],
+                                  ),
+                                ),
                               ),
-                              blurRadius: 10,
-                              spreadRadius: 2,
                             ),
-                          ],
-                        ),
-                      ),
-                    ),
-                  ),
-                  const SizedBox(height: 18),
-                  Container(
-                    padding: const EdgeInsets.symmetric(
-                      horizontal: 16,
-                      vertical: 8,
-                    ),
-                    decoration: BoxDecoration(
-                      color: Colors.black.withValues(alpha: 0.65),
-                      borderRadius: BorderRadius.circular(20),
-                    ),
-                    child: Row(
-                      mainAxisSize: MainAxisSize.min,
-                      children: [
-                        const Icon(
-                          Icons.bolt_rounded,
-                          color: AppColors.primaryGreenLight,
-                          size: 16,
-                        ),
-                        const SizedBox(width: 6),
-                        Text(
-                          'Capturing will auto-add to your Shopping List',
-                          style: GoogleFonts.inter(
-                            color: Colors.white,
-                            fontSize: 12,
-                            fontWeight: FontWeight.w500,
                           ),
-                        ),
-                      ],
-                    ),
+                          // The text label placed at the bottom of the scanner area
+                          Positioned(
+                            bottom: 20,
+                            child: Container(
+                              padding: const EdgeInsets.symmetric(
+                                horizontal: 16,
+                                vertical: 8,
+                              ),
+                              decoration: BoxDecoration(
+                                color: Colors.black.withValues(alpha: 0.65),
+                                borderRadius: BorderRadius.circular(20),
+                              ),
+                              child: Row(
+                                mainAxisSize: MainAxisSize.min,
+                                children: [
+                                  const Icon(
+                                    Icons.bolt_rounded,
+                                    color: AppColors.primaryGreenLight,
+                                    size: 16,
+                                  ),
+                                  const SizedBox(width: 6),
+                                  Text(
+                                    'Capturing will auto-add to your Shopping List',
+                                    style: GoogleFonts.inter(
+                                      color: Colors.white,
+                                      fontSize: 12,
+                                      fontWeight: FontWeight.w500,
+                                    ),
+                                  ),
+                                ],
+                              ),
+                            ),
+                          ),
+                        ],
+                      );
+                    },
                   ),
-                ],
+                ),
               ),
             ),
 
@@ -351,36 +367,7 @@ class _CameraRecognitionScreenState
                 child: Column(
                   mainAxisSize: MainAxisSize.min,
                   children: [
-                    // Quick Scan Samples
-                    SingleChildScrollView(
-                      scrollDirection: Axis.horizontal,
-                      child: Row(
-                        children: _quickSampleProducts.map((p) {
-                          return Padding(
-                            padding: const EdgeInsets.only(right: 8.0),
-                            child: ActionChip(
-                              avatar: Icon(
-                                p['icon'],
-                                size: 16,
-                                color: AppColors.primaryGreen,
-                              ),
-                              label: Text(p['name']),
-                              backgroundColor: Colors.white.withValues(
-                                alpha: 0.18,
-                              ),
-                              side: BorderSide.none,
-                              labelStyle: GoogleFonts.inter(
-                                color: Colors.white,
-                                fontSize: 11.5,
-                                fontWeight: FontWeight.w600,
-                              ),
-                              onPressed: () => _captureProduct(p),
-                            ),
-                          );
-                        }).toList(),
-                      ),
-                    ),
-                    const SizedBox(height: 18),
+
                     // Shutter Button Row
                     Row(
                       mainAxisAlignment: MainAxisAlignment.spaceEvenly,
