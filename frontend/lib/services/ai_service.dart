@@ -8,8 +8,9 @@ class AiService {
 
   Future<Map<String, dynamic>?> recognizeProduct(XFile file) async {
     try {
+      final bytes = await file.readAsBytes();
       final formData = FormData.fromMap({
-        'file': await MultipartFile.fromFile(file.path, filename: file.name),
+        'file': MultipartFile.fromBytes(bytes, filename: file.name),
       });
       final response = await _apiClient.dio.post('/ai/recognize', data: formData);
       if (response.statusCode == 200) {
