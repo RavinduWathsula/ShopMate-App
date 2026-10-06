@@ -21,6 +21,7 @@ class YoloDetector:
         print(f'Initialized YoloDetector (Mock={self.is_mock})')
 
     def predict(self, image: np.ndarray):
+        
         if self.is_mock:
             # Mock bounding box
             height, width = image.shape[:2]
@@ -52,14 +53,4 @@ class YoloDetector:
                     
             # Sort by highest confidence
             detections.sort(key=lambda x: x['confidence'], reverse=True)
-            
-            if not detections:
-                print("Forcing Toothpaste detection for demo purposes.")
-                height, width = image.shape[:2]
-                detections.append({
-                    'bbox': [int(width*0.2), int(height*0.2), int(width*0.8), int(height*0.8)],
-                    'confidence': 0.99,
-                    'class_name': 'Toothpaste'
-                })
-                
             return detections

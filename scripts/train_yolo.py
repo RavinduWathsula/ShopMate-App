@@ -19,7 +19,7 @@ def main():
     print(f"Training using dataset at: {yaml_path}")
     results = model.train(
         data=yaml_path,
-        epochs=5,           # Short training for demonstration
+        epochs=30,           # Increased training for actual accuracy
         imgsz=416,
         batch=16,
         project='runs/detect',
