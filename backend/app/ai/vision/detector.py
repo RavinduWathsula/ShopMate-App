@@ -32,7 +32,7 @@ class YoloDetector:
             }]
         else:
             # Run inference
-            results = self.model.predict(image, conf=0.25, verbose=False)
+            results = self.model.predict(image, conf=0.01, verbose=False)
             detections = []
             
             # Convert to list to satisfy type checker

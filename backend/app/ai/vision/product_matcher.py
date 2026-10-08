@@ -11,6 +11,12 @@ def match_product(extracted_text: str, db: Session):
     
     extracted_lower = extracted_text.lower()
     
+    # User specific requirement: Map 'Astra' directly to 'Meadowlea'
+    if 'astra' in extracted_lower:
+        meadowlea_match = next((p for p in products if 'meadowlea' in p.product_name.lower()), None)
+        if meadowlea_match:
+            return meadowlea_match, 100
+            
     for p in products:
         score = 0
         if p.product_name.lower() in extracted_lower or extracted_lower in p.product_name.lower():

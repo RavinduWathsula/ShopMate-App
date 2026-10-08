@@ -1,7 +1,7 @@
 task: detect
 mode: train
 model: yolov8n.pt
-data: E:\Projects\ShopMate\dataset\yolo\data.yaml
+data: e:\Projects\ShopMate\dataset\yolo\data.yaml
 epochs: 30
 time: null
 patience: 100
