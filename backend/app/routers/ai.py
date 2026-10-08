@@ -24,7 +24,9 @@ async def recognize_product(file: UploadFile = File(...), db: Session = Depends(
     
     # 6. Detect product using YOLO
     detections = detector.predict(image)
+    print(f"[DEBUG AI] Detections from YOLO: {detections}")
     if not detections:
+        print("[DEBUG AI] No detections found, returning 404")
         raise HTTPException(status_code=404, detail="No product detected in image")
         
     # Process the best detection
@@ -38,6 +40,8 @@ async def recognize_product(file: UploadFile = File(...), db: Session = Depends(
     
     # 10. Match detected information with MySQL products
     matched_product, match_score = match_product(extracted_text, db)
+    print(f"[DEBUG AI] Extracted text: {extracted_text}")
+    print(f"[DEBUG AI] Matched product: {matched_product.product_name if matched_product else 'None'} with score {match_score}")
     
     if not matched_product:
         raise HTTPException(status_code=404, detail="Product could not be matched in database")
