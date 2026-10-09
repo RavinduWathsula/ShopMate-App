@@ -52,7 +52,7 @@ async def recognize_product(file: UploadFile = File(...), db: Session = Depends(
         raise HTTPException(status_code=404, detail="No product detected in image")
         
     # Process the best detection that meets a minimum confidence to filter background noise
-    valid_detections = [d for d in detections if float(d['confidence']) >= 0.01]
+    valid_detections = [d for d in detections if float(d['confidence']) >= 0.04]
     
     # Filter out detections that are actually just human skin (chest/face)
     final_detections = []
@@ -78,8 +78,12 @@ async def recognize_product(file: UploadFile = File(...), db: Session = Depends(
             
             skin_ratio = np.sum(mask > 0) / (roi.shape[0] * roi.shape[1])
             print(f"[DEBUG AI] Box {d['class_name']} skin ratio: {skin_ratio}")
+            with open("backend_debug.txt", "a") as f:
+                f.write(f"Skin ratio for {d['class_name']}: {skin_ratio*100:.1f}%\n")
             
-            if skin_ratio > 0.3:
+            # Use a very high skin threshold. If skin > 60%, it's mostly a face or chest.
+            # If skin is 15-30%, it's probably just a hand holding the product. We MUST ACCEPT IT!
+            if skin_ratio > 0.60:
                 print(f"[DEBUG AI] Rejecting {d['class_name']} because it is {skin_ratio*100:.1f}% skin")
                 continue
                 
@@ -96,18 +100,8 @@ async def recognize_product(file: UploadFile = File(...), db: Session = Depends(
     yolo_conf = float(best_detection['confidence']) # type: ignore
     detected_class_name = str(best_detection.get('class_name', 'product'))
     
-    # Aspect ratio heuristic: Toothpaste is tall, Meadowlea cup is square
-    x1, y1, x2, y2 = bbox
-    width = x2 - x1
-    height = y2 - y1
-    if height > width * 1.15:
-        # It's tall, definitely Toothpaste! Overrule the model's confusion
-        detected_class_name = "Toothpaste"
-    else:
-        # It's square-ish, definitely the Cup
-        detected_class_name = "Astra Cup"
-    
-    # Skip OCR and just use the YOLO classification name directly
+    # We remove the flawed shape heuristic. It was causing square-held Toothpastes 
+    # to be flagged as Astra Cup, and hand-held Astra Cups to be flagged as Toothpaste.
     extracted_text = detected_class_name
     
     # 10. Match detected information with MySQL products

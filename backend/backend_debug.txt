@@ -82,3 +82,105 @@ Detections: [{'bbox': [0, 174, 354, 635], 'confidence': 0.034212760627269745, 'c
 Extracted: Toothpaste, Matched: Closeup Toothpaste 30g, Score: 80
 Detections: [{'bbox': [102, 147, 452, 590], 'confidence': 0.039550263434648514, 'class_name': 'Astra Cup'}, {'bbox': [4, 154, 429, 633], 'confidence': 0.028615441173315048, 'class_name': 'Astra Cup'}, {'bbox': [193, 111, 521, 640], 'confidence': 0.011318586766719818, 'class_name': 'Astra Cup'}]
 Extracted: Toothpaste, Matched: Closeup Toothpaste 30g, Score: 80
+Detections: [{'bbox': [0, 181, 356, 637], 'confidence': 0.034167129546403885, 'class_name': 'Astra Cup'}, {'bbox': [0, 342, 401, 638], 'confidence': 0.018406890332698822, 'class_name': 'Astra Cup'}, {'bbox': [398, 264, 640, 635], 'confidence': 0.012795686721801758, 'class_name': 'Astra Cup'}, {'bbox': [0, 463, 456, 640], 'confidence': 0.0122586190700531, 'class_name': 'Astra Cup'}, {'bbox': [0, 138, 422, 558], 'confidence': 0.010490650311112404, 'class_name': 'Astra Cup'}]
+Skin ratio for Astra Cup: 14.7%
+Skin ratio for Astra Cup: 17.2%
+Skin ratio for Astra Cup: 14.3%
+Skin ratio for Astra Cup: 15.5%
+Skin ratio for Astra Cup: 12.7%
+Extracted: Astra Cup, Matched: Meadowlea Fat Spread 20g, Score: 100
+Detections: [{'bbox': [0, 187, 359, 638], 'confidence': 0.028238235041499138, 'class_name': 'Astra Cup'}, {'bbox': [0, 335, 456, 637], 'confidence': 0.015024920925498009, 'class_name': 'Astra Cup'}]
+Skin ratio for Astra Cup: 16.2%
+Skin ratio for Astra Cup: 21.2%
+No valid detections found
+Detections: [{'bbox': [0, 190, 353, 636], 'confidence': 0.04981597512960434, 'class_name': 'Astra Cup'}, {'bbox': [163, 271, 639, 640], 'confidence': 0.015384513884782791, 'class_name': 'Astra Cup'}, {'bbox': [1, 348, 408, 637], 'confidence': 0.01482280995696783, 'class_name': 'Astra Cup'}, {'bbox': [216, 197, 640, 640], 'confidence': 0.011502091772854328, 'class_name': 'Astra Cup'}, {'bbox': [68, 346, 594, 637], 'confidence': 0.010883411392569542, 'class_name': 'Astra Cup'}]
+Skin ratio for Astra Cup: 19.2%
+Skin ratio for Astra Cup: 23.7%
+Skin ratio for Astra Cup: 23.1%
+Skin ratio for Astra Cup: 17.8%
+Skin ratio for Astra Cup: 25.1%
+No valid detections found
+Detections: [{'bbox': [0, 186, 355, 634], 'confidence': 0.05132364109158516, 'class_name': 'Astra Cup'}, {'bbox': [0, 202, 426, 601], 'confidence': 0.0136328786611557, 'class_name': 'Astra Cup'}, {'bbox': [0, 339, 404, 637], 'confidence': 0.01262540090829134, 'class_name': 'Astra Cup'}, {'bbox': [317, 248, 640, 632], 'confidence': 0.01083162147551775, 'class_name': 'Astra Cup'}, {'bbox': [0, 125, 398, 558], 'confidence': 0.010600022971630096, 'class_name': 'Astra Cup'}]
+Skin ratio for Astra Cup: 19.2%
+Skin ratio for Astra Cup: 18.2%
+Skin ratio for Astra Cup: 23.4%
+Skin ratio for Astra Cup: 15.4%
+Skin ratio for Astra Cup: 14.8%
+Extracted: Astra Cup, Matched: Meadowlea Fat Spread 20g, Score: 100
+Detections: [{'bbox': [0, 375, 448, 638], 'confidence': 0.09140164405107498, 'class_name': 'Astra Cup'}, {'bbox': [0, 504, 443, 640], 'confidence': 0.055743034929037094, 'class_name': 'Astra Cup'}, {'bbox': [0, 453, 404, 640], 'confidence': 0.03766566514968872, 'class_name': 'Astra Cup'}, {'bbox': [3, 285, 403, 640], 'confidence': 0.02982163056731224, 'class_name': 'Astra Cup'}, {'bbox': [158, 318, 640, 636], 'confidence': 0.027313128113746643, 'class_name': 'Astra Cup'}, {'bbox': [129, 467, 632, 640], 'confidence': 0.02042583003640175, 'class_name': 'Astra Cup'}, {'bbox': [26, 498, 565, 640], 'confidence': 0.017142530530691147, 'class_name': 'Astra Cup'}, {'bbox': [0, 35, 162, 523], 'confidence': 0.014119447208940983, 'class_name': 'Astra Cup'}, {'bbox': [65, 379, 598, 636], 'confidence': 0.01381219644099474, 'class_name': 'Astra Cup'}, {'bbox': [0, 27, 109, 496], 'confidence': 0.013730517588555813, 'class_name': 'Toothpaste'}, {'bbox': [325, 265, 640, 635], 'confidence': 0.012570878490805626, 'class_name': 'Astra Cup'}, {'bbox': [0, 52, 232, 561], 'confidence': 0.011278732679784298, 'class_name': 'Astra Cup'}, {'bbox': [0, 187, 362, 636], 'confidence': 0.010236604139208794, 'class_name': 'Astra Cup'}]
+Skin ratio for Astra Cup: 18.0%
+Skin ratio for Astra Cup: 11.3%
+Skin ratio for Astra Cup: 14.2%
+Skin ratio for Astra Cup: 13.9%
+Skin ratio for Astra Cup: 22.1%
+Skin ratio for Astra Cup: 20.2%
+Skin ratio for Astra Cup: 16.0%
+Skin ratio for Astra Cup: 6.0%
+Skin ratio for Astra Cup: 23.8%
+Skin ratio for Toothpaste: 7.0%
+Skin ratio for Astra Cup: 18.0%
+Skin ratio for Astra Cup: 5.3%
+Skin ratio for Astra Cup: 12.6%
+Extracted: Astra Cup, Matched: Meadowlea Fat Spread 20g, Score: 100
+Detections: [{'bbox': [1, 373, 399, 638], 'confidence': 0.15191732347011566, 'class_name': 'Astra Cup'}, {'bbox': [242, 249, 637, 634], 'confidence': 0.07808534055948257, 'class_name': 'Astra Cup'}, {'bbox': [0, 268, 355, 640], 'confidence': 0.06422694772481918, 'class_name': 'Astra Cup'}, {'bbox': [0, 509, 438, 639], 'confidence': 0.06404609233140945, 'class_name': 'Astra Cup'}, {'bbox': [158, 318, 639, 637], 'confidence': 0.04413186013698578, 'class_name': 'Astra Cup'}, {'bbox': [0, 463, 492, 639], 'confidence': 0.03435297682881355, 'class_name': 'Astra Cup'}, {'bbox': [17, 386, 549, 636], 'confidence': 0.029730038717389107, 'class_name': 'Astra Cup'}, {'bbox': [2, 450, 360, 640], 'confidence': 0.02491082437336445, 'class_name': 'Astra Cup'}, {'bbox': [0, 138, 314, 640], 'confidence': 0.016407465562224388, 'class_name': 'Astra Cup'}, {'bbox': [0, 330, 488, 640], 'confidence': 0.016086533665657043, 'class_name': 'Astra Cup'}, {'bbox': [0, 127, 391, 565], 'confidence': 0.015741202980279922, 'class_name': 'Astra Cup'}, {'bbox': [216, 74, 435, 585], 'confidence': 0.015553398057818413, 'class_name': 'Astra Cup'}, {'bbox': [0, 33, 187, 521], 'confidence': 0.015149569138884544, 'class_name': 'Astra Cup'}, {'bbox': [273, 56, 432, 547], 'confidence': 0.012546314857900143, 'class_name': 'Astra Cup'}, {'bbox': [0, 26, 110, 492], 'confidence': 0.012333044782280922, 'class_name': 'Astra Cup'}, {'bbox': [103, 82, 406, 570], 'confidence': 0.011863496154546738, 'class_name': 'Astra Cup'}, {'bbox': [0, 204, 443, 640], 'confidence': 0.010607216507196426, 'class_name': 'Astra Cup'}, {'bbox': [133, 95, 471, 623], 'confidence': 0.010479371063411236, 'class_name': 'Astra Cup'}, {'bbox': [350, 238, 640, 640], 'confidence': 0.010389412753283978, 'class_name': 'Astra Cup'}, {'bbox': [0, 12, 104, 451], 'confidence': 0.010269121266901493, 'class_name': 'Toothpaste'}]
+Skin ratio for Astra Cup: 25.6%
+Skin ratio for Astra Cup: 25.1%
+Skin ratio for Astra Cup: 19.1%
+Skin ratio for Astra Cup: 22.5%
+Skin ratio for Astra Cup: 29.4%
+Skin ratio for Astra Cup: 28.3%
+Skin ratio for Astra Cup: 30.2%
+Skin ratio for Astra Cup: 23.4%
+Skin ratio for Astra Cup: 15.4%
+Skin ratio for Astra Cup: 27.3%
+Skin ratio for Astra Cup: 16.7%
+Skin ratio for Astra Cup: 26.4%
+Skin ratio for Astra Cup: 4.5%
+Skin ratio for Astra Cup: 22.9%
+Skin ratio for Astra Cup: 5.4%
+Skin ratio for Astra Cup: 19.2%
+Skin ratio for Astra Cup: 20.1%
+Skin ratio for Astra Cup: 22.2%
+Skin ratio for Astra Cup: 20.4%
+Skin ratio for Toothpaste: 5.1%
+Extracted: Astra Cup, Matched: Meadowlea Fat Spread 20g, Score: 100
+Detections: [{'bbox': [0, 75, 421, 511], 'confidence': 0.10779929161071777, 'class_name': 'Astra Cup'}, {'bbox': [92, 27, 428, 489], 'confidence': 0.040224336087703705, 'class_name': 'Astra Cup'}, {'bbox': [0, 121, 358, 574], 'confidence': 0.02306937985122204, 'class_name': 'Astra Cup'}, {'bbox': [157, 54, 413, 511], 'confidence': 0.017727911472320557, 'class_name': 'Astra Cup'}]
+Skin ratio for Astra Cup: 8.2%
+Skin ratio for Astra Cup: 9.9%
+Extracted: Astra Cup, Matched: Meadowlea Fat Spread 20g, Score: 100
+Detections: [{'bbox': [0, 180, 396, 634], 'confidence': 0.16101938486099243, 'class_name': 'Astra Cup'}, {'bbox': [115, 371, 613, 637], 'confidence': 0.04234970733523369, 'class_name': 'Astra Cup'}, {'bbox': [126, 533, 559, 639], 'confidence': 0.04220256954431534, 'class_name': 'Astra Cup'}, {'bbox': [0, 137, 422, 583], 'confidence': 0.031975943595170975, 'class_name': 'Toothpaste'}, {'bbox': [167, 494, 577, 639], 'confidence': 0.026396656408905983, 'class_name': 'Astra Cup'}, {'bbox': [1, 333, 404, 638], 'confidence': 0.019934913143515587, 'class_name': 'Astra Cup'}, {'bbox': [38, 473, 542, 640], 'confidence': 0.018725616857409477, 'class_name': 'Astra Cup'}, {'bbox': [212, 442, 614, 639], 'confidence': 0.013460998423397541, 'class_name': 'Astra Cup'}, {'bbox': [0, 47, 364, 556], 'confidence': 0.012973334640264511, 'class_name': 'Astra Cup'}, {'bbox': [0, 133, 450, 563], 'confidence': 0.010456330142915249, 'class_name': 'Astra Cup'}]
+Skin ratio for Astra Cup: 11.1%
+Skin ratio for Astra Cup: 14.0%
+Skin ratio for Astra Cup: 6.3%
+Extracted: Astra Cup, Matched: Meadowlea Fat Spread 20g, Score: 100
+Detections: [{'bbox': [0, 167, 396, 599], 'confidence': 0.10696562379598618, 'class_name': 'Toothpaste'}, {'bbox': [0, 141, 359, 625], 'confidence': 0.10142043232917786, 'class_name': 'Astra Cup'}, {'bbox': [130, 541, 548, 639], 'confidence': 0.06892076134681702, 'class_name': 'Astra Cup'}, {'bbox': [119, 380, 577, 637], 'confidence': 0.04741717129945755, 'class_name': 'Astra Cup'}, {'bbox': [54, 520, 545, 640], 'confidence': 0.01605059579014778, 'class_name': 'Astra Cup'}, {'bbox': [3, 265, 401, 640], 'confidence': 0.012211484834551811, 'class_name': 'Astra Cup'}, {'bbox': [215, 492, 606, 639], 'confidence': 0.010511038824915886, 'class_name': 'Astra Cup'}]
+Skin ratio for Toothpaste: 18.8%
+Skin ratio for Astra Cup: 17.3%
+Skin ratio for Astra Cup: 9.4%
+Skin ratio for Astra Cup: 24.4%
+Extracted: Toothpaste, Matched: Closeup Toothpaste 30g, Score: 80
+Detections: [{'bbox': [132, 85, 397, 504], 'confidence': 0.0992840975522995, 'class_name': 'Astra Cup'}, {'bbox': [0, 90, 404, 487], 'confidence': 0.07789390534162521, 'class_name': 'Astra Cup'}, {'bbox': [0, 119, 356, 558], 'confidence': 0.024604424834251404, 'class_name': 'Astra Cup'}, {'bbox': [194, 78, 391, 482], 'confidence': 0.011793958954513073, 'class_name': 'Astra Cup'}]
+Skin ratio for Astra Cup: 18.3%
+Skin ratio for Astra Cup: 13.0%
+Extracted: Astra Cup, Matched: Meadowlea Fat Spread 20g, Score: 100
+Detections: [{'bbox': [0, 172, 397, 628], 'confidence': 0.132221519947052, 'class_name': 'Toothpaste'}, {'bbox': [0, 143, 358, 638], 'confidence': 0.07487514615058899, 'class_name': 'Astra Cup'}, {'bbox': [0, 16, 390, 499], 'confidence': 0.024622246623039246, 'class_name': 'Toothpaste'}, {'bbox': [128, 518, 578, 640], 'confidence': 0.019184919074177742, 'class_name': 'Astra Cup'}, {'bbox': [0, 223, 436, 630], 'confidence': 0.018460683524608612, 'class_name': 'Astra Cup'}, {'bbox': [118, 356, 629, 637], 'confidence': 0.016918417066335678, 'class_name': 'Astra Cup'}, {'bbox': [169, 441, 606, 639], 'confidence': 0.015759697183966637, 'class_name': 'Astra Cup'}]
+Skin ratio for Toothpaste: 16.1%
+Skin ratio for Astra Cup: 16.2%
+Extracted: Toothpaste, Matched: Closeup Toothpaste 30g, Score: 80
+Detections: [{'bbox': [170, 18, 637, 482], 'confidence': 0.19272001087665558, 'class_name': 'Toothpaste'}, {'bbox': [17, 13, 545, 473], 'confidence': 0.061271075159311295, 'class_name': 'Toothpaste'}, {'bbox': [58, 71, 600, 529], 'confidence': 0.05207192897796631, 'class_name': 'Toothpaste'}, {'bbox': [0, 313, 495, 639], 'confidence': 0.030318237841129303, 'class_name': 'Astra Cup'}, {'bbox': [0, 525, 489, 640], 'confidence': 0.029715295881032944, 'class_name': 'Astra Cup'}, {'bbox': [0, 79, 497, 536], 'confidence': 0.027642156928777695, 'class_name': 'Toothpaste'}, {'bbox': [204, 74, 638, 504], 'confidence': 0.026703165844082832, 'class_name': 'Astra Cup'}, {'bbox': [158, 149, 636, 554], 'confidence': 0.017260951921343803, 'class_name': 'Astra Cup'}, {'bbox': [9, 159, 542, 573], 'confidence': 0.016549987718462944, 'class_name': 'Toothpaste'}, {'bbox': [111, 159, 639, 558], 'confidence': 0.015239624306559563, 'class_name': 'Toothpaste'}, {'bbox': [175, 1, 637, 293], 'confidence': 0.014811178669333458, 'class_name': 'Toothpaste'}, {'bbox': [0, 547, 407, 640], 'confidence': 0.013387633487582207, 'class_name': 'Astra Cup'}, {'bbox': [0, 129, 404, 579], 'confidence': 0.010448132641613483, 'class_name': 'Astra Cup'}]
+Skin ratio for Toothpaste: 15.0%
+Skin ratio for Toothpaste: 13.4%
+Skin ratio for Toothpaste: 13.1%
+Extracted: Toothpaste, Matched: Closeup Toothpaste 30g, Score: 80
+Detections: [{'bbox': [32, 7, 550, 482], 'confidence': 0.243763729929924, 'class_name': 'Astra Cup'}, {'bbox': [169, 1, 636, 480], 'confidence': 0.17012238502502441, 'class_name': 'Toothpaste'}, {'bbox': [72, 0, 599, 430], 'confidence': 0.11538466066122055, 'class_name': 'Toothpaste'}, {'bbox': [63, 70, 594, 512], 'confidence': 0.08119678497314453, 'class_name': 'Toothpaste'}, {'bbox': [41, 73, 505, 536], 'confidence': 0.05115488916635513, 'class_name': 'Astra Cup'}, {'bbox': [23, 161, 540, 572], 'confidence': 0.02228107489645481, 'class_name': 'Toothpaste'}, {'bbox': [15, 544, 498, 640], 'confidence': 0.011511686258018017, 'class_name': 'Astra Cup'}, {'bbox': [10, 49, 407, 489], 'confidence': 0.010880306363105774, 'class_name': 'Astra Cup'}, {'bbox': [110, 158, 634, 545], 'confidence': 0.010616905055940151, 'class_name': 'Toothpaste'}, {'bbox': [26, 306, 540, 638], 'confidence': 0.010451223701238632, 'class_name': 'Astra Cup'}]
+Skin ratio for Astra Cup: 21.5%
+Skin ratio for Toothpaste: 20.1%
+Skin ratio for Toothpaste: 20.7%
+Skin ratio for Toothpaste: 23.7%
+Skin ratio for Astra Cup: 24.4%
+Extracted: Astra Cup, Matched: Meadowlea Fat Spread 20g, Score: 100
+Detections: [{'bbox': [112, 0, 640, 393], 'confidence': 0.20597603917121887, 'class_name': 'Toothpaste'}, {'bbox': [17, 0, 545, 398], 'confidence': 0.07551518827676773, 'class_name': 'Toothpaste'}, {'bbox': [62, 63, 594, 485], 'confidence': 0.05188898742198944, 'class_name': 'Toothpaste'}, {'bbox': [13, 115, 541, 541], 'confidence': 0.026025768369436264, 'class_name': 'Toothpaste'}, {'bbox': [0, 163, 496, 617], 'confidence': 0.012482615187764168, 'class_name': 'Toothpaste'}, {'bbox': [158, 103, 638, 495], 'confidence': 0.010677516460418701, 'class_name': 'Toothpaste'}, {'bbox': [204, 21, 640, 446], 'confidence': 0.010476509109139442, 'class_name': 'Toothpaste'}]
+Skin ratio for Toothpaste: 42.2%
+Skin ratio for Toothpaste: 42.3%
+Skin ratio for Toothpaste: 40.3%
+Extracted: Toothpaste, Matched: Closeup Toothpaste 30g, Score: 80
