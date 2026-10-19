@@ -36,13 +36,25 @@ async def recognize_product(file: UploadFile = File(...), db: Session = Depends(
         
     print(f"[DEBUG AI] Detections from YOLO: {detections}")
     
-    # Process detections that meet minimum confidence (0.20) to capture all 3 products reliably
-    valid_detections: list[dict[str, Any]] = [d for d in detections if float(d['confidence']) >= 0.20]
+    # Class-specific confidence thresholds to strictly reject other items / false positives
+    min_confidence_map = {
+        'Toothpaste': 0.65,
+        'Astra Cup': 0.55,
+        'Calin Teen Soap': 0.45,
+    }
+    
+    valid_detections: list[dict[str, Any]] = []
+    for d in detections:
+        c_name = str(d.get('class_name', ''))
+        conf = float(d.get('confidence', 0.0))
+        required_conf = min_confidence_map.get(c_name, 0.60)
+        if conf >= required_conf:
+            valid_detections.append(d)
     
     if not valid_detections:
-        print("[DEBUG AI] No valid product detected with >= 0.20 confidence")
+        print(f"[DEBUG AI] No valid product detected meeting threshold. Raw detections: {detections}")
         with open("backend_debug.txt", "a") as f:
-            f.write("No valid product detected\n")
+            f.write(f"No valid product detected meeting threshold: {detections}\n")
             
         # Check if user was pointing camera at a human / face / body
         is_human = False
