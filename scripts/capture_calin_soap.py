@@ -13,7 +13,7 @@ def main():
         os.makedirs(os.path.join(yolo_dir, 'images', split), exist_ok=True)
         os.makedirs(os.path.join(yolo_dir, 'labels', split), exist_ok=True)
 
-    class_id = 3
+    class_id = 2
     class_name = "Calin Teen Soap"
 
     cap = cv2.VideoCapture(0)

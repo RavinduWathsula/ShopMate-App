@@ -9,7 +9,8 @@ import 'core/theme/theme_provider.dart';
 
 import 'package:device_preview/device_preview.dart';
 
-void main() {
+void main() async {
+  WidgetsFlutterBinding.ensureInitialized();
   runApp(
     DevicePreview(
       enabled: true,
@@ -32,7 +33,10 @@ class ShopMateApp extends ConsumerWidget {
       darkTheme: AppTheme.darkTheme,
       themeMode: themeMode,
       routerConfig: AppRouter.router,
-      builder: DevicePreview.appBuilder,
+      builder: (context, child) {
+        if (child == null) return const SizedBox.shrink();
+        return DevicePreview.appBuilder(context, child);
+      },
       locale: DevicePreview.locale(context),
       scrollBehavior: const MaterialScrollBehavior().copyWith(
         dragDevices: {

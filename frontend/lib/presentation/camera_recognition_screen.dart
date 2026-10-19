@@ -21,6 +21,7 @@ class _CameraRecognitionScreenState
   CameraController? _cameraController;
   List<CameraDescription>? _cameras;
   late AnimationController _scannerAnimation;
+  Color _scannerColor = AppColors.primaryGreen;
 
   @override
   void initState() {
@@ -88,11 +89,12 @@ class _CameraRecognitionScreenState
 
       final XFile file = await _cameraController!.takePicture();
       final aiService = AiService();
-      final result = await aiService.recognizeProduct(file);
+      final response = await aiService.recognizeProduct(file);
 
       if (mounted) Navigator.pop(context); // Hide loading
 
-      if (result != null) {
+      if (response.isSuccess && response.product != null) {
+        final result = response.product!;
         final newItem = BasketItem(
           id: result['product_id']?.toString() ?? 'scan_${DateTime.now().millisecondsSinceEpoch}',
           name: result['product_name'] ?? 'Unknown Product',
@@ -102,23 +104,91 @@ class _CameraRecognitionScreenState
         ref.read(basketProvider.notifier).addItem(newItem);
         _showSuccess(newItem.name);
       } else {
-        if (mounted) {
-          ScaffoldMessenger.of(context).showSnackBar(
-            const SnackBar(
-              content: Text('Could not recognize product. Please try again.'),
-              backgroundColor: Colors.redAccent,
-            ),
-          );
-        }
+        final errorMsg = response.errorMessage ?? 'Could not recognize product. Please scan again.';
+        _showRedAlert(errorMsg);
       }
     } catch (e) {
       if (mounted) Navigator.pop(context); // Hide loading
       debugPrint('Capture error: $e');
+      _showRedAlert('Failed to capture or scan image. Please try again.');
     }
+  }
+
+  void _showRedAlert(String message) {
+    if (!mounted) return;
+    setState(() {
+      _scannerColor = const Color(0xFFD32F2F);
+    });
+
+    ScaffoldMessenger.of(context).hideCurrentSnackBar();
+    ScaffoldMessenger.of(context).showSnackBar(
+      SnackBar(
+        content: Row(
+          crossAxisAlignment: CrossAxisAlignment.center,
+          children: [
+            Container(
+              padding: const EdgeInsets.all(6),
+              decoration: const BoxDecoration(
+                color: Colors.white24,
+                shape: BoxShape.circle,
+              ),
+              child: const Icon(
+                Icons.error_outline_rounded,
+                color: Colors.white,
+                size: 26,
+              ),
+            ),
+            const SizedBox(width: 12),
+            Expanded(
+              child: Column(
+                mainAxisSize: MainAxisSize.min,
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  Text(
+                    'Item Not Added to Cart',
+                    style: GoogleFonts.inter(
+                      fontWeight: FontWeight.w800,
+                      fontSize: 14,
+                      color: Colors.white,
+                    ),
+                  ),
+                  const SizedBox(height: 2),
+                  Text(
+                    message,
+                    style: GoogleFonts.inter(
+                      fontWeight: FontWeight.w500,
+                      fontSize: 12.5,
+                      color: Colors.white.withValues(alpha: 0.95),
+                    ),
+                  ),
+                ],
+              ),
+            ),
+          ],
+        ),
+        backgroundColor: const Color(0xFFD32F2F), // Bright red alert
+        behavior: SnackBarBehavior.floating,
+        shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(14)),
+        margin: const EdgeInsets.all(16),
+        duration: const Duration(milliseconds: 3200),
+      ),
+    );
+
+    Future.delayed(const Duration(milliseconds: 3500), () {
+      if (mounted) {
+        setState(() {
+          _scannerColor = AppColors.primaryGreen;
+        });
+      }
+    });
   }
 
   void _showSuccess(String productName) {
     if (!mounted) return;
+    setState(() {
+      _scannerColor = const Color(0xFF2E7D32);
+    });
+
     ScaffoldMessenger.of(context).hideCurrentSnackBar();
     ScaffoldMessenger.of(context).showSnackBar(
       SnackBar(
@@ -263,6 +333,8 @@ class _CameraRecognitionScreenState
               ),
             ),
 
+
+
             // Full Screen Recognition Frame
             Positioned.fill(
               child: SafeArea(
@@ -275,7 +347,7 @@ class _CameraRecognitionScreenState
                         children: [
                           CustomPaint(
                             size: Size(constraints.maxWidth, constraints.maxHeight),
-                            painter: ScannerBracketsPainter(),
+                            painter: ScannerBracketsPainter(color: _scannerColor),
                             child: AnimatedBuilder(
                               animation: _scannerAnimation,
                               builder: (context, child) {
@@ -290,10 +362,10 @@ class _CameraRecognitionScreenState
                                   height: 2,
                                   width: constraints.maxWidth - 40,
                                   decoration: BoxDecoration(
-                                    color: AppColors.primaryGreen,
+                                    color: _scannerColor,
                                     boxShadow: [
                                       BoxShadow(
-                                        color: AppColors.primaryGreen.withValues(
+                                        color: _scannerColor.withValues(
                                           alpha: 0.8,
                                         ),
                                         blurRadius: 10,
@@ -302,39 +374,6 @@ class _CameraRecognitionScreenState
                                     ],
                                   ),
                                 ),
-                              ),
-                            ),
-                          ),
-                          // The text label placed at the bottom of the scanner area
-                          Positioned(
-                            bottom: 20,
-                            child: Container(
-                              padding: const EdgeInsets.symmetric(
-                                horizontal: 16,
-                                vertical: 8,
-                              ),
-                              decoration: BoxDecoration(
-                                color: Colors.black.withValues(alpha: 0.65),
-                                borderRadius: BorderRadius.circular(20),
-                              ),
-                              child: Row(
-                                mainAxisSize: MainAxisSize.min,
-                                children: [
-                                  const Icon(
-                                    Icons.bolt_rounded,
-                                    color: AppColors.primaryGreenLight,
-                                    size: 16,
-                                  ),
-                                  const SizedBox(width: 6),
-                                  Text(
-                                    'Capturing will auto-add to your Shopping List',
-                                    style: GoogleFonts.inter(
-                                      color: Colors.white,
-                                      fontSize: 12,
-                                      fontWeight: FontWeight.w500,
-                                    ),
-                                  ),
-                                ],
                               ),
                             ),
                           ),
@@ -451,10 +490,13 @@ class _CameraRecognitionScreenState
 }
 
 class ScannerBracketsPainter extends CustomPainter {
+  final Color color;
+  ScannerBracketsPainter({this.color = AppColors.primaryGreen});
+
   @override
   void paint(Canvas canvas, Size size) {
     final paint = Paint()
-      ..color = AppColors.primaryGreen
+      ..color = color
       ..strokeWidth = 5
       ..style = PaintingStyle.stroke
       ..strokeCap = StrokeCap.round;
@@ -495,5 +537,5 @@ class ScannerBracketsPainter extends CustomPainter {
   }
 
   @override
-  bool shouldRepaint(covariant CustomPainter oldDelegate) => false;
+  bool shouldRepaint(covariant ScannerBracketsPainter oldDelegate) => oldDelegate.color != color;
 }

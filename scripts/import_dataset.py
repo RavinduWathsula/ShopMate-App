@@ -11,17 +11,15 @@ def import_images():
     images_dir = os.path.join(output_dir, 'images')
     labels_dir = os.path.join(output_dir, 'labels')
     
-    # Class mapping matching our YOLO dataset
-    # Maps lowercase folder keywords to (class_id, class_name)
+    # Class mapping matching our YOLO dataset (only 3 classes)
     class_rules = [
         (["toothpaste"], 0, "toothpaste"),
         (["astra"], 1, "astra"),
-        (["sprite"], 2, "sprite"),
-        (["calin", "soap"], 3, "calin_soap"),
+        (["calin", "soap"], 2, "calin_soap"),
     ]
     
     # Standard subdirectories in my_pictures
-    subdirs = ["toothpaste", "astra", "sprite", "Calin Soap"]
+    subdirs = ["toothpaste", "astra", "Calin Soap"]
     
     # If the folder doesn't exist, create it and tell the user
     if not os.path.exists(input_dir):
@@ -32,9 +30,8 @@ def import_images():
         print("1. Open the 'my_pictures' folder.")
         print("2. Copy your photos of toothpaste into the 'toothpaste' folder.")
         print("3. Copy your photos of Astra into the 'astra' folder.")
-        print("4. Copy your photos of Sprite into the 'sprite' folder.")
-        print("5. Copy your photos of Calin Teen Soap into the 'Calin Soap' folder.")
-        print("6. Run this script again when you are done!\n")
+        print("4. Copy your photos of Calin Teen Soap into the 'Calin Soap' folder.")
+        print("5. Run this script again when you are done!\n")
         return
     else:
         for s in subdirs:

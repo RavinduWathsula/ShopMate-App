@@ -1,3 +1,4 @@
+from typing import Any
 from fastapi import APIRouter, Depends, HTTPException, UploadFile, File
 from sqlalchemy.orm import Session
 from app.database.database import get_db
@@ -23,88 +24,75 @@ async def recognize_product(file: UploadFile = File(...), db: Session = Depends(
         # Decode image for face detection (before any resizing distorts the face shape)
     nparr = np.frombuffer(image_bytes, np.uint8)
     orig_image = cv2.imdecode(nparr, cv2.IMREAD_COLOR)
+    if orig_image is None:
+        raise HTTPException(status_code=400, detail="Could not decode image")
     
-    # Check for humans/faces before doing product detection
-    try:
-        gray = cv2.cvtColor(orig_image, cv2.COLOR_BGR2GRAY)
-        
-        # Keep basic haarcascades as a first-line defense but don't strictly rely on them
-        face_cascade = cv2.CascadeClassifier(cv2.data.haarcascades + 'haarcascade_frontalface_default.xml')
-        faces = face_cascade.detectMultiScale(gray, scaleFactor=1.1, minNeighbors=4, minSize=(30, 30))
-        if len(faces) > 0:
-            print(f"[DEBUG AI] Frontal face detected in raw image")
-    except Exception as e:
-        print(f"[DEBUG AI] Face detection error: {e}")
-        
     # 3-5. Preprocess (Resize, Normalize) for YOLO
     image = process_image(image_bytes)
     
-    # 6. Detect product using YOLO
-    detections = detector.predict(image)
+    detections: list[dict[str, Any]] = detector.predict(image)  # type: ignore
     with open("backend_debug.txt", "a") as f:
         f.write(f"Detections: {detections}\n")
         
     print(f"[DEBUG AI] Detections from YOLO: {detections}")
-    if not detections:
-        print("[DEBUG AI] No detections found, returning 404")
-        with open("backend_debug.txt", "a") as f:
-            f.write("No detections found\n")
-        raise HTTPException(status_code=404, detail="No product detected in image")
-        
-    # Process the best detection that meets a minimum confidence to filter background noise
-    valid_detections = [d for d in detections if float(d['confidence']) >= 0.04]
     
-    # Filter out detections that are actually just human skin (chest/face)
-    final_detections = []
-    for d in valid_detections:
-        x1, y1, x2, y2 = d['bbox']
-        # YOLO bounding boxes are based on the 640x640 processed image, so we must map them to orig_image
-        h, w = orig_image.shape[:2]
-        x1 = int(x1 * w / 640.0)
-        x2 = int(x2 * w / 640.0)
-        y1 = int(y1 * h / 640.0)
-        y2 = int(y2 * h / 640.0)
-        
-        x1, y1 = max(0, x1), max(0, y1)
-        x2, y2 = min(w, x2), min(h, y2)
-        
-        if x2 > x1 and y2 > y1:
-            roi = orig_image[y1:y2, x1:x2]
-            hsv = cv2.cvtColor(roi, cv2.COLOR_BGR2HSV)
-            # Skin color range in HSV: Hue 0-20, Sat 20-150 (ignores bright red), Val 70-255
-            lower_skin = np.array([0, 20, 70], dtype=np.uint8)
-            upper_skin = np.array([20, 150, 255], dtype=np.uint8)
-            mask = cv2.inRange(hsv, lower_skin, upper_skin)
-            
-            skin_ratio = np.sum(mask > 0) / (roi.shape[0] * roi.shape[1])
-            print(f"[DEBUG AI] Box {d['class_name']} skin ratio: {skin_ratio}")
-            with open("backend_debug.txt", "a") as f:
-                f.write(f"Skin ratio for {d['class_name']}: {skin_ratio*100:.1f}%\n")
-            
-            # Use a very high skin threshold. If skin > 60%, it's mostly a face or chest.
-            # If skin is 15-30%, it's probably just a hand holding the product. We MUST ACCEPT IT!
-            if skin_ratio > 0.60:
-                print(f"[DEBUG AI] Rejecting {d['class_name']} because it is {skin_ratio*100:.1f}% skin")
-                continue
-                
-        final_detections.append(d)
-        
-    if not final_detections:
-        print("[DEBUG AI] No valid detections found after skin filter, returning 404")
+    # Process detections that meet minimum confidence (0.20) to capture all 3 products reliably
+    valid_detections: list[dict[str, Any]] = [d for d in detections if float(d['confidence']) >= 0.20]
+    
+    if not valid_detections:
+        print("[DEBUG AI] No valid product detected with >= 0.20 confidence")
         with open("backend_debug.txt", "a") as f:
-            f.write("No valid detections found\n")
-        raise HTTPException(status_code=404, detail="Human detected, please scan a product")
+            f.write("No valid product detected\n")
+            
+        # Check if user was pointing camera at a human / face / body
+        is_human = False
         
-    best_detection = final_detections[0]
+        # 1. Skin detection in HSV space
+        hsv_full = cv2.cvtColor(orig_image, cv2.COLOR_BGR2HSV)
+        lower_skin = np.array([0, 40, 60], dtype=np.uint8)
+        upper_skin = np.array([20, 170, 255], dtype=np.uint8)
+        skin_mask = cv2.inRange(hsv_full, lower_skin, upper_skin)
+        h, w = orig_image.shape[:2]
+        center_skin = np.sum(skin_mask[h//4:3*h//4, w//4:3*w//4] > 0) / max(1, (h//2)*(w//2))
+        total_skin = np.sum(skin_mask > 0) / max(1, (h * w))
+        
+        if center_skin > 0.22 or total_skin > 0.20:
+            is_human = True
+            print(f"[DEBUG AI] Human detected via skin tone (center={center_skin:.2f}, total={total_skin:.2f})")
+            
+        # 2. Person detection via standard YOLO if available
+        if not is_human:
+            try:
+                import os
+                from ultralytics import YOLO
+                coco_path = "yolov8n.pt"
+                if os.path.exists(coco_path):
+                    coco_model = YOLO(coco_path)
+                    coco_results: list[Any] = list(coco_model.predict(orig_image, classes=[0], conf=0.35, verbose=False))  # type: ignore
+                    if coco_results:
+                        first_res: Any = coco_results[0]
+                        boxes: Any = getattr(first_res, 'boxes', None)
+                        if boxes is not None and len(boxes) > 0:
+                            is_human = True
+                            print("[DEBUG AI] Human detected via COCO person model")
+            except Exception as e:
+                print(f"[DEBUG AI] Error in COCO person check: {e}")
+                
+        if is_human:
+            raise HTTPException(status_code=400, detail="Human detected! Please scan a product.")
+        else:
+            raise HTTPException(
+                status_code=404, 
+                detail="Unrecognized item! Only Closeup Toothpaste, Meadowlea, and Calin Teen Soap can be scanned."
+            )
+        
+    best_detection = valid_detections[0]
     bbox = best_detection['bbox']
     yolo_conf = float(best_detection['confidence']) # type: ignore
     detected_class_name = str(best_detection.get('class_name', 'product'))
-    
-    # We remove the flawed shape heuristic. It was causing square-held Toothpastes 
-    # to be flagged as Astra Cup, and hand-held Astra Cups to be flagged as Toothpaste.
     extracted_text = detected_class_name
     
-    # 10. Match detected information with MySQL products
+    # 10. Match detected information with products (strictly 3 allowed items)
     matched_product, match_score = match_product(extracted_text, db)
     with open("backend_debug.txt", "a") as f:
         f.write(f"Extracted: {extracted_text}, Matched: {matched_product.product_name if matched_product else 'None'}, Score: {match_score}\n")
@@ -113,7 +101,10 @@ async def recognize_product(file: UploadFile = File(...), db: Session = Depends(
     print(f"[DEBUG AI] Matched product: {matched_product.product_name if matched_product else 'None'} with score {match_score}")
     
     if not matched_product:
-        raise HTTPException(status_code=404, detail="Product could not be matched in database")
+        raise HTTPException(
+            status_code=404, 
+            detail="Unrecognized item! Only Closeup Toothpaste, Meadowlea, and Calin Teen Soap can be scanned."
+        )
         
     # 11. Calculate confidence (simplified combined score)
     combined_confidence = (yolo_conf * 100 * 0.8) + (match_score * 0.2)

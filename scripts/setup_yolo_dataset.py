@@ -16,18 +16,17 @@ def setup_yolo_dataset(csv_path="dataset/ai_product_labels.csv", output_dir="dat
     target_items = [
         "Toothpaste",
         "Astra Cup",
-        "Sprite Bottle Mini",
         "Calin Teen Soap"
     ]
     
     # Create a custom dataframe for these items
     df = pd.DataFrame({
         'display_name': target_items,
-        'yolo_class_id': [0, 1, 2, 3],
-        'product_id': ['P_TOOTHPASTE', 'P_ASTRA', 'P_SPRITE', 'P_CALIN_SOAP']
+        'yolo_class_id': [0, 1, 2],
+        'product_id': ['P_TOOTHPASTE', 'P_ASTRA', 'P_CALIN_SOAP']
     })
         
-    print(f"Generating YOLO dataset for {len(df)} products (4 classes)...")
+    print(f"Generating YOLO dataset for {len(df)} products (3 classes)...")
     
     # Generate 50 dummy images for each product to have enough data for a quick train
     for index, row in df.iterrows():
@@ -61,7 +60,7 @@ def setup_yolo_dataset(csv_path="dataset/ai_product_labels.csv", output_dir="dat
     yaml_content = f"""path: {os.path.abspath(output_dir).replace('\\', '/')}
 train: images/train
 val: images/val
-nc: 4
+nc: 3
 names: {target_items}
 """
     with open(os.path.join(output_dir, 'data.yaml'), 'w') as f:

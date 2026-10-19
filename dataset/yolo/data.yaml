@@ -1,5 +1,5 @@
 path: E:/Projects/ShopMate/dataset/yolo
 train: images/train
 val: images/val
-nc: 4
-names: ['Toothpaste', 'Astra Cup', 'Sprite Bottle Mini', 'Calin Teen Soap']
+nc: 3
+names: ['Toothpaste', 'Astra Cup', 'Calin Teen Soap']

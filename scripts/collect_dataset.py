@@ -13,8 +13,7 @@ def collect_data():
     items = {
         ord('1'): (0, "Toothpaste"),
         ord('2'): (1, "Astra Cup"),
-        ord('3'): (2, "Sprite Bottle Mini"),
-        ord('4'): (3, "Calin Teen Soap")
+        ord('3'): (2, "Calin Teen Soap")
     }
     
     cap = cv2.VideoCapture(0)
@@ -26,11 +25,10 @@ def collect_data():
     print("Position your physical item inside the GREEN BOX.")
     print("Press '1' to capture a picture of Toothpaste")
     print("Press '2' to capture a picture of Astra Cup")
-    print("Press '3' to capture a picture of Sprite Bottle Mini")
-    print("Press '4' to capture a picture of Calin Teen Soap")
+    print("Press '3' to capture a picture of Calin Teen Soap")
     print("Press 'q' to quit when you have enough pictures (e.g., 10-20 per item).")
     
-    count = {0: 0, 1: 0, 2: 0, 3: 0}
+    count = {0: 0, 1: 0, 2: 0}
     
     while True:
         success, frame = cap.read()
@@ -48,7 +46,7 @@ def collect_data():
         cv2.rectangle(display_frame, (x1, y1), (x2, y2), (0, 255, 0), 2)
         cv2.putText(display_frame, "Put item in this box", (x1, y1 - 10), cv2.FONT_HERSHEY_SIMPLEX, 0.6, (0, 255, 0), 2)
         
-        cv2.imshow("Data Collector - Press 1, 2, 3, or 4 (or 'q' to quit)", display_frame)
+        cv2.imshow("Data Collector - Press 1, 2, or 3 (or 'q' to quit)", display_frame)
         
         key = cv2.waitKey(1) & 0xFF
         if key == ord('q'):
