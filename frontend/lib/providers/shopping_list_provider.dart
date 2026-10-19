@@ -268,6 +268,17 @@ class ShoppingListNotifier extends StateNotifier<List<ShoppingListItem>> {
           imageUrl:
               'https://images.unsplash.com/photo-1579899201099-dafb3cc961ff?w=200',
         ),
+        const ShoppingListItem(
+          id: '21',
+          name: 'Astra Fat Spread 250g',
+          category: 'Dairy',
+          price: 220.0,
+          quantity: 1,
+          isChecked: false,
+          icon: Icons.kitchen_rounded,
+          imageUrl:
+              'https://images.unsplash.com/photo-1589985270826-4b7bb135bc9d?w=200',
+        ),
       ]);
 
   void addItem(ShoppingListItem item) {

@@ -17,9 +17,10 @@ def main():
     model = YOLO('yolov8n.pt')
     results = model.train(
         data=yaml_path,
-        epochs=30,
+        epochs=20,
         imgsz=416,
         batch=16,
+        workers=2,
         project='runs/detect',
         name='train_temp',
         exist_ok=True,

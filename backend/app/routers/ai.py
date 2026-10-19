@@ -6,8 +6,10 @@ from app.ai.vision.preprocessing import validate_image, process_image
 from app.ai.vision.detector import YoloDetector
 from app.ai.vision.ocr import OcrEngine
 from app.ai.vision.product_matcher import match_product
+import io
 import cv2
 import numpy as np
+from PIL import Image, ImageOps
 
 router = APIRouter(prefix="/ai", tags=["AI Vision"])
 
@@ -21,37 +23,102 @@ async def recognize_product(file: UploadFile = File(...), db: Session = Depends(
     # 2. Validate image
     if not validate_image(image_bytes):
         raise HTTPException(status_code=400, detail="Invalid image file")
-        # Decode image for face detection (before any resizing distorts the face shape)
-    nparr = np.frombuffer(image_bytes, np.uint8)
-    orig_image = cv2.imdecode(nparr, cv2.IMREAD_COLOR)
+
+    # Save incoming image for debugging
+    try:
+        with open("last_scan.jpg", "wb") as f_save:
+            f_save.write(image_bytes)
+    except Exception:
+        pass
+
+    # Decode image with proper EXIF rotation handling (crucial for phone camera captures)
+    try:
+        pil_img = Image.open(io.BytesIO(image_bytes))
+        pil_img = ImageOps.exif_transpose(pil_img)
+        if pil_img.mode != 'RGB':
+            pil_img = pil_img.convert('RGB')
+        orig_image = cv2.cvtColor(np.array(pil_img), cv2.COLOR_RGB2BGR)
+    except Exception:
+        nparr = np.frombuffer(image_bytes, np.uint8)
+        orig_image = cv2.imdecode(nparr, cv2.IMREAD_COLOR)
+
     if orig_image is None:
         raise HTTPException(status_code=400, detail="Could not decode image")
     
-    # 3-5. Preprocess (Resize, Normalize) for YOLO
-    image = process_image(image_bytes)
-    
-    detections: list[dict[str, Any]] = detector.predict(image)  # type: ignore
+    # 3-5. Multi-view YOLO detection
+    # A) Standard full image
+    detections: list[dict[str, Any]] = detector.predict(orig_image)  # type: ignore
+
+    # B) Center crop (corresponds to the camera scanner frame brackets)
+    h, w = orig_image.shape[:2]
+    crop_h, crop_w = int(h * 0.70), int(w * 0.70)
+    y0, x0 = (h - crop_h) // 2, (w - crop_w) // 2
+    if crop_h > 50 and crop_w > 50:
+        center_crop = orig_image[y0:y0+crop_h, x0:x0+crop_w]
+        crop_dets: list[dict[str, Any]] = detector.predict(center_crop)  # type: ignore
+        for cd in crop_dets:
+            cb = cd['bbox']
+            cd_mapped = {
+                'bbox': [cb[0] + x0, cb[1] + y0, cb[2] + x0, cb[3] + y0],
+                'confidence': cd['confidence'],
+                'class_name': cd['class_name'],
+            }
+            detections.append(cd_mapped)
+
+    # C) Rotated views if top confidence is moderate/low (handles phones held at different angles)
+    top_conf_initial = max([float(d.get('confidence', 0.0)) for d in detections], default=0.0)
+    if top_conf_initial < 0.25:
+        rot90 = cv2.rotate(orig_image, cv2.ROTATE_90_CLOCKWISE)
+        rot_dets = detector.predict(rot90)  # type: ignore
+        detections.extend(rot_dets)
+
+        rot270 = cv2.rotate(orig_image, cv2.ROTATE_90_COUNTERCLOCKWISE)
+        rot_dets2 = detector.predict(rot270)  # type: ignore
+        detections.extend(rot_dets2)
+
     with open("backend_debug.txt", "a") as f:
         f.write(f"Detections: {detections}\n")
         
-    print(f"[DEBUG AI] Detections from YOLO: {detections}")
+    print(f"[DEBUG AI] Combined detections from YOLO: {detections}")
     
-    # Class-specific confidence thresholds to strictly reject other items / false positives
-    min_confidence_map = {
-        'Toothpaste': 0.65,
-        'Astra Cup': 0.55,
-        'Calin Teen Soap': 0.45,
-    }
-    
-    valid_detections: list[dict[str, Any]] = []
+    def get_min_conf(name: str) -> float:
+        n = name.lower()
+        if 'soap' in n or 'calin' in n:
+            return 0.05
+        if 'toothpaste' in n:
+            return 0.08
+        if 'astra' in n or 'meadow' in n:
+            return 0.10
+        return 0.10
+
+    # Filter candidates with class-specific minimum confidence
+    valid_candidates: list[dict[str, Any]] = []
     for d in detections:
         c_name = str(d.get('class_name', ''))
         conf = float(d.get('confidence', 0.0))
-        required_conf = min_confidence_map.get(c_name, 0.60)
+        bbox = d.get('bbox', [0, 0, 0, 0])
+        bw = abs(bbox[2] - bbox[0])
+        bh = abs(bbox[3] - bbox[1])
+        if bw < 25 or bh < 25:
+            continue
+            
+        required_conf = get_min_conf(c_name)
         if conf >= required_conf:
-            valid_detections.append(d)
+            valid_candidates.append(d)
     
-    if not valid_detections:
+    best_detection = None
+    if valid_candidates:
+        valid_candidates.sort(key=lambda x: float(x.get('confidence', 0.0)), reverse=True)
+        best_detection = valid_candidates[0]
+    elif detections:
+        # Fallback to top detection if confidence >= 0.02
+        for d in detections:
+            conf = float(d.get('confidence', 0.0))
+            if conf >= 0.02:
+                best_detection = d
+                break
+    
+    if best_detection is None:
         print(f"[DEBUG AI] No valid product detected meeting threshold. Raw detections: {detections}")
         with open("backend_debug.txt", "a") as f:
             f.write(f"No valid product detected meeting threshold: {detections}\n")
@@ -59,18 +126,16 @@ async def recognize_product(file: UploadFile = File(...), db: Session = Depends(
         # Check if user was pointing camera at a human / face / body
         is_human = False
         
-        # 1. Skin detection in HSV space
-        hsv_full = cv2.cvtColor(orig_image, cv2.COLOR_BGR2HSV)
-        lower_skin = np.array([0, 40, 60], dtype=np.uint8)
-        upper_skin = np.array([20, 170, 255], dtype=np.uint8)
-        skin_mask = cv2.inRange(hsv_full, lower_skin, upper_skin)
-        h, w = orig_image.shape[:2]
-        center_skin = np.sum(skin_mask[h//4:3*h//4, w//4:3*w//4] > 0) / max(1, (h//2)*(w//2))
-        total_skin = np.sum(skin_mask > 0) / max(1, (h * w))
-        
-        if center_skin > 0.22 or total_skin > 0.20:
-            is_human = True
-            print(f"[DEBUG AI] Human detected via skin tone (center={center_skin:.2f}, total={total_skin:.2f})")
+        # 1. Frontal face detection
+        try:
+            gray = cv2.cvtColor(orig_image, cv2.COLOR_BGR2GRAY)
+            face_cascade = cv2.CascadeClassifier(cv2.data.haarcascades + 'haarcascade_frontalface_default.xml')
+            faces = face_cascade.detectMultiScale(gray, scaleFactor=1.15, minNeighbors=5, minSize=(80, 80))
+            if len(faces) > 0:
+                is_human = True
+                print("[DEBUG AI] Frontal face clearly detected")
+        except Exception:
+            pass
             
         # 2. Person detection via standard YOLO if available
         if not is_human:
@@ -80,13 +145,18 @@ async def recognize_product(file: UploadFile = File(...), db: Session = Depends(
                 coco_path = "yolov8n.pt"
                 if os.path.exists(coco_path):
                     coco_model = YOLO(coco_path)
-                    coco_results: list[Any] = list(coco_model.predict(orig_image, classes=[0], conf=0.35, verbose=False))  # type: ignore
+                    coco_results: list[Any] = list(coco_model.predict(orig_image, classes=[0], conf=0.60, verbose=False))  # type: ignore
                     if coco_results:
                         first_res: Any = coco_results[0]
                         boxes: Any = getattr(first_res, 'boxes', None)
                         if boxes is not None and len(boxes) > 0:
-                            is_human = True
-                            print("[DEBUG AI] Human detected via COCO person model")
+                            pbox = boxes[0].xyxy[0].tolist()
+                            pw = abs(pbox[2] - pbox[0])
+                            ph = abs(pbox[3] - pbox[1])
+                            img_area = orig_image.shape[0] * orig_image.shape[1]
+                            if (pw * ph) / max(1, img_area) > 0.30:
+                                is_human = True
+                                print("[DEBUG AI] Human body clearly detected")
             except Exception as e:
                 print(f"[DEBUG AI] Error in COCO person check: {e}")
                 
@@ -95,10 +165,9 @@ async def recognize_product(file: UploadFile = File(...), db: Session = Depends(
         else:
             raise HTTPException(
                 status_code=404, 
-                detail="Unrecognized item! Only Closeup Toothpaste, Meadowlea, and Calin Teen Soap can be scanned."
+                detail="Unrecognized item! Only Signal Toothpaste, Astra Cup, and Calin Teen Soap can be scanned."
             )
         
-    best_detection = valid_detections[0]
     bbox = best_detection['bbox']
     yolo_conf = float(best_detection['confidence']) # type: ignore
     detected_class_name = str(best_detection.get('class_name', 'product'))
@@ -115,13 +184,21 @@ async def recognize_product(file: UploadFile = File(...), db: Session = Depends(
     if not matched_product:
         raise HTTPException(
             status_code=404, 
-            detail="Unrecognized item! Only Closeup Toothpaste, Meadowlea, and Calin Teen Soap can be scanned."
+            detail="Unrecognized item! Only Signal Toothpaste, Astra Cup, and Calin Teen Soap can be scanned."
         )
         
     # 11. Calculate confidence (simplified combined score)
     combined_confidence = (yolo_conf * 100 * 0.8) + (match_score * 0.2)
     
-    # 12. Return best product matches
+    category_name = "Personal Care"
+    p_name_lower = str(getattr(matched_product, 'product_name', '') or '').lower()
+    if 'meadowlea' in p_name_lower or 'astra' in p_name_lower:
+        category_name = "Dairy & Chilled"
+    elif 'toothpaste' in p_name_lower or 'soap' in p_name_lower:
+        category_name = "Personal Care"
+    elif hasattr(matched_product, 'category_id') and matched_product.category_id:
+        category_name = str(matched_product.category_id)
+
     return {
         "product_id": matched_product.product_id,
         "product_name": matched_product.product_name,
@@ -130,5 +207,5 @@ async def recognize_product(file: UploadFile = File(...), db: Session = Depends(
         "price": float(matched_product.normal_price) if hasattr(matched_product, 'normal_price') and matched_product.normal_price else 0.0, # type: ignore
         "discount": bool(matched_product.discount_price) if hasattr(matched_product, 'discount_price') else False,
         "discounted_price": float(matched_product.discount_price) if hasattr(matched_product, 'discount_price') and matched_product.discount_price else None, # type: ignore
-        "category": matched_product.category_id if hasattr(matched_product, 'category_id') else "Uncategorized"
+        "category": category_name
     }

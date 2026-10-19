@@ -8,17 +8,30 @@ def match_product(extracted_text: str, db: Session):
     extracted_lower = extracted_text.lower()
     
     # Strictly allow ONLY 3 items:
-    # 1. Closeup Toothpaste
-    if 'toothpaste' in extracted_lower:
-        match = next((p for p in products if 'toothpaste' in p.product_name.lower()), None)
+    # 1. Signal Toothpaste
+    if 'toothpaste' in extracted_lower or 'signal' in extracted_lower or 'closeup' in extracted_lower:
+        match = next((p for p in products if 'signal' in str(getattr(p, 'product_name', '') or '').lower()), None)
+        if not match:
+            match = next((p for p in products if 'toothpaste' in str(getattr(p, 'product_name', '') or '').lower()), None)
+        if not match:
+            match = next((p for p in products if getattr(p, 'product_id', None) == 9999), None)
         if match:
             return match, 100
             
-    # 2. Astra Cup -> MUST map directly to Meadowlea
-    if 'astra' in extracted_lower or 'meadowlea' in extracted_lower:
-        match = next((p for p in products if 'meadowlea' in p.product_name.lower()), None)
+    # 2. Astra Cup
+    if 'astra' in extracted_lower:
+        match = next((p for p in products if 'astra' in str(getattr(p, 'product_name', '') or '').lower()), None)
         if not match:
-            match = next((p for p in products if 'astra' in p.product_name.lower()), None)
+            match = next((p for p in products if getattr(p, 'product_id', None) == 10000), None)
+        if match:
+            return match, 100
+
+    if 'meadowlea' in extracted_lower:
+        match = next((p for p in products if 'meadowlea' in str(getattr(p, 'product_name', '') or '').lower()), None)
+        if not match:
+            match = next((p for p in products if getattr(p, 'product_id', None) == 10002), None)
+        if not match:
+            match = next((p for p in products if getattr(p, 'product_id', None) == 10000), None)
         if match:
             return match, 100
             
@@ -29,6 +42,10 @@ def match_product(extracted_text: str, db: Session):
              or 'calin' in str(getattr(p, 'brand', '') or '').lower()), 
             None
         )
+        if not match:
+            match = next((p for p in products if 'soap' in str(getattr(p, 'product_name', '') or '').lower()), None)
+        if not match:
+            match = next((p for p in products if getattr(p, 'product_id', None) == 10001), None)
         if match:
             return match, 100
             
