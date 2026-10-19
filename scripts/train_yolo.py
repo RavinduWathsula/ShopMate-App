@@ -27,7 +27,17 @@ def main():
         exist_ok=True
     )
     
-    print("Training completed! The best weights should be located at runs/detect/yolo_shopmate/weights/best.pt")
+    # Ensure best weights are copied to the standard runs/detect/yolo_shopmate/weights location
+    import shutil
+    standard_weights_dir = os.path.abspath(os.path.join(root_dir, 'runs', 'detect', 'yolo_shopmate', 'weights'))
+    os.makedirs(standard_weights_dir, exist_ok=True)
+    trained_best = os.path.join(results.save_dir, 'weights', 'best.pt') if hasattr(results, 'save_dir') else None
+    if trained_best and os.path.exists(trained_best):
+        standard_best = os.path.join(standard_weights_dir, 'best.pt')
+        shutil.copy2(trained_best, standard_best)
+        print(f"Copied updated weights to: {standard_best}")
+        
+    print("Training completed! Model is ready for camera detection.")
 
 if __name__ == '__main__':
     # Ensure run from root so relative paths work nicely

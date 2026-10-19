@@ -4,14 +4,19 @@ import os
 import time
 
 def main():
-    # 1. Load the trained model
-    weights_path = os.path.abspath(os.path.join(os.path.dirname(__file__), '..', 'runs', 'detect', 'yolo_shopmate', 'weights', 'best.pt'))
+    # 1. Load the trained model (find newest best.pt)
+    candidate_paths = [
+        os.path.abspath(os.path.join(os.path.dirname(__file__), '..', 'runs', 'detect', 'runs', 'detect', 'yolo_shopmate', 'weights', 'best.pt')),
+        os.path.abspath(os.path.join(os.path.dirname(__file__), '..', 'runs', 'detect', 'yolo_shopmate', 'weights', 'best.pt'))
+    ]
+    valid_paths = [p for p in candidate_paths if os.path.exists(p)]
     
-    if not os.path.exists(weights_path):
-        print(f"Error: Could not find the trained model at {weights_path}")
+    if not valid_paths:
+        print("Error: Could not find any trained model in runs/detect/.../best.pt")
         print("Make sure you have run 'python scripts/train_yolo.py' first!")
         return
         
+    weights_path = max(valid_paths, key=os.path.getmtime)
     print(f"Loading model from {weights_path}")
     model = YOLO(weights_path)
     

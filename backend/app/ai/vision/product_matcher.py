@@ -17,6 +17,12 @@ def match_product(extracted_text: str, db: Session):
         if meadowlea_match:
             return meadowlea_match, 100
             
+    # User specific requirement: Map 'Calin' directly to 'Calin Teen Soap'
+    if 'calin' in extracted_lower or 'teen soap' in extracted_lower:
+        calin_match = next((p for p in products if 'calin' in p.product_name.lower() or 'calin' in (p.brand.lower() if p.brand else '')), None)
+        if calin_match:
+            return calin_match, 100
+            
     for p in products:
         score = 0
         if p.product_name.lower() in extracted_lower or extracted_lower in p.product_name.lower():
@@ -40,6 +46,9 @@ def match_product(extracted_text: str, db: Session):
             highest_score = 60
         elif 'toothpaste' in extracted_lower:
             best_match = next((p for p in products if 'toothpaste' in p.product_name.lower()), products[0])
+            highest_score = 80
+        elif 'calin' in extracted_lower or 'soap' in extracted_lower:
+            best_match = next((p for p in products if 'soap' in p.product_name.lower() or 'calin' in p.product_name.lower()), products[0])
             highest_score = 80
             
     return best_match, highest_score

@@ -7,20 +7,49 @@ class YoloDetector:
         if model_path is None:
             # Look for the trained model in the runs folder
             current_dir = os.path.dirname(os.path.abspath(__file__))
-            default_path = os.path.abspath(os.path.join(current_dir, '..', '..', '..', '..', 'runs', 'detect', 'yolo_shopmate', 'weights', 'best.pt'))
-            print(f"Looking for model at: {default_path}")
-            if os.path.exists(default_path):
-                model_path = default_path
+            root_dir = os.path.abspath(os.path.join(current_dir, '..', '..', '..', '..'))
+            candidate_paths = [
+                os.path.join(root_dir, 'runs', 'detect', 'runs', 'detect', 'yolo_shopmate', 'weights', 'best.pt'),
+                os.path.join(root_dir, 'runs', 'detect', 'yolo_shopmate', 'weights', 'best.pt'),
+            ]
+            valid_paths = [p for p in candidate_paths if os.path.exists(p)]
+            if valid_paths:
+                # Pick the latest modified weights
+                model_path = max(valid_paths, key=os.path.getmtime)
+                print(f"Using latest model weights at: {model_path}")
                 
         self.model_path = model_path
         self.is_mock = model_path is None
+        self._last_mtime = 0
         
         if not self.is_mock and self.model_path is not None:
+            self._last_mtime = os.path.getmtime(self.model_path)
             self.model = YOLO(self.model_path)
             
         print(f'Initialized YoloDetector (Mock={self.is_mock})')
 
+    def check_reload(self):
+        if self.model_path:
+            # Check all candidate paths for newer weights
+            current_dir = os.path.dirname(os.path.abspath(__file__))
+            root_dir = os.path.abspath(os.path.join(current_dir, '..', '..', '..', '..'))
+            candidate_paths = [
+                os.path.join(root_dir, 'runs', 'detect', 'runs', 'detect', 'yolo_shopmate', 'weights', 'best.pt'),
+                os.path.join(root_dir, 'runs', 'detect', 'yolo_shopmate', 'weights', 'best.pt'),
+            ]
+            valid_paths = [p for p in candidate_paths if os.path.exists(p)]
+            if valid_paths:
+                latest_path = max(valid_paths, key=os.path.getmtime)
+                latest_mtime = os.path.getmtime(latest_path)
+                if latest_path != self.model_path or latest_mtime > self._last_mtime:
+                    print(f"[YoloDetector] Reloading updated weights from {latest_path}")
+                    self.model_path = latest_path
+                    self.model = YOLO(self.model_path)
+                    self.is_mock = False
+                    self._last_mtime = latest_mtime
+
     def predict(self, image: np.ndarray):
+        self.check_reload()
         
         if self.is_mock:
             # Mock bounding box
