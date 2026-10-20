@@ -65,58 +65,52 @@ async def recognize_product(file: UploadFile = File(...), db: Session = Depends(
             }
             detections.append(cd_mapped)
 
-    # C) Rotated views if top confidence is moderate/low (handles phones held at different angles)
-    top_conf_initial = max([float(d.get('confidence', 0.0)) for d in detections], default=0.0)
-    if top_conf_initial < 0.25:
-        rot90 = cv2.rotate(orig_image, cv2.ROTATE_90_CLOCKWISE)
-        rot_dets = detector.predict(rot90)  # type: ignore
-        detections.extend(rot_dets)
-
-        rot270 = cv2.rotate(orig_image, cv2.ROTATE_90_COUNTERCLOCKWISE)
-        rot_dets2 = detector.predict(rot270)  # type: ignore
-        detections.extend(rot_dets2)
-
     with open("backend_debug.txt", "a") as f:
         f.write(f"Detections: {detections}\n")
         
     print(f"[DEBUG AI] Combined detections from YOLO: {detections}")
     
-    def get_min_conf(name: str) -> float:
-        n = name.lower()
-        if 'soap' in n or 'calin' in n:
-            return 0.05
-        if 'toothpaste' in n:
-            return 0.08
-        if 'astra' in n or 'meadow' in n:
-            return 0.10
-        return 0.10
-
-    # Filter candidates with class-specific minimum confidence
-    valid_candidates: list[dict[str, Any]] = []
-    for d in detections:
-        c_name = str(d.get('class_name', ''))
-        conf = float(d.get('confidence', 0.0))
-        bbox = d.get('bbox', [0, 0, 0, 0])
-        bw = abs(bbox[2] - bbox[0])
-        bh = abs(bbox[3] - bbox[1])
-        if bw < 25 or bh < 25:
-            continue
-            
-        required_conf = get_min_conf(c_name)
-        if conf >= required_conf:
-            valid_candidates.append(d)
+    # Identify top confidence candidates per class
+    astra_dets = [
+        d for d in detections 
+        if ('astra' in str(d.get('class_name', '')).lower() or 'meadow' in str(d.get('class_name', '')).lower())
+    ]
+    soap_dets = [
+        d for d in detections 
+        if ('soap' in str(d.get('class_name', '')).lower() or 'calin' in str(d.get('class_name', '')).lower())
+    ]
+    tp_dets = [
+        d for d in detections 
+        if ('toothpaste' in str(d.get('class_name', '')).lower() or 'signal' in str(d.get('class_name', '')).lower())
+    ]
     
+    top_astra = max(astra_dets, key=lambda x: float(x.get('confidence', 0.0)), default=None)
+    top_soap = max(soap_dets, key=lambda x: float(x.get('confidence', 0.0)), default=None)
+    top_tp = max(tp_dets, key=lambda x: float(x.get('confidence', 0.0)), default=None)
+    
+    astra_conf = float(top_astra.get('confidence', 0.0)) if top_astra else 0.0
+    soap_conf = float(top_soap.get('confidence', 0.0)) if top_soap else 0.0
+    tp_conf = float(top_tp.get('confidence', 0.0)) if top_tp else 0.0
+    
+    print(f"[DEBUG AI] Class confidences -> Astra: {astra_conf:.3f}, Soap: {soap_conf:.3f}, Toothpaste: {tp_conf:.3f}")
+
     best_detection = None
-    if valid_candidates:
-        valid_candidates.sort(key=lambda x: float(x.get('confidence', 0.0)), reverse=True)
-        best_detection = valid_candidates[0]
-    elif detections:
-        # Fallback to top detection if confidence >= 0.02
-        for d in detections:
-            conf = float(d.get('confidence', 0.0))
-            if conf >= 0.02:
-                best_detection = d
-                break
+    
+    # 1. If Toothpaste is the primary object detected, reject immediately (cannot add to cart)
+    if tp_conf >= 0.15 and tp_conf >= soap_conf and tp_conf >= astra_conf:
+        print("[DEBUG AI] Toothpaste detected as dominant object -> Rejecting")
+        raise HTTPException(
+            status_code=404,
+            detail="Unrecognized item! Toothpaste cannot be added. Only Astra Cup and Soap are allowed."
+        )
+        
+    # 2. Check if Soap meets the detection threshold and beats Toothpaste
+    if top_soap and soap_conf >= 0.28 and soap_conf > tp_conf and soap_conf >= astra_conf:
+        best_detection = top_soap
+        
+    # 3. Check if Astra Cup meets the detection threshold and beats Toothpaste
+    elif top_astra and astra_conf >= 0.28 and astra_conf > tp_conf and astra_conf >= soap_conf:
+        best_detection = top_astra
     
     if best_detection is None:
         print(f"[DEBUG AI] No valid product detected meeting threshold. Raw detections: {detections}")
@@ -165,7 +159,7 @@ async def recognize_product(file: UploadFile = File(...), db: Session = Depends(
         else:
             raise HTTPException(
                 status_code=404, 
-                detail="Unrecognized item! Only Signal Toothpaste, Astra Cup, and Calin Teen Soap can be scanned."
+                detail="Unrecognized item! Only Astra Cup and Calin Soap can be scanned."
             )
         
     bbox = best_detection['bbox']
@@ -173,7 +167,7 @@ async def recognize_product(file: UploadFile = File(...), db: Session = Depends(
     detected_class_name = str(best_detection.get('class_name', 'product'))
     extracted_text = detected_class_name
     
-    # 10. Match detected information with products (strictly 3 allowed items)
+    # 10. Match detected information with products (strictly Astra Cup and Calin Soap)
     matched_product, match_score = match_product(extracted_text, db)
     with open("backend_debug.txt", "a") as f:
         f.write(f"Extracted: {extracted_text}, Matched: {matched_product.product_name if matched_product else 'None'}, Score: {match_score}\n")
@@ -184,7 +178,7 @@ async def recognize_product(file: UploadFile = File(...), db: Session = Depends(
     if not matched_product:
         raise HTTPException(
             status_code=404, 
-            detail="Unrecognized item! Only Signal Toothpaste, Astra Cup, and Calin Teen Soap can be scanned."
+            detail="Unrecognized item! Only Astra Cup and Calin Soap can be scanned."
         )
         
     # 11. Calculate confidence (simplified combined score)

@@ -7,18 +7,8 @@ def match_product(extracted_text: str, db: Session):
     products = db.query(Product).all()
     extracted_lower = extracted_text.lower()
     
-    # Strictly allow ONLY 3 items:
-    # 1. Signal Toothpaste
-    if 'toothpaste' in extracted_lower or 'signal' in extracted_lower or 'closeup' in extracted_lower:
-        match = next((p for p in products if 'signal' in str(getattr(p, 'product_name', '') or '').lower()), None)
-        if not match:
-            match = next((p for p in products if 'toothpaste' in str(getattr(p, 'product_name', '') or '').lower()), None)
-        if not match:
-            match = next((p for p in products if getattr(p, 'product_id', None) == 9999), None)
-        if match:
-            return match, 100
-            
-    # 2. Astra Cup
+    # Strictly allow ONLY 2 items:
+    # 1. Astra Cup
     if 'astra' in extracted_lower:
         match = next((p for p in products if 'astra' in str(getattr(p, 'product_name', '') or '').lower()), None)
         if not match:
@@ -35,7 +25,7 @@ def match_product(extracted_text: str, db: Session):
         if match:
             return match, 100
             
-    # 3. Calin Teen Soap
+    # 2. Calin Teen Soap
     if 'calin' in extracted_lower or 'soap' in extracted_lower:
         match = next(
             (p for p in products if 'calin' in str(getattr(p, 'product_name', '') or '').lower() 
@@ -49,5 +39,6 @@ def match_product(extracted_text: str, db: Session):
         if match:
             return match, 100
             
-    # Any other items are NOT detected
+    # All other items (toothpaste, non-store items, etc.) are NOT allowed
     return None, 0
+
